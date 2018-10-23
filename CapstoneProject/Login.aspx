@@ -13,24 +13,19 @@
 <body>
     <form id="form1" runat="server">
         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 offset-3 float-md-center">
-            <div class="jumbotron" style="background-image:url(https://cdn.cssauthor.com/wp-content/uploads/2015/10/Fine-Wood-Textures-1.jpg); font-size:x-large; color:orange" >
-                <h1 style="text-align:center">LOGON</h1>
-                <img src="https://pbs.twimg.com/profile_images/2511992016/3cjz9awq6dvjr41kqiie_400x400.jpeg" class="img-responsive align-content-center" alt="Wildlife Center"/>
-                <div class="form-group">
-                    <label class="col-sm-2 control-label" for="form-group-input">Username</label>
-                    <div class="col-sm-10">
-                        <input type="text" class="form-control" id="inputUsername" placeholder="Username"/>
-                    </div>
-                    <div class="form-group">
-                        <label class="col-sm-2 control-label" for="form-group-input">Password</label>
-                        <div class="col-sm-10">
-                            <input type="text" class="form-control" id="inputPassword" placeholder="Password"/>
-                        </div>
-                    </div>
+            <div class="jumbotron container-fluid" style="background-image: url(https://cdn.cssauthor.com/wp-content/uploads/2015/10/Fine-Wood-Textures-1.jpg); font-size: large; color: orange">
+                <div class="col-lg-4 col-lg-offset-4">
+                    <img src="https://pbs.twimg.com/profile_images/2511992016/3cjz9awq6dvjr41kqiie_400x400.jpeg" class="img-responsive mb-4" alt="Wildlife Center" />
                 </div>
+                <input type="email" class="form-control mb-4" id="InputUsername" aria-describedby="Username" placeholder="Enter Username" autofocus="autofocus" />
+
+                <input type="password" class="form-control" id="InputPassword" placeholder="Enter Password" />
+                <small id="emailHelp" class="form-text">Do not share your password with anyone</small>
+                <button type="submit" class="btn btn-primary">Login</button>
+
             </div>
-            
         </div>
     </form>
+
 </body>
 </html>
