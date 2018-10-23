@@ -101,7 +101,7 @@
                 <label></label>
             </div>
         </div>
-        <div class="col-lg-3">
+        <div class="col-lg-2">
             <br />
             <asp:Button ID="btnAddEducator" runat="server" Text="Add Educator" CssClass="btn btn-default" OnClick="btnAddEducator_Click" /><br />
             <br />
@@ -109,16 +109,20 @@
             <asp:Button ID="btnAddAnimal" runat="server" Text="Add Animal" CssClass="btn btn-default" OnClick="btnAddAnimal_Click" />
             <br/>
             <br />
-            <div>
-            <h5 class="page-header">Program Educators</h5>
+            <div class="form-group">
+           <asp:label ID="lblEducHeader" runat="server" CssClass="page-header">Program Educators</asp:label>
                 <asp:BulletedList ID="blEducators" runat="server"></asp:BulletedList>
+                <asp:Button ID="btnClearEducators" CssClass="btn btn-xs" runat="server" Text="Clear" />
             </div>
-            <div>
-                <h5 class="page-header">Program Animals</h5>
-                <asp:BulletedList ID="blAnimals" CssClass="fa-ul" runat="server"></asp:BulletedList>
+            <div class="form-group">
+                <asp:label ID="lblAnimalHeader" runat="server" CssClass="page-header">Program Animals</asp:label>
+                <asp:BulletedList ID="blAnimals" runat="server"></asp:BulletedList><br />
             </div>
 
         </div>
+       <%-- <div class="col-lg-1">
+            <asp:Button ID="Button1" runat="server" Text="Button" />
+        </div>--%>
     </div>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ChildContent2" runat="Server">
