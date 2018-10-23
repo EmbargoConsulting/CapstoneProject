@@ -1,4 +1,5 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Child.master" %>
+﻿<%@ Page Language="C#" Title="Add Program" AutoEventWireup="true" CodeFile="AddProgram.aspx.cs" Inherits="Default2" MasterPageFile="~/Child.master" %>
+
 
 <script runat="server">
 
@@ -110,9 +111,11 @@
             <br />
             <div>
             <h5 class="page-header">Program Educators</h5>
+                <asp:BulletedList ID="blEducators" runat="server"></asp:BulletedList>
             </div>
             <div>
                 <h5 class="page-header">Program Animals</h5>
+                <asp:BulletedList ID="blAnimals" CssClass="fa-ul" runat="server"></asp:BulletedList>
             </div>
 
         </div>

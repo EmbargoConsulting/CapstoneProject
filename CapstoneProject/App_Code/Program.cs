@@ -26,6 +26,8 @@ public class Program
     private bool waitingPayment;
     private string city;
     private string county;
+    private List<string> programAnimals;
+    private List<string> programEducators;
 
     public Program()
     {
@@ -50,11 +52,27 @@ public class Program
         this.waitingPayment = waitingPayment;
         this.city = city;
         this.county = county;
+        this.programAnimals = new List<string>();
     }
 
     public static void populateList()
     {
 
+    }
+
+    public static void addToList(int value)
+    {
+        
+    }
+
+    public void addEducator(int id)
+    {
+        this.programEducators.Add(id.ToString());   
+    }
+
+    public void addAnimal(int id)
+    {
+        this.programAnimals.Add(id.ToString());
     }
 
 }
