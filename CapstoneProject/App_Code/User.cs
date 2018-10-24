@@ -8,7 +8,7 @@ using System.Web;
 /// <summary>
 /// Summary description for User
 /// </summary>
-public class User
+public class User : dbConnect
 {
     string username;
     string passwordHash;

@@ -7,7 +7,7 @@ using System.Collections;
 /// <summary>
 /// Summary description for Program
 /// </summary>
-public class Program
+public class Program : dbConnect
 {
     private static ArrayList programList = new ArrayList();
     private string onOffSite;
