@@ -41,6 +41,7 @@ public partial class Default2 : System.Web.UI.Page
                 blAnimals.Visible = true;
                 lblAnimalHeader.Visible = true;
                 btnClearAnimals.Visible = true;
+                lblError.Visible = false;
             }
         }
 
@@ -58,6 +59,7 @@ public partial class Default2 : System.Web.UI.Page
                 btnClearEducators.Visible = true;
                 blEducators.Visible = true;
                 lblEducHeader.Visible = true;
+                lblError.Visible = false;
             }
         }
 
@@ -98,15 +100,24 @@ public partial class Default2 : System.Web.UI.Page
 
     protected void btnClearEducators_Click(object sender, EventArgs e)
     {
+        clearEducators();
+    }
+
+    protected void clearEducators()
+    {
         blEducators.Items.Clear();
         tempEducators.Clear();
         blEducators.Visible = false;
         btnClearEducators.Visible = false;
         lblEducHeader.Visible = false;
-
     }
 
     protected void btnClearAnimals_Click(object sender, EventArgs e)
+    {
+        clearAnimals();
+    }
+
+    protected void clearAnimals()
     {
         blAnimals.Items.Clear();
         tempAnimals.Clear();
@@ -137,7 +148,7 @@ public partial class Default2 : System.Web.UI.Page
             string reportMonth = date.Month.ToString();
 
             //Create new object based on data
-            Program tempProgram = new Program(tempOnOffSite, status, tempOrgName, address, reportMonth, date, type, childCount, adultCount, paymentReceived, city, county, tempAnimals, tempEducators);
+            Program tempProgram = new Program(tempOnOffSite, status, tempOrgName, address, reportMonth, date, time, type, childCount, adultCount, paymentReceived, city, county, tempAnimals, tempEducators);
 
             //Pass object to commit function of class and get the inserted row's ID
             int programID = Program.commitProgram(tempProgram);
@@ -161,6 +172,22 @@ public partial class Default2 : System.Web.UI.Page
         txtDate.Text = "";
         txtTime.Text = "";
         txtOrgName.Text = "";
+        clearAnimals();
+        clearEducators();
 
+    }
+
+    protected void btnPopulate_Click(object sender, EventArgs e)
+    {
+        Random rand = new Random();
+        string randID = rand.Next(1,999).ToString();
+        txtAddress.Text = rand.Next(20, 99).ToString() + " Test Road";
+        txtCity.Text = "Springfield";
+        txtCounty.Text = "Rockingham";
+        txtChildCount.Text = rand.Next(1,30).ToString();
+        txtAdultCount.Text = rand.Next(1,30).ToString();
+        txtDate.Text = DateTime.Now.AddMonths(rand.Next(1,5)).AddDays(rand.Next(0,30)).ToShortDateString();
+        txtTime.Text = DateTime.Now.AddHours(rand.Next(1,3)).AddMinutes(rand.Next(1,60)).ToShortTimeString();
+        txtOrgName.Text = "Test Org " + randID;
     }
 }

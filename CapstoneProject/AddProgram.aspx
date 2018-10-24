@@ -18,15 +18,15 @@
             <div class="form-group">
                 <label>On or Off Site?</label>
                 <asp:DropDownList ID="ddlOnSite" runat="server" class="form-control">
-                    <asp:ListItem Value="On">On Site</asp:ListItem>
-                    <asp:ListItem Value ="Off">Off Site</asp:ListItem>
+                    <asp:ListItem Value="1">On Site</asp:ListItem>
+                    <asp:ListItem Value ="0">Off Site</asp:ListItem>
                 </asp:DropDownList>
             </div>
             <div class="form-group">
                 <label>Status</label>
                 <asp:DropDownList ID="ddlStatus" runat="server" class="form-control">
-                    <asp:ListItem Value="completed">Completed</asp:ListItem>
-                    <asp:ListItem Value="scheduled">Scheduled</asp:ListItem>
+                    <asp:ListItem Value="1">Completed</asp:ListItem>
+                    <asp:ListItem Value="0">Scheduled</asp:ListItem>
                 </asp:DropDownList>
             </div>
             <div class="form-group">
@@ -44,7 +44,8 @@
             <div class="form-group">
                 <label>Program Type</label>
                 <asp:DropDownList ID="ddlProgramType" runat="server" CssClass="form-control">
-                    <asp:ListItem></asp:ListItem>
+                    <asp:ListItem>Wild Winter Worlds</asp:ListItem>
+                    <asp:ListItem>Home Sweet Habitat</asp:ListItem>
                 </asp:DropDownList>
             </div>
         </div>
@@ -104,32 +105,33 @@
         </div>
         <div class="col-lg-2">
             <br />
-            <asp:Button ID="btnAddEducator" runat="server" Text="Add Educator" CssClass="btn btn-default" OnClick="btnAddEducator_Click" /><br />
+            <asp:Button ID="btnAddEducator"  formnovalidate="formnovalidate" runat="server" Text="Add Educator" CssClass="btn btn-default" OnClick="btnAddEducator_Click" /><br />
             <br />
             <br />
-            <asp:Button ID="btnAddAnimal" runat="server" Text="Add Animal" CssClass="btn btn-default" OnClick="btnAddAnimal_Click" />
+            <asp:Button ID="btnAddAnimal" formnovalidate="formnovalidate"  runat="server" Text="Add Animal" CssClass="btn btn-default" OnClick="btnAddAnimal_Click" />
             <br/>
             <br />
             <div class="form-group">
            <asp:label ID="lblEducHeader" runat="server" CssClass="page-header">Program Educators</asp:label>
                 <asp:BulletedList ID="blEducators" runat="server"></asp:BulletedList>
-                <asp:Button ID="btnClearEducators" CssClass="btn btn-xs" runat="server" Text="Clear" OnClick="btnClearEducators_Click" />
+                <asp:Button ID="btnClearEducators" formnovalidate="formnovalidate"  CssClass="btn btn-xs" runat="server" Text="Clear" OnClick="btnClearEducators_Click" />
             </div>
             <div class="form-group">
                 <asp:label ID="lblAnimalHeader" runat="server" CssClass="page-header">Program Animals</asp:label>
                 <asp:BulletedList ID="blAnimals" runat="server"></asp:BulletedList>
-                <asp:Button ID="btnClearAnimals" CssClass="btn btn-xs" runat="server" Text="Clear" OnClick="btnClearAnimals_Click" />
+                <asp:Button ID="btnClearAnimals" formnovalidate="formnovalidate"  CssClass="btn btn-xs" runat="server" Text="Clear" OnClick="btnClearAnimals_Click" />
             </div>
             <div id="btn">
                 <asp:Button ID="btnSubmit" runat="server" CssClass="btn btn-primary btn-group-justified" Text="Commit Program" OnClick="btnSubmit_Click" /><br /><br />
-                <asp:Button ID="btnClearAll" runat="server" CausesValidation="false" CssClass="btn btn-group-justified btn-primary"  Text="Clear Fields" OnClick="btnClearAll_Click" />
+                <asp:Button ID="btnClearAll" runat="server" formnovalidate="formnovalidate" CausesValidation="false" CssClass="btn btn-group-justified btn-primary"  Text="Clear All" OnClick="btnClearAll_Click" />
             </div><br />
             <asp:Label runat="server" ID="lblError"></asp:Label>
-
+            <div id="testing" class="container">
+                <asp:Label runat="server" CssClass="label-primary">Testing</asp:Label>
+                <asp:Button ID="btnPopulate" CssClass="btn btn-sm" runat="server" formnovalidate="formnovalidate"  Text="Populate" OnClick="btnPopulate_Click" />
+                <%--<asp:Button ID="Button2" runat="server" Text="Button" />--%>
+            </div>
         </div>
-       <%-- <div class="col-lg-1">
-            <asp:Button ID="Button1" runat="server" Text="Button" />
-        </div>--%>
     </div>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ChildContent2" runat="Server">

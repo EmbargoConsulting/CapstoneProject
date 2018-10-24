@@ -8,8 +8,8 @@ using System.Data;
 public class dbConnect
 {
 
-    //public static string connectionString = "Data Source=LocalHost;Initial Catalog=AdventureWorks2014;Integrated Security=True";
-    public static string connectionString = System.Configuration.ConfigurationManager.ConnectionStrings["Project"].ConnectionString; //uses config file as requested
+    public static string connectionString = "Data Source=LocalHost;Initial Catalog=Capstone;Integrated Security=True";
+    //public static string connectionString = System.Configuration.ConfigurationManager.ConnectionStrings["Project"].ConnectionString; //uses config file as requested
 
 
     public dbConnect()
@@ -18,8 +18,8 @@ public class dbConnect
 
     protected static void executeNonQuery(SqlCommand q)
     {
-        try
-        {
+        //try
+        //{
             using (SqlConnection connection = new SqlConnection(connectionString))
         {
               q.Connection = connection;
@@ -27,27 +27,27 @@ public class dbConnect
               q.ExecuteNonQuery();
         }   
         }
-        catch (SqlException e)
-        {
-        }
+    //    catch (SqlException e)
+    //    {
+    //    }
   
-    }
+    //}
 
     protected static void executeNonQuery(String query)
     {
-        try
-        {
+        //try
+        //{
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 SqlCommand command = new SqlCommand(query, connection);
                 connection.Open();
                 command.ExecuteNonQuery();
             }
-        }
-        catch (Exception e)
-        {
+        //    }
+        //    catch (Exception e)
+        //    {
 
-        }
+        //    }
     }
 
     protected static int executeScalarQuery(string query)
@@ -57,13 +57,13 @@ public class dbConnect
             int value = 0;
             SqlCommand command = new SqlCommand(query, connection);
             connection.Open();
-            try
-            {
+            //try
+            //{
                 value = (Int32)command.ExecuteScalar();
-            }
-            catch (InvalidCastException e)
-            {
-            }
+            //}
+            //catch (InvalidCastException e)
+            //{
+            //}
             return value;
 
         }
@@ -73,16 +73,17 @@ public class dbConnect
     {
         using (SqlConnection connection = new SqlConnection(connectionString))
         {
+            cmd.Connection = connection;
             int value = 0;
             connection.Open();
-            try
-            {
-                value = (Int32)cmd.ExecuteScalar();
-            }
-            catch (InvalidCastException e)
-            {
-                value = -1;
-            }
+            //try
+            //{
+            value = System.Convert.ToInt32(cmd.ExecuteScalar());
+            //}
+            //catch (InvalidCastException e)
+            //{
+            //    value = -1;
+            //}
             return value;
 
         }

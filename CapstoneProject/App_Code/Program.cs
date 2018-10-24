@@ -37,13 +37,13 @@ public class Program : dbConnect
         //
     }
 
-    public Program(string onOffSite, string status, string organization, string address, string reportMonth, DateTime dateTime, string programType, int childrenCount, int adultCount, bool waitingPayment, string city, string county, List<string> animals, List<string> educators)
+    public Program(string onOffSite, string status, string organization, string address, string reportMonth, DateTime date, DateTime time, string programType, int childrenCount, int adultCount, bool waitingPayment, string city, string county, List<string> animals, List<string> educators)
     {
         this.onOffSite = onOffSite;
         this.status = status;
         this.organization = organization;
         this.address = address;
-        this.dateTime = dateTime;
+        this.dateTime = DateTime.Parse(date.ToShortDateString() + " " + time.ToShortTimeString());
         this.reportMonth = reportMonth;
         this.programType = programType;
         this.childrenCount = childrenCount;
@@ -57,22 +57,22 @@ public class Program : dbConnect
     public static int commitProgram(Program toCommit)
     {
         //Create string, command, and parameters
-        string sqlString = "INSERT INTO Program (OnOffSite, Status, OrgName, Address, ReportMonth, DateTime, ProgramTheme, ChildrenCount, AdultCount, AwaitingPayment, City, County, OrgID, LastUpdated, LastUpdateBy) VALUES (@site, @stats, @orgname, @address, @month, @date, @theme, @chldren, @adults, @payment, @city, @county, @type, @orgID, @lastUpdated, @lastUpdatedBy); SELECT Scope_Identity()";
+        string sqlString = "INSERT INTO Program (OnOffSite, Status, OrgName, Address, ReportMonth, ProgramTheme, ChildrenCount, AdultCount, AwaitingPayment, City, County) VALUES (@site, @status, @orgname, @address, @month, @theme, @children, @adults, @payment, @city, @county); SELECT Scope_Identity()";
         SqlCommand cmd = new SqlCommand(sqlString);
         cmd.Parameters.AddWithValue("@site", toCommit.onOffSite);
         cmd.Parameters.AddWithValue("@status", toCommit.status);
         cmd.Parameters.AddWithValue("@orgname", toCommit.organization);
         cmd.Parameters.AddWithValue("@address", toCommit.address);
         cmd.Parameters.AddWithValue("@month", toCommit.reportMonth);
-        cmd.Parameters.AddWithValue("@date", toCommit.dateTime);
+        //cmd.Parameters.AddWithValue("@date", toCommit.dateTime);
         cmd.Parameters.AddWithValue("@theme", toCommit.programType);
         cmd.Parameters.AddWithValue("@children", toCommit.childrenCount);
         cmd.Parameters.AddWithValue("@adults", toCommit.adultCount);
         cmd.Parameters.AddWithValue("@payment", toCommit.waitingPayment);
         cmd.Parameters.AddWithValue("@city", toCommit.city);
         cmd.Parameters.AddWithValue("@county", toCommit.county);
-        cmd.Parameters.AddWithValue("@lastUpdated", toCommit.lastUpdatedBy);
-        cmd.Parameters.AddWithValue("@lastUpdatedBy", toCommit.lastUpdated);
+        //cmd.Parameters.AddWithValue("@lastUpdated", toCommit.lastUpdatedBy);
+        //cmd.Parameters.AddWithValue("@lastUpdatedBy", toCommit.lastUpdated);
 
         //This executes code from inherited dbConnect class
         int id = executeScalarQuery(cmd);
