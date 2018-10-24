@@ -13,7 +13,6 @@ public class User : dbConnect
     string username;
     string passwordHash;
 
-    string connectionStrings = System.Configuration.ConfigurationManager.ConnectionStrings["Project"].ConnectionString;
     SqlConnection cnn;
 
     public User()
@@ -32,7 +31,7 @@ public class User : dbConnect
     //Inserts Data
     public Boolean insertData()
     {
-        cnn = new SqlConnection(connectionStrings);
+        cnn = new SqlConnection(connectionString);
 
         try
         {
@@ -47,7 +46,7 @@ public class User : dbConnect
             Cmd.Parameters.Add("@PasswordHash", System.Data.SqlDbType.VarChar, 50).Value = PasswordHash;
 
 
-            Cmd.ExecuteNonQuery();
+            executeNonQuery(Cmd);
 
             cnn.Close();
 
@@ -63,7 +62,7 @@ public class User : dbConnect
 
     public string getPasswordHash(string username)
     {
-        cnn = new SqlConnection(connectionStrings);
+        cnn = new SqlConnection(connectionString);
         string hash = "";
 
         try

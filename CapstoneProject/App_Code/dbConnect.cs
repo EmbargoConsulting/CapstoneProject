@@ -8,7 +8,9 @@ using System.Data;
 public class dbConnect
 {
 
-    public static string connectionString = "Data Source=LocalHost;Initial Catalog=AdventureWorks2014;Integrated Security=True";
+    //public static string connectionString = "Data Source=LocalHost;Initial Catalog=AdventureWorks2014;Integrated Security=True";
+    public static string connectionString = System.Configuration.ConfigurationManager.ConnectionStrings["Project"].ConnectionString; //uses config file as requested
+
 
     public dbConnect()
     {
