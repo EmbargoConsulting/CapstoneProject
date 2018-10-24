@@ -18,6 +18,7 @@ public partial class login2 : System.Web.UI.Page
         if (PasswordHash.ValidatePassword(inputPassword.Value, user.getPasswordHash(inputEmail.Value)) == true)
         {
             Session["User"] = inputEmail.Value;
+            Response.Redirect("http://localhost:57713/dashboard.aspx");
 
         }
     }
