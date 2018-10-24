@@ -90,13 +90,24 @@
                             <!-- /.nav-second-level -->
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-table fa-fw"></i> Animals<span class="fa arrow"></span></a>
+                            <a href="#"><i class="fa fa-paw fa-fw"></i> Animals<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="Animals.aspx">Add Animal</a>
+                                    <a href="AddAnimal.aspx">Add Animal</a>
                                 </li>
                                 <li>
-                                    <a href="#">View Animals</a>
+                                    <a href="ViewAnimal.aspx">View Animals</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-user fa-fw"></i> Employees<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="AddEmployee.aspx">Add Employee</a>
+                                </li>
+                                <li>
+                                    <a href="ViewEmployee.aspx">View Employees</a>
                                 </li>
                             </ul>
                         </li>

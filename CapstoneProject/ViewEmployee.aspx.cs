@@ -9,13 +9,11 @@ using System.Web.UI.WebControls;
 ///
 /// 
 
-public partial class Default : System.Web.UI.Page
+public partial class ViewEmployee : System.Web.UI.Page
 {
 
     protected void btnClearAll_Click(object sender, EventArgs e)
     {
-        txtAnimalName.Text = "";
-        txtAnimalDesc.Text = "";
-        ddlAnimalType.SelectedIndex = 0;
+        
     }
 }
