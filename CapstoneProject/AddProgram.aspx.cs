@@ -98,46 +98,69 @@ public partial class Default2 : System.Web.UI.Page
 
     protected void btnClearEducators_Click(object sender, EventArgs e)
     {
+        blEducators.Items.Clear();
+        tempEducators.Clear();
+        blEducators.Visible = false;
+        btnClearEducators.Visible = false;
+        lblEducHeader.Visible = false;
 
     }
 
     protected void btnClearAnimals_Click(object sender, EventArgs e)
     {
-
+        blAnimals.Items.Clear();
+        tempAnimals.Clear();
+        blAnimals.Visible = false;
+        btnClearAnimals.Visible = false;
+        lblAnimalHeader.Visible = false;
     }
 
     protected void btnSubmit_Click(object sender, EventArgs e)
     {
-        //Grab data from form
-        string tempOrgName = txtOrgName.Text;
-        string tempOnOffSite = ddlOnSite.SelectedValue;
-        string status = ddlStatus.SelectedValue;
-        string address = txtAddress.Text;
-        string city = txtCity.Text;
-        string county = txtCounty.Text;
-        string type = ddlProgramType.SelectedValue;
-        int adultCount = int.Parse(txtAdultCount.Text);
-        int childCount = int.Parse(txtChildCount.Text);
-        DateTime date = DateTime.Parse(txtDate.Text);
-        DateTime time = DateTime.Parse(txtTime.Text);
-        bool paymentReceived = Boolean.Parse(ddlPayment.SelectedValue);
-        string reportMonth = date.Month.ToString();
-
-        //Create new object based on data
-        Program tempProgram = new Program(tempOnOffSite, status, tempOrgName, address, reportMonth, date, type, childCount, adultCount, paymentReceived, city, county, tempAnimals, tempEducators);
-
-        //Pass object to commit function of class and get the inserted row's ID
-        int programID = Program.commitProgram(tempProgram);
-
-        //Iterate through arrays 
-        foreach (string i in tempEducators)
+        if(tempEducators.Count > 0 && tempAnimals.Count > 0)
         {
+            lblError.Visible = false;
 
-        }
+            //Grab data from form
+            string tempOrgName = txtOrgName.Text;
+            string tempOnOffSite = ddlOnSite.SelectedValue;
+            string status = ddlStatus.SelectedValue;
+            string address = txtAddress.Text;
+            string city = txtCity.Text;
+            string county = txtCounty.Text;
+            string type = ddlProgramType.SelectedValue;
+            int adultCount = int.Parse(txtAdultCount.Text);
+            int childCount = int.Parse(txtChildCount.Text);
+            DateTime date = DateTime.Parse(txtDate.Text);
+            DateTime time = DateTime.Parse(txtTime.Text);
+            bool paymentReceived = Boolean.Parse(ddlPayment.SelectedValue);
+            string reportMonth = date.Month.ToString();
+
+            //Create new object based on data
+            Program tempProgram = new Program(tempOnOffSite, status, tempOrgName, address, reportMonth, date, type, childCount, adultCount, paymentReceived, city, county, tempAnimals, tempEducators);
+
+            //Pass object to commit function of class and get the inserted row's ID
+            int programID = Program.commitProgram(tempProgram);
+
+            //Iterate through arrays 
+            foreach (string i in tempEducators)
+            {
+
+            }
+        } else { lblError.Text = "Please select at least one educator and one animal"; }
+        
     }
 
     protected void btnClearAll_Click(object sender, EventArgs e)
     {
+        txtAddress.Text = "";
+        txtCity.Text = "";
+        txtCounty.Text = "";
+        txtChildCount.Text = "";
+        txtAdultCount.Text = "";
+        txtDate.Text = "";
+        txtTime.Text = "";
+        txtOrgName.Text = "";
 
     }
 }

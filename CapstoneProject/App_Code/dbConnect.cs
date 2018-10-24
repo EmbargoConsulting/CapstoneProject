@@ -81,6 +81,7 @@ public class dbConnect
             }
             catch (InvalidCastException e)
             {
+                value = -1;
             }
             return value;
 

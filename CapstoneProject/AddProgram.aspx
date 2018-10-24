@@ -13,7 +13,7 @@
         <div class="col-lg-4">
             <div class="form-group">
                 <label>Organization Name</label>
-                <asp:TextBox ID="txtOrgName" runat="server" class="form-control"></asp:TextBox>
+                <asp:TextBox ID="txtOrgName" required="required" runat="server" class="form-control"></asp:TextBox>
             </div>
             <div class="form-group">
                 <label>On or Off Site?</label>
@@ -31,15 +31,15 @@
             </div>
             <div class="form-group">
                 <label>Address</label>
-                <asp:TextBox ID="txtAddress" runat="server" class="form-control"></asp:TextBox>
+                <asp:TextBox ID="txtAddress" required="required"  runat="server" class="form-control"></asp:TextBox>
             </div>
             <div class="form-group">
                 <label>City</label>
-                <asp:TextBox ID="txtCity" CssClass="form-control" runat="server"></asp:TextBox>
+                <asp:TextBox ID="txtCity" CssClass="form-control" required="required"  runat="server"></asp:TextBox>
             </div>
             <div class="form-group">
                 <label>County</label>
-            <asp:TextBox ID="txtCounty"  CssClass="form-control" runat="server"></asp:TextBox>
+            <asp:TextBox ID="txtCounty"  CssClass="form-control" required="required"  runat="server"></asp:TextBox>
             </div>
             <div class="form-group">
                 <label>Program Type</label>
@@ -75,20 +75,20 @@
             </div>
             <div class="form-group">
                 <label>Child Count</label>
-                <asp:TextBox ID="txtChildCount" CssClass="form-control" runat="server"></asp:TextBox>
+                <asp:TextBox ID="txtChildCount" CssClass="form-control" required="required"  runat="server"></asp:TextBox>
             </div>
             <div class="form-group">
                 <label>Adult Count</label>
-                <asp:TextBox ID="txtAdultCount" CssClass="form-control" runat="server"></asp:TextBox>
+                <asp:TextBox ID="txtAdultCount"  required="required" CssClass="form-control" runat="server"></asp:TextBox>
 
             </div>
             <div class="form-group">
                 <label>Date</label>
-                <asp:TextBox ID="txtDate" runat="server" CssClass="form-control"></asp:TextBox>
+                <asp:TextBox ID="txtDate"  required="required" runat="server" CssClass="form-control"></asp:TextBox>
             </div>
             <div class="form-group">
                 <label>Time</label>
-                <asp:TextBox ID="txtTime" runat="server" CssClass="form-control"></asp:TextBox>
+                <asp:TextBox ID="txtTime" runat="server" required="required"  CssClass="form-control"></asp:TextBox>
             </div>
             <div class="form-group">
                 <label>Payment Received?</label>
@@ -122,8 +122,9 @@
             </div>
             <div id="btn">
                 <asp:Button ID="btnSubmit" runat="server" CssClass="btn btn-primary btn-group-justified" Text="Commit Program" OnClick="btnSubmit_Click" /><br /><br />
-                <asp:Button ID="btnClearAll" runat="server" CssClass="btn btn-group-justified btn-primary"  Text="Clear Fields" OnClick="btnClearAll_Click" />
-            </div>
+                <asp:Button ID="btnClearAll" runat="server" CausesValidation="false" CssClass="btn btn-group-justified btn-primary"  Text="Clear Fields" OnClick="btnClearAll_Click" />
+            </div><br />
+            <asp:Label runat="server" ID="lblError"></asp:Label>
 
         </div>
        <%-- <div class="col-lg-1">
