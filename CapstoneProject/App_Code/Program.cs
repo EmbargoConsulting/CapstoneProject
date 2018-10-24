@@ -54,7 +54,7 @@ public class Program : dbConnect
         this.programAnimals = new List<string>();
     }
 
-    public static void commitProgram(Program toCommit)
+    public static int commitProgram(Program toCommit)
     {
         //Create string, command, and parameters
         string sqlString = "INSERT INTO Program (OnOffSite, Status, OrgName, Address, ReportMonth, DateTime, ProgramTheme, ChildrenCount, AdultCount, AwaitingPayment, City, County, OrgID, LastUpdated, LastUpdateBy) VALUES (@site, @stats, @orgname, @address, @month, @date, @theme, @chldren, @adults, @payment, @city, @county, @type, @orgID, @lastUpdated, @lastUpdatedBy)";
@@ -75,7 +75,10 @@ public class Program : dbConnect
         cmd.Parameters.AddWithValue("@lastUpdatedBy", toCommit.lastUpdated);
 
         //This executes code from inherited dbConnect class
-        executeNonQuery(cmd);
+        int id = executeNonQuery(cmd);
+        return id;
+
+
     }
 
 
