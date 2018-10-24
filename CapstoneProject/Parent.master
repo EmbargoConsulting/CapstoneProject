@@ -101,6 +101,17 @@
                             </ul>
                         </li>
                         <li>
+                            <a href="#"><i class="fa fa-user fa-fw"></i> Employees<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="AddEmployee.aspx">Add Employee</a>
+                                </li>
+                                <li>
+                                    <a href="ViewEmployee.aspx">View Employees</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
                             <a href="Reports.aspx"><i class="fa fa-fw fa-clipboard"></i> Reports</a>
                         </li>
                         <li>
