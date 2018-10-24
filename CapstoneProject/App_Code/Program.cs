@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Collections;
+using System.Data.SqlClient;
 
 /// <summary>
 /// Summary description for Program
 /// </summary>
-public class Program
+public class Program : dbConnect
 {
     private static ArrayList programList = new ArrayList();
     private string onOffSite;
@@ -17,8 +18,6 @@ public class Program
     private string reportMonth;
     private DateTime dateTime;
     private string programType;
-    private string[] educators;
-    private string[] animals;
     private int childrenCount;
     private int adultCount;
     private bool waitingPayment;
@@ -38,17 +37,15 @@ public class Program
         //
     }
 
-    public Program(string onOffSite, string status, string organization, string address, string reportMonth, DateTime dateTime, string programType, string[] educators, string[] animals, int childrenCount, int adultCount, bool waitingPayment, string city, string county)
+    public Program(string onOffSite, string status, string organization, string address, string reportMonth, DateTime dateTime, string programType, int childrenCount, int adultCount, bool waitingPayment, string city, string county, List<string> animals, List<string> educators)
     {
         this.onOffSite = onOffSite;
         this.status = status;
         this.organization = organization;
         this.address = address;
-        this.reportMonth = reportMonth;
         this.dateTime = dateTime;
+        this.reportMonth = reportMonth;
         this.programType = programType;
-        this.educators = educators;
-        this.animals = animals;
         this.childrenCount = childrenCount;
         this.adultCount = adultCount;
         this.waitingPayment = waitingPayment;
@@ -57,11 +54,34 @@ public class Program
         this.programAnimals = new List<string>();
     }
 
+    public static void commitProgram(Program toCommit)
+    {
+        //Create string, command, and parameters
+        string sqlString = "INSERT INTO Program (OnOffSite, Status, OrgName, Address, ReportMonth, DateTime, ProgramTheme, ChildrenCount, AdultCount, AwaitingPayment, City, County, OrgID, LastUpdated, LastUpdateBy) VALUES (@site, @stats, @orgname, @address, @month, @date, @theme, @chldren, @adults, @payment, @city, @county, @type, @orgID, @lastUpdated, @lastUpdatedBy)";
+        SqlCommand cmd = new SqlCommand(sqlString);
+        cmd.Parameters.AddWithValue("@site", toCommit.onOffSite);
+        cmd.Parameters.AddWithValue("@status", toCommit.status);
+        cmd.Parameters.AddWithValue("@orgname", toCommit.organization);
+        cmd.Parameters.AddWithValue("@address", toCommit.address);
+        cmd.Parameters.AddWithValue("@month", toCommit.reportMonth);
+        cmd.Parameters.AddWithValue("@date", toCommit.dateTime);
+        cmd.Parameters.AddWithValue("@theme", toCommit.programType);
+        cmd.Parameters.AddWithValue("@children", toCommit.childrenCount);
+        cmd.Parameters.AddWithValue("@adults", toCommit.adultCount);
+        cmd.Parameters.AddWithValue("@payment", toCommit.waitingPayment);
+        cmd.Parameters.AddWithValue("@city", toCommit.city);
+        cmd.Parameters.AddWithValue("@county", toCommit.county);
+        cmd.Parameters.AddWithValue("@lastUpdated", toCommit.lastUpdatedBy);
+        cmd.Parameters.AddWithValue("@lastUpdatedBy", toCommit.lastUpdated);
+
+        //This executes code from inherited dbConnect class
+        executeNonQuery(cmd);
+    }
 
 
     public static void populateList()
     {
-
+       
     }
 
     public static void addToList(int value)

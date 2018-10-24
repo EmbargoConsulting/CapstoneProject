@@ -23,33 +23,44 @@ public partial class Default2 : System.Web.UI.Page
             tempAnimals = new List<string>();
             lblAnimalHeader.Visible = false;
             lblEducHeader.Visible = false;
+            btnClearAnimals.Visible = false;
 
-            
+
         }
     }
 
     protected void btnAddAnimal_Click(object sender, EventArgs e)
     {
-        string animal = ddlAnimals.SelectedItem.ToString();
-        if (checkValue(animal, "animal"))
+        if(ddlAnimals.SelectedIndex > 0)
         {
-            tempAnimals.Add(animal);
-            blAnimals.Items.Add(animal);
-            blAnimals.Visible = true;
-            lblAnimalHeader.Visible = true;
+            string animal = ddlAnimals.SelectedItem.ToString();
+            if (checkValue(animal, "animal"))
+            {
+                tempAnimals.Add(animal);
+                blAnimals.Items.Add(animal);
+                blAnimals.Visible = true;
+                lblAnimalHeader.Visible = true;
+                btnClearAnimals.Visible = true;
+            }
         }
+
     }
 
     protected void btnAddEducator_Click(object sender, EventArgs e)
     {
-        string educator = ddlEducators.SelectedItem.ToString();
-        if (checkValue(educator, "educator")){
-            blEducators.Items.Add(educator);
-            tempEducators.Add(educator);
-            btnClearEducators.Visible = true;
-            blEducators.Visible = true;
-            lblEducHeader.Visible = true;
+        if (ddlEducators.SelectedIndex > 0)
+        {
+            string educator = ddlEducators.SelectedItem.ToString();
+            if (checkValue(educator, "educator"))
+            {
+                blEducators.Items.Add(educator);
+                tempEducators.Add(educator);
+                btnClearEducators.Visible = true;
+                blEducators.Visible = true;
+                lblEducHeader.Visible = true;
+            }
         }
+
 
     }
 
@@ -84,4 +95,43 @@ public partial class Default2 : System.Web.UI.Page
         }
     }
 
+
+    protected void btnClearEducators_Click(object sender, EventArgs e)
+    {
+
+    }
+
+    protected void btnClearAnimals_Click(object sender, EventArgs e)
+    {
+
+    }
+
+    protected void btnSubmit_Click(object sender, EventArgs e)
+    {
+        //Grab data from form
+        string tempOrgName = txtOrgName.Text;
+        string tempOnOffSite = ddlOnSite.SelectedValue;
+        string status = ddlStatus.SelectedValue;
+        string address = txtAddress.Text;
+        string city = txtCity.Text;
+        string county = txtCounty.Text;
+        string type = ddlProgramType.SelectedValue;
+        int adultCount = int.Parse(txtAdultCount.Text);
+        int childCount = int.Parse(txtChildCount.Text);
+        DateTime date = DateTime.Parse(txtDate.Text);
+        DateTime time = DateTime.Parse(txtTime.Text);
+        bool paymentReceived = Boolean.Parse(ddlPayment.SelectedValue);
+        string reportMonth = date.Month.ToString();
+
+        //Create new object based on data
+        Program tempProgram = new Program(tempOnOffSite, status, tempOrgName, address, reportMonth, date, type, childCount, adultCount, paymentReceived, city, county, tempAnimals, tempEducators);
+
+        //Pass object to commit function of class
+        Program.commitProgram(tempProgram);
+    }
+
+    protected void btnClearAll_Click(object sender, EventArgs e)
+    {
+
+    }
 }

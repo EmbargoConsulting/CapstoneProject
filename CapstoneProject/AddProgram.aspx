@@ -13,20 +13,20 @@
         <div class="col-lg-4">
             <div class="form-group">
                 <label>Organization Name</label>
-                <asp:TextBox ID="TextBox1" runat="server" class="form-control"></asp:TextBox>
+                <asp:TextBox ID="txtOrgName" runat="server" class="form-control"></asp:TextBox>
             </div>
             <div class="form-group">
                 <label>On or Off Site?</label>
                 <asp:DropDownList ID="ddlOnSite" runat="server" class="form-control">
-                    <asp:ListItem>On Site</asp:ListItem>
-                    <asp:ListItem>Off Site</asp:ListItem>
+                    <asp:ListItem Value="On">On Site</asp:ListItem>
+                    <asp:ListItem Value ="Off">Off Site</asp:ListItem>
                 </asp:DropDownList>
             </div>
             <div class="form-group">
                 <label>Status</label>
                 <asp:DropDownList ID="ddlStatus" runat="server" class="form-control">
-                    <asp:ListItem>Completed</asp:ListItem>
-                    <asp:ListItem>Scheduled</asp:ListItem>
+                    <asp:ListItem Value="completed">Completed</asp:ListItem>
+                    <asp:ListItem Value="scheduled">Scheduled</asp:ListItem>
                 </asp:DropDownList>
             </div>
             <div class="form-group">
@@ -66,6 +66,7 @@
             <div class="form-group">
                 <label>Animals</label>
                 <asp:DropDownList ID="ddlAnimals" runat="server" CssClass="form-control">
+                    <asp:ListItem> </asp:ListItem>
                     <asp:ListItem Value="1">Bird</asp:ListItem>
                     <asp:ListItem Value="2">Possum</asp:ListItem>
                 
@@ -93,8 +94,8 @@
                 <label>Payment Received?</label>
                 <asp:DropDownList ID="ddlPayment" CssClass="form-control" runat="server">
                     <asp:ListItem></asp:ListItem>
-                    <asp:ListItem>Yes</asp:ListItem>
-                    <asp:ListItem>No</asp:ListItem>
+                    <asp:ListItem Value="true">Yes</asp:ListItem>
+                    <asp:ListItem Value="false">No</asp:ListItem>
                 </asp:DropDownList>
             </div>
             <div class="form-group">
@@ -112,11 +113,16 @@
             <div class="form-group">
            <asp:label ID="lblEducHeader" runat="server" CssClass="page-header">Program Educators</asp:label>
                 <asp:BulletedList ID="blEducators" runat="server"></asp:BulletedList>
-                <asp:Button ID="btnClearEducators" CssClass="btn btn-xs" runat="server" Text="Clear" />
+                <asp:Button ID="btnClearEducators" CssClass="btn btn-xs" runat="server" Text="Clear" OnClick="btnClearEducators_Click" />
             </div>
             <div class="form-group">
                 <asp:label ID="lblAnimalHeader" runat="server" CssClass="page-header">Program Animals</asp:label>
-                <asp:BulletedList ID="blAnimals" runat="server"></asp:BulletedList><br />
+                <asp:BulletedList ID="blAnimals" runat="server"></asp:BulletedList>
+                <asp:Button ID="btnClearAnimals" CssClass="btn btn-xs" runat="server" Text="Clear" OnClick="btnClearAnimals_Click" />
+            </div>
+            <div id="btn">
+                <asp:Button ID="btnSubmit" runat="server" CssClass="btn btn-primary btn-group-justified" Text="Commit Program" OnClick="btnSubmit_Click" /><br /><br />
+                <asp:Button ID="btnClearAll" runat="server" CssClass="btn btn-group-justified btn-primary"  Text="Clear Fields" OnClick="btnClearAll_Click" />
             </div>
 
         </div>
