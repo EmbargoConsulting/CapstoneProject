@@ -16,22 +16,26 @@ public class dbConnect
     {
     }
 
-    protected static void executeNonQuery(SqlCommand q)
+    protected static int executeNonQuery(SqlCommand q)
     {
-
+        string selectID = "SELECT @@Identity";
+        int id = -1;
         try
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
         {
-            q.Connection = connection;
-            connection.Open();
-            q.ExecuteNonQuery();
+              q.Connection = connection;
+              connection.Open();
+              q.ExecuteNonQuery();
+              q.CommandText = selectID;
+              id = (int)q.ExecuteScalar();
 
-        }
+        }   return id;
         }
         catch (SqlException e)
         {
         }
+        return id;
     }
 
     protected static void executeNonQuery(String query)

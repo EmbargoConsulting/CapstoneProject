@@ -126,8 +126,14 @@ public partial class Default2 : System.Web.UI.Page
         //Create new object based on data
         Program tempProgram = new Program(tempOnOffSite, status, tempOrgName, address, reportMonth, date, type, childCount, adultCount, paymentReceived, city, county, tempAnimals, tempEducators);
 
-        //Pass object to commit function of class
-        Program.commitProgram(tempProgram);
+        //Pass object to commit function of class and get the inserted row's ID
+        int programID = Program.commitProgram(tempProgram);
+
+        //Iterate through arrays 
+        foreach (string i in tempEducators)
+        {
+
+        }
     }
 
     protected void btnClearAll_Click(object sender, EventArgs e)
