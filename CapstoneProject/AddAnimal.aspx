@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" Title="Add Animal" AutoEventWireup="true" CodeFile="Animals.aspx.cs" Inherits="Default" MasterPageFile="~/Child.master" %>
+﻿<%@ Page Language="C#" Title="Add Animal" AutoEventWireup="true" CodeFile="AddAnimal.aspx.cs" Inherits="AddAnimal" MasterPageFile="~/Child.master" %>
 
 <script runat="server">
 
@@ -30,7 +30,7 @@
     </div>
     <div class="col-lg-2">
             <div id="btn">
-                <asp:Button ID="btnSubmit" runat="server" CssClass="btn btn-primary btn-group-justified" Text="Commit Program" /><br />
+                <asp:Button ID="btnSubmit" runat="server" CssClass="btn btn-primary btn-group-justified" Text="Commit Animal" /><br />
             </div>
     </div>
     <div class="col-lg-2">
