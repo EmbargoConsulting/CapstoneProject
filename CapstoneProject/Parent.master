@@ -90,7 +90,15 @@
                             <!-- /.nav-second-level -->
                         </li>
                         <li>
-                            <a href="Animals.aspx"><i class="fa fa-paw fa-fw"></i> Animals</a>
+                            <a href="#"><i class="fa fa-table fa-fw"></i> Animals<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="Animals.aspx">Add Animal</a>
+                                </li>
+                                <li>
+                                    <a href="#">View Animals</a>
+                                </li>
+                            </ul>
                         </li>
                         <li>
                             <a href="Reports.aspx"><i class="fa fa-fw fa-clipboard"></i> Reports</a>
