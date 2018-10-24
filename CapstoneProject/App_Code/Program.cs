@@ -10,8 +10,6 @@ using System.Collections;
 public class Program
 {
     private static ArrayList programList = new ArrayList();
-
-    private string programID;
     private string onOffSite;
     private string status;
     private string organization;
@@ -31,7 +29,7 @@ public class Program
     private DateTime lastUpdated;
     private string lastUpdatedBy;
 
-    public string ProgramID { get => programID; set => programID = value; }
+    public string ProgramID { get; set; }
 
     public Program()
     {
