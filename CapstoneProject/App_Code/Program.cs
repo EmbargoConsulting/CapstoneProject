@@ -57,7 +57,7 @@ public class Program : dbConnect
     public static int commitProgram(Program toCommit)
     {
         //Create string, command, and parameters
-        string sqlString = "INSERT INTO Program (OnOffSite, Status, OrgName, Address, ReportMonth, DateTime, ProgramTheme, ChildrenCount, AdultCount, AwaitingPayment, City, County, OrgID, LastUpdated, LastUpdateBy) VALUES (@site, @stats, @orgname, @address, @month, @date, @theme, @chldren, @adults, @payment, @city, @county, @type, @orgID, @lastUpdated, @lastUpdatedBy)";
+        string sqlString = "INSERT INTO Program (OnOffSite, Status, OrgName, Address, ReportMonth, DateTime, ProgramTheme, ChildrenCount, AdultCount, AwaitingPayment, City, County, OrgID, LastUpdated, LastUpdateBy) VALUES (@site, @stats, @orgname, @address, @month, @date, @theme, @chldren, @adults, @payment, @city, @county, @type, @orgID, @lastUpdated, @lastUpdatedBy); SELECT Scope_Identity()";
         SqlCommand cmd = new SqlCommand(sqlString);
         cmd.Parameters.AddWithValue("@site", toCommit.onOffSite);
         cmd.Parameters.AddWithValue("@status", toCommit.status);
@@ -75,7 +75,7 @@ public class Program : dbConnect
         cmd.Parameters.AddWithValue("@lastUpdatedBy", toCommit.lastUpdated);
 
         //This executes code from inherited dbConnect class
-        int id = executeNonQuery(cmd);
+        int id = executeScalarQuery(cmd);
         return id;
 
 

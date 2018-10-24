@@ -16,10 +16,8 @@ public class dbConnect
     {
     }
 
-    protected static int executeNonQuery(SqlCommand q)
+    protected static void executeNonQuery(SqlCommand q)
     {
-        string selectID = "SELECT @@Identity";
-        int id = -1;
         try
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
@@ -27,15 +25,12 @@ public class dbConnect
               q.Connection = connection;
               connection.Open();
               q.ExecuteNonQuery();
-              q.CommandText = selectID;
-              id = (int)q.ExecuteScalar();
-
-        }   return id;
+        }   
         }
         catch (SqlException e)
         {
         }
-        return id;
+  
     }
 
     protected static void executeNonQuery(String query)
@@ -73,5 +68,25 @@ public class dbConnect
 
         }
     }
+
+    protected static int executeScalarQuery(SqlCommand cmd)
+    {
+        using (SqlConnection connection = new SqlConnection(connectionString))
+        {
+            int value = 0;
+            connection.Open();
+            try
+            {
+                value = (Int32)cmd.ExecuteScalar();
+            }
+            catch (InvalidCastException e)
+            {
+            }
+            return value;
+
+        }
+    }
+
+
 
 }
