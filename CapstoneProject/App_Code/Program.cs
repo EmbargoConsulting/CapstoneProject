@@ -28,6 +28,10 @@ public class Program
     private string county;
     private List<string> programAnimals;
     private List<string> programEducators;
+    private DateTime lastUpdated;
+    private string lastUpdatedBy;
+
+    public string ProgramID { get => programID; set => programID = value; }
 
     public Program()
     {

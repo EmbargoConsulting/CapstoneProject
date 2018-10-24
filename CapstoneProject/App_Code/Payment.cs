@@ -8,15 +8,15 @@ using System.Web;
 /// </summary>
 public class Payment
 {
-    private int PaymentID;
-    private string OrgName;
-    private string PaymentType;
-    private int CheckNumber;
-    private double PaymentAmount;
-    private DateTime DateOfPayment;
-    private int OrgID;
-    private DateTime LastUpdated;
-    private string LastUpdatedBy;
+    private int paymentID;
+    private string orgName;
+    private string paymentType;
+    private int checkNumber;
+    private double paymentAmount;
+    private DateTime dateOfPayment;
+    private int orgID;
+    private DateTime lastUpdated;
+    private string lastUpdatedBy;
 
     public Payment()
     {

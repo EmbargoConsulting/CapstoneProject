@@ -8,13 +8,13 @@ using System.Web;
 /// </summary>
 public class Organization
 {
-    private int OrgID;
-    private string OrgName;
-    private string OrgPhoneNumber;
-    private string OrgAddress;
-    private string OrgContact;
-    private DateTime LastUpdated;
-    private string LastUpdatedBy;
+    private int orgID;
+    private string orgName;
+    private string orgPhoneNumber;
+    private string orgAddress;
+    private string orgContact;
+    private DateTime lastUpdated;
+    private string lastUpdatedBy;
 
     public Organization()
     {

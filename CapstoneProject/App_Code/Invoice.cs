@@ -8,11 +8,11 @@ using System.Web;
 /// </summary>
 public class Invoice
 {
-    private int PaymentID;
-    private int OrgID;
-    private double MonthlyTotal;
-    private DateTime LastUpdated;
-    private string LastUpdatedBy;
+    private int paymentID;
+    private int orgID;
+    private double monthlyTotal;
+    private DateTime lastUpdated;
+    private string lastUpdatedBy;
 
     public Invoice()
     {

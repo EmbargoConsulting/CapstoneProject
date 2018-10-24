@@ -8,8 +8,8 @@ using System.Web;
 /// </summary>
 public class Presentation
 {
-    private int ProgramID;
-    private int OrgID;
+    private int programID;
+    private int orgID;
 
     public Presentation()
     {

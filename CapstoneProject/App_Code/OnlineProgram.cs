@@ -8,10 +8,10 @@ using System.Web;
 /// </summary>
 public class OnlineProgram : Program
 {
-    private string StateCountry;
-    private string Grade;
-    private string TeacherName;
-    private string Email;
+    private string stateCountry;
+    private string grade;
+    private string teacherName;
+    private string email;
 
     public OnlineProgram()
     {
@@ -22,9 +22,9 @@ public class OnlineProgram : Program
 
     public OnlineProgram(string stateCountry, string grade, string teacherName, string email)
     {
-        StateCountry = stateCountry;
-        Grade = grade;
-        TeacherName = teacherName;
-        Email = email;
+        this.stateCountry = stateCountry;
+        this.grade = grade;
+        this.teacherName = teacherName;
+        this.email = email;
     }
 }

@@ -8,13 +8,13 @@ using System.Web;
 /// </summary>
 public class Animal
 {
-    private int AnimalID;
-    private string AnimalName;
-    private string AnimalType;
-    private string AnimalSpecies;
-    private Boolean CheckedInStatus;
-    private DateTime LastUpdated;
-    private string LastUpdatedBy;
+    private int animalID;
+    private string animalName;
+    private string animalType;
+    private string animalSpecies;
+    private Boolean checkedInStatus;
+    private DateTime lastUpdated;
+    private string lastUpdatedBy;
 
     public Animal()
     {

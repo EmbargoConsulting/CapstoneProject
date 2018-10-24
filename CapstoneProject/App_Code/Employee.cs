@@ -8,13 +8,13 @@ using System.Web;
 /// </summary>
 public class Employee
 {
-    private int EmployeeID;
-    private string FirstName;
-    private string MiddleName;
-    private string LastName;
-    private int TypeOfEmployee;
-    private DateTime LastUpdated;
-    private string LastUpdatedBy;
+    private int employeeID;
+    private string firstName;
+    private string middleName;
+    private string lastName;
+    private int typeOfEmployee;
+    private DateTime lastUpdated;
+    private string lastUpdatedBy;
 
     public Employee()
     {
