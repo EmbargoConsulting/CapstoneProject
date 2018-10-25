@@ -1,0 +1,13 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/Child.master"%> 
+<asp:Content id="ProgramContent" ContentPlaceholderID="ChildContent1" runat="server">
+
+    <div class="page-header">
+     <h2 class="page-header">Add a Program</h2>
+    <asp:LinkButton ID="btnLiveProgram"  formnovalidate="formnovalidate" runat="server"  href="AddLiveProgram.aspx" Text="Live Program" CssClass="btn btn-primary"  />
+    <asp:LinkButton ID="btnOnlineProgram"  formnovalidate="formnovalidate" runat="server" href="AddOnlineProgram.aspx" Text="Online Program" CssClass="btn btn-primary" />
+
+    </div>
+    <asp:ContentPlaceHolder ID="ChildContent1" runat="server" />
+    <asp:ContentPlaceHolder ID="ChildContent2" runat="server" />
+
+</asp:Content>

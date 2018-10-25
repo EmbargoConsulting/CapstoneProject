@@ -81,7 +81,7 @@
                             <a href="#"><i class="fa fa-table fa-fw"></i> Programs<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="AddProgram.aspx">Add Program</a>
+                                    <a href="AddLiveProgram.aspx">Add Program</a>
                                 </li>
                                 <li>
                                     <a href="#">View Programs</a>

@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" Title="Add Program" AutoEventWireup="true" CodeFile="AddProgram.aspx.cs" Inherits="Default2" MasterPageFile="~/Child.master" %>
+﻿<%@ Page Language="C#" Title="Add Program" AutoEventWireup="true" CodeFile="AddLiveProgram.aspx.cs" Inherits="Default2" MasterPageFile="~/Child.master" %>
 
 
 <script runat="server">
@@ -6,9 +6,12 @@
 </script>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ChildContent1" runat="Server">
+    <div class="page-header">
+     <h2 class="page-header">Add a Program</h2>
+    <asp:Button ID="btnLiveProgram" runat="server" Text="Live Program" CssClass="btn btn-primary"  />
+    <asp:Button ID="btnOnlineProgram" runat="server" Text="Online Program" CssClass="btn btn-primary" />
 
-    <h2 class="page-header">Add a Program</h2>
-
+    </div>
     <div class="row">
         <div class="col-lg-4">
             <div class="form-group">

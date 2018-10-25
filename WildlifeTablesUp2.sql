@@ -46,7 +46,7 @@ GO
 
 
 CREATE TABLE [dbo].[Program](
-	[ProgramID] [int] NOT NULL,
+	[ProgramID] [int] IDENTITY(1,1) NOT NULL,
 	[InvoiceID] [int] NOT NULL,
 	[OrganizationID] [int] NOT NULL,
 	[ProgramName] [varchar](50) NULL,
