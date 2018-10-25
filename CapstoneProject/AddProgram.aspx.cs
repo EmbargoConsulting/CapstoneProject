@@ -148,11 +148,11 @@ public partial class Default2 : System.Web.UI.Page
             string reportMonth = date.Month.ToString();
 
             //Create new object based on data
-            Program tempProgram = new Program(tempOnOffSite, status, tempOrgName, address, reportMonth, date, time, type, childCount, adultCount, paymentReceived, city, county, tempAnimals, tempEducators);
+            //Program tempProgram = new Program(tempOnOffSite, status, tempOrgName, address, reportMonth, date, time, type, childCount, adultCount, paymentReceived, city, county, tempAnimals, tempEducators);
 
             //Pass object to commit function of class and get the inserted row's ID
-            int programID = Program.commitProgram(tempProgram);
-            tempProgram.ProgramID = programID;
+            //int programID = Program.commitProgram(tempProgram);
+            //tempProgram.ProgramID = programID;
 
             //Iterate through arrays 
             foreach (string i in tempEducators)
