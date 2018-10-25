@@ -131,10 +131,11 @@ public partial class Default2 : System.Web.UI.Page
         if(tempEducators.Count > 0 && tempAnimals.Count > 0)
         {
             lblError.Visible = false;
+            Random rand = new Random();
 
             //Grab data from form
             string tempOrgName = txtOrgName.Text;
-            string tempOnOffSite = ddlOnSite.SelectedValue;
+            int OnOffSite = Int16.Parse(ddlOnSite.SelectedValue);
             string status = ddlStatus.SelectedValue;
             string address = txtAddress.Text;
             string city = txtCity.Text;
@@ -148,10 +149,10 @@ public partial class Default2 : System.Web.UI.Page
             string reportMonth = date.Month.ToString();
 
             //Create new object based on data
-            //Program tempProgram = new Program(tempOnOffSite, status, tempOrgName, address, reportMonth, date, time, type, childCount, adultCount, paymentReceived, city, county, tempAnimals, tempEducators);
+            LiveProgram tempProgram = new LiveProgram(rand.Next(100,999), type, date, time, type, childCount, adultCount, tempAnimals, tempEducators, address, OnOffSite, city, county);
 
             //Pass object to commit function of class and get the inserted row's ID
-            //int programID = Program.commitProgram(tempProgram);
+            LiveProgram.insertLiveProgram(tempProgram);
             //tempProgram.ProgramID = programID;
 
             //Iterate through arrays 
@@ -190,5 +191,20 @@ public partial class Default2 : System.Web.UI.Page
         txtDate.Text = DateTime.Now.AddMonths(rand.Next(1,5)).AddDays(rand.Next(0,30)).ToShortDateString();
         txtTime.Text = DateTime.Now.AddHours(rand.Next(1,3)).AddMinutes(rand.Next(1,60)).ToShortTimeString();
         txtOrgName.Text = "Test Org " + randID;
+        ddlPayment.SelectedIndex = rand.Next(1, 2);
+        ddlProgramType.SelectedIndex = rand.Next(1, 3);
+        tempAnimals.Add("Test Animal");
+        tempEducators.Add("Test Educator");
+        blAnimals.Items.Add("Test Animal");
+        blEducators.Items.Add("Test Educator");
+        blAnimals.Visible = true;
+        blEducators.Visible = true;
+        lblAnimalHeader.Visible = true;
+        lblEducHeader.Visible = true;
     }
+
+
+
+
+
 }

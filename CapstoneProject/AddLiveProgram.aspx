@@ -125,7 +125,6 @@
             <div id="testing" class="container">
                 <asp:Label runat="server" CssClass="label-primary">Testing</asp:Label>
                 <asp:Button ID="btnPopulate" CssClass="btn btn-sm" runat="server" formnovalidate="formnovalidate"  Text="Populate" OnClick="btnPopulate_Click" />
-                <%--<asp:Button ID="Button2" runat="server" Text="Button" />--%>
             </div>
         </div>
     </div>

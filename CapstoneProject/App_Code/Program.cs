@@ -55,7 +55,7 @@ public class Program : dbConnect
         this.LastUpdatedBy = "User";
     }
 
-    public static void insertProgram(Program toInsert)
+    public static Program insertProgram(Program toInsert)
     {
         SqlCommand cmd = new SqlCommand();
         cmd.CommandText = "insertProgram";
@@ -72,6 +72,8 @@ public class Program : dbConnect
         executeNonQuery(cmd);
 
         int programID = (Int32)cmd.Parameters["@ProgramID"].Value;
+        toInsert.ProgramID = programID;
+        return toInsert;
     }
 
 

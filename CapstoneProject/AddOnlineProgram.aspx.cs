@@ -157,5 +157,6 @@ public partial class Default2 : System.Web.UI.Page
         txtAdultCount.Text = rand.Next(1,30).ToString();
         txtDate.Text = DateTime.Now.AddMonths(rand.Next(1,5)).AddDays(rand.Next(0,30)).ToShortDateString();
         txtTime.Text = DateTime.Now.AddHours(rand.Next(1,3)).AddMinutes(rand.Next(1,60)).ToShortTimeString();
+        
     }
 }
