@@ -8,11 +8,10 @@ using System.Web;
 /// </summary>
 public class Organization : dbConnect
 {
-    private int orgID;
-    private string orgName;
-    private string orgPhoneNumber;
-    private string orgAddress;
-    private string orgContact;
+    private int organizationID;
+    private string organizationName;
+    private string organizationAddress;
+    private string organizationContact;
     private DateTime lastUpdated;
     private string lastUpdatedBy;
 
@@ -23,19 +22,20 @@ public class Organization : dbConnect
         //
     }
 
-    public Organization(string orgName, string orgPhoneNumber, string orgAddress, string orgContact)
+    public Organization(int organizationID, string organizationName, string organizationAddress, string organizationContact, DateTime lastUpdated, string lastUpdatedBy)
     {
-        this.OrgName = orgName;
-        this.OrgPhoneNumber = orgPhoneNumber;
-        this.OrgAddress = orgAddress;
-        this.OrgContact = orgContact;
+        this.OrganizationID = organizationID;
+        this.OrganizationName = organizationName;
+        this.OrganizationAddress = organizationAddress;
+        this.OrganizationContact = organizationContact;
+        this.LastUpdated = lastUpdated;
+        this.LastUpdatedBy = lastUpdatedBy;
     }
 
-    public int OrgID { get => orgID; set => orgID = value; }
-    public string OrgName { get => orgName; set => orgName = value; }
-    public string OrgPhoneNumber { get => orgPhoneNumber; set => orgPhoneNumber = value; }
-    public string OrgAddress { get => orgAddress; set => orgAddress = value; }
-    public string OrgContact { get => orgContact; set => orgContact = value; }
+    public int OrganizationID { get => organizationID; set => organizationID = value; }
+    public string OrganizationName { get => organizationName; set => organizationName = value; }
+    public string OrganizationAddress { get => organizationAddress; set => organizationAddress = value; }
+    public string OrganizationContact { get => organizationContact; set => organizationContact = value; }
     public DateTime LastUpdated { get => lastUpdated; set => lastUpdated = value; }
     public string LastUpdatedBy { get => lastUpdatedBy; set => lastUpdatedBy = value; }
 }

@@ -9,12 +9,11 @@ using System.Web;
 public class Payment : dbConnect
 {
     private int paymentID;
-    private string orgName;
+    private int invoiceID;
     private string paymentType;
     private int checkNumber;
     private double paymentAmount;
-    private DateTime dateOfPayment;
-    private int orgID;
+    private DateTime paymentTotal;
     private DateTime lastUpdated;
     private string lastUpdatedBy;
 
@@ -25,20 +24,24 @@ public class Payment : dbConnect
         //
     }
 
-    public Payment(string orgName, string paymentType, int checkNumber, double paymentAmount, DateTime dateOfPayment, int orgID)
+    public Payment(int paymentID, int invoiceID, string paymentType, int checkNumber, double paymentAmount, DateTime paymentTotal, DateTime lastUpdated, string lastUpdatedBy)
     {
-        this.orgName = orgName;
-        this.paymentType = paymentType;
-        this.checkNumber = checkNumber;
-        this.paymentAmount = paymentAmount;
-        this.dateOfPayment = dateOfPayment;
-        this.orgID = orgID;
+        this.PaymentID = paymentID;
+        this.InvoiceID = invoiceID;
+        this.PaymentType = paymentType;
+        this.CheckNumber = checkNumber;
+        this.PaymentAmount = paymentAmount;
+        this.PaymentTotal = paymentTotal;
+        this.LastUpdated = lastUpdated;
+        this.LastUpdatedBy = lastUpdatedBy;
     }
 
-    public string OrgName { get => orgName; set => orgName = value; }
+    public int PaymentID { get => paymentID; set => paymentID = value; }
+    public int InvoiceID { get => invoiceID; set => invoiceID = value; }
     public string PaymentType { get => paymentType; set => paymentType = value; }
     public int CheckNumber { get => checkNumber; set => checkNumber = value; }
     public double PaymentAmount { get => paymentAmount; set => paymentAmount = value; }
-    public DateTime DateOfPayment { get => dateOfPayment; set => dateOfPayment = value; }
-    public int OrgID { get => orgID; set => orgID = value; }
+    public DateTime PaymentTotal { get => paymentTotal; set => paymentTotal = value; }
+    public DateTime LastUpdated { get => lastUpdated; set => lastUpdated = value; }
+    public string LastUpdatedBy { get => lastUpdatedBy; set => lastUpdatedBy = value; }
 }

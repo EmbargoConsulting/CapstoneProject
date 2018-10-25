@@ -28,7 +28,7 @@ public class Program : dbConnect
     private DateTime lastUpdated;
     private string lastUpdatedBy;
 
-    public string ProgramID { get; set; }
+    public int ProgramID { get; set; }
 
     public Program()
     {

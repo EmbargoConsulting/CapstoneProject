@@ -8,15 +8,12 @@ using System.Web;
 /// </summary>
 public class LiveProgram : Program
 {
+    private string address;
     private Boolean onOffSite;
-    private string status;
-    private string orgName;
-    private string streetAddress;
     private string city;
     private string county;
-    private Boolean awaitingPayment;
-    private string programType;
-    private int orgID;
+    private DateTime lastUpdated;
+    private string lastUpdatedBy;
 
     public LiveProgram()
     {
@@ -24,4 +21,22 @@ public class LiveProgram : Program
         // TODO: Add constructor logic here
         //
     }
+
+    public LiveProgram(int programID, string address, bool onOffSite, string city, string county, DateTime lastUpdated, string lastUpdatedBy)
+    {
+        this.ProgramID = programID;
+        this.address = address;
+        this.onOffSite = onOffSite;
+        this.city = city;
+        this.county = county;
+        this.lastUpdated = lastUpdated;
+        this.lastUpdatedBy = lastUpdatedBy;
+    }
+
+    public string Address { get => address; set => address = value; }
+    public bool OnOffSite { get => onOffSite; set => onOffSite = value; }
+    public string City { get => city; set => city = value; }
+    public string County { get => county; set => county = value; }
+    public DateTime LastUpdated { get => lastUpdated; set => lastUpdated = value; }
+    public string LastUpdatedBy { get => lastUpdatedBy; set => lastUpdatedBy = value; }
 }

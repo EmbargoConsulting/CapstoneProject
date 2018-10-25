@@ -23,12 +23,15 @@ public class Animal : dbConnect
         //
     }
 
-    public Animal(string animalName, string animalType, string animalSpecies, bool checkedInStatus)
+    public Animal(int animalID, string animalName, string animalType, string animalSpecies, bool checkedInStatus, DateTime lastUpdated, string lastUpdatedBy)
     {
-        this.animalName = animalName;
-        this.animalType = animalType;
-        this.animalSpecies = animalSpecies;
-        this.checkedInStatus = checkedInStatus;
+        this.AnimalID = animalID;
+        this.AnimalName = animalName;
+        this.AnimalType = animalType;
+        this.AnimalSpecies = animalSpecies;
+        this.CheckedInStatus = checkedInStatus;
+        this.LastUpdated = lastUpdated;
+        this.LastUpdatedBy = lastUpdatedBy;
     }
 
     public int AnimalID { get => animalID; set => animalID = value; }

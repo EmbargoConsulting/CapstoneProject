@@ -8,10 +8,13 @@ using System.Web;
 /// </summary>
 public class OnlineProgram : Program
 {
-    private string stateCountry;
+    private string state;
+    private string country;
     private string grade;
     private string teacherName;
-    private string email;
+    private string teacherEmail;
+    private DateTime lastUpdated;
+    private string lastUpdatedBy;
 
     public OnlineProgram()
     {
@@ -20,11 +23,23 @@ public class OnlineProgram : Program
         //
     }
 
-    public OnlineProgram(string stateCountry, string grade, string teacherName, string email)
+    public OnlineProgram(int programID, string state, string country, string grade, string teacherName, string teacherEmail, DateTime lastUpdated, string lastUpdatedBy)
     {
-        this.stateCountry = stateCountry;
-        this.grade = grade;
-        this.teacherName = teacherName;
-        this.email = email;
+        this.ProgramID = programID;
+        this.State = state;
+        this.Country = country;
+        this.Grade = grade;
+        this.TeacherName = teacherName;
+        this.TeacherEmail = teacherEmail;
+        this.LastUpdated = lastUpdated;
+        this.LastUpdatedBy = lastUpdatedBy;
     }
+
+    public string State { get => state; set => state = value; }
+    public string Country { get => country; set => country = value; }
+    public string Grade { get => grade; set => grade = value; }
+    public string TeacherName { get => teacherName; set => teacherName = value; }
+    public string TeacherEmail { get => teacherEmail; set => teacherEmail = value; }
+    public DateTime LastUpdated { get => lastUpdated; set => lastUpdated = value; }
+    public string LastUpdatedBy { get => lastUpdatedBy; set => lastUpdatedBy = value; }
 }

@@ -12,7 +12,7 @@ public class Employee : dbConnect
     private string firstName;
     private string middleName;
     private string lastName;
-    private int typeOfEmployee;
+    private int employeeType;
     private DateTime lastUpdated;
     private string lastUpdatedBy;
 
@@ -23,19 +23,22 @@ public class Employee : dbConnect
         //
     }
 
-    public Employee(string firstName, string middleName, string lastName, int typeOfEmployee)
+    public Employee(int employeeID, string firstName, string middleName, string lastName, int employeeType, DateTime lastUpdated, string lastUpdatedBy)
     {
+        this.EmployeeID = employeeID;
         this.FirstName = firstName;
         this.MiddleName = middleName;
         this.LastName = lastName;
-        this.TypeOfEmployee = typeOfEmployee;
+        this.EmployeeType = employeeType;
+        this.LastUpdated = lastUpdated;
+        this.LastUpdatedBy = lastUpdatedBy;
     }
 
     public int EmployeeID { get => employeeID; set => employeeID = value; }
     public string FirstName { get => firstName; set => firstName = value; }
     public string MiddleName { get => middleName; set => middleName = value; }
     public string LastName { get => lastName; set => lastName = value; }
-    public int TypeOfEmployee { get => typeOfEmployee; set => typeOfEmployee = value; }
+    public int EmployeeType { get => employeeType; set => employeeType = value; }
     public DateTime LastUpdated { get => lastUpdated; set => lastUpdated = value; }
     public string LastUpdatedBy { get => lastUpdatedBy; set => lastUpdatedBy = value; }
 }
