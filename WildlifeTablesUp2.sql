@@ -31,7 +31,7 @@ GO
 
 
 CREATE TABLE [dbo].[Organization](
-	[OrganizationID] [int] NOT NULL,
+	[OrganizationID] [int] IDENTITY(1,1) NOT NULL,
 	[OrganizationName] [varchar](50) NULL,
 	[OrganizationAddress] [varchar](50) NULL,
 	[OrganizationContact] [nchar](10) NULL,
@@ -48,7 +48,6 @@ GO
 CREATE TABLE [dbo].[Program](
 	[ProgramID] [int] IDENTITY(1,1) NOT NULL,
 	[InvoiceID] [int] NOT NULL,
-	[OrganizationID] [int] NOT NULL,
 	[ProgramName] [varchar](50) NULL,
 	[ProgramType] [varchar](50) NULL,
 	[DateTime] [datetime] NULL,
@@ -65,7 +64,7 @@ GO
 
 
 CREATE TABLE [dbo].[Invoice](
-	[InvoiceID] [int] NOT NULL,
+	[InvoiceID] [int] Identity(1,1) NOT NULL,
 	[ProgramID] [int] NOT NULL,
 	[OrganizationID] [int] NOT NULL,
 	[InvoiceAmount] [varchar](50) NULL,
@@ -96,7 +95,7 @@ GO
 
 
 CREATE TABLE [dbo].[Payment](
-	[PaymentID] [int] NOT NULL,
+	[PaymentID] [int] IDENTITY(1,1) NOT NULL,
 	[InvoiceID] [int] NOT NULL,
 	[PaymentAmount] [varchar](50) NULL,
 	[PaymentType] [varchar](50) NULL,
