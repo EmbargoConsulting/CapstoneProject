@@ -1,7 +1,6 @@
 CREATE PROCEDURE insertProgram
-           @ProgramID int,
+           @ProgramID int OUTPUT,
            @InvoiceID int,
-           @OrganizationID int,
            @ProgramName varchar(50),
            @ProgramType varchar(50),
            @DateTime datetime,
@@ -12,9 +11,7 @@ CREATE PROCEDURE insertProgram
 as
 
 INSERT INTO [dbo].[Program]
-           ([ProgramID]
-           ,[InvoiceID]
-           ,[OrganizationID]
+           ([InvoiceID]
            ,[ProgramName]
            ,[ProgramType]
            ,[DateTime]
@@ -23,9 +20,7 @@ INSERT INTO [dbo].[Program]
            ,[LastUpdatedBy]
            ,[LastUpdated])
      VALUES
-           (@ProgramID,
-           @InvoiceID,
-           @OrganizationID,
+           (@InvoiceID,
            @ProgramName,
            @ProgramType,
            @DateTime,
@@ -33,6 +28,9 @@ INSERT INTO [dbo].[Program]
            @AdultAttendance,
            @LastUpdatedBy,
            @LastUpdated)
+
+		   SET @ProgramID = SCOPE_IDENTITY();
 GO
+
 
 

@@ -152,6 +152,7 @@ public partial class Default2 : System.Web.UI.Page
 
             //Pass object to commit function of class and get the inserted row's ID
             int programID = Program.commitProgram(tempProgram);
+            tempProgram.ProgramID = programID;
 
             //Iterate through arrays 
             foreach (string i in tempEducators)

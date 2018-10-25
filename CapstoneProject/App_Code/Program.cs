@@ -11,18 +11,13 @@ using System.Data.SqlClient;
 public class Program : dbConnect
 {
     private static ArrayList programList = new ArrayList();
-    private string onOffSite;
-    private string status;
-    private string organization;
-    private string address;
-    private string reportMonth;
+    private int programID;
+    private int invoiceID;
+    private string programName;
     private DateTime dateTime;
     private string programType;
-    private int childrenCount;
+    private int childCount;
     private int adultCount;
-    private bool waitingPayment;
-    private string city;
-    private string county;
     private List<string> programAnimals;
     private List<string> programEducators;
     private DateTime lastUpdated;
@@ -37,52 +32,60 @@ public class Program : dbConnect
         //
     }
 
-    public Program(string onOffSite, string status, string organization, string address, string reportMonth, DateTime date, DateTime time, string programType, int childrenCount, int adultCount, bool waitingPayment, string city, string county, List<string> animals, List<string> educators)
+    //public Program(string onOffSite, string status, string organization, string address, string reportMonth, DateTime date, DateTime time, string programType, int childrenCount, int adultCount, bool waitingPayment, string city, string county, List<string> animals, List<string> educators)
+    //{
+    //    this.dateTime = DateTime.Parse(date.ToShortDateString() + " " + time.ToShortTimeString());
+    //    this.programType = programType;
+    //    this.adultCount = adultCount;
+    //    this.programAnimals = new List<string>();
+    //}
+
+    public Program(int invoiceID, string programName, DateTime date, DateTime time, string programType, int childCount, int adultCount, List<string> programAnimals, List<string> programEducators)
     {
-        this.onOffSite = onOffSite;
-        this.status = status;
-        this.organization = organization;
-        this.address = address;
+        //this.programID = programID;
+        this.invoiceID = invoiceID;
+        this.programName = programName;
         this.dateTime = DateTime.Parse(date.ToShortDateString() + " " + time.ToShortTimeString());
-        this.reportMonth = reportMonth;
         this.programType = programType;
-        this.childrenCount = childrenCount;
+        this.childCount = childCount;
         this.adultCount = adultCount;
-        this.waitingPayment = waitingPayment;
-        this.city = city;
-        this.county = county;
-        this.programAnimals = new List<string>();
+        this.programAnimals = programAnimals;
+        this.programEducators = programEducators;
+        this.lastUpdated = DateTime.Now;
+        this.lastUpdatedBy = "User";
     }
 
     public static int commitProgram(Program toCommit)
     {
-        //Create string, command, and parameters
-        string sqlString = "INSERT INTO Program (OnOffSite, Status, OrgName, Address, ReportMonth, ProgramTheme, ChildrenCount, AdultCount, AwaitingPayment, City, County) VALUES (@site, @status, @orgname, @address, @month, @theme, @children, @adults, @payment, @city, @county); SELECT Scope_Identity()";
-        SqlCommand cmd = new SqlCommand(sqlString);
-        cmd.Parameters.AddWithValue("@site", toCommit.onOffSite);
-        cmd.Parameters.AddWithValue("@status", toCommit.status);
-        cmd.Parameters.AddWithValue("@orgname", toCommit.organization);
-        cmd.Parameters.AddWithValue("@address", toCommit.address);
-        cmd.Parameters.AddWithValue("@month", toCommit.reportMonth);
-        //cmd.Parameters.AddWithValue("@date", toCommit.dateTime);
-        cmd.Parameters.AddWithValue("@theme", toCommit.programType);
-        cmd.Parameters.AddWithValue("@children", toCommit.childrenCount);
-        cmd.Parameters.AddWithValue("@adults", toCommit.adultCount);
-        cmd.Parameters.AddWithValue("@payment", toCommit.waitingPayment);
-        cmd.Parameters.AddWithValue("@city", toCommit.city);
-        cmd.Parameters.AddWithValue("@county", toCommit.county);
-        //cmd.Parameters.AddWithValue("@lastUpdated", toCommit.lastUpdatedBy);
-        //cmd.Parameters.AddWithValue("@lastUpdatedBy", toCommit.lastUpdated);
 
-        //This executes code from inherited dbConnect class
-        int id = executeScalarQuery(cmd);
-        return id;
+
+        //    //Create string, command, and parameters
+        //    //string sqlString = "INSERT INTO Program (OnOffSite, Status, OrgName, Address, ReportMonth, ProgramTheme, ChildrenCount, AdultCount, AwaitingPayment, City, County) VALUES (@site, @status, @orgname, @address, @month, @theme, @children, @adults, @payment, @city, @county); SELECT Scope_Identity()";
+        //    SqlCommand cmd = new SqlCommand();
+        //    cmd.Parameters.AddWithValue("@InvoiceID", toCommit.onOffSite);
+        //    cmd.Parameters.AddWithValue("@ProgramName", toCommit.status);
+        //    cmd.Parameters.AddWithValue("@ProgramType", toCommit.organization);
+        //    cmd.Parameters.AddWithValue("@DateTime", toCommit.address);
+        //    cmd.Parameters.AddWithValue("@ChildAttendence", toCommit.reportMonth);
+        //    //cmd.Parameters.AddWithValue("@date", toCommit.dateTime);
+        //    cmd.Parameters.AddWithValue("@AdultAttendance", toCommit.programType);
+        //    cmd.Parameters.AddWithValue("@children", toCommit.childrenCount);
+        //    cmd.Parameters.AddWithValue("@adults", toCommit.adultCount);
+        //    cmd.Parameters.AddWithValue("@payment", toCommit.waitingPayment);
+        //    cmd.Parameters.AddWithValue("@city", toCommit.city);
+        //    cmd.Parameters.AddWithValue("@county", toCommit.county);
+        //    //cmd.Parameters.AddWithValue("@lastUpdated", toCommit.lastUpdatedBy);
+        //    //cmd.Parameters.AddWithValue("@lastUpdatedBy", toCommit.lastUpdated);
+
+        //    //This executes code from inherited dbConnect class
+        //    int id = executeScalarQuery(cmd);
+        //    return id;
 
 
     }
 
 
-    public static void populateList()
+public static void populateList()
     {
        
     }
