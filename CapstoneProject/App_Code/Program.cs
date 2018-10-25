@@ -55,26 +55,6 @@ public class Program : dbConnect
         this.LastUpdatedBy = "User";
     }
 
-    public static Program insertProgram(Program toInsert)
-    {
-        SqlCommand cmd = new SqlCommand();
-        cmd.CommandText = "insertProgram";
-        cmd.CommandType = CommandType.StoredProcedure;
-        cmd.Parameters.AddWithValue("@InvoiceID", toInsert.InvoiceID);
-        cmd.Parameters.AddWithValue("@ProgramName", toInsert.ProgramName);
-        cmd.Parameters.AddWithValue("@ProgramType", toInsert.ProgramType);
-        cmd.Parameters.AddWithValue("@DateTime", toInsert.DateTime);
-        cmd.Parameters.AddWithValue("@ChildAttendance", toInsert.ChildCount);
-        cmd.Parameters.AddWithValue("@AdultAttendance", toInsert.AdultCount);
-        cmd.Parameters.AddWithValue("@LastUpdatedBy", toInsert.LastUpdatedBy);
-        cmd.Parameters.AddWithValue("@LastUpdated", toInsert.LastUpdated);
-
-        executeNonQuery(cmd);
-
-        int programID = (Int32)cmd.Parameters["@ProgramID"].Value;
-        toInsert.ProgramID = programID;
-        return toInsert;
-    }
 
 
     public static void populateList()

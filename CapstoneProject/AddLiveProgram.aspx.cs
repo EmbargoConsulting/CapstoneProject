@@ -16,6 +16,8 @@ public partial class Default2 : System.Web.UI.Page
         //On first load
         if (!Page.IsPostBack)
         {
+            
+
             blAnimals.Visible = false;
             blEducators.Visible = false;
             btnClearEducators.Visible = false;
@@ -161,10 +163,12 @@ public partial class Default2 : System.Web.UI.Page
 
             }
         } else { lblError.Text = "Please select at least one educator and one animal"; }
+
+        clearAll();
         
     }
 
-    protected void btnClearAll_Click(object sender, EventArgs e)
+    protected void clearText()
     {
         txtAddress.Text = "";
         txtCity.Text = "";
@@ -174,9 +178,19 @@ public partial class Default2 : System.Web.UI.Page
         txtDate.Text = "";
         txtTime.Text = "";
         txtOrgName.Text = "";
+
+    }
+
+    protected void clearAll()
+    {
         clearAnimals();
         clearEducators();
+        clearText();
+    }
 
+    protected void btnClearAll_Click(object sender, EventArgs e)
+    {
+        clearAll();
     }
 
     protected void btnPopulate_Click(object sender, EventArgs e)
@@ -201,6 +215,7 @@ public partial class Default2 : System.Web.UI.Page
         blEducators.Visible = true;
         lblAnimalHeader.Visible = true;
         lblEducHeader.Visible = true;
+
     }
 
 

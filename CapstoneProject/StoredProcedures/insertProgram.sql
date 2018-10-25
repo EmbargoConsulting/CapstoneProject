@@ -1,4 +1,4 @@
-CREATE PROCEDURE insertProgram
+create PROCEDURE insertProgram
 
            @InvoiceID int,
            @ProgramName varchar(50),
@@ -7,8 +7,8 @@ CREATE PROCEDURE insertProgram
            @ChildAttendance int,
            @AdultAttendance int,
            @LastUpdatedBy varchar(50),
-           @LastUpdated date
-           @ProgramID int OUTPUT,
+           @LastUpdated date,
+           @ProgramID int OUTPUT
 as
 
 INSERT INTO [dbo].[Program]

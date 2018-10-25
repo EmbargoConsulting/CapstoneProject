@@ -35,7 +35,7 @@ public class LiveProgram : Program
         cmd.Parameters.AddWithValue("@InvoiceID", toInsert.InvoiceID);
         cmd.Parameters.AddWithValue("@ProgramName", toInsert.ProgramName);
         cmd.Parameters.AddWithValue("@ProgramType", toInsert.ProgramType);
-        cmd.Parameters.AddWithValue("@DateTime", "1/1/2001");
+        cmd.Parameters.AddWithValue("@DateTime", toInsert.DateTime.ToString("yyyy-MM-dd hh:mm:ss"));
         cmd.Parameters.AddWithValue("@ChildAttendance", toInsert.ChildCount);
         cmd.Parameters.AddWithValue("@AdultAttendance", toInsert.AdultCount);
         cmd.Parameters.AddWithValue("@LastUpdatedBy", toInsert.LastUpdatedBy);
