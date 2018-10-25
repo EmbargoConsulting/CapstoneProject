@@ -39,7 +39,7 @@ public class LiveProgram : Program
         cmd.Parameters.AddWithValue("@ChildAttendance", toInsert.ChildCount);
         cmd.Parameters.AddWithValue("@AdultAttendance", toInsert.AdultCount);
         cmd.Parameters.AddWithValue("@LastUpdatedBy", toInsert.LastUpdatedBy);
-        cmd.Parameters.AddWithValue("@LastUpdated", "1/1/2001");
+        cmd.Parameters.AddWithValue("@LastUpdated", DateTime.Now);
         cmd.Parameters.Add("@ProgramID", SqlDbType.Int).Direction = ParameterDirection.Output;
 
 
@@ -53,12 +53,12 @@ public class LiveProgram : Program
         cmd.CommandText = "insertLiveProgram";
         cmd.CommandType = CommandType.StoredProcedure;
         cmd.Parameters.AddWithValue("@ProgramID", toInsert.ProgramID);
-        cmd.Parameters.AddWithValue("@Address", toInsert.ProgramName);
-        cmd.Parameters.AddWithValue("@City", toInsert.ProgramType);
-        cmd.Parameters.AddWithValue("@County", "1/1/2001");
-        cmd.Parameters.AddWithValue("@OnOffSite", toInsert.ChildCount);
+        cmd.Parameters.AddWithValue("@Address", toInsert.Address);
+        cmd.Parameters.AddWithValue("@City", toInsert.City);
+        cmd.Parameters.AddWithValue("@County", toInsert.County);
+        cmd.Parameters.AddWithValue("@OnOffSite", toInsert.OnOffSite);
         cmd.Parameters.AddWithValue("@LastUpdatedBy", toInsert.LastUpdatedBy);
-        cmd.Parameters.AddWithValue("@LastUpdated", "1/1/2001");
+        cmd.Parameters.AddWithValue("@LastUpdated", DateTime.Now);
 
         executeNonQuery(cmd);
 

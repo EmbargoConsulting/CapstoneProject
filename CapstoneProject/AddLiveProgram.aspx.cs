@@ -192,7 +192,7 @@ public partial class Default2 : System.Web.UI.Page
         txtTime.Text = DateTime.Now.AddHours(rand.Next(1,3)).AddMinutes(rand.Next(1,60)).ToShortTimeString();
         txtOrgName.Text = "Test Org " + randID;
         ddlPayment.SelectedIndex = rand.Next(1, 2);
-        ddlProgramType.SelectedIndex = rand.Next(1, 3);
+        ddlProgramType.SelectedIndex = rand.Next(1, 18);
         tempAnimals.Add("Test Animal");
         tempEducators.Add("Test Educator");
         blAnimals.Items.Add("Test Animal");

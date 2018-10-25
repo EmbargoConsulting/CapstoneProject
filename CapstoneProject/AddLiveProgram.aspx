@@ -40,8 +40,27 @@
             <div class="form-group">
                 <label>Program Type</label>
                 <asp:DropDownList ID="ddlProgramType" runat="server" CssClass="form-control">
+                    <asp:ListItem></asp:ListItem>
                     <asp:ListItem>Wild Winter Worlds</asp:ListItem>
                     <asp:ListItem>Home Sweet Habitat</asp:ListItem>
+                    <asp:ListItem>Display</asp:ListItem>
+                    <asp:ListItem>Special Request</asp:ListItem>
+                    <asp:ListItem>Open House</asp:ListItem>
+                    <asp:ListItem>Tour</asp:ListItem>
+                    <asp:ListItem>Whoo's Awake in the Night</asp:ListItem>
+                    <asp:ListItem>You are what you Eat</asp:ListItem>
+                    <asp:ListItem>Critters Don't Need Litter</asp:ListItem>
+                    <asp:ListItem>For Goodness Snakes</asp:ListItem>
+                    <asp:ListItem>Birds of Prey</asp:ListItem>
+                    <asp:ListItem>Treat to Release</asp:ListItem>
+                    <asp:ListItem>Classroom Visit: Owls</asp:ListItem>
+                    <asp:ListItem>Classroom Visit: Turtles</asp:ListItem>
+                    <asp:ListItem>Classroom Visit: Snakes</asp:ListItem>
+                    <asp:ListItem>Classroom Visit: Falcons</asp:ListItem>
+                    <asp:ListItem>Classroom Visit: Opossums</asp:ListItem>
+                    <asp:ListItem>Classroom Visit: Special</asp:ListItem>
+
+                
                 </asp:DropDownList>
             </div>
         </div>
