@@ -55,8 +55,8 @@ public class Program : dbConnect
         this.lastUpdatedBy = "User";
     }
 
-    //public static int commitProgram(Program toCommit)
-    //{
+    public static void commitProgram(Program toCommit)
+    {
 
 
         //    //Create string, command, and parameters
@@ -82,10 +82,10 @@ public class Program : dbConnect
         //    return id;
 
 
-    //}
+    }
 
 
-public static void populateList()
+    public static void populateList()
     {
        
     }
