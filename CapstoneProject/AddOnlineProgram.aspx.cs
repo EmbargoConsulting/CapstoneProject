@@ -128,9 +128,25 @@ public partial class Default2 : System.Web.UI.Page
 
     protected void btnSubmit_Click(object sender, EventArgs e)
     {
+        string type = ddlProgramType.SelectedItem.ToString();
+        string teacher = txtTeacher.Text;
+        string teacherEmail = txtEmail.Text;
+        string grade = txtGrade.Text;
+        string state = ddlState.Text;
+        string Country = ddlCountry.Text;
+        int child = Int32.Parse(txtChildCount.Text);
+        int adult = Int32.Parse(txtAdultCount.Text);
+        DateTime date = DateTime.Parse(txtDate.Text);
+        DateTime time = DateTime.Parse(txtTime.Text);
 
-            //Iterate through arrays 
-            foreach (string i in tempEducators)
+        Random rand = new Random();
+
+        OnlineProgram newProgram = new OnlineProgram(state, Country, grade, teacher, teacherEmail, rand.Next(111, 999), type, date, time, type, child, adult, tempAnimals, tempEducators);
+
+        OnlineProgram.insertOnlineProgram(newProgram);
+
+        //Iterate through arrays 
+        foreach (string i in tempEducators)
             {
 
             }
@@ -146,7 +162,6 @@ public partial class Default2 : System.Web.UI.Page
         txtTime.Text = "";
         clearAnimals();
         clearEducators();
-
     }
 
     protected void btnPopulate_Click(object sender, EventArgs e)
@@ -157,6 +172,19 @@ public partial class Default2 : System.Web.UI.Page
         txtAdultCount.Text = rand.Next(1,30).ToString();
         txtDate.Text = DateTime.Now.AddMonths(rand.Next(1,5)).AddDays(rand.Next(0,30)).ToShortDateString();
         txtTime.Text = DateTime.Now.AddHours(rand.Next(1,3)).AddMinutes(rand.Next(1,60)).ToShortTimeString();
-        
+        txtTeacher.Text = "Test Teacher " + randID;
+        txtEmail.Text = "teacher@school.com";
+        txtGrade.Text = rand.Next(1, 8).ToString();
+        ddlProgramType.SelectedIndex = rand.Next(1, 18);
+        ddlState.SelectedIndex = rand.Next(1, 50);
+        ddlCountry.SelectedIndex = rand.Next(1, 239);
+        tempAnimals.Add("Test Animal");
+        tempEducators.Add("Test Educator");
+        blAnimals.Items.Add("Test Animal");
+        blEducators.Items.Add("Test Educator");
+        blAnimals.Visible = true;
+        blEducators.Visible = true;
+        lblAnimalHeader.Visible = true;
+        lblEducHeader.Visible = true;
     }
 }
