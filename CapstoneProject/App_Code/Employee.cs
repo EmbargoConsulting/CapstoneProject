@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 
@@ -12,7 +14,7 @@ public class Employee : dbConnect
     private string firstName;
     private string middleName;
     private string lastName;
-    private int employeeType;
+    private string employeeType;
     private DateTime lastUpdated;
     private string lastUpdatedBy;
 
@@ -23,9 +25,8 @@ public class Employee : dbConnect
         //
     }
 
-    public Employee(int employeeID, string firstName, string middleName, string lastName, int employeeType, DateTime lastUpdated, string lastUpdatedBy)
+    public Employee(string firstName, string middleName, string lastName, string employeeType, DateTime lastUpdated, string lastUpdatedBy)
     {
-        this.EmployeeID = employeeID;
         this.FirstName = firstName;
         this.MiddleName = middleName;
         this.LastName = lastName;
@@ -34,11 +35,27 @@ public class Employee : dbConnect
         this.LastUpdatedBy = lastUpdatedBy;
     }
 
+    public static void insertEmployee(Employee toInsert)
+    {
+        SqlCommand cmd = new SqlCommand();
+        cmd.CommandText = "insertEmployee";
+        cmd.CommandType = CommandType.StoredProcedure;
+        cmd.Parameters.AddWithValue("@FirstName", toInsert.FirstName);
+        cmd.Parameters.AddWithValue("@MiddleName", toInsert.MiddleName);
+        cmd.Parameters.AddWithValue("@LastName", toInsert.LastName);
+        cmd.Parameters.AddWithValue("@EmployeeType", toInsert.EmployeeType);
+        cmd.Parameters.AddWithValue("@LastUpdatedBy", toInsert.LastUpdatedBy);
+        cmd.Parameters.AddWithValue("@LastUpdated", DateTime.Now);
+
+        executeNonQuery(cmd);
+
+    }
+
     public int EmployeeID { get => employeeID; set => employeeID = value; }
     public string FirstName { get => firstName; set => firstName = value; }
     public string MiddleName { get => middleName; set => middleName = value; }
     public string LastName { get => lastName; set => lastName = value; }
-    public int EmployeeType { get => employeeType; set => employeeType = value; }
+    public string EmployeeType { get => employeeType; set => employeeType = value; }
     public DateTime LastUpdated { get => lastUpdated; set => lastUpdated = value; }
     public string LastUpdatedBy { get => lastUpdatedBy; set => lastUpdatedBy = value; }
 }

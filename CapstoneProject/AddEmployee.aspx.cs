@@ -19,4 +19,10 @@ public partial class AddEmployee : System.Web.UI.Page
         txtEmpLast.Text = "";
         ddlEmpType.SelectedIndex = 0;
     }
+
+    protected void btnSubmit_Click(object sender, EventArgs e)
+    {
+        Employee employee = new Employee(txtEmpFirst.Text, txtEmpMiddle.Text, txtEmpLast.Text, ddlEmpType.Text, DateTime.Now, "User");
+        Employee.insertEmployee(employee);
+    }
 }

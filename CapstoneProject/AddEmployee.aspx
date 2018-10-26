@@ -34,7 +34,7 @@
     </div>
     <div class="col-lg-2">
             <div id="btn">
-                <asp:Button ID="btnSubmit" runat="server" CssClass="btn btn-primary btn-group-justified" Text="Commit Employee" /><br />
+                <asp:Button ID="btnSubmit" runat="server" CssClass="btn btn-primary btn-group-justified" Text="Commit Employee" OnClick="btnSubmit_Click" /><br />
             </div>
     </div>
     <div class="col-lg-2">
