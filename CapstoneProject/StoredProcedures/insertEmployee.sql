@@ -5,7 +5,9 @@ CREATE PROCEDURE insertEmployee
            @LastName varchar(50),
            @EmployeeType varchar(50),
            @LastUpdatedBy varchar(50),
-           @LastUpdated date
+           @LastUpdated date,
+		   @EmployeeID int OUTPUT
+
 
 as
 
@@ -23,6 +25,9 @@ INSERT INTO [dbo].[Employee]
            @EmployeeType,
            @LastUpdatedBy,
            @LastUpdated)
+
+	 SET @EmployeeID = SCOPE_IDENTITY();
+
 GO
 
 

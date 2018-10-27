@@ -46,8 +46,25 @@ public class Employee : dbConnect
         cmd.Parameters.AddWithValue("@EmployeeType", toInsert.EmployeeType);
         cmd.Parameters.AddWithValue("@LastUpdatedBy", toInsert.LastUpdatedBy);
         cmd.Parameters.AddWithValue("@LastUpdated", DateTime.Now);
+        cmd.Parameters.Add("@EmployeeID", SqlDbType.Int).Direction = ParameterDirection.Output;
 
         executeNonQuery(cmd);
+
+        //The below was testing inserting employee program.
+        //Get ID of inserted employee to reference as parent
+        //int employeeID = (Int32)cmd.Parameters["@EmployeeID"].Value;
+        //toInsert.EmployeeID = employeeID;
+
+        //cmd.Parameters.Clear();
+
+        //cmd.CommandText = "insertEmployeeProgram";
+        //cmd.CommandType = CommandType.StoredProcedure;
+        //cmd.Parameters.AddWithValue("@EmployeeID", toInsert.EmployeeID);
+        //cmd.Parameters.AddWithValue("@ProgramID", 1);
+        //cmd.Parameters.AddWithValue("@LastUpdatedBy", toInsert.LastUpdatedBy);
+        //cmd.Parameters.AddWithValue("@LastUpdated", DateTime.Now);
+
+        //executeNonQuery(cmd);
 
     }
 

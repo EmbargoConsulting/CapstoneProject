@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 
@@ -28,6 +30,19 @@ public class EmployeeProgram : dbConnect
         this.ProgramID = programID;
         this.LastUpdated = lastUpdated;
         this.LastUpdatedBy = lastUpdatedBy;
+    }
+
+    public static void insertEmployeeProgram(EmployeeProgram toInsert)
+    {
+        SqlCommand cmd = new SqlCommand();
+
+        cmd.CommandText = "insertEmployeeProgram";
+        cmd.CommandType = CommandType.StoredProcedure;
+        cmd.Parameters.AddWithValue("@EmployeeID", toInsert.EmployeeID);
+        cmd.Parameters.AddWithValue("@ProgramID", toInsert.ProgramID);
+        cmd.Parameters.AddWithValue("@LastUpdatedBy", toInsert.LastUpdatedBy);
+        cmd.Parameters.AddWithValue("@LastUpdated", DateTime.Now);
+
     }
 
     public int EmployeeID { get => employeeID; set => employeeID = value; }

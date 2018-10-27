@@ -219,5 +219,3 @@ GO
 
 ALTER TABLE [dbo].[EmployeeProgram] CHECK CONSTRAINT [FK_EmployeeProgram_Program]
 GO
-
-

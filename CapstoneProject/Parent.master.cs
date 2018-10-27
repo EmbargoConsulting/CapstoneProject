@@ -14,4 +14,6 @@ public partial class MasterPage : System.Web.UI.MasterPage
             Response.Redirect("http://localhost:57713/login2.aspx");
         }
     }
+
+
 }
