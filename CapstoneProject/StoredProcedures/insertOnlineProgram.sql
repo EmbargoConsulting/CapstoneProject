@@ -7,7 +7,7 @@ CREATE PROCEDURE insertOnlineProgram
            @TeacherName varchar(50),
            @TeacherEmail varchar(50),
            @LastUpdatedBy varchar(50),
-           @LastUpdated date
+           @LastUpdated datetime
 
 as
 

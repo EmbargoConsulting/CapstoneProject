@@ -18,7 +18,7 @@ public class LiveProgram : Program
         //
     }
 
-    public LiveProgram(int invoiceID, string programName, DateTime date, DateTime time, string programType, int childCount, int adultCount, List<string> programAnimals, List<string> programEducators, string address, int onOffSite, string city, string county) : base(invoiceID, programName, date, time, programType, childCount, adultCount, programAnimals, programEducators)
+    public LiveProgram(int invoiceID, string programName, DateTime date, DateTime time, string programType, int childCount, int adultCount, List<int> programAnimals, List<int> programEducators, string address, int onOffSite, string city, string county) : base(invoiceID, programName, date, time, programType, childCount, adultCount, programAnimals, programEducators)
     {
         //this.ProgramID = programID;
         this.Address = address;
@@ -30,6 +30,8 @@ public class LiveProgram : Program
     public static void insertLiveProgram(LiveProgram toInsert)
     {
         SqlCommand cmd = new SqlCommand();
+
+        //Insert Supertype
         cmd.CommandText = "insertProgram";
         cmd.CommandType = CommandType.StoredProcedure;
         cmd.Parameters.AddWithValue("@InvoiceID", toInsert.InvoiceID);
@@ -41,8 +43,6 @@ public class LiveProgram : Program
         cmd.Parameters.AddWithValue("@LastUpdatedBy", toInsert.LastUpdatedBy);
         cmd.Parameters.AddWithValue("@LastUpdated", DateTime.Now);
         cmd.Parameters.Add("@ProgramID", SqlDbType.Int).Direction = ParameterDirection.Output;
-
-
         executeNonQuery(cmd);
 
         int programID = (Int32)cmd.Parameters["@ProgramID"].Value;
@@ -50,6 +50,7 @@ public class LiveProgram : Program
 
         cmd.Parameters.Clear();
 
+        //Insert Subtype
         cmd.CommandText = "insertLiveProgram";
         cmd.CommandType = CommandType.StoredProcedure;
         cmd.Parameters.AddWithValue("@ProgramID", toInsert.ProgramID);
@@ -59,8 +60,22 @@ public class LiveProgram : Program
         cmd.Parameters.AddWithValue("@OnOffSite", toInsert.OnOffSite);
         cmd.Parameters.AddWithValue("@LastUpdatedBy", toInsert.LastUpdatedBy);
         cmd.Parameters.AddWithValue("@LastUpdated", DateTime.Now);
-
         executeNonQuery(cmd);
+
+        //Insert Employees
+        foreach(int id in toInsert.ProgramEducators)
+        {
+            EmployeeProgram newEmployeeProgram = new EmployeeProgram(id, programID);
+            EmployeeProgram.insertEmployeeProgram(newEmployeeProgram);
+        }
+
+        //Insert Animals
+        foreach(int id in toInsert.ProgramAnimals)
+        {
+            AnimalProgram newAnimalProgram = new AnimalProgram(id, programID);
+            AnimalProgram.insertAnimalProgram(newAnimalProgram);
+        }
+
 
     }
 

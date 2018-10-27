@@ -24,12 +24,12 @@ public class EmployeeProgram : dbConnect
         //
     }
 
-    public EmployeeProgram(int employeeID, int programID, DateTime lastUpdated, string lastUpdatedBy)
+    public EmployeeProgram(int employeeID, int programID)
     {
         this.EmployeeID = employeeID;
         this.ProgramID = programID;
-        this.LastUpdated = lastUpdated;
-        this.LastUpdatedBy = lastUpdatedBy;
+        this.LastUpdated = DateTime.Now;
+        this.LastUpdatedBy = "User";
     }
 
     public static void insertEmployeeProgram(EmployeeProgram toInsert)
@@ -42,6 +42,7 @@ public class EmployeeProgram : dbConnect
         cmd.Parameters.AddWithValue("@ProgramID", toInsert.ProgramID);
         cmd.Parameters.AddWithValue("@LastUpdatedBy", toInsert.LastUpdatedBy);
         cmd.Parameters.AddWithValue("@LastUpdated", DateTime.Now);
+        executeNonQuery(cmd);
 
     }
 

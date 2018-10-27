@@ -12,8 +12,6 @@ using System.Data;
 public class Program : dbConnect
 {
     private static ArrayList programList = new ArrayList();
-    private List<string> programAnimals;
-    private List<string> programEducators;
 
     public DateTime LastUpdated { get; set; }
     public string LastUpdatedBy { get; set; }
@@ -24,6 +22,8 @@ public class Program : dbConnect
     public int ChildCount { get; set; }
     public int AdultCount { get; set; }
     public int ProgramID { get; set; }
+    public List<int> ProgramAnimals { get; set; }
+    public List<int> ProgramEducators { get; set; }
 
     public Program()
     {
@@ -40,7 +40,7 @@ public class Program : dbConnect
     //    this.programAnimals = new List<string>();
     //}
 
-    public Program(int invoiceID, string programName, DateTime date, DateTime time, string programType, int childCount, int adultCount, List<string> programAnimals, List<string> programEducators)
+    public Program(int invoiceID, string programName, DateTime date, DateTime time, string programType, int childCount, int adultCount, List<int> programAnimals, List<int> programEducators)
     {
         //this.programID = programID;
         this.InvoiceID = invoiceID;
@@ -49,8 +49,8 @@ public class Program : dbConnect
         this.ProgramType = programType;
         this.ChildCount = childCount;
         this.AdultCount = adultCount;
-        this.programAnimals = programAnimals;
-        this.programEducators = programEducators;
+        this.ProgramAnimals = programAnimals;
+        this.ProgramEducators = programEducators;
         this.LastUpdated = DateTime.Now;
         this.LastUpdatedBy = "User";
     }
@@ -69,12 +69,12 @@ public class Program : dbConnect
 
     public void addEducator(int id)
     {
-        this.programEducators.Add(id.ToString());   
+        this.ProgramEducators.Add(id);   
     }
 
     public void addAnimal(int id)
     {
-        this.programAnimals.Add(id.ToString());
+        this.ProgramAnimals.Add(id);
     }
 
 }

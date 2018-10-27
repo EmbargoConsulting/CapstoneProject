@@ -69,14 +69,14 @@
                 <label>Educators</label>
                 <asp:DropDownList ID="ddlEducators" runat="server" CssClass="form-control">
                     <asp:ListItem></asp:ListItem>
-                    <asp:ListItem Value="1">Raina</asp:ListItem>
+<%--                    <asp:ListItem Value="1">Raina</asp:ListItem>
                     <asp:ListItem Value="2">Alex</asp:ListItem>
                     <asp:ListItem Value="3">Ed</asp:ListItem>
                     <asp:ListItem Value="4">Shelly</asp:ListItem>
                     <asp:ListItem Value="5">Peg</asp:ListItem>
                     <asp:ListItem Value="6">Lydia</asp:ListItem>
                     <asp:ListItem Value="7">Doug</asp:ListItem>
-                    <asp:ListItem Value="8">Amanda</asp:ListItem>
+                    <asp:ListItem Value="8">Amanda</asp:ListItem>--%>
                 </asp:DropDownList>
             </div>
             <div class="form-group">
