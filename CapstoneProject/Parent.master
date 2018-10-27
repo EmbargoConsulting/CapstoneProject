@@ -118,6 +118,20 @@
                             <a href="#"><i class="fa fa-edit fa-fw"></i> Forms</a>
                         </li>
 
+                            <li>
+                            <a href="#"><i class="fa fa-cogs fa-fw"></i>Administrative<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="AddUser.aspx">Add User</a>
+                                </li>
+                                <li>
+                                    <a href="ViewUser.aspx">View Users</a>
+                                </li>
+                                <li>
+                                    <a href="ChangePassword.aspx">Change Password</a>
+                                </li>
+                            </ul>
+                        </li>
                         <!-- This is a default navbar item, commented out for later reference -->
                         <%--<li>
                             <a href="#"><i class="fa fa-wrench fa-fw"></i> UI Elements<span class="fa arrow"></span></a>
