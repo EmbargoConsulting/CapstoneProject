@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Data.SqlClient;
+using System.Data;
 
 /// <summary>
 /// Summary description for AnimalProgram
@@ -20,12 +22,25 @@ public class AnimalProgram : dbConnect
         //
     }
 
-    public AnimalProgram(int animalID, int programID, DateTime lastUpdated, string lastUpdatedBy)
+    public AnimalProgram(int animalID, int programID)
     {
         AnimalID = animalID;
         ProgramID = programID;
-        this.LastUpdated = lastUpdated;
-        this.LastUpdatedBy = lastUpdatedBy;
+        this.LastUpdated = DateTime.Now;
+        this.LastUpdatedBy = "User";
+    }
+
+    public static void insertAnimalProgram(AnimalProgram toInsert)
+    {
+        SqlCommand cmd = new SqlCommand();
+        cmd.CommandText = "insertAnimalProgram";
+        cmd.CommandType = CommandType.StoredProcedure;
+        cmd.Parameters.AddWithValue("@AnimalID", toInsert.AnimalID);
+        cmd.Parameters.AddWithValue("@ProgramID", toInsert.ProgramID);
+        cmd.Parameters.AddWithValue("@LastUpdatedBy", toInsert.LastUpdatedBy);
+        cmd.Parameters.AddWithValue("@LastUpdated", DateTime.Now);
+        executeNonQuery(cmd);
+
     }
 
     public int AnimalID { get => animalID; set => animalID = value; }

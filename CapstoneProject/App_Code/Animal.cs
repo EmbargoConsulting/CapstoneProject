@@ -10,14 +10,6 @@ using System.Web;
 /// </summary>
 public class Animal : dbConnect
 {
-    private int animalID;
-    private string animalName;
-    private string animalType;
-    private string animalSpecies;
-    private Boolean checkedInStatus;
-    private DateTime lastUpdated;
-    private string lastUpdatedBy;
-
     public Animal()
     {
         //
@@ -35,6 +27,12 @@ public class Animal : dbConnect
         this.LastUpdatedBy = lastUpdatedBy;
     }
 
+    public Animal(int id, string name)
+    {
+        AnimalID = id;
+        AnimalName = name;
+    }
+
     public static void insertAnimal(Animal toInsert)
     {
         SqlCommand cmd = new SqlCommand();
@@ -50,11 +48,40 @@ public class Animal : dbConnect
         executeNonQuery(cmd);
     }
 
-    public int AnimalID { get => animalID; set => animalID = value; }
-    public string AnimalName { get => animalName; set => animalName = value; }
-    public string AnimalType { get => animalType; set => animalType = value; }
-    public string AnimalSpecies { get => animalSpecies; set => animalSpecies = value; }
-    public bool CheckedInStatus { get => checkedInStatus; set => checkedInStatus = value; }
-    public DateTime LastUpdated { get => lastUpdated; set => lastUpdated = value; }
-    public string LastUpdatedBy { get => lastUpdatedBy; set => lastUpdatedBy = value; }
+    public static List<Animal> getAnimalList() 
+    {
+        List<Animal> list = new List<Animal>();
+        string query = "SELECT AnimalID, AnimalName FROM Animal;";
+        using (SqlConnection con = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["Project"].ConnectionString))
+        {
+            SqlCommand cmdSelect = new SqlCommand(query, con);
+            con.Open();
+            SqlDataReader reader = cmdSelect.ExecuteReader();
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+                    int id = reader.GetInt32(0);
+                    string name = reader.GetString(1);
+                    Animal newAnimal = new Animal(id, name);
+                    list.Add(newAnimal);
+                }
+            }
+        }
+
+        return list;
+    }
+
+    public string getAnimalDescription()
+    {
+        return AnimalName + " - " + AnimalSpecies;
+    }
+
+    public int AnimalID { get; set; }
+    public string AnimalName { get; set; }
+    public string AnimalType { get; set; }
+    public string AnimalSpecies { get; set; }
+    public bool CheckedInStatus { get; set; }
+    public DateTime LastUpdated { get; set; }
+    public string LastUpdatedBy { get; set; }
 }

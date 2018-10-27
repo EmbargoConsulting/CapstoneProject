@@ -10,14 +10,6 @@ using System.Web;
 /// </summary>
 public class Employee : dbConnect
 {
-    private int employeeID;
-    private string firstName;
-    private string middleName;
-    private string lastName;
-    private string employeeType;
-    private DateTime lastUpdated;
-    private string lastUpdatedBy;
-
     public Employee()
     {
         //
@@ -33,6 +25,38 @@ public class Employee : dbConnect
         this.EmployeeType = employeeType;
         this.LastUpdated = lastUpdated;
         this.LastUpdatedBy = lastUpdatedBy;
+    }
+
+    public Employee(int id, string firstName, string lastName)
+    {
+        EmployeeID = id;
+        FirstName = firstName;
+        LastName = lastName;
+    }
+
+    public static List<Employee> getEmployeeList()
+    {
+        List<Employee> list = new List<Employee>();
+        string query = "SELECT EmployeeID, FirstName, LastName FROM Employee;";
+        using (SqlConnection con = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["Project"].ConnectionString))
+        {
+            SqlCommand cmdSelect = new SqlCommand(query, con);
+            con.Open();
+            SqlDataReader reader = cmdSelect.ExecuteReader();
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+                    int id = reader.GetInt32(0);
+                    string firstName = reader.GetString(1);
+                    string lastName = reader.GetString(2);
+                    Employee newEmployee = new Employee(id, firstName, lastName);
+                    list.Add(newEmployee);
+                }
+            }
+        }
+    
+            return list;
     }
 
     public static void insertEmployee(Employee toInsert)
@@ -68,11 +92,16 @@ public class Employee : dbConnect
 
     }
 
-    public int EmployeeID { get => employeeID; set => employeeID = value; }
-    public string FirstName { get => firstName; set => firstName = value; }
-    public string MiddleName { get => middleName; set => middleName = value; }
-    public string LastName { get => lastName; set => lastName = value; }
-    public string EmployeeType { get => employeeType; set => employeeType = value; }
-    public DateTime LastUpdated { get => lastUpdated; set => lastUpdated = value; }
-    public string LastUpdatedBy { get => lastUpdatedBy; set => lastUpdatedBy = value; }
+    public string getFullName()
+    {
+        return FirstName + LastName;
+    }
+
+    public int EmployeeID { get; set; }
+    public string FirstName { get; set; }
+    public string MiddleName { get; set; }
+    public string LastName { get; set; }
+    public string EmployeeType { get; set; }
+    public DateTime LastUpdated { get; set; }
+    public string LastUpdatedBy { get; set; }
 }

@@ -10,6 +10,8 @@ using System.Data;
 /// </summary>
 public class OnlineProgram : Program
 {
+
+    //Auto-properties
     public string State { get; set; }
     public string Country { get; set; }
     public string Grade { get; set; }
@@ -17,19 +19,18 @@ public class OnlineProgram : Program
     public string TeacherEmail { get; set; }
 
 
-    public OnlineProgram(string state, string country, string grade, string teacherName, string teacherEmail, int invoiceID, string programName, DateTime date, DateTime time, string programType, int childCount, int adultCount, List<string> programAnimals, List<string> programEducators) : base(invoiceID, programName, date, time, programType, childCount, adultCount, programAnimals, programEducators)
+    public OnlineProgram(string state, string country, string grade, string teacherName, string teacherEmail, int invoiceID, string programName, DateTime date, DateTime time, string programType, int childCount, int adultCount, List<int> programAnimals, List<int> programEducators) : base(invoiceID, programName, date, time, programType, childCount, adultCount, programAnimals, programEducators)
     {
-        //this.ProgramID = programID;
-        this.State = state;
-        this.Country = country;
-        this.Grade = grade;
-        this.TeacherName = teacherName;
-        this.TeacherEmail = teacherEmail;
-
+        State = state;
+        Country = country;
+        Grade = grade;
+        TeacherName = teacherName;
+        TeacherEmail = teacherEmail;
     }
 
     public static void insertOnlineProgram(OnlineProgram toInsert)
     {
+        //Insert program supertype
         SqlCommand cmd = new SqlCommand();
         cmd.CommandText = "insertProgram";
         cmd.CommandType = CommandType.StoredProcedure;
@@ -51,6 +52,7 @@ public class OnlineProgram : Program
 
         cmd.Parameters.Clear();
 
+        //Insert online program subtype
         cmd.CommandText = "insertOnlineProgram";
         cmd.CommandType = CommandType.StoredProcedure;
         cmd.Parameters.AddWithValue("@ProgramID", toInsert.ProgramID);

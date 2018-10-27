@@ -7,8 +7,8 @@ using System.Web.UI.WebControls;
 
 public partial class Default2 : System.Web.UI.Page
 {
-    private static List<string> tempEducators = new List<string>();
-    private static List<string> tempAnimals = new List<string>();
+    private static List<int> tempEducators = new List<int>();
+    private static List<int> tempAnimals = new List<int>();
 
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -19,11 +19,25 @@ public partial class Default2 : System.Web.UI.Page
             blAnimals.Visible = false;
             blEducators.Visible = false;
             btnClearEducators.Visible = false;
-            tempEducators = new List<string>();
-            tempAnimals = new List<string>();
+            tempEducators = new List<int>();
+            tempAnimals = new List<int>();
             lblAnimalHeader.Visible = false;
             lblEducHeader.Visible = false;
             btnClearAnimals.Visible = false;
+
+            //Populate DropDown
+            int index = 1;
+            foreach (Employee employee in Employee.getEmployeeList())
+            {
+                ddlEducators.Items.Insert(index, new ListItem(employee.getFullName(), employee.EmployeeID.ToString()));
+            }
+
+            index = 1;
+
+            foreach (Animal animal in Animal.getAnimalList())
+            {
+                ddlAnimals.Items.Insert(index, new ListItem(animal.getAnimalDescription(), animal.AnimalID.ToString()));
+            }
 
 
         }
@@ -31,12 +45,13 @@ public partial class Default2 : System.Web.UI.Page
 
     protected void btnAddAnimal_Click(object sender, EventArgs e)
     {
-        if(ddlAnimals.SelectedIndex > 0)
+        if (ddlAnimals.SelectedIndex > 0)
         {
             string animal = ddlAnimals.SelectedItem.ToString();
-            if (checkValue(animal, "animal"))
+            int animalID = Int32.Parse(ddlAnimals.SelectedValue);
+            if (checkValue(animalID, "animal"))
             {
-                tempAnimals.Add(animal);
+                tempAnimals.Add(animalID);
                 blAnimals.Items.Add(animal);
                 blAnimals.Visible = true;
                 lblAnimalHeader.Visible = true;
@@ -52,10 +67,11 @@ public partial class Default2 : System.Web.UI.Page
         if (ddlEducators.SelectedIndex > 0)
         {
             string educator = ddlEducators.SelectedItem.ToString();
-            if (checkValue(educator, "educator"))
+            int educatorID = Int32.Parse(ddlEducators.SelectedValue);
+            if (checkValue(educatorID, "educator"))
             {
                 blEducators.Items.Add(educator);
-                tempEducators.Add(educator);
+                tempEducators.Add(educatorID);
                 btnClearEducators.Visible = true;
                 blEducators.Visible = true;
                 lblEducHeader.Visible = true;
@@ -65,12 +81,11 @@ public partial class Default2 : System.Web.UI.Page
 
 
     }
-
-    public bool checkValue(string valueToCheck, string typeToCheck)
+    public bool checkValue(int valueToCheck, string typeToCheck)
     {
         if (typeToCheck == "educator")
         {
-            foreach (string s in tempEducators)
+            foreach (int s in tempEducators)
             {
                 if (s.Equals(valueToCheck))
                 {
@@ -81,7 +96,7 @@ public partial class Default2 : System.Web.UI.Page
         }
         else if (typeToCheck == "animal")
         {
-            foreach (string s in tempAnimals)
+            foreach (int s in tempAnimals)
             {
                 if (s.Equals(valueToCheck))
                 {
@@ -145,11 +160,6 @@ public partial class Default2 : System.Web.UI.Page
 
         OnlineProgram.insertOnlineProgram(newProgram);
 
-        //Iterate through arrays 
-        foreach (string i in tempEducators)
-            {
-
-            }
 
         
     }
@@ -178,8 +188,8 @@ public partial class Default2 : System.Web.UI.Page
         ddlProgramType.SelectedIndex = rand.Next(1, 18);
         ddlState.SelectedIndex = rand.Next(1, 50);
         ddlCountry.SelectedIndex = rand.Next(1, 239);
-        tempAnimals.Add("Test Animal");
-        tempEducators.Add("Test Educator");
+        tempAnimals.Add(1);
+        tempEducators.Add(1);
         blAnimals.Items.Add("Test Animal");
         blEducators.Items.Add("Test Educator");
         blAnimals.Visible = true;

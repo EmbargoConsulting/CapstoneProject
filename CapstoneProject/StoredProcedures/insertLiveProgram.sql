@@ -6,7 +6,7 @@ CREATE PROCEDURE insertLiveProgram
            @County varchar(50),
            @OnOffSite bit,
            @LastUpdatedBy varchar(50),
-           @LastUpdated nchar(10)
+           @LastUpdated DateTime
 
 as
 INSERT INTO [dbo].[LiveProgram]
