@@ -27,10 +27,11 @@ public class Animal : dbConnect
         this.LastUpdatedBy = lastUpdatedBy;
     }
 
-    public Animal(int id, string name)
+    public Animal(int id, string name, string species)
     {
         AnimalID = id;
         AnimalName = name;
+        AnimalSpecies = species;
     }
 
     public static void insertAnimal(Animal toInsert)
@@ -51,7 +52,7 @@ public class Animal : dbConnect
     public static List<Animal> getAnimalList() 
     {
         List<Animal> list = new List<Animal>();
-        string query = "SELECT AnimalID, AnimalName FROM Animal;";
+        string query = "SELECT AnimalID, AnimalName, AnimalSpecies FROM Animal;";
         using (SqlConnection con = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["Project"].ConnectionString))
         {
             SqlCommand cmdSelect = new SqlCommand(query, con);
@@ -63,7 +64,8 @@ public class Animal : dbConnect
                 {
                     int id = reader.GetInt32(0);
                     string name = reader.GetString(1);
-                    Animal newAnimal = new Animal(id, name);
+                    string species = reader.GetString(2);
+                    Animal newAnimal = new Animal(id, name, species);
                     list.Add(newAnimal);
                 }
             }

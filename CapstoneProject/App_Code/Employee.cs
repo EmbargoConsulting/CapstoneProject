@@ -94,7 +94,7 @@ public class Employee : dbConnect
 
     public string getFullName()
     {
-        return FirstName + LastName;
+        return FirstName + " " + LastName;
     }
 
     public int EmployeeID { get; set; }
