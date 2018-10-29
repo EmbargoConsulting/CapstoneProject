@@ -22,7 +22,11 @@ public partial class AddEmployee : System.Web.UI.Page
 
     protected void btnSubmit_Click(object sender, EventArgs e)
     {
-        Employee employee = new Employee(txtEmpFirst.Text, txtEmpMiddle.Text, txtEmpLast.Text, ddlEmpType.Text, DateTime.Now, "User");
-        Employee.insertEmployee(employee);
+        if(ddlEmpType.SelectedIndex > 0)
+        {
+            Employee employee = new Employee(txtEmpFirst.Text, txtEmpMiddle.Text, txtEmpLast.Text, ddlEmpType.Text, DateTime.Now, "User");
+            Employee.insertEmployee(employee);
+        }
+
     }
 }

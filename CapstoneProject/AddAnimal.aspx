@@ -16,7 +16,8 @@
             </div>
             <div class="form-group">
                 <label>Animal Type</label>
-                <asp:DropDownList ID="ddlAnimalType" runat="server" class="form-control">
+                <asp:DropDownList ID="ddlAnimalType" runat="server"  required="required"  class="form-control">
+                    <asp:ListItem></asp:ListItem>
                     <asp:ListItem Value="Bird">Bird</asp:ListItem>
                     <asp:ListItem Value ="Mammal">Mammal</asp:ListItem>
                     <asp:ListItem Value ="Reptile">Reptile</asp:ListItem>

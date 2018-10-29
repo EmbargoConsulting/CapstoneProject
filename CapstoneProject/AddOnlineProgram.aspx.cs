@@ -170,8 +170,14 @@ public partial class Default2 : System.Web.UI.Page
         txtAdultCount.Text = "";
         txtDate.Text = "";
         txtTime.Text = "";
+        txtTeacher.Text = "";
+        txtEmail.Text = "";
+        txtGrade.Text = "";
         clearAnimals();
         clearEducators();
+        ddlProgramType.SelectedIndex = 0;
+        ddlState.SelectedIndex = 0;
+        ddlCountry.SelectedIndex = 0;
     }
 
     protected void btnPopulate_Click(object sender, EventArgs e)

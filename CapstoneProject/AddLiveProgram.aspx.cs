@@ -186,6 +186,8 @@ public partial class Default2 : System.Web.UI.Page
 
     protected void clearText()
     {
+        ddlOnSite.SelectedIndex = 0;
+        ddlStatus.SelectedIndex = 0;
         txtAddress.Text = "";
         txtCity.Text = "";
         txtCounty.Text = "";
@@ -194,6 +196,13 @@ public partial class Default2 : System.Web.UI.Page
         txtDate.Text = "";
         txtTime.Text = "";
         txtOrgName.Text = "";
+        ddlOnSite.SelectedIndex = 0;
+        ddlStatus.SelectedIndex = 0;
+        ddlPayment.SelectedIndex = 0;
+        ddlPayment.SelectedIndex = 0;
+        ddlEducators.SelectedIndex = 0;
+        ddlAnimals.SelectedIndex = 0;
+        ddlProgramType.SelectedIndex = 0;
 
     }
 
@@ -233,6 +242,8 @@ public partial class Default2 : System.Web.UI.Page
         lblEducHeader.Visible = true;
         btnClearAnimals.Visible = true;
         btnClearEducators.Visible = true;
+        ddlOnSite.SelectedIndex = rand.Next(1, 2);
+        ddlStatus.SelectedIndex = rand.Next(1, 2);
 
     }
 

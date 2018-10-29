@@ -24,7 +24,8 @@
             </div>
             <div class="form-group">
                 <label>Employee Type</label>
-                <asp:DropDownList ID="ddlEmpType" runat="server" class="form-control">
+                <asp:DropDownList ID="ddlEmpType" runat="server"  required="required"  class="form-control">
+                    <asp:ListItem></asp:ListItem>
                     <asp:ListItem Value="Salaried">Salaried</asp:ListItem>
                     <asp:ListItem Value ="Volunteer">Volunteer</asp:ListItem>
                 </asp:DropDownList>

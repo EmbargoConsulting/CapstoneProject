@@ -10,9 +10,20 @@
             <div class="form-group">
                 <label>Program Type</label>
                 <asp:DropDownList ID="ddlProgramType" runat="server" CssClass="form-control">
+                    <asp:ListItem></asp:ListItem>
                     <asp:ListItem>Book Club</asp:ListItem>
                     <asp:ListItem>Cam in the Classroom</asp:ListItem>
-                </asp:DropDownList>
+                    <asp:ListItem>Hospital Cam</asp:ListItem>
+                    <asp:ListItem>Wildlife Center Classroom Series</asp:ListItem>
+                    <asp:ListItem>Special Guest</asp:ListItem>
+                    <asp:ListItem>Special Event</asp:ListItem>
+                    <asp:ListItem>Skype: Owls</asp:ListItem>
+                    <asp:ListItem>Skype: Turtles</asp:ListItem>
+                    <asp:ListItem>Skype: Opossums</asp:ListItem>
+                    <asp:ListItem>Skype: Snakes</asp:ListItem>
+
+               </asp:DropDownList>
+
             </div>
             <div class="form-group">
                 <label>Teacher</label>
@@ -333,23 +344,13 @@
                 <label>Educators</label>
                 <asp:DropDownList ID="ddlEducators" runat="server" CssClass="form-control">
                     <asp:ListItem></asp:ListItem>
-                    <asp:ListItem Value="1">Raina</asp:ListItem>
-                    <asp:ListItem Value="2">Alex</asp:ListItem>
-                    <asp:ListItem Value="3">Ed</asp:ListItem>
-                    <asp:ListItem Value="4">Shelly</asp:ListItem>
-                    <asp:ListItem Value="5">Peg</asp:ListItem>
-                    <asp:ListItem Value="6">Lydia</asp:ListItem>
-                    <asp:ListItem Value="7">Doug</asp:ListItem>
-                    <asp:ListItem Value="8">Amanda</asp:ListItem>
                 </asp:DropDownList>
             </div>
             <div class="form-group">
                 <label>Animals</label>
                 <asp:DropDownList ID="ddlAnimals" runat="server" CssClass="form-control">
                     <asp:ListItem> </asp:ListItem>
-                    <asp:ListItem Value="1">Bird</asp:ListItem>
-                    <asp:ListItem Value="2">Possum</asp:ListItem>
-
+                    <asp:ListItem></asp:ListItem>
                 </asp:DropDownList>
 
             </div>

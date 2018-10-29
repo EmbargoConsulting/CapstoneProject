@@ -13,14 +13,16 @@
             </div>
             <div class="form-group">
                 <label>On or Off Site?</label>
-                <asp:DropDownList ID="ddlOnSite" runat="server" class="form-control">
+                <asp:DropDownList ID="ddlOnSite" runat="server"  required="required"  class="form-control">
+                    <asp:ListItem></asp:ListItem>
                     <asp:ListItem Value="1">On Site</asp:ListItem>
                     <asp:ListItem Value ="0">Off Site</asp:ListItem>
                 </asp:DropDownList>
             </div>
             <div class="form-group">
                 <label>Status</label>
-                <asp:DropDownList ID="ddlStatus" runat="server" class="form-control">
+                <asp:DropDownList ID="ddlStatus" runat="server" required="required"   class="form-control">
+                    <asp:ListItem></asp:ListItem>
                     <asp:ListItem Value="1">Completed</asp:ListItem>
                     <asp:ListItem Value="0">Scheduled</asp:ListItem>
                 </asp:DropDownList>
@@ -39,7 +41,7 @@
             </div>
             <div class="form-group">
                 <label>Program Type</label>
-                <asp:DropDownList ID="ddlProgramType" runat="server" CssClass="form-control">
+                <asp:DropDownList ID="ddlProgramType" runat="server" required="required"   CssClass="form-control">
                     <asp:ListItem></asp:ListItem>
                     <asp:ListItem>Wild Winter Worlds</asp:ListItem>
                     <asp:ListItem>Home Sweet Habitat</asp:ListItem>
@@ -82,10 +84,7 @@
             <div class="form-group">
                 <label>Animals</label>
                 <asp:DropDownList ID="ddlAnimals" runat="server" CssClass="form-control">
-                    <asp:ListItem> </asp:ListItem>
-                    <asp:ListItem Value="1">Bird</asp:ListItem>
-                    <asp:ListItem Value="2">Possum</asp:ListItem>
-                
+                    <asp:ListItem> </asp:ListItem>                
                 </asp:DropDownList>
 
             </div>
@@ -108,7 +107,7 @@
             </div>
             <div class="form-group">
                 <label>Payment Received?</label>
-                <asp:DropDownList ID="ddlPayment" CssClass="form-control" runat="server">
+                <asp:DropDownList ID="ddlPayment" required="required" CssClass="form-control" runat="server">
                     <asp:ListItem></asp:ListItem>
                     <asp:ListItem Value="true">Yes</asp:ListItem>
                     <asp:ListItem Value="false">No</asp:ListItem>

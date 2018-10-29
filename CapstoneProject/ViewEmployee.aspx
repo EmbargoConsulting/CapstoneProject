@@ -7,7 +7,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="ChildContent1" Runat="Server">
 
     <h2 class="page-header">View Employees</h2>
-        
+        <div class="col-lg-9">
         <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" CssClass="table table-striped table-bordered"  CellPadding="4" DataKeyNames="Employee ID" DataSourceID="SqlDataSource_ViewEmployee" ForeColor="#333333" GridLines="None">
             <AlternatingRowStyle BackColor="White" />
             <Columns>
@@ -32,6 +32,8 @@
 
     <asp:SqlDataSource ID="SqlDataSource_ViewEmployee" runat="server" ConnectionString="<%$ ConnectionStrings:Project %>" SelectCommand="SELECT [EmployeeID] as 'Employee ID', [FirstName] as 'First Name', [MiddleName] as 'Middle Name', [LastName] as 'Last Name', [EmployeeType] as 'Employee Type' FROM [Employee]"></asp:SqlDataSource>
     
+        </div>
+
 
 </asp:Content>
 

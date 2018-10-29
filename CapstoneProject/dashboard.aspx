@@ -60,11 +60,11 @@
                                     <i class="fa fa-calendar-o fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                    <div>Create an Event</div>
+                                    <div>Create a Program</div>
                                 </div>
                             </div>
                         </div>
-                        <a href="#">
+                        <a href="AddLiveProgram.aspx">
                             <div class="panel-footer">
                                 <span class="pull-left">Get Started</span>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -81,11 +81,11 @@
                                     <i class="fa fa-users fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                    <div>Create/Manage Users</div>
+                                    <div>Create/Manage Employees</div>
                                 </div>
                             </div>
                         </div>
-                        <a href="#">
+                        <a href="AddEmployee.aspx">
                             <div class="panel-footer">
                                 <span class="pull-left">Get Started</span>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -106,7 +106,7 @@
                                 </div>
                             </div>
                         </div>
-                        <a href="#">
+                        <a href="AddAnimal.aspx">
                             <div class="panel-footer">
                                 <span class="pull-left">Get Started</span>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
