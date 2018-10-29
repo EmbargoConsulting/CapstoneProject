@@ -12,7 +12,6 @@ public partial class Default2 : System.Web.UI.Page
 
     protected void Page_Load(object sender, EventArgs e)
     {
-
         //On first load
         if (!Page.IsPostBack)
         {
@@ -39,8 +38,8 @@ public partial class Default2 : System.Web.UI.Page
                 ddlAnimals.Items.Insert(index, new ListItem(animal.getAnimalDescription(), animal.AnimalID.ToString()));
             }
 
-
         }
+
     }
 
     protected void btnAddAnimal_Click(object sender, EventArgs e)
