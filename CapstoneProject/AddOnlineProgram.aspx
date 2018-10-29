@@ -39,7 +39,7 @@
             </div>
             <div class="form-group">
                 <label>State</label>
-                <asp:DropDownList ID="ddlState" CssClass="form-control" runat="server">
+                <asp:DropDownList ID="ddlState"  required="required" CssClass="form-control" runat="server">
                     <asp:ListItem Value=""></asp:ListItem>
                     <asp:ListItem Value="AL">Alabama</asp:ListItem>
                     <asp:ListItem Value="AK">Alaska</asp:ListItem>
@@ -96,7 +96,7 @@
             </div>
             <div class="form-group">
                 <label>Country</label>
-                <asp:DropDownList ID="ddlCountry" AutoPostBack="true" CssClass="form-control" runat="server">
+                <asp:DropDownList ID="ddlCountry" AutoPostBack="true" required="required"  CssClass="form-control" runat="server">
                     <asp:ListItem Value=""></asp:ListItem>
                     <asp:ListItem Value="AF">Afghanistan</asp:ListItem>
                     <asp:ListItem Value="AL">Albania</asp:ListItem>

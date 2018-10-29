@@ -1,22 +1,15 @@
-﻿<%@ Master Language="C#" MasterPageFile="~/Child.master" CodeFile="~/Program.master.cs" Inherits="Program"%>
+﻿<%@ Master Language="C#" MasterPageFile="~/Child.master" CodeFile="~/Program.master.cs" Inherits="Program" %>
 
-<script runat="server">
 
-    protected void btnLiveProgram_Click(object sender, EventArgs e)
-    {
-        Response.Redirect("AddLiveProgram.aspx");
-        btnOnlineProgram.CssClass = "btn btn-default";
 
-    }
-
-</script>
-
-<asp:Content id="ProgramContent" ContentPlaceholderID="ChildContent1" runat="server">
+<asp:Content ID="ProgramContent" ContentPlaceHolderID="ChildContent1" runat="server">
 
     <div class="page-header">
-     <h2 class="page-header">Add a Program</h2>
-    <asp:Button ID="btnLiveProgram"  formnovalidate="formnovalidate" runat="server" Text="Live Program" CssClass="btn btn-primary" OnClick="btnLiveProgram_Click"  />
-    <asp:LinkButton ID="btnOnlineProgram"  formnovalidate="formnovalidate" runat="server" href="AddOnlineProgram.aspx" Text="Online Program" CssClass="btn btn-primary" />
+        <asp:Label CssClass="page-header" ID="lblProgramHeader" runat="server"></asp:Label>
+        <div class="btn-group">
+            <asp:LinkButton ID="btnLiveProgram" formnovalidate="formnovalidate" runat="server" href="AddLiveProgram.aspx" Text="Live Program" CssClass="btn btn-primary" />
+            <asp:LinkButton ID="btnOnlineProgram" formnovalidate="formnovalidate" runat="server" href="AddOnlineProgram.aspx" Text="Online Program" CssClass="btn btn-primary" />
+        </div>
 
     </div>
     <asp:ContentPlaceHolder ID="ChildContent1" runat="server" />

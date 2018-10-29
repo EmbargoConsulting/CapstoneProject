@@ -158,25 +158,18 @@ public partial class Default2 : System.Web.UI.Page
         OnlineProgram newProgram = new OnlineProgram(state, Country, grade, teacher, teacherEmail, rand.Next(111, 999), type, date, time, type, child, adult, tempAnimals, tempEducators);
 
         OnlineProgram.insertOnlineProgram(newProgram);
-
+        clearText();
+        clearAnimals();
+        clearEducators();
 
         
     }
 
     protected void btnClearAll_Click(object sender, EventArgs e)
     {
-        txtChildCount.Text = "";
-        txtAdultCount.Text = "";
-        txtDate.Text = "";
-        txtTime.Text = "";
-        txtTeacher.Text = "";
-        txtEmail.Text = "";
-        txtGrade.Text = "";
-        clearAnimals();
+        clearText();
         clearEducators();
-        ddlProgramType.SelectedIndex = 0;
-        ddlState.SelectedIndex = 0;
-        ddlCountry.SelectedIndex = 0;
+        clearAnimals();
     }
 
     protected void btnPopulate_Click(object sender, EventArgs e)
@@ -201,5 +194,24 @@ public partial class Default2 : System.Web.UI.Page
         blEducators.Visible = true;
         lblAnimalHeader.Visible = true;
         lblEducHeader.Visible = true;
+        btnClearAnimals.Visible = true;
+        btnClearEducators.Visible = true;
+    }
+
+    protected void clearText()
+    {
+        txtTeacher.Text = "";
+        txtEmail.Text = "";
+        txtGrade.Text = "";
+        ddlState.SelectedIndex = 0;
+        ddlCountry.SelectedIndex = 0;
+        txtChildCount.Text = "";
+        txtAdultCount.Text = "";
+        txtDate.Text = "";
+        txtTime.Text = "";
+        ddlEducators.SelectedIndex = 0;
+        ddlAnimals.SelectedIndex = 0;
+        ddlProgramType.SelectedIndex = 0;
+
     }
 }

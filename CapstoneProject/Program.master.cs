@@ -14,10 +14,12 @@ public partial class Program : System.Web.UI.MasterPage
         if (pageName.Contains("AddLiveProgram.aspx"))
         {
             btnOnlineProgram.CssClass = "btn btn-default";
+            lblProgramHeader.Text = "<h2 class=\"page-header\">Add Live Program</h2>";
 
         } else if (pageName.Contains("AddOnlineProgram.aspx"))
         {
             btnLiveProgram.CssClass = "btn btn-default";
+            lblProgramHeader.Text = "<h2 class=\"page-header\">Add Online Program</h2>";
         }
     }
 
