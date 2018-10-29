@@ -26,6 +26,11 @@ public partial class AddEmployee : System.Web.UI.Page
         {
             Employee employee = new Employee(txtEmpFirst.Text, txtEmpMiddle.Text, txtEmpLast.Text, ddlEmpType.Text, DateTime.Now, "User");
             Employee.insertEmployee(employee);
+
+            txtEmpFirst.Text = "";
+            txtEmpMiddle.Text = "";
+            txtEmpLast.Text = "";
+            ddlEmpType.SelectedIndex = 0;
         }
 
     }

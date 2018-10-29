@@ -7,8 +7,8 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="ChildContent1" Runat="Server">
 
     <h2 class="page-header">View Programs</h2>
-    
-    <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="Program ID" DataSourceID="SqlDataSource_ViewProgram" ForeColor="#333333" CssClass="table table-striped table-bordered" GridLines="None">
+    <div class="col-lg-11">
+         <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="Program ID" DataSourceID="SqlDataSource_ViewProgram" ForeColor="#333333" CssClass="table table-striped table-bordered" GridLines="None">
         <AlternatingRowStyle BackColor="White" />
         <Columns>
             <asp:BoundField DataField="Program ID" HeaderText="Program ID" InsertVisible="False" ReadOnly="True" SortExpression="Program ID" ItemStyle-Width="5%" />
@@ -34,6 +34,8 @@
 
     <asp:SqlDataSource ID="SqlDataSource_ViewProgram" runat="server" ConnectionString="<%$ ConnectionStrings:Project %>" SelectCommand="SELECT [ProgramID] as 'Program ID', [InvoiceID] as 'Invoice ID', [ProgramName] as 'Name', [ProgramType] as 'Type', [DateTime] as 'Date and Time', [ChildAttendance] 'Child Attendance', [AdultAttendance] as 'Adult Attendance' FROM [Program]"></asp:SqlDataSource>
     
+    </div>
+   
 
 </asp:Content>
 

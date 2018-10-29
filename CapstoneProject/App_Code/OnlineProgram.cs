@@ -43,7 +43,6 @@ public class OnlineProgram : Program
         cmd.Parameters.AddWithValue("@LastUpdatedBy", toInsert.LastUpdatedBy);
         cmd.Parameters.AddWithValue("@LastUpdated", DateTime.Now);
         cmd.Parameters.Add("@ProgramID", SqlDbType.Int).Direction = ParameterDirection.Output;
-
         executeNonQuery(cmd);
 
         //Get ID of inserted program to reference as parent
