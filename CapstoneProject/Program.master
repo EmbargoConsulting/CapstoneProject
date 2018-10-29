@@ -4,14 +4,15 @@
 
 <asp:Content ID="ProgramContent" ContentPlaceHolderID="ChildContent1" runat="server">
 
-    <div class="page-header">
+
         <asp:Label CssClass="page-header" ID="lblProgramHeader" runat="server"></asp:Label>
         <div class="btn-group">
             <asp:LinkButton ID="btnLiveProgram" formnovalidate="formnovalidate" runat="server" href="AddLiveProgram.aspx" Text="Live Program" CssClass="btn btn-primary" />
             <asp:LinkButton ID="btnOnlineProgram" formnovalidate="formnovalidate" runat="server" href="AddOnlineProgram.aspx" Text="Online Program" CssClass="btn btn-primary" />
         </div>
+        <div style="height:15px;"></div>
 
-    </div>
+   
     <asp:ContentPlaceHolder ID="ChildContent1" runat="server" />
     <asp:ContentPlaceHolder ID="ChildContent2" runat="server" />
 

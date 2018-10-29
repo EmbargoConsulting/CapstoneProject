@@ -63,8 +63,22 @@ public class OnlineProgram : Program
         cmd.Parameters.AddWithValue("@TeacherEmail", toInsert.TeacherEmail);
         cmd.Parameters.AddWithValue("@LastUpdatedBy", toInsert.LastUpdatedBy);
         cmd.Parameters.AddWithValue("@LastUpdated", DateTime.Now);
-
         executeNonQuery(cmd);
+
+        //Insert Employees
+        foreach (int id in toInsert.ProgramEducators)
+        {
+            EmployeeProgram newEmployeeProgram = new EmployeeProgram(id, programID);
+            EmployeeProgram.insertEmployeeProgram(newEmployeeProgram);
+        }
+
+        //Insert Animals
+        foreach (int id in toInsert.ProgramAnimals)
+        {
+            AnimalProgram newAnimalProgram = new AnimalProgram(id, programID);
+            AnimalProgram.insertAnimalProgram(newAnimalProgram);
+        }
+
     }
 
 }

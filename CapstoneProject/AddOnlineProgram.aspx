@@ -349,7 +349,6 @@
             <div class="form-group">
                 <label>Animals</label>
                 <asp:DropDownList ID="ddlAnimals" runat="server" CssClass="form-control">
-                    <asp:ListItem> </asp:ListItem>
                     <asp:ListItem></asp:ListItem>
                 </asp:DropDownList>
 
