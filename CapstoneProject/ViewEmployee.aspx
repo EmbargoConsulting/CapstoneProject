@@ -33,7 +33,7 @@
     <asp:SqlDataSource ID="SqlDataSource_ViewEmployee" runat="server" ConnectionString="<%$ ConnectionStrings:Project %>" SelectCommand="SELECT [EmployeeID] as 'Employee ID', [FirstName] as 'First Name', [MiddleName] as 'Middle Name', [LastName] as 'Last Name', [EmployeeType] as 'Employee Type' FROM [Employee]"></asp:SqlDataSource>
     
         </div>
-
+    <asp:Button ID="exportToExcel" runat="server" Text="Export to Excel" OnClick="exportToExcel_Click" />
 
 </asp:Content>
 
