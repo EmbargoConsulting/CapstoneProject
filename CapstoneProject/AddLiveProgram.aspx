@@ -83,9 +83,8 @@
             </div>
             <div class="form-group">
                 <label>Animals</label>
-                <asp:DropDownList ID="ddlAnimals" runat="server" CssClass="form-control">
-                    <asp:ListItem> </asp:ListItem>                
-                </asp:DropDownList>
+                <asp:ListBox ID="ddlAnimals" SelectionMode="Multiple"  runat="server" CssClass="form-control">             
+                </asp:ListBox>
 
             </div>
             <div class="form-group">
@@ -122,7 +121,7 @@
             <asp:Button ID="btnAddEducator"  formnovalidate="formnovalidate" runat="server" Text="Add Educator" CssClass="btn btn-default" OnClick="btnAddEducator_Click" /><br />
             <br />
             <br />
-            <asp:Button ID="btnAddAnimal" formnovalidate="formnovalidate"  runat="server" Text="Add Animal" CssClass="btn btn-default" OnClick="btnAddAnimal_Click" />
+            <%--<asp:Button ID="btnAddAnimal" formnovalidate="formnovalidate"  runat="server" Text="Add Animal" CssClass="btn btn-default" OnClick="btnAddAnimal_Click" />--%>
             <br/>
             <br />
             <div class="form-group">

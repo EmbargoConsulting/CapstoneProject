@@ -34,7 +34,7 @@ public partial class Default2 : System.Web.UI.Page
                 ddlEducators.Items.Insert(index, new ListItem(employee.getFullName(), employee.EmployeeID.ToString()));
             }
 
-            index = 1;
+            index = 0;
 
             foreach(Animal animal in Animal.getAnimalList())
             {
@@ -146,8 +146,7 @@ public partial class Default2 : System.Web.UI.Page
 
     protected void btnSubmit_Click(object sender, EventArgs e)
     {
-        if(tempEducators.Count > 0 && tempAnimals.Count > 0)
-        {
+
             lblError.Visible = false;
             Random rand = new Random();
 
@@ -166,6 +165,14 @@ public partial class Default2 : System.Web.UI.Page
             bool paymentReceived = Boolean.Parse(ddlPayment.SelectedValue);
             string reportMonth = date.Month.ToString();
 
+            foreach (ListItem item in ddlAnimals.Items)
+            {
+                if (item.Selected)
+                {
+                    tempAnimals.Add(Int32.Parse(item.Value));
+                }
+            }
+
             //Create new object based on data
             LiveProgram tempProgram = new LiveProgram(rand.Next(100,999), type, date, time, type, childCount, adultCount, tempAnimals, tempEducators, address, OnOffSite, city, county);
 
@@ -173,13 +180,7 @@ public partial class Default2 : System.Web.UI.Page
             LiveProgram.insertLiveProgram(tempProgram);
             //tempProgram.ProgramID = programID;
 
-            //Iterate through arrays 
-            foreach (int i in tempEducators)
-            {
-
-            }
-        } else { lblError.Text = "Please select at least one educator and one animal"; }
-
+            
         clearAll();
         
     }
