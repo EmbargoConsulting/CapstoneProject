@@ -168,8 +168,6 @@ public partial class Default2 : System.Web.UI.Page
         txtOrgName.Text = "Test Org " + randID;
         ddlPayment.SelectedIndex = rand.Next(1, 2);
         ddlProgramType.SelectedIndex = rand.Next(1, 18);
-        tempAnimals.Add(1);
-        tempEducators.Add(1);
         ddlOnSite.SelectedIndex = rand.Next(1, 2);
         ddlStatus.SelectedIndex = rand.Next(1, 2);
 

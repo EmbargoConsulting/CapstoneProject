@@ -373,8 +373,9 @@
             </div>
         </div>
         <div class="col-lg-2">   
+            <br />
             <div id="btn">
-                <asp:Button ID="btnSubmit" runat="server" CssClass="btn btn-primary btn-group-justified" Text="Commit Program" OnClick="btnSubmit_Click" /><br />
+                <asp:Button ID="btnSubmit" runat="server" CssClass="btn btn-primary btn-group-justified" Text="Save Program" OnClick="btnSubmit_Click" /><br />
                 <br />
                 <asp:Button ID="btnClearAll" runat="server" formnovalidate="formnovalidate" CausesValidation="false" CssClass="btn btn-group-justified btn-primary" Text="Clear All" OnClick="btnClearAll_Click" />
             </div>

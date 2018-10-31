@@ -132,8 +132,6 @@ public partial class Default2 : System.Web.UI.Page
         ddlProgramType.SelectedIndex = rand.Next(1, 18);
         ddlState.SelectedIndex = rand.Next(1, 50);
         ddlCountry.SelectedIndex = rand.Next(1, 239);
-        tempAnimals.Add(1);
-        tempEducators.Add(1);
     }
 
     protected void clearText()
