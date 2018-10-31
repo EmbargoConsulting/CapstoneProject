@@ -41,18 +41,21 @@
 
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ChildContent2" runat="Server">
+
     <div class="col-lg-4">
-        <div class="input-group custom-search-form">
+    <div class="panel panel-default">
+        <div class="panel-body">
+             <div class="input-group custom-search-form">
             <%--<input type="text" class="form-control" placeholder="Search...">--%>
-            <asp:TextBox ID="txtSearchAnimals"  CssClass="form-control" runat="server"></asp:TextBox>
+            <asp:TextBox ID="txtSearchAnimals" CssClass="form-control" runat="server"></asp:TextBox>
             <span class="input-group-btn">
-<%--                <button runat="server" class="btn btn-default" onclick="showSearchData()" type="button">
+                <%--                <button runat="server" class="btn btn-default" onclick="showSearchData()" type="button">
                     <i class="fa fa-search"></i>
                 </button>--%>
-              <asp:LinkButton ID="btnSearchAnimals" CssClass="btn btn-primary" OnClick="btnSearchAnimals_Click" runat="server"><span aria-hidden="true" class="glyphicon glyphicon-search"</span></asp:LinkButton>
+                <asp:LinkButton ID="btnSearchAnimals" CssClass="btn btn-primary" OnClick="btnSearchAnimals_Click" runat="server"><span aria-hidden="true" class="glyphicon glyphicon-search"</span></asp:LinkButton>
             </span>
         </div>
-        <asp:GridView ID="MainGridView" AutoGenerateColumns="false" DataKeyNames="AnimalID" CssClass="table table-bordered" runat="server" AllowSorting="True" DataSourceID="mainDataSource">
+        <asp:GridView ID="MainGridView" AutoGenerateColumns="false" DataSourceID="mainDataSource" DataKeyNames="AnimalID" CssClass="table table-bordered" runat="server" OnSorting="MainGridView_Sorting" AllowSorting="True">
             <Columns>
                 <asp:CommandField ShowSelectButton="True" SelectText="Details" />
                 <asp:BoundField HeaderText="Animal Name" DataField="AnimalName" SortExpression="AnimalName" />
@@ -61,8 +64,16 @@
             </Columns>
         </asp:GridView>
     </div>
+        </div>
+    </div>
+       
     <div class="col-lg-7">
-        <asp:GridView ID="DetailsGridView" runat="server" AutoGenerateColumns="false" CssClass="table table-bordered" DataKeyNames="AnimalID" DataSourceID="detailsDataSource">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <div class="panel-body">
+                    <div class="panel-heading">Monthly Break-Down</div>
+                    <asp:GridView ID="DetailsGridView" runat="server" AutoGenerateColumns="false" CssClass="table table-bordered" DataKeyNames="AnimalID" DataSourceID="detailsDataSource">
+            <HeaderStyle />
             <Columns>
                 <asp:BoundField HeaderText="Month" DataField="Month" SortExpression="AnimalName" />
                 <asp:BoundField HeaderText="On-Site" DataField="On-Site" SortExpression="Programs" />
@@ -72,14 +83,41 @@
                 <asp:BoundField HeaderText="Adults" DataField="Adults" SortExpression="People" />
             </Columns>
         </asp:GridView>
+                </div>
+                 <div class="panel-body">
+                    <div class="panel-heading">Yearly Break-Down</div>
+        <asp:GridView ID="yearGridView" AutoGenerateColumns="false" CssClass="table table-bordered" DataKeyNames="AnimalID" DataSourceID="yearDataSource" runat="server">
+               <Columns>
+                <asp:BoundField HeaderText="Year" DataField="Year" SortExpression="AnimalName" />
+                <asp:BoundField HeaderText="On-Site" DataField="On-Site" SortExpression="Programs" />
+                <asp:BoundField HeaderText="Off-Site" DataField="Off-Site" SortExpression="People" />
+                <asp:BoundField HeaderText="Total Programs" DataField="Total Programs" SortExpression="AnimalName" />
+                <asp:BoundField HeaderText="Children" DataField="Children" SortExpression="Programs" />
+                <asp:BoundField HeaderText="Adults" DataField="Adults" SortExpression="People" />
+                <asp:BoundField HeaderText="Total People" DataField="Total People" />
+            </Columns>
+        </asp:GridView>
+
+                 </div>
+            </div>
+
+        </div>
+       
     </div>
+
     <asp:SqlDataSource ID="mainDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:Project %>" SelectCommand="SELECT Animal.AnimalID, Animal.AnimalName, COUNT(Program.ProgramID) AS 'Programs', SUM(Program.ChildAttendance) + SUM(Program.AdultAttendance) as 'People' FROM Animal INNER JOIN AnimalProgram ON Animal.AnimalID = AnimalProgram.AnimalID INNER JOIN Program ON AnimalProgram.ProgramID = Program.ProgramID GROUP BY Animal.AnimalName, Animal.AnimalID"></asp:SqlDataSource>
-    <asp:SqlDataSource ID="detailsDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:Project %>" SelectCommand="SELECT DATENAME(month, Program.DateTime) AS 'Month', COUNT(CASE WHEN OnOffSite = 1 THEN 1 END) AS 'On-Site', COUNT(CASE WHEN LiveProgram.OnOffSite = 0 THEN 1 END) AS 'Off-Site', COUNT(*) AS 'Total Programs',  SUM(Program.ChildAttendance) AS 'Children', SUM(Program.AdultAttendance) AS 'Adults', SUM(Program.AdultAttendance) + SUM(Program.ChildAttendance) AS 'Total People', Animal.AnimalID FROM LiveProgram INNER JOIN Program ON LiveProgram.ProgramID = Program.ProgramID INNER JOIN AnimalProgram ON Program.ProgramID = AnimalProgram.ProgramID INNER JOIN Animal ON AnimalProgram.AnimalID = Animal.AnimalID WHERE Animal.AnimalID = @AnimalID GROUP BY DATENAME(month, Program.DateTime), Animal.AnimalID">
+
+    <asp:SqlDataSource ID="yearDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:Project %>" SelectCommand="SELECT DATEPART(YEAR, Program.DateTime) AS 'Year', COUNT(CASE WHEN OnOffSite = 1 THEN 1 END) AS 'On-Site', COUNT(CASE WHEN LiveProgram.OnOffSite = 0 THEN 1 END) AS 'Off-Site', COUNT(*) AS 'Total Programs',  SUM(Program.ChildAttendance) AS 'Children', SUM(Program.AdultAttendance) AS 'Adults', SUM(Program.AdultAttendance) + SUM(Program.ChildAttendance) AS 'Total People', Animal.AnimalID FROM LiveProgram INNER JOIN Program ON LiveProgram.ProgramID = Program.ProgramID INNER JOIN AnimalProgram ON Program.ProgramID = AnimalProgram.ProgramID INNER JOIN Animal ON AnimalProgram.AnimalID = Animal.AnimalID WHERE Animal.AnimalID = @AnimalID GROUP BY Animal.AnimalID, DATEPART(Year, Program.DateTime)">
         <SelectParameters>
             <asp:ControlParameter ControlID="MainGridView" Name="AnimalID" PropertyName="SelectedValue" Type="Int32" />
-
         </SelectParameters>
     </asp:SqlDataSource>
+    <asp:SqlDataSource ID="detailsDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:Project %>" SelectCommand="SELECT DATEPART(MONTH, Program.DateTime) as num, DATENAME(month, Program.DateTime) AS 'Month', COUNT(CASE WHEN OnOffSite = 1 THEN 1 END) AS 'On-Site', COUNT(CASE WHEN LiveProgram.OnOffSite = 0 THEN 1 END) AS 'Off-Site', COUNT(*) AS 'Total Programs',  SUM(Program.ChildAttendance) AS 'Children', SUM(Program.AdultAttendance) AS 'Adults', SUM(Program.AdultAttendance) + SUM(Program.ChildAttendance) AS 'Total People', Animal.AnimalID FROM LiveProgram INNER JOIN Program ON LiveProgram.ProgramID = Program.ProgramID INNER JOIN AnimalProgram ON Program.ProgramID = AnimalProgram.ProgramID INNER JOIN Animal ON AnimalProgram.AnimalID = Animal.AnimalID WHERE Animal.AnimalID = @AnimalID GROUP BY DATENAME(month, Program.DateTime), Animal.AnimalID, DATEPART(month, Program.DateTime) ORDER BY Datepart(month, program.datetime) asc">
+        <SelectParameters>
+            <asp:ControlParameter ControlID="MainGridView" Name="AnimalID" PropertyName="SelectedValue" Type="Int32" />
+        </SelectParameters>
+    </asp:SqlDataSource>
+
 
 </asp:Content>
 

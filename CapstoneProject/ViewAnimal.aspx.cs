@@ -17,7 +17,13 @@ public partial class ViewAnimal : System.Web.UI.Page
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        showData();
+        if (!Page.IsPostBack)
+        {
+            MainGridView.DataSourceID = "";
+            showData();
+        }
+
+        //MainGridView.DataBind();
     }
 
 
@@ -26,48 +32,59 @@ public partial class ViewAnimal : System.Web.UI.Page
     {
 
 
-        //DataTable dt = new DataTable();
-        //SqlConnection con = new SqlConnection(cs);
-        //con.Open();
-        //SqlDataAdapter adapt = new SqlDataAdapter("SELECT Animal.AnimalName AS 'Name', COUNT(Program.ProgramID) AS 'Programs', SUM(Program.ChildAttendance) + SUM(Program.AdultAttendance) as 'People' FROM Animal INNER JOIN AnimalProgram ON Animal.AnimalID = AnimalProgram.AnimalID INNER JOIN Program ON AnimalProgram.ProgramID = Program.ProgramID GROUP BY Animal.AnimalName", con);
-        //adapt.Fill(dt);
-        //if (dt.Rows.Count > 0)
-        //{
-        //    GridView2.DataSource = dt;
-        //    GridView2.DataBind();
-        //}
-        //con.Close();
-    }
-
-    protected void showSearchData()
-    {
-        string searchQuery = "SELECT Animal.AnimalID, Animal.AnimalName, COUNT(Program.ProgramID) AS 'Programs', SUM(Program.ChildAttendance) + SUM(Program.AdultAttendance) as 'People' FROM Animal INNER JOIN AnimalProgram ON Animal.AnimalID = AnimalProgram.AnimalID INNER JOIN Program ON AnimalProgram.ProgramID = Program.ProgramID WHERE Animal.AnimalName like '%"+ txtSearchAnimals.Text +"%' GROUP BY Animal.AnimalName, Animal.AnimalID";
-        SqlConnection con = new SqlConnection(cs);
-        SqlCommand cmd = new SqlCommand(searchQuery, con);
-        cmd.Parameters.AddWithValue("@search", txtSearchAnimals.Text);
         DataTable dt = new DataTable();
+        SqlConnection con = new SqlConnection(cs);
         con.Open();
-        SqlDataAdapter adapt = new SqlDataAdapter(searchQuery, con);
+        SqlDataAdapter adapt = new SqlDataAdapter("SELECT Animal.AnimalID, Animal.AnimalName, COUNT(Program.ProgramID) AS 'Programs', SUM(Program.ChildAttendance) + SUM(Program.AdultAttendance) as 'People' FROM Animal INNER JOIN AnimalProgram ON Animal.AnimalID = AnimalProgram.AnimalID INNER JOIN Program ON AnimalProgram.ProgramID = Program.ProgramID GROUP BY Animal.AnimalName, Animal.AnimalID", con);
         adapt.Fill(dt);
         if (dt.Rows.Count > 0)
         {
-            //lbl_Results.Text = "Returned " + dt.Rows.Count + " results";
             MainGridView.DataSource = dt;
-            MainGridView.DataSourceID = "";
             MainGridView.DataBind();
-        }
-        else
-        {
-            //lbl_Results.Text = "No results found";
-            showData();
         }
         con.Close();
     }
 
+    protected void showSearchData()
+    {
+        if(txtSearchAnimals.Text == "")
+        {
+            showData();
+        } else
+        {
+            string searchQuery = "SELECT Animal.AnimalID, Animal.AnimalName, COUNT(Program.ProgramID) AS 'Programs', SUM(Program.ChildAttendance) + SUM(Program.AdultAttendance) as 'People' FROM Animal INNER JOIN AnimalProgram ON Animal.AnimalID = AnimalProgram.AnimalID INNER JOIN Program ON AnimalProgram.ProgramID = Program.ProgramID WHERE Animal.AnimalName like '%" + txtSearchAnimals.Text + "%' GROUP BY Animal.AnimalName, Animal.AnimalID";
+            SqlConnection con = new SqlConnection(cs);
+            SqlCommand cmd = new SqlCommand(searchQuery, con);
+            cmd.Parameters.AddWithValue("@search", txtSearchAnimals.Text);
+            DataTable dt = new DataTable();
+            con.Open();
+            SqlDataAdapter adapt = new SqlDataAdapter(searchQuery, con);
+            adapt.Fill(dt);
+            if (dt.Rows.Count > 0)
+            {
+                //lbl_Results.Text = "Returned " + dt.Rows.Count + " results";
+                MainGridView.DataSource = dt;
+                MainGridView.DataBind();
+            }
+            else
+            {
+                //lbl_Results.Text = "No results found";
+                showData();
+            }
+            con.Close();
+        }
+        
+    }
 
-
+   
     protected void btnSearchAnimals_Click(object sender, EventArgs e)
     {
         showSearchData();
+    }
+
+    protected void MainGridView_Sorting(object sender, GridViewSortEventArgs e)
+    {
+        //showData();
+        //MainGridView.DataBind();
     }
 }
