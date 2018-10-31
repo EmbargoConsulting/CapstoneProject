@@ -342,15 +342,13 @@
         <div class="col-lg-4">
             <div class="form-group">
                 <label>Educators</label>
-                <asp:DropDownList ID="ddlEducators" runat="server" CssClass="form-control">
-                    <asp:ListItem></asp:ListItem>
-                </asp:DropDownList>
+                <asp:ListBox ID="ddlEducators" SelectionMode="Multiple" runat="server" CssClass="form-control">
+               </asp:ListBox>
             </div>
             <div class="form-group">
                 <label>Animals</label>
-                <asp:DropDownList ID="ddlAnimals" runat="server" CssClass="form-control">
-                    <asp:ListItem></asp:ListItem>
-                </asp:DropDownList>
+                <asp:ListBox ID="ddlAnimals" SelectionMode="Multiple" runat="server" CssClass="form-control">
+               </asp:ListBox>
 
             </div>
             <div class="form-group">
@@ -374,24 +372,7 @@
                 <label></label>
             </div>
         </div>
-        <div class="col-lg-2">
-            <br />
-            <asp:Button ID="btnAddEducator" formnovalidate="formnovalidate" runat="server" Text="Add Educator" CssClass="btn btn-default" OnClick="btnAddEducator_Click" /><br />
-            <br />
-            <br />
-            <asp:Button ID="btnAddAnimal" formnovalidate="formnovalidate" runat="server" Text="Add Animal" CssClass="btn btn-default" OnClick="btnAddAnimal_Click" />
-            <br />
-            <br />
-            <div class="form-group">
-                <asp:Label ID="lblEducHeader" runat="server" CssClass="page-header">Program Educators</asp:Label>
-                <asp:BulletedList ID="blEducators" runat="server"></asp:BulletedList>
-                <asp:Button ID="btnClearEducators" formnovalidate="formnovalidate" CssClass="btn btn-xs" runat="server" Text="Clear" OnClick="btnClearEducators_Click" />
-            </div>
-            <div class="form-group">
-                <asp:Label ID="lblAnimalHeader" runat="server" CssClass="page-header">Program Animals</asp:Label>
-                <asp:BulletedList ID="blAnimals" runat="server"></asp:BulletedList>
-                <asp:Button ID="btnClearAnimals" formnovalidate="formnovalidate" CssClass="btn btn-xs" runat="server" Text="Clear" OnClick="btnClearAnimals_Click" />
-            </div>
+        <div class="col-lg-2">   
             <div id="btn">
                 <asp:Button ID="btnSubmit" runat="server" CssClass="btn btn-primary btn-group-justified" Text="Commit Program" OnClick="btnSubmit_Click" /><br />
                 <br />

@@ -18,17 +18,12 @@ public partial class Default2 : System.Web.UI.Page
         {
             
 
-            blAnimals.Visible = false;
-            blEducators.Visible = false;
-            btnClearEducators.Visible = false;
             tempEducators = new List<int>();
             tempAnimals = new List<int>();
-            lblAnimalHeader.Visible = false;
-            lblEducHeader.Visible = false;
-            btnClearAnimals.Visible = false;
+
 
             //Populate DropDown
-            int index = 1;
+            int index = 0;
             foreach(Employee employee in Employee.getEmployeeList())
             {
                 ddlEducators.Items.Insert(index, new ListItem(employee.getFullName(), employee.EmployeeID.ToString()));
@@ -45,44 +40,7 @@ public partial class Default2 : System.Web.UI.Page
         }
     }
 
-    protected void btnAddAnimal_Click(object sender, EventArgs e)
-    {
-        if(ddlAnimals.SelectedIndex > 0)
-        {
-            string animal = ddlAnimals.SelectedItem.ToString();
-            int animalID = Int32.Parse(ddlAnimals.SelectedValue);
-            if (checkValue(animalID, "animal"))
-            {
-                tempAnimals.Add(animalID);
-                blAnimals.Items.Add(animal);
-                blAnimals.Visible = true;
-                lblAnimalHeader.Visible = true;
-                btnClearAnimals.Visible = true;
-                lblError.Visible = false;
-            }
-        }
 
-    }
-
-    protected void btnAddEducator_Click(object sender, EventArgs e)
-    {
-        if (ddlEducators.SelectedIndex > 0)
-        {
-            string educator = ddlEducators.SelectedItem.ToString();
-            int educatorID = Int32.Parse(ddlEducators.SelectedValue);
-            if (checkValue(educatorID, "educator"))
-            {
-                blEducators.Items.Add(educator);
-                tempEducators.Add(educatorID);
-                btnClearEducators.Visible = true;
-                blEducators.Visible = true;
-                lblEducHeader.Visible = true;
-                lblError.Visible = false;
-            }
-        }
-
-
-    }
 
     public bool checkValue(int valueToCheck, string typeToCheck)
     {
@@ -116,33 +74,8 @@ public partial class Default2 : System.Web.UI.Page
     }
 
 
-    protected void btnClearEducators_Click(object sender, EventArgs e)
-    {
-        clearEducators();
-    }
 
-    protected void clearEducators()
-    {
-        blEducators.Items.Clear();
-        tempEducators.Clear();
-        blEducators.Visible = false;
-        btnClearEducators.Visible = false;
-        lblEducHeader.Visible = false;
-    }
 
-    protected void btnClearAnimals_Click(object sender, EventArgs e)
-    {
-        clearAnimals();
-    }
-
-    protected void clearAnimals()
-    {
-        blAnimals.Items.Clear();
-        tempAnimals.Clear();
-        blAnimals.Visible = false;
-        btnClearAnimals.Visible = false;
-        lblAnimalHeader.Visible = false;
-    }
 
     protected void btnSubmit_Click(object sender, EventArgs e)
     {
@@ -173,15 +106,23 @@ public partial class Default2 : System.Web.UI.Page
                 }
             }
 
-            //Create new object based on data
-            LiveProgram tempProgram = new LiveProgram(rand.Next(100,999), type, date, time, type, childCount, adultCount, tempAnimals, tempEducators, address, OnOffSite, city, county);
+        foreach (ListItem item in ddlEducators.Items)
+        {
+            if (item.Selected)
+            {
+                tempEducators.Add(Int32.Parse(item.Value));
+            }
+        }
+
+        //Create new object based on data
+        LiveProgram tempProgram = new LiveProgram(rand.Next(100,999), type, date, time, type, childCount, adultCount, tempAnimals, tempEducators, address, OnOffSite, city, county);
 
             //Pass object to commit function of class and get the inserted row's ID
             LiveProgram.insertLiveProgram(tempProgram);
             //tempProgram.ProgramID = programID;
 
             
-        clearAll();
+        clearText();
         
     }
 
@@ -207,16 +148,10 @@ public partial class Default2 : System.Web.UI.Page
 
     }
 
-    protected void clearAll()
-    {
-        clearAnimals();
-        clearEducators();
-        clearText();
-    }
 
     protected void btnClearAll_Click(object sender, EventArgs e)
     {
-        clearAll();
+        clearText();
     }
 
     protected void btnPopulate_Click(object sender, EventArgs e)
@@ -235,14 +170,6 @@ public partial class Default2 : System.Web.UI.Page
         ddlProgramType.SelectedIndex = rand.Next(1, 18);
         tempAnimals.Add(1);
         tempEducators.Add(1);
-        blAnimals.Items.Add("Test Animal");
-        blEducators.Items.Add("Test Educator");
-        blAnimals.Visible = true;
-        blEducators.Visible = true;
-        lblAnimalHeader.Visible = true;
-        lblEducHeader.Visible = true;
-        btnClearAnimals.Visible = true;
-        btnClearEducators.Visible = true;
         ddlOnSite.SelectedIndex = rand.Next(1, 2);
         ddlStatus.SelectedIndex = rand.Next(1, 2);
 
