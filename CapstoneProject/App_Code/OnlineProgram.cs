@@ -17,15 +17,17 @@ public class OnlineProgram : Program
     public string Grade { get; set; }
     public string TeacherName { get; set; }
     public string TeacherEmail { get; set; }
+    public string ProgramType { get; set; }
 
 
-    public OnlineProgram(string state, string country, string grade, string teacherName, string teacherEmail, int invoiceID, string programName, DateTime date, DateTime time, string programType, int childCount, int adultCount, List<int> programAnimals, List<int> programEducators) : base(invoiceID, programName, date, time, programType, childCount, adultCount, programAnimals, programEducators)
+    public OnlineProgram(string state, string country, string grade, string teacherName, string teacherEmail, DateTime date, DateTime time, string programType, string programTheme, int childCount, int adultCount, List<int> programAnimals, List<int> programEducators) : base(date, time, programTheme, childCount, adultCount, programAnimals, programEducators)
     {
         State = state;
         Country = country;
         Grade = grade;
         TeacherName = teacherName;
         TeacherEmail = teacherEmail;
+        ProgramType = programType;
     }
 
     public static void insertOnlineProgram(OnlineProgram toInsert)
@@ -34,9 +36,7 @@ public class OnlineProgram : Program
         SqlCommand cmd = new SqlCommand();
         cmd.CommandText = "insertProgram";
         cmd.CommandType = CommandType.StoredProcedure;
-        cmd.Parameters.AddWithValue("@InvoiceID", toInsert.InvoiceID);
-        cmd.Parameters.AddWithValue("@ProgramName", toInsert.ProgramName);
-        cmd.Parameters.AddWithValue("@ProgramType", toInsert.ProgramType);
+        cmd.Parameters.AddWithValue("@ProgramTheme", toInsert.ProgramTheme);
         cmd.Parameters.AddWithValue("@DateTime", toInsert.DateTime.ToString("yyyy-MM-dd hh:mm:ss"));
         cmd.Parameters.AddWithValue("@ChildAttendance", toInsert.ChildCount);
         cmd.Parameters.AddWithValue("@AdultAttendance", toInsert.AdultCount);
@@ -55,6 +55,7 @@ public class OnlineProgram : Program
         cmd.CommandText = "insertOnlineProgram";
         cmd.CommandType = CommandType.StoredProcedure;
         cmd.Parameters.AddWithValue("@ProgramID", toInsert.ProgramID);
+        cmd.Parameters.AddWithValue("@ProgramType", toInsert.ProgramType);
         cmd.Parameters.AddWithValue("@State", toInsert.State);
         cmd.Parameters.AddWithValue("@Country", toInsert.Country);
         cmd.Parameters.AddWithValue("@Grade", toInsert.Grade);

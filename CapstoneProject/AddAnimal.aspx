@@ -23,10 +23,6 @@
                     <asp:ListItem Value ="Reptile">Reptile</asp:ListItem>
                 </asp:DropDownList>
             </div>
-            <div class="form-group">
-                <label>Animal Description</label>
-                <asp:TextBox ID="txtAnimalDesc" runat="server" class="form-control" required="required"></asp:TextBox>
-            </div>
         </div>
     </div>
     <div class="col-lg-2">

@@ -338,16 +338,20 @@
                     <asp:ListItem Value="ZW">Zimbabwe</asp:ListItem>
                 </asp:DropDownList>
             </div>
+            <div class="form-group">
+                <label>Time</label>
+                <asp:TextBox ID="txtTime" runat="server" required="required" CssClass="form-control"></asp:TextBox>
+            </div>
         </div>
         <div class="col-lg-4">
             <div class="form-group">
                 <label>Educators</label>
-                <asp:ListBox ID="ddlEducators" SelectionMode="Multiple" runat="server" CssClass="form-control">
+                <asp:ListBox ID="ddlEducators" SelectionMode="Multiple" rows="5" runat="server" CssClass="form-control">
                </asp:ListBox>
             </div>
             <div class="form-group">
                 <label>Animals</label>
-                <asp:ListBox ID="ddlAnimals" SelectionMode="Multiple" runat="server" CssClass="form-control">
+                <asp:ListBox ID="ddlAnimals" SelectionMode="Multiple" Rows="6" runat="server" CssClass="form-control">
                </asp:ListBox>
 
             </div>
@@ -363,13 +367,6 @@
             <div class="form-group">
                 <label>Date</label>
                 <asp:TextBox ID="txtDate" required="required" runat="server" CssClass="form-control"></asp:TextBox>
-            </div>
-            <div class="form-group">
-                <label>Time</label>
-                <asp:TextBox ID="txtTime" runat="server" required="required" CssClass="form-control"></asp:TextBox>
-            </div>
-            <div class="form-group">
-                <label></label>
             </div>
         </div>
         <div class="col-lg-2">   

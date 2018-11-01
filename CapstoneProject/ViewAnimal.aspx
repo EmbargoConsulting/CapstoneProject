@@ -30,7 +30,7 @@
             <SortedDescendingHeaderStyle BackColor="#4870BE" />
         </asp:GridView>
         --%>
-        <asp:SqlDataSource ID="SqlDataSource_ViewAnimal" runat="server" ConnectionString="<%$ ConnectionStrings:Project %>" SelectCommand="SELECT [AnimalID] as 'Animal ID', [AnimalName] as 'Name', [AnimalType] as 'Type', [AnimalSpecies] as 'Species', [CheckedInStatus] as 'Checked-In Status' FROM [Animal]"></asp:SqlDataSource>
+        <asp:SqlDataSource ID="SqlDataSource_ViewAnimal" runat="server" ConnectionString="<%$ ConnectionStrings:Project %>" SelectCommand="SELECT [AnimalID] as 'Animal ID', [AnimalName] as 'Name', [AnimalType] as 'Type', [CheckedInStatus] as 'Checked-In Status' FROM [Animal]"></asp:SqlDataSource>
     </div>
 
 

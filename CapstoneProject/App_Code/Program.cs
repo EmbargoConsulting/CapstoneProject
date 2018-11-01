@@ -15,10 +15,8 @@ public class Program : dbConnect
 
     public DateTime LastUpdated { get; set; }
     public string LastUpdatedBy { get; set; }
-    public int InvoiceID { get; set; }
-    public string ProgramName { get; set; }
     public DateTime DateTime { get; set; }
-    public string ProgramType { get; set; }
+    public string ProgramTheme { get; set; }
     public int ChildCount { get; set; }
     public int AdultCount { get; set; }
     public int ProgramID { get; set; }
@@ -40,13 +38,11 @@ public class Program : dbConnect
     //    this.programAnimals = new List<string>();
     //}
 
-    public Program(int invoiceID, string programName, DateTime date, DateTime time, string programType, int childCount, int adultCount, List<int> programAnimals, List<int> programEducators)
+    public Program(DateTime date, DateTime time, string programTheme, int childCount, int adultCount, List<int> programAnimals, List<int> programEducators)
     {
         //this.programID = programID;
-        this.InvoiceID = invoiceID;
-        this.ProgramName = programName;
         this.DateTime = DateTime.Parse(date.ToShortDateString() + " " + time.ToShortTimeString());
-        this.ProgramType = programType;
+        this.ProgramTheme = programTheme;
         this.ChildCount = childCount;
         this.AdultCount = adultCount;
         this.ProgramAnimals = programAnimals;

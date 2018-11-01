@@ -12,9 +12,7 @@
         <AlternatingRowStyle BackColor="White" />
         <Columns>
             <asp:BoundField DataField="Program ID" HeaderText="Program ID" InsertVisible="False" ReadOnly="True" SortExpression="Program ID" ItemStyle-Width="5%" />
-            <asp:BoundField DataField="Invoice ID" HeaderText="Invoice ID" SortExpression="Invoice ID" ItemStyle-Width="5%"/>
-            <asp:BoundField DataField="Name" HeaderText="Name" SortExpression="Name" ItemStyle-Width="10%"/>
-            <asp:BoundField DataField="Type" HeaderText="Type" SortExpression="Type" ItemStyle-Width="10%"/>
+            <asp:BoundField DataField="Theme" HeaderText="Theme" SortExpression="Theme" ItemStyle-Width="10%"/>
             <asp:BoundField DataField="Date and Time" HeaderText="Date and Time" SortExpression="Date and Time" ItemStyle-Width="10%"/>
             <asp:BoundField DataField="Child Attendance" HeaderText="Child Attendance" SortExpression="Child Attendance" ItemStyle-Width="10%"/>
             <asp:BoundField DataField="Adult Attendance" HeaderText="Adult Attendance" SortExpression="Adult Attendance" ItemStyle-Width="10%" />
@@ -32,7 +30,7 @@
         </asp:GridView>
     
 
-    <asp:SqlDataSource ID="SqlDataSource_ViewProgram" runat="server" ConnectionString="<%$ ConnectionStrings:Project %>" SelectCommand="SELECT [ProgramID] as 'Program ID', [InvoiceID] as 'Invoice ID', [ProgramName] as 'Name', [ProgramType] as 'Type', [DateTime] as 'Date and Time', [ChildAttendance] 'Child Attendance', [AdultAttendance] as 'Adult Attendance' FROM [Program]"></asp:SqlDataSource>
+    <asp:SqlDataSource ID="SqlDataSource_ViewProgram" runat="server" ConnectionString="<%$ ConnectionStrings:Project %>" SelectCommand="SELECT [ProgramID] as 'Program ID', [ProgramTheme] as 'Theme', [DateTime] as 'Date and Time', [ChildAttendance] 'Child Attendance', [AdultAttendance] as 'Adult Attendance' FROM [Program]"></asp:SqlDataSource>
     
     </div>
    

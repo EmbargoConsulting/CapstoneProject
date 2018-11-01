@@ -33,9 +33,16 @@ public partial class Default2 : System.Web.UI.Page
 
             foreach(Animal animal in Animal.getAnimalList())
             {
-                ddlAnimals.Items.Insert(index, new ListItem(animal.getAnimalDescription(), animal.AnimalID.ToString()));
+                ddlAnimals.Items.Insert(index, new ListItem(animal.AnimalName, animal.AnimalID.ToString()));
             }
 
+            index = 1;
+
+            foreach(Organization org in Organization.getOrgList())
+            {
+                ddlOrgName.Items.Insert(index, new ListItem(org.OrganizationName, org.OrganizationID.ToString()));
+                index++;
+            }
 
         }
     }
@@ -83,10 +90,10 @@ public partial class Default2 : System.Web.UI.Page
             lblError.Visible = false;
             Random rand = new Random();
 
-            //Grab data from form
-            string tempOrgName = txtOrgName.Text;
+        //Grab data from form
+            string org = ddlOrgName.SelectedValue;
             int OnOffSite = Int16.Parse(ddlOnSite.SelectedValue);
-            string status = ddlStatus.SelectedValue;
+            string status = ddlStatus.SelectedItem.Text;
             string address = txtAddress.Text;
             string city = txtCity.Text;
             string county = txtCounty.Text;
@@ -97,6 +104,7 @@ public partial class Default2 : System.Web.UI.Page
             DateTime time = DateTime.Parse(txtTime.Text);
             bool paymentReceived = Boolean.Parse(ddlPayment.SelectedValue);
             string reportMonth = date.Month.ToString();
+    
 
             foreach (ListItem item in ddlAnimals.Items)
             {
@@ -115,7 +123,7 @@ public partial class Default2 : System.Web.UI.Page
         }
 
         //Create new object based on data
-        LiveProgram tempProgram = new LiveProgram(rand.Next(100,999), type, date, time, type, childCount, adultCount, tempAnimals, tempEducators, address, OnOffSite, city, county);
+        LiveProgram tempProgram = new LiveProgram(status, rand.Next(100,999).ToString(), date, time, type, childCount, adultCount, tempAnimals, tempEducators, address, OnOffSite, city, county);
 
             //Pass object to commit function of class and get the inserted row's ID
             LiveProgram.insertLiveProgram(tempProgram);
@@ -137,7 +145,6 @@ public partial class Default2 : System.Web.UI.Page
         txtAdultCount.Text = "";
         txtDate.Text = "";
         txtTime.Text = "";
-        txtOrgName.Text = "";
         ddlOnSite.SelectedIndex = 0;
         ddlStatus.SelectedIndex = 0;
         ddlPayment.SelectedIndex = 0;
@@ -165,7 +172,7 @@ public partial class Default2 : System.Web.UI.Page
         txtAdultCount.Text = rand.Next(1,30).ToString();
         txtDate.Text = DateTime.Now.AddMonths(rand.Next(1,5)).AddDays(rand.Next(0,30)).ToShortDateString();
         txtTime.Text = DateTime.Now.AddHours(rand.Next(1,3)).AddMinutes(rand.Next(1,60)).ToShortTimeString();
-        txtOrgName.Text = "Test Org " + randID;
+        ddlOrgName.SelectedIndex = (rand.Next(1, 3));
         ddlPayment.SelectedIndex = rand.Next(1, 2);
         ddlProgramType.SelectedIndex = rand.Next(1, 18);
         ddlOnSite.SelectedIndex = rand.Next(1, 2);

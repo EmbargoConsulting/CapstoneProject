@@ -29,7 +29,7 @@ public partial class Default2 : System.Web.UI.Page
 
             foreach (Animal animal in Animal.getAnimalList())
             {
-                ddlAnimals.Items.Insert(index, new ListItem(animal.getAnimalDescription(), animal.AnimalID.ToString()));
+                ddlAnimals.Items.Insert(index, new ListItem(animal.AnimalName, animal.AnimalID.ToString()));
             }
 
         }
@@ -75,6 +75,7 @@ public partial class Default2 : System.Web.UI.Page
 
     protected void btnSubmit_Click(object sender, EventArgs e)
     {
+     
         string type = ddlProgramType.SelectedItem.ToString();
         string teacher = txtTeacher.Text;
         string teacherEmail = txtEmail.Text;
@@ -104,7 +105,7 @@ public partial class Default2 : System.Web.UI.Page
             }
         }
 
-        OnlineProgram newProgram = new OnlineProgram(state, Country, grade, teacher, teacherEmail, rand.Next(111, 999), type, date, time, type, child, adult, tempAnimals, tempEducators);
+        OnlineProgram newProgram = new OnlineProgram(state, Country, grade, teacher, teacherEmail, date, time, type, type, child, adult, tempAnimals, tempEducators);
 
         OnlineProgram.insertOnlineProgram(newProgram);
         clearText();

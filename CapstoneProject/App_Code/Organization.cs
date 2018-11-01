@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Data;
+using System.Data.SqlClient;
 
 /// <summary>
 /// Summary description for Organization
@@ -22,6 +24,12 @@ public class Organization : dbConnect
         //
     }
 
+    public Organization(int id, string name)
+    {
+        OrganizationID = id;
+        OrganizationName = name;
+    }
+
     public Organization(int organizationID, string organizationName, string organizationAddress, string organizationContact, DateTime lastUpdated, string lastUpdatedBy)
     {
         this.OrganizationID = organizationID;
@@ -30,6 +38,30 @@ public class Organization : dbConnect
         this.OrganizationContact = organizationContact;
         this.LastUpdated = lastUpdated;
         this.LastUpdatedBy = lastUpdatedBy;
+    }
+
+    public static List<Organization> getOrgList()
+    {
+        List<Organization> list = new List<Organization>();
+        string query = "SELECT OrganizationID, OrganizationName FROM Organization;";
+        using (SqlConnection con = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["Project"].ConnectionString))
+        {
+            SqlCommand cmd = new SqlCommand(query, con);
+            con.Open();
+            SqlDataReader reader = cmd.ExecuteReader();
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+                    int id = reader.GetInt32(0);
+                    string orgName = reader.GetString(1);
+                    Organization newOrg = new Organization(id, orgName);
+                    list.Add(newOrg);
+                }
+            }
+
+        }
+        return list;
     }
 
     public int OrganizationID { get => organizationID; set => organizationID = value; }

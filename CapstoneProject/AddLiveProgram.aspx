@@ -9,7 +9,9 @@
         <div class="col-lg-4">
             <div class="form-group">
                 <label>Organization Name</label>
-                <asp:TextBox ID="txtOrgName" required="required" runat="server" class="form-control"></asp:TextBox>
+                <asp:DropDownList ID="ddlOrgName" required="required" runat="server" class="form-control">
+                    <asp:ListItem></asp:ListItem>
+                </asp:DropDownList>
             </div>
             <div class="form-group">
                 <label>On or Off Site?</label>
@@ -40,7 +42,7 @@
                 <asp:TextBox ID="txtCounty" CssClass="form-control" required="required" runat="server"></asp:TextBox>
             </div>
             <div class="form-group">
-                <label>Program Type</label>
+                <label>Program Theme</label>
                 <asp:DropDownList ID="ddlProgramType" runat="server" required="required" CssClass="form-control">
                     <asp:ListItem></asp:ListItem>
                     <asp:ListItem>Wild Winter Worlds</asp:ListItem>

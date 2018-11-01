@@ -18,13 +18,15 @@ public class LiveProgram : Program
         //
     }
 
-    public LiveProgram(int invoiceID, string programName, DateTime date, DateTime time, string programType, int childCount, int adultCount, List<int> programAnimals, List<int> programEducators, string address, int onOffSite, string city, string county) : base(invoiceID, programName, date, time, programType, childCount, adultCount, programAnimals, programEducators)
+    public LiveProgram(string status, string invoiceID, DateTime date, DateTime time, string programTheme, int childCount, int adultCount, List<int> programAnimals, List<int> programEducators, string address, int onOffSite, string city, string county) : base(date, time, programTheme, childCount, adultCount, programAnimals, programEducators)
     {
         //this.ProgramID = programID;
         this.Address = address;
         this.OnOffSite = onOffSite;
         this.City = city;
         this.County = county;
+        InvoiceID = invoiceID;
+        Status = status;
     }
 
     public static void insertLiveProgram(LiveProgram toInsert)
@@ -34,9 +36,7 @@ public class LiveProgram : Program
         //Insert Supertype
         cmd.CommandText = "insertProgram";
         cmd.CommandType = CommandType.StoredProcedure;
-        cmd.Parameters.AddWithValue("@InvoiceID", toInsert.InvoiceID);
-        cmd.Parameters.AddWithValue("@ProgramName", toInsert.ProgramName);
-        cmd.Parameters.AddWithValue("@ProgramType", toInsert.ProgramType);
+        cmd.Parameters.AddWithValue("@ProgramTheme", toInsert.ProgramTheme);
         cmd.Parameters.AddWithValue("@DateTime", toInsert.DateTime.ToString("yyyy-MM-dd hh:mm:ss"));
         cmd.Parameters.AddWithValue("@ChildAttendance", toInsert.ChildCount);
         cmd.Parameters.AddWithValue("@AdultAttendance", toInsert.AdultCount);
@@ -54,6 +54,7 @@ public class LiveProgram : Program
         cmd.CommandText = "insertLiveProgram";
         cmd.CommandType = CommandType.StoredProcedure;
         cmd.Parameters.AddWithValue("@ProgramID", toInsert.ProgramID);
+        cmd.Parameters.AddWithValue("@Status", toInsert.Status);
         cmd.Parameters.AddWithValue("@Address", toInsert.Address);
         cmd.Parameters.AddWithValue("@City", toInsert.City);
         cmd.Parameters.AddWithValue("@County", toInsert.County);
@@ -83,5 +84,7 @@ public class LiveProgram : Program
     public int OnOffSite { get; set; }
     public string City { get; set; }
     public string County { get; set; }
+    public string InvoiceID { get; set; }
+    public string Status { get; set; }
 
 }
