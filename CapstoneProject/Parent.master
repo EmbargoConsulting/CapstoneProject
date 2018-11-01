@@ -112,6 +112,14 @@
                             </ul>
                         </li>
                         <li>
+                            <a href="#"><i class="fa fa-building fa-fw"></i> Organizations<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="AddOrganization.aspx">Add Organization</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
                             <a href="Reports.aspx"><i class="fa fa-fw fa-clipboard"></i> Reports</a>
                         </li>
                         <li>

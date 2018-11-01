@@ -81,7 +81,7 @@
                                     <i class="fa fa-users fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                    <div>Create/Manage Employees</div>
+                                    <div>Create/Manage Educators</div>
                                 </div>
                             </div>
                         </div>
