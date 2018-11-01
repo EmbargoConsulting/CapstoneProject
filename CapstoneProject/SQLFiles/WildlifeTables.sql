@@ -1,7 +1,9 @@
 CREATE TABLE [dbo].[Users](
 	[UserID] [int] IDENTITY(1,1) NOT NULL,
 	[Username] [varchar](100) NOT NULL,
-	[PasswordHash] [varchar](100) NOT NULL
+	[PasswordHash] [varchar](100) NOT NULL,
+	[LastUpdatedBy] [varchar](50) NULL,
+	[LastUpdated] [date] NULL,
 ) ON [PRIMARY]
 GO
 

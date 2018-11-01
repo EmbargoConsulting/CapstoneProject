@@ -277,11 +277,14 @@ as
 INSERT INTO [dbo].[Users]
 	([UserID]
 	,[Username]
-	,[PasswordHash])
-
+	,[PasswordHash]
+	,[LastUpdatedBy]
+	,[LastUpdated])
 VALUES
 	(@UserID,
 	@Username,
-	@PasswordHash)
+	@PasswordHash,
+	@LastUpdatedBy,
+	@LastUpdated)
 GO
 
