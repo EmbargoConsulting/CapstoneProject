@@ -178,18 +178,18 @@ GO
 
 
 CREATE PROCEDURE insertOrganization
-@OrganizationID int,
 @OrganizationName varchar(50),
 @State varchar(50),
 @City varchar(50),
 @Zip varchar(50),
 @OrganizationContact nchar(10),
 @LastUpdatedBy varchar(50),
-@LastUpdated date
+@LastUpdated date,
+@OrganizationID int output
+
 as
 INSERT INTO [dbo].[Organization]
-   ([OrganizationID]
-   ,[OrganizationName]
+    ([OrganizationName]
    ,[State]
    ,[City]
    ,[Zip]
@@ -197,16 +197,17 @@ INSERT INTO [dbo].[Organization]
    ,[LastUpdatedBy]
    ,[LastUpdated])
 VALUES
-   (@OrganizationID,
-   @OrganizationName,
+   (@OrganizationName,
    @State,
    @City,
    @Zip,
    @OrganizationContact,
    @LastUpdatedBy,
-   @LastUpdated)
-GO
+   @LastUpdated
+   )
+   SET @OrganizationID = SCOPE_IDENTITY();
 
+GO
 
 
 CREATE PROCEDURE insertPayment

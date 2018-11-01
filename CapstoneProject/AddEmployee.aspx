@@ -6,7 +6,7 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ChildContent1" Runat="Server">
 
-    <h2 class="page-header">Add an Employee</h2>
+    <h2 class="page-header">Add an Educator</h2>
 
     <div class="row">
         <div class="col-lg-4">

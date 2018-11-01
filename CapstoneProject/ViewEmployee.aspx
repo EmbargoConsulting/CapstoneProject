@@ -6,7 +6,7 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ChildContent1" Runat="Server">
 
-    <h2 class="page-header">View Employees</h2>
+    <h2 class="page-header">View Educators</h2>
         <div class="col-lg-9">
         <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" CssClass="table table-striped table-bordered"  CellPadding="4" DataKeyNames="Employee ID" DataSourceID="SqlDataSource_ViewEmployee" ForeColor="#333333" GridLines="None">
             <AlternatingRowStyle BackColor="White" />
