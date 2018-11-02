@@ -43,8 +43,6 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ChildContent2" runat="Server">
 
     <div class="col-lg-4">
-    <div class="panel panel-default">
-        <div class="panel-body">
              <div class="input-group custom-search-form">
             <%--<input type="text" class="form-control" placeholder="Search...">--%>
             <asp:TextBox ID="txtSearchAnimals" CssClass="form-control" runat="server"></asp:TextBox>
@@ -64,13 +62,10 @@
             </Columns>
         </asp:GridView>
     </div>
-        </div>
-    </div>
        
     <div class="col-lg-7">
         <div class="panel panel-default">
             <div class="panel-body">
-                <div class="panel-body">
                     <div class="panel-heading">Monthly Break-Down</div>
                     <asp:GridView ID="DetailsGridView" runat="server" AutoGenerateColumns="false" CssClass="table table-bordered" DataKeyNames="AnimalID" DataSourceID="detailsDataSource">
             <HeaderStyle />
@@ -84,7 +79,9 @@
             </Columns>
         </asp:GridView>
                 </div>
-                 <div class="panel-body">
+                </div>
+        <div class="panel panel-default">
+            <div class="panel-body">
                     <div class="panel-heading">Yearly Break-Down</div>
         <asp:GridView ID="yearGridView" AutoGenerateColumns="false" CssClass="table table-bordered" DataKeyNames="AnimalID" DataSourceID="yearDataSource" runat="server">
                <Columns>
@@ -99,11 +96,11 @@
         </asp:GridView>
 
                  </div>
+        </div>
+                 
             </div>
 
-        </div>
        
-    </div>
 
     <asp:SqlDataSource ID="mainDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:Project %>" SelectCommand="SELECT Animal.AnimalID, Animal.AnimalName, COUNT(Program.ProgramID) AS 'Programs', SUM(Program.ChildAttendance) + SUM(Program.AdultAttendance) as 'People' FROM Animal INNER JOIN AnimalProgram ON Animal.AnimalID = AnimalProgram.AnimalID INNER JOIN Program ON AnimalProgram.ProgramID = Program.ProgramID GROUP BY Animal.AnimalName, Animal.AnimalID"></asp:SqlDataSource>
 

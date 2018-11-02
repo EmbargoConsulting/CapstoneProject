@@ -45,7 +45,7 @@ CREATE TABLE [dbo].[Organization](
 	[State] [varchar](50) NULL,
 	[City] [varchar](50) NULL,
 	[Zip] [varchar](50) NULL,
-	[OrganizationContact] [nchar](10) NULL,
+	[OrganizationContact] [varchar](50) NULL,
 	[LastUpdatedBy] [varchar](50) NULL,
 	[LastUpdated] [date] NULL,
  CONSTRAINT [PK_Organization] PRIMARY KEY CLUSTERED 

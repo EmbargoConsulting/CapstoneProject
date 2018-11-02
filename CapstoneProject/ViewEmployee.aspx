@@ -11,7 +11,6 @@
         <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" CssClass="table table-striped table-bordered"  CellPadding="4" DataKeyNames="Employee ID" DataSourceID="SqlDataSource_ViewEmployee" ForeColor="#333333" GridLines="None">
             <AlternatingRowStyle BackColor="White" />
             <Columns>
-                <asp:BoundField DataField="Employee ID" HeaderText="Employee ID" InsertVisible="False" ReadOnly="True" SortExpression="Employee ID" ItemStyle-Width="5%"/>
                 <asp:BoundField DataField="First Name" HeaderText="First Name" SortExpression="First Name" ItemStyle-Width="10%"/>
                 <asp:BoundField DataField="Middle Name" HeaderText="Middle Name" SortExpression="Middle Name" ItemStyle-Width="10%"/>
                 <asp:BoundField DataField="Last Name" HeaderText="Last Name" SortExpression="Last Name" ItemStyle-Width="10%"/>

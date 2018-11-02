@@ -131,6 +131,8 @@ public partial class Default2 : System.Web.UI.Page
 
             
         clearText();
+        tempEducators.Clear();
+        tempAnimals.Clear();
         
     }
 
@@ -172,7 +174,7 @@ public partial class Default2 : System.Web.UI.Page
         txtAdultCount.Text = rand.Next(1,30).ToString();
         txtDate.Text = DateTime.Now.AddMonths(rand.Next(1,5)).AddDays(rand.Next(0,30)).ToShortDateString();
         txtTime.Text = DateTime.Now.AddHours(rand.Next(1,3)).AddMinutes(rand.Next(1,60)).ToShortTimeString();
-        ddlOrgName.SelectedIndex = (rand.Next(1, 3));
+        ddlOrgName.SelectedIndex = 1;
         ddlPayment.SelectedIndex = rand.Next(1, 2);
         ddlProgramType.SelectedIndex = rand.Next(1, 18);
         ddlOnSite.SelectedIndex = rand.Next(1, 2);

@@ -101,23 +101,10 @@
                             </ul>
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-user fa-fw"></i> Educators<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="AddEmployee.aspx">Add Educator</a>
-                                </li>
-                                <li>
-                                    <a href="ViewEmployee.aspx">View Educator</a>
-                                </li>
-                            </ul>
+                            <a href="AddEmployee.aspx"><i class="fa fa-user fa-fw"></i> Educators</a>                            
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-building fa-fw"></i> Organizations<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="AddOrganization.aspx">Add Organization</a>
-                                </li>
-                            </ul>
+                            <a href="AddOrganization.aspx"><i class="fa fa-building fa-fw"></i> Organizations</a>
                         </li>
                         <li>
                             <a href="Reports.aspx"><i class="fa fa-fw fa-clipboard"></i> Reports</a>

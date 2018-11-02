@@ -11,7 +11,6 @@
          <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="Program ID" DataSourceID="SqlDataSource_ViewProgram" ForeColor="#333333" CssClass="table table-striped table-bordered" GridLines="None">
         <AlternatingRowStyle BackColor="White" />
         <Columns>
-            <asp:BoundField DataField="Program ID" HeaderText="Program ID" InsertVisible="False" ReadOnly="True" SortExpression="Program ID" ItemStyle-Width="5%" />
             <asp:BoundField DataField="Theme" HeaderText="Theme" SortExpression="Theme" ItemStyle-Width="10%"/>
             <asp:BoundField DataField="Date and Time" HeaderText="Date and Time" SortExpression="Date and Time" ItemStyle-Width="10%"/>
             <asp:BoundField DataField="Child Attendance" HeaderText="Child Attendance" SortExpression="Child Attendance" ItemStyle-Width="10%"/>
