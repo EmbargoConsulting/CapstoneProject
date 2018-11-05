@@ -22,6 +22,8 @@ public partial class ViewAnimal : System.Web.UI.Page
             foreach (Animal animal in Animal.getAnimalList())
             {
                 ddlAnimals.Items.Add(new ListItem(animal.AnimalName, animal.AnimalID.ToString()));
+                
+
             }
 
             //details.Visible = false;
@@ -49,6 +51,13 @@ public partial class ViewAnimal : System.Web.UI.Page
         Animal animal = new Animal(txtAnimalName.Text, ddlAnimalType.SelectedItem.Text, true, DateTime.Now, "User");
         Animal.insertAnimal(animal);
         clear();
+
+        ddlAnimals.Items.Clear();
+        foreach (Animal a in Animal.getAnimalList())
+        {
+            ddlAnimals.Items.Add(new ListItem(a.AnimalName, a.AnimalID.ToString()));
+        }
+
     }
     //protected void showData()
     //{

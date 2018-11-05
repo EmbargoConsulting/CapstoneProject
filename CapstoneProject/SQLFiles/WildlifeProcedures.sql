@@ -182,7 +182,7 @@ CREATE PROCEDURE insertOrganization
 @State varchar(50),
 @City varchar(50),
 @Zip varchar(50),
-@OrganizationContact varhcar(50),
+@OrganizationContact varchar(50),
 @LastUpdatedBy varchar(50),
 @LastUpdated date,
 @OrganizationID int output
