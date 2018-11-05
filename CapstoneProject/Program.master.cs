@@ -13,13 +13,24 @@ public partial class Program : System.Web.UI.MasterPage
 
         if (pageName.Contains("AddLiveProgram.aspx"))
         {
-            btnOnlineProgram.CssClass = "btn btn-default";
+            //btnOnlineProgram.CssClass = "btn btn-default";
+            //btnLiveProgram.CssClass = "btn btn-primary";
+            btnViewProgram.CssClass = "btn btn-default";
             lblProgramHeader.Text = "<h2 class=\"page-header\">Add Live Program</h2>";
 
         } else if (pageName.Contains("AddOnlineProgram.aspx"))
         {
-            btnLiveProgram.CssClass = "btn btn-default";
+            //btnOnlineProgram.CssClass = "btn btn-primary";
+            //btnLiveProgram.CssClass = "btn btn-default";
+            btnViewProgram.CssClass = "btn btn-default";
             lblProgramHeader.Text = "<h2 class=\"page-header\">Add Online Program</h2>";
+        } else if (pageName.Contains("ViewProgram.aspx"))
+        {
+            //btnLiveProgram.CssClass = "btn btn-default";
+            //btnOnlineProgram.CssClass = "btn btn-default";
+            btnViewProgram.CssClass = "btn btn-primary";
+            lblProgramHeader.Text = "<h2 class=\"page-header\">Programs</h2>";
+            btnGroupDrop1.CssClass = "btn btn-default";
         }
     }
 

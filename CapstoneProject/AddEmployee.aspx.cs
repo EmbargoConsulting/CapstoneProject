@@ -31,6 +31,7 @@ public partial class AddEmployee : System.Web.UI.Page
             txtEmpMiddle.Text = "";
             txtEmpLast.Text = "";
             ddlEmpType.SelectedIndex = 0;
+            GridView1.DataBind();
         }
 
     }

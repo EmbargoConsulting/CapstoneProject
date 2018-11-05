@@ -78,27 +78,11 @@
                             <a href="Dashboard.aspx"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-table fa-fw"></i> Programs<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="AddLiveProgram.aspx">Add Program</a>
-                                </li>
-                                <li>
-                                    <a href="ViewProgram.aspx">View Programs</a>
-                                </li>
-                            </ul>
-                            <!-- /.nav-second-level -->
+                            <a href="ViewProgram.aspx"><i class="fa fa-table fa-fw"></i> Programs</a>
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-paw fa-fw"></i> Animals<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="AddAnimal.aspx">Add Animal</a>
-                                </li>
-                                <li>
-                                    <a href="ViewAnimal.aspx">View Animals</a>
-                                </li>
-                            </ul>
+                            <a href="ViewAnimal.aspx"><i class="fa fa-paw fa-fw"></i> Animals</a>
+
                         </li>
                         <li>
                             <a href="AddEmployee.aspx"><i class="fa fa-user fa-fw"></i> Educators</a>                            

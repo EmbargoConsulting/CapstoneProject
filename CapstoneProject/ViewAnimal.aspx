@@ -41,33 +41,74 @@
 
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ChildContent2" runat="Server">
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#animalModal">
+  Add an Animal
+</button>
 
+<!-- Modal -->
+<div class="modal fade" id="animalModal" tabindex="-1" role="dialog" aria-labelledby="animalModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" style="max-width:400px;" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="animalModalLabel">Add an Animal</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+            <div class="form-group">
+                <label>Animal Name</label>
+                <asp:TextBox ID="txtAnimalName" runat="server" class="form-control" required="required"></asp:TextBox>
+            </div>
+            <div class="form-group">
+                <label>Animal Type</label>
+                <asp:DropDownList ID="ddlAnimalType" runat="server"  required="required"  class="form-control">
+                    <asp:ListItem></asp:ListItem>
+                    <asp:ListItem Value="Bird">Bird</asp:ListItem>
+                    <asp:ListItem Value ="Mammal">Mammal</asp:ListItem>
+                    <asp:ListItem Value ="Reptile">Reptile</asp:ListItem>
+                </asp:DropDownList>
+            </div>
+
+            <div id="btn">
+                <asp:Button ID="btnSubmit" runat="server" CssClass="btn btn-primary btn-group-justified" Text="Add Animal" OnClick="btnSubmit_Click" /><br />
+            </div>
+            <div id="btn2">
+                 <asp:Button ID="btnClearAll" runat="server" CssClass="btn btn-group-justified btn-primary" CausesValidation="false"  Text="Clear Fields" OnClick="btnClearAll_Click" formnovalidate="formnovalidate"/>
+            </div>
+
+
+    </div>
+            </div>
+      <div class="modal-footer">
+
+      </div>
+    </div>
+  </div>
     <div class="col-lg-4">
-             <div class="input-group custom-search-form">
-            <%--<input type="text" class="form-control" placeholder="Search...">--%>
+<%--             <div class="input-group custom-search-form">
             <asp:TextBox ID="txtSearchAnimals" CssClass="form-control" runat="server"></asp:TextBox>
             <span class="input-group-btn">
-                <%--                <button runat="server" class="btn btn-default" onclick="showSearchData()" type="button">
-                    <i class="fa fa-search"></i>
-                </button>--%>
-                <asp:LinkButton ID="btnSearchAnimals" CssClass="btn btn-primary" OnClick="btnSearchAnimals_Click" runat="server"><span aria-hidden="true" class="glyphicon glyphicon-search"</span></asp:LinkButton>
+                            <asp:LinkButton ID="btnSearchAnimals" CssClass="btn btn-primary" OnClick="btnSearchAnimals_Click" runat="server"><span aria-hidden="true" class="glyphicon glyphicon-search"</span></asp:LinkButton>
             </span>
-        </div>
-        <asp:GridView ID="MainGridView" AutoGenerateColumns="false" DataSourceID="mainDataSource" DataKeyNames="AnimalID" CssClass="table table-bordered" runat="server" OnSorting="MainGridView_Sorting" AllowSorting="True">
+        </div>--%>
+        <asp:DropDownList ID="ddlAnimals" CssClass="form-control" AutoPostBack="true" OnSelectedIndexChanged="ddlAnimals_SelectedIndexChanged" runat="server">
+        </asp:DropDownList>
+        <%--<asp:GridView ID="MainGridView"  AutoGenerateColumns="false" DataSourceID="mainDataSource" DataKeyNames="AnimalID" CssClass="table table-bordered" runat="server" OnSorting="MainGridView_Sorting" AllowSorting="True">
             <Columns>
                 <asp:CommandField ShowSelectButton="True" SelectText="Details" />
                 <asp:BoundField HeaderText="Animal Name" DataField="AnimalName" SortExpression="AnimalName" />
                 <asp:BoundField HeaderText="Programs" DataField="Programs" SortExpression="Programs" />
                 <asp:BoundField HeaderText="People" DataField="People" SortExpression="People" />
             </Columns>
-        </asp:GridView>
+        </asp:GridView>--%>
     </div>
        
-    <div class="col-lg-7">
+    <div id="details" runat="server" class="col-lg-7">
         <div class="panel panel-default">
-            <div class="panel-body">
-                    <div class="panel-heading">Monthly Break-Down</div>
-                    <asp:GridView ID="DetailsGridView" runat="server" AutoGenerateColumns="false" CssClass="table table-bordered" DataKeyNames="AnimalID" DataSourceID="detailsDataSource">
+                    <div class="panel panel-heading">Monthly Break-Down</div>
+            <div class="panel panel-body">
+                    <asp:GridView ID="DetailsGridView" runat="server" AutoGenerateColumns="false" CssClass="table table-bordered" DataKeyNames="AnimalID">
             <HeaderStyle />
             <Columns>
                 <asp:BoundField HeaderText="Month" DataField="Month" SortExpression="AnimalName" />
@@ -81,9 +122,10 @@
                 </div>
                 </div>
         <div class="panel panel-default">
-            <div class="panel-body">
                     <div class="panel-heading">Yearly Break-Down</div>
-        <asp:GridView ID="yearGridView" AutoGenerateColumns="false" CssClass="table table-bordered" DataKeyNames="AnimalID" DataSourceID="yearDataSource" runat="server">
+
+            <div class="panel-body">
+        <asp:GridView ID="yearGridView" AutoGenerateColumns="false" CssClass="table table-bordered" DataKeyNames="AnimalID" runat="server">
                <Columns>
                 <asp:BoundField HeaderText="Year" DataField="Year" SortExpression="AnimalName" />
                 <asp:BoundField HeaderText="On-Site" DataField="On-Site" SortExpression="Programs" />
@@ -99,21 +141,22 @@
         </div>
                  
             </div>
+    <div runat="server" id="results"></div>
 
        
 
-    <asp:SqlDataSource ID="mainDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:Project %>" SelectCommand="SELECT Animal.AnimalID, Animal.AnimalName, COUNT(Program.ProgramID) AS 'Programs', SUM(Program.ChildAttendance) + SUM(Program.AdultAttendance) as 'People' FROM Animal INNER JOIN AnimalProgram ON Animal.AnimalID = AnimalProgram.AnimalID INNER JOIN Program ON AnimalProgram.ProgramID = Program.ProgramID GROUP BY Animal.AnimalName, Animal.AnimalID"></asp:SqlDataSource>
+<%--    <asp:SqlDataSource ID="mainDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:Project %>" SelectCommand="SELECT Animal.AnimalID, Animal.AnimalName, COUNT(Program.ProgramID) AS 'Programs', SUM(Program.ChildAttendance) + SUM(Program.AdultAttendance) as 'People' FROM Animal INNER JOIN AnimalProgram ON Animal.AnimalID = AnimalProgram.AnimalID INNER JOIN Program ON AnimalProgram.ProgramID = Program.ProgramID GROUP BY Animal.AnimalName, Animal.AnimalID"></asp:SqlDataSource>
 
     <asp:SqlDataSource ID="yearDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:Project %>" SelectCommand="SELECT DATEPART(YEAR, Program.DateTime) AS 'Year', COUNT(CASE WHEN OnOffSite = 1 THEN 1 END) AS 'On-Site', COUNT(CASE WHEN LiveProgram.OnOffSite = 0 THEN 1 END) AS 'Off-Site', COUNT(*) AS 'Total Programs',  SUM(Program.ChildAttendance) AS 'Children', SUM(Program.AdultAttendance) AS 'Adults', SUM(Program.AdultAttendance) + SUM(Program.ChildAttendance) AS 'Total People', Animal.AnimalID FROM LiveProgram INNER JOIN Program ON LiveProgram.ProgramID = Program.ProgramID INNER JOIN AnimalProgram ON Program.ProgramID = AnimalProgram.ProgramID INNER JOIN Animal ON AnimalProgram.AnimalID = Animal.AnimalID WHERE Animal.AnimalID = @AnimalID GROUP BY Animal.AnimalID, DATEPART(Year, Program.DateTime)">
         <SelectParameters>
-            <asp:ControlParameter ControlID="MainGridView" Name="AnimalID" PropertyName="SelectedValue" Type="Int32" />
+            <asp:ControlParameter ControlID="MainGridView"  Name="AnimalID" PropertyName="SelectedValue" Type="Int32" />
         </SelectParameters>
     </asp:SqlDataSource>
     <asp:SqlDataSource ID="detailsDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:Project %>" SelectCommand="SELECT DATEPART(MONTH, Program.DateTime) as num, DATENAME(month, Program.DateTime) AS 'Month', COUNT(CASE WHEN OnOffSite = 1 THEN 1 END) AS 'On-Site', COUNT(CASE WHEN LiveProgram.OnOffSite = 0 THEN 1 END) AS 'Off-Site', COUNT(*) AS 'Total Programs',  SUM(Program.ChildAttendance) AS 'Children', SUM(Program.AdultAttendance) AS 'Adults', SUM(Program.AdultAttendance) + SUM(Program.ChildAttendance) AS 'Total People', Animal.AnimalID FROM LiveProgram INNER JOIN Program ON LiveProgram.ProgramID = Program.ProgramID INNER JOIN AnimalProgram ON Program.ProgramID = AnimalProgram.ProgramID INNER JOIN Animal ON AnimalProgram.AnimalID = Animal.AnimalID WHERE Animal.AnimalID = @AnimalID GROUP BY DATENAME(month, Program.DateTime), Animal.AnimalID, DATEPART(month, Program.DateTime) ORDER BY Datepart(month, program.datetime) asc">
         <SelectParameters>
             <asp:ControlParameter ControlID="MainGridView" Name="AnimalID" PropertyName="SelectedValue" Type="Int32" />
         </SelectParameters>
-    </asp:SqlDataSource>
+    </asp:SqlDataSource>--%>
 
 
 </asp:Content>

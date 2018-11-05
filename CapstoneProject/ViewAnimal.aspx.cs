@@ -19,72 +19,136 @@ public partial class ViewAnimal : System.Web.UI.Page
     {
         if (!Page.IsPostBack)
         {
-            MainGridView.DataSourceID = "";
-            showData();
+            foreach (Animal animal in Animal.getAnimalList())
+            {
+                ddlAnimals.Items.Add(new ListItem(animal.AnimalName, animal.AnimalID.ToString()));
+            }
+
+            //details.Visible = false;
+            //MainGridView.DataSourceID = "";
+            //showData();
+
+
         }
 
         //MainGridView.DataBind();
     }
-
-
-
-    protected void showData()
+    protected void clear()
     {
-
-
-        DataTable dt = new DataTable();
-        SqlConnection con = new SqlConnection(cs);
-        con.Open();
-        SqlDataAdapter adapt = new SqlDataAdapter("SELECT Animal.AnimalID, Animal.AnimalName, COUNT(Program.ProgramID) AS 'Programs', SUM(Program.ChildAttendance) + SUM(Program.AdultAttendance) as 'People' FROM Animal LEFT OUTER JOIN AnimalProgram ON Animal.AnimalID = AnimalProgram.AnimalID LEFT OUTER JOIN Program ON AnimalProgram.ProgramID = Program.ProgramID GROUP BY Animal.AnimalName, Animal.AnimalID", con);
-        adapt.Fill(dt);
-        if (dt.Rows.Count > 0)
-        {
-            MainGridView.DataSource = dt;
-            MainGridView.DataBind();
-        }
-        con.Close();
+        txtAnimalName.Text = "";
+        ddlAnimalType.SelectedIndex = 0;
     }
 
-    protected void showSearchData()
+    protected void btnClearAll_Click(object sender, EventArgs e)
     {
-        if(txtSearchAnimals.Text == "")
-        {
-            showData();
-        } else
-        {
-            string searchQuery = "SELECT Animal.AnimalID, Animal.AnimalName, COUNT(Program.ProgramID) AS 'Programs', SUM(Program.ChildAttendance) + SUM(Program.AdultAttendance) as 'People' FROM Animal LEFT OUTER JOIN AnimalProgram ON Animal.AnimalID = AnimalProgram.AnimalID LEFT OUTER JOIN Program ON AnimalProgram.ProgramID = Program.ProgramID WHERE Animal.AnimalName like '%" + txtSearchAnimals.Text + "%' GROUP BY Animal.AnimalName, Animal.AnimalID";
-            SqlConnection con = new SqlConnection(cs);
-            SqlCommand cmd = new SqlCommand(searchQuery, con);
-            cmd.Parameters.AddWithValue("@search", txtSearchAnimals.Text);
-            DataTable dt = new DataTable();
-            con.Open();
-            SqlDataAdapter adapt = new SqlDataAdapter(searchQuery, con);
-            adapt.Fill(dt);
-            if (dt.Rows.Count > 0)
-            {
-                //lbl_Results.Text = "Returned " + dt.Rows.Count + " results";
-                MainGridView.DataSource = dt;
-                MainGridView.DataBind();
-            }
-            else
-            {
-                //lbl_Results.Text = "No results found";
-                showData();
-            }
-            con.Close();
-        }
+        clear();
+    }
+
+    protected void btnSubmit_Click(object sender, EventArgs e)
+    {
+        Animal animal = new Animal(txtAnimalName.Text, ddlAnimalType.SelectedItem.Text, true, DateTime.Now, "User");
+        Animal.insertAnimal(animal);
+        clear();
+    }
+    //protected void showData()
+    //{
+
+
+    //    DataTable dt = new DataTable();
+    //    SqlConnection con = new SqlConnection(cs);
+    //    con.Open();
+    //    SqlDataAdapter adapt = new SqlDataAdapter("SELECT Animal.AnimalID, Animal.AnimalName, COUNT(Program.ProgramID) AS 'Programs', SUM(Program.ChildAttendance) + SUM(Program.AdultAttendance) as 'People' FROM Animal LEFT OUTER JOIN AnimalProgram ON Animal.AnimalID = AnimalProgram.AnimalID LEFT OUTER JOIN Program ON AnimalProgram.ProgramID = Program.ProgramID GROUP BY Animal.AnimalName, Animal.AnimalID", con);
+    //    adapt.Fill(dt);
+    //    if (dt.Rows.Count > 0)
+    //    {
+    //        MainGridView.DataSource = dt;
+    //        MainGridView.DataBind();
+    //    }
+    //    con.Close();
+    //}
+
+    //protected void showSearchData()
+    //{
+    //    if(txtSearchAnimals.Text == "")
+    //    {
+    //        showData();
+    //    } else
+    //    {
+    //        string searchQuery = "SELECT Animal.AnimalID, Animal.AnimalName, COUNT(Program.ProgramID) AS 'Programs', SUM(Program.ChildAttendance) + SUM(Program.AdultAttendance) as 'People' FROM Animal LEFT OUTER JOIN AnimalProgram ON Animal.AnimalID = AnimalProgram.AnimalID LEFT OUTER JOIN Program ON AnimalProgram.ProgramID = Program.ProgramID WHERE Animal.AnimalName like '%" + txtSearchAnimals.Text + "%' GROUP BY Animal.AnimalName, Animal.AnimalID";
+    //        SqlConnection con = new SqlConnection(cs);
+    //        SqlCommand cmd = new SqlCommand(searchQuery, con);
+    //        cmd.Parameters.AddWithValue("@search", txtSearchAnimals.Text);
+    //        DataTable dt = new DataTable();
+    //        con.Open();
+    //        SqlDataAdapter adapt = new SqlDataAdapter(searchQuery, con);
+    //        adapt.Fill(dt);
+    //        if (dt.Rows.Count > 0)
+    //        {
+    //            //lbl_Results.Text = "Returned " + dt.Rows.Count + " results";
+    //            MainGridView.DataSource = dt;
+    //            MainGridView.DataBind();
+    //        }
+    //        else
+    //        {
+    //            //lbl_Results.Text = "No results found";
+    //            showData();
+    //        }
+    //        con.Close();
+    //    }
         
-    }
+    //}
 
    
     protected void btnSearchAnimals_Click(object sender, EventArgs e)
     {
-        showSearchData();
+        //showSearchData();
     }
 
     protected void MainGridView_Sorting(object sender, GridViewSortEventArgs e)
     {
         //showData();
         //MainGridView.DataBind();
+    }
+
+    protected void ddlAnimals_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        //DetailsGridView.D
+        string searchQuery = "SELECT DATEPART(MONTH, Program.DateTime) as num, DATENAME(month, Program.DateTime) AS 'Month', COUNT(CASE WHEN OnOffSite = 1 THEN 1 END) AS 'On-Site', COUNT(CASE WHEN LiveProgram.OnOffSite = 0 THEN 1 END) AS 'Off-Site', COUNT(*) AS 'Total Programs',  SUM(Program.ChildAttendance) AS 'Children', SUM(Program.AdultAttendance) AS 'Adults', SUM(Program.AdultAttendance) + SUM(Program.ChildAttendance) AS 'Total People', Animal.AnimalID FROM LiveProgram INNER JOIN Program ON LiveProgram.ProgramID = Program.ProgramID INNER JOIN AnimalProgram ON Program.ProgramID = AnimalProgram.ProgramID INNER JOIN Animal ON AnimalProgram.AnimalID = Animal.AnimalID WHERE Animal.AnimalID = @AnimalID GROUP BY DATENAME(month, Program.DateTime), Animal.AnimalID, DATEPART(month, Program.DateTime) ORDER BY Datepart(month, program.datetime) asc";
+        SqlConnection con = new SqlConnection(cs);
+        SqlCommand cmd = new SqlCommand(searchQuery, con);
+        cmd.Parameters.AddWithValue("@AnimalID", ddlAnimals.SelectedValue);
+        DataTable dt = new DataTable();
+        con.Open();
+        SqlDataAdapter adapt = new SqlDataAdapter(cmd);
+        adapt.Fill(dt);
+        if (dt.Rows.Count > 0)
+        {
+            //lbl_Results.Text = "Returned " + dt.Rows.Count + " results";
+            DetailsGridView.DataSource = dt;
+            DetailsGridView.DataBind();
+            results.Visible = false;
+            details.Visible = true;
+        }
+        else
+        {
+            details.Visible = false;
+            results.InnerText = "No data for " + ddlAnimals.SelectedItem;
+            results.Visible = true;
+            //lbl_Results.Text = "No results found";
+            //showData();
+        }
+        con.Close();
+
+        searchQuery = "SELECT DATEPART(YEAR, Program.DateTime) AS 'Year', COUNT(CASE WHEN OnOffSite = 1 THEN 1 END) AS 'On-Site', COUNT(CASE WHEN LiveProgram.OnOffSite = 0 THEN 1 END) AS 'Off-Site', COUNT(*) AS 'Total Programs',  SUM(Program.ChildAttendance) AS 'Children', SUM(Program.AdultAttendance) AS 'Adults', SUM(Program.AdultAttendance) + SUM(Program.ChildAttendance) AS 'Total People', Animal.AnimalID FROM LiveProgram INNER JOIN Program ON LiveProgram.ProgramID = Program.ProgramID INNER JOIN AnimalProgram ON Program.ProgramID = AnimalProgram.ProgramID INNER JOIN Animal ON AnimalProgram.AnimalID = Animal.AnimalID WHERE Animal.AnimalID = @AnimalID GROUP BY Animal.AnimalID, DATEPART(Year, Program.DateTime)";
+        cmd.CommandText = searchQuery;
+        con.Open();
+        dt.Clear();
+        adapt.Fill(dt);
+        if (dt.Rows.Count > 0)
+        {
+            //lbl_Results.Text = "Returned " + dt.Rows.Count + " results";
+            yearGridView.DataSource = dt;
+            yearGridView.DataBind();
+        }
     }
 }
