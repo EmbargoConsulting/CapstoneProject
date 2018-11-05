@@ -24,6 +24,8 @@
     <!-- Custom Fonts -->
     <link href="../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
 
+    <!-- Embargo CSS -->
+    <link href="../dist/css/embargo.css" rel="stylesheet" type="text/css" />
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -36,6 +38,7 @@
     <script src="Scripts/popper.min.js"></script>
 </head>
 <body>
+    <div id="loginPanel">
     <form id="form1" runat="server">
         <div class="container">
             <div class="row">
@@ -67,7 +70,8 @@
                 </div>
             </div>
         </div>
-
+    </form>
+    </div>
         <!-- jQuery -->
         <script src="../vendor/jquery/jquery.min.js"></script>
 
@@ -79,7 +83,6 @@
 
         <!-- Custom Theme JavaScript -->
         <script src="../dist/js/sb-admin-2.js"></script>
-    </form>
 </body>
 
 

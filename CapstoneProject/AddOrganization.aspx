@@ -74,8 +74,8 @@
                 </asp:DropDownList>
             </div>
             <div class="form-group">
-                <label>Organization Contact</label>
-                <asp:TextBox ID="txtOrganizationContact" runat="server" class="form-control" required="required"></asp:TextBox>
+                <label>Organization Email</label>
+                <asp:TextBox ID="txtOrganizationContact" runat="server" class="form-control" required="required" placeholder="ie. wildlife@wildlifecenter.org"></asp:TextBox>
             </div>
         </div>
         <div class="col-lg-1" style="width: 40px;"><hr /></div>
@@ -84,7 +84,7 @@
                 <Columns>
                     <asp:BoundField DataField="OrganizationName" HeaderText="Organization Name" SortExpression="OrganizationName" />
 
-                    <asp:BoundField DataField="OrganizationContact" HeaderText="Organization Contact" SortExpression="OrganizationContact" />
+                    <asp:BoundField DataField="OrganizationContact" HeaderText="Organization Phone Number" SortExpression="OrganizationContact"/>
 
                 </Columns>
                 <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
@@ -109,16 +109,20 @@
             </asp:SqlDataSource>
         </div>
     </div>
-    <div class="col-lg-2">
+   <div class="row">
+    <div class="btn-group col-lg-4" id="btnGroupAddOrg">
+    <div class="col-lg-6">
         <div id="btn">
             <asp:Button ID="btnSubmit" runat="server" CssClass="btn btn-primary btn-group-justified" Text="Save Organization" OnClick="btnSubmit_Click" /><br />
         </div>
     </div>
-    <div class="col-lg-2">
+    <div class="col-lg-6">
         <div id="btn2">
             <asp:Button ID="btnClearAll" runat="server" CssClass="btn btn-group-justified btn-primary" Text="Clear Fields" OnClick="btnClearAll_Click" formnovalidate="formnovalidate" />
         </div>
     </div>
+   </div>
+   </div>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ChildContent2" runat="Server">
 </asp:Content>

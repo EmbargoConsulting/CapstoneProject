@@ -1,0 +1,22 @@
+﻿body {
+}
+/*login page*/
+#loginPanel{
+    margin: 7.5% 0 0 0;
+}
+
+
+/*view animals page*/
+#animalDropdown{
+    margin:0 0 1% 12%;
+}
+
+#btnAddAnimal{
+    margin: 0 0 1% 20%;
+}
+
+#yearlyTable{
+    margin-left: 8.5%;
+}
+
+
