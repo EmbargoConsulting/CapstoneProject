@@ -103,7 +103,12 @@
                             <asp:LinkButton ID="btnSearchAnimals" CssClass="btn btn-primary" OnClick="btnSearchAnimals_Click" runat="server"><span aria-hidden="true" class="glyphicon glyphicon-search"</span></asp:LinkButton>
             </span>
         </div>--%>
+
         
+
+        <asp:DropDownList ID="ddlAnimals" CssClass="form-control" AutoPostBack="true" OnSelectedIndexChanged="ddlAnimals_SelectedIndexChanged" runat="server">
+        <asp:ListItem></asp:ListItem></asp:DropDownList>
+
         <%--<asp:GridView ID="MainGridView"  AutoGenerateColumns="false" DataSourceID="mainDataSource" DataKeyNames="AnimalID" CssClass="table table-bordered" runat="server" OnSorting="MainGridView_Sorting" AllowSorting="True">
             <Columns>
                 <asp:CommandField ShowSelectButton="True" SelectText="Details" />
