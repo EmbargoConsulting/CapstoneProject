@@ -41,9 +41,20 @@
 
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ChildContent2" runat="Server">
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#animalModal" id="btnAddAnimal">
-  Add an Animal
-</button>
+    
+ <div class="row">
+     <div class="col-lg-12">
+        <div class="col-lg-3" id="animalDropdown">
+             <asp:DropDownList ID="ddlAnimals" class="form-control" AutoPostBack="true" OnSelectedIndexChanged="ddlAnimals_SelectedIndexChanged" runat="server">
+            </asp:DropDownList>
+        </div>
+        <div class="col-lg-4 col-lg-offset-3" id="btnAddAnimal">
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#animalModal" id="btnAddAnimal">
+          Add an Animal
+        </button>
+        </div>
+</div>
+</div>
 
 <!-- Modal -->
 <div class="modal fade" id="animalModal" tabindex="-1" role="dialog" aria-labelledby="animalModalLabel" aria-hidden="true">
@@ -92,8 +103,7 @@
                             <asp:LinkButton ID="btnSearchAnimals" CssClass="btn btn-primary" OnClick="btnSearchAnimals_Click" runat="server"><span aria-hidden="true" class="glyphicon glyphicon-search"</span></asp:LinkButton>
             </span>
         </div>--%>
-        <asp:DropDownList ID="ddlAnimals" CssClass="form-control" AutoPostBack="true" OnSelectedIndexChanged="ddlAnimals_SelectedIndexChanged" runat="server">
-        </asp:DropDownList>
+        
         <%--<asp:GridView ID="MainGridView"  AutoGenerateColumns="false" DataSourceID="mainDataSource" DataKeyNames="AnimalID" CssClass="table table-bordered" runat="server" OnSorting="MainGridView_Sorting" AllowSorting="True">
             <Columns>
                 <asp:CommandField ShowSelectButton="True" SelectText="Details" />
@@ -104,7 +114,9 @@
         </asp:GridView>--%>
     </div>
        
-    <div id="details" runat="server" class="col-lg-7">
+   <div class="row">
+       <div class="col-lg-8 col-lg-offset-1">    
+           <div id="details" runat="server">
         <div class="panel panel-default">
                     <div class="panel panel-heading">Monthly Break-Down</div>
             <div class="panel panel-body">
@@ -121,10 +133,14 @@
         </asp:GridView>
                 </div>
                 </div>
+        </div>
+       </div>
+     <div class="row">
+         <div class="col-lg-8 col-lg-offset-1" id="yearlyTable">
         <div class="panel panel-default">
                     <div class="panel-heading">Yearly Break-Down</div>
-
-            <div class="panel-body">
+   
+        <div class="panel-body">
         <asp:GridView ID="yearGridView" AutoGenerateColumns="false" CssClass="table table-bordered" DataKeyNames="AnimalID" runat="server">
                <Columns>
                 <asp:BoundField HeaderText="Year" DataField="Year" SortExpression="AnimalName" />
@@ -139,7 +155,8 @@
 
                  </div>
         </div>
-                 
+    </div>
+  </div>               
             </div>
     <div runat="server" id="results"></div>
 

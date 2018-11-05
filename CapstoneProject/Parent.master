@@ -96,9 +96,6 @@
                         <li>
                             <a href="Reports.aspx"><i class="fa fa-fw fa-clipboard"></i> Reports</a>
                         </li>
-                        <li>
-                            <a href="#"><i class="fa fa-edit fa-fw"></i> Forms</a>
-                        </li>
 
                             <li>
                             <a href="#"><i class="fa fa-cogs fa-fw"></i>Administrative<span class="fa arrow"></span></a>

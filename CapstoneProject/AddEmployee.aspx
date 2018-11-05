@@ -57,16 +57,20 @@
     <asp:SqlDataSource ID="SqlDataSource_ViewEmployee" runat="server" ConnectionString="<%$ ConnectionStrings:Project %>" SelectCommand="SELECT [EmployeeID] as 'Employee ID', [FirstName] as 'First Name', [MiddleName] as 'Middle Name', [LastName] as 'Last Name', [EmployeeType] as 'Employee Type' FROM [Employee]"></asp:SqlDataSource>
     
         </div>
-    <div class="col-lg-2">
+  <div class="row">
+   <div class="btn-group col-lg-4" id="btnGroupEmployee">
+    <div class="col-lg-6">
             <div id="btn">
                 <asp:Button ID="btnSubmit" runat="server" CssClass="btn btn-primary btn-group-justified" Text="Add Employee" OnClick="btnSubmit_Click" /><br />
             </div>
     </div>
-    <div class="col-lg-2">
+    <div class="col-lg-6">
             <div id="btn2">
                  <asp:Button ID="btnClearAll" runat="server" CssClass="btn btn-group-justified btn-primary"  Text="Clear Fields" OnClick="btnClearAll_Click" formnovalidate="formnovalidate"/>
             </div>
     </div>
+   </div>
+   </div>
 
 </asp:Content>
 

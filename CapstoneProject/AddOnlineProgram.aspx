@@ -31,7 +31,7 @@
             </div>
             <div class="form-group">
                 <label>Teacher Email</label>
-                <asp:TextBox ID="txtEmail" required="required" runat="server" class="form-control"></asp:TextBox>
+                <asp:TextBox ID="txtEmail" required="required" runat="server" class="form-control" placeholder="ie. wildlife@wildlifecenter.org"></asp:TextBox>
             </div>
             <div class="form-group">
                 <label>Grade</label>
@@ -340,7 +340,7 @@
             </div>
             <div class="form-group">
                 <label>Time</label>
-                <asp:TextBox ID="txtTime" runat="server" required="required" CssClass="form-control"></asp:TextBox>
+                <asp:TextBox ID="txtTime" runat="server" required="required" CssClass="form-control" placeholder="ie. 3:00 PM"></asp:TextBox>
             </div>
         </div>
         <div class="col-lg-4">
@@ -366,7 +366,7 @@
             </div>
             <div class="form-group">
                 <label>Date</label>
-                <asp:TextBox ID="txtDate" required="required" runat="server" CssClass="form-control"></asp:TextBox>
+                <asp:TextBox ID="txtDate" required="required" runat="server" CssClass="form-control" placeholder="MM/DD/YYYY"></asp:TextBox>
             </div>
         </div>
         <div class="col-lg-2">   

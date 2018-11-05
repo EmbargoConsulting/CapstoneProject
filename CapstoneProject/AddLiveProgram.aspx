@@ -98,11 +98,11 @@
             </div>
             <div class="form-group">
                 <label>Date</label>
-                <asp:TextBox ID="txtDate" required="required" runat="server" CssClass="form-control"></asp:TextBox>
+                <asp:TextBox ID="txtDate" required="required" runat="server" CssClass="form-control" placeholder="MM/DD/YYYY"></asp:TextBox>
             </div>
             <div class="form-group">
                 <label>Time</label>
-                <asp:TextBox ID="txtTime" runat="server" required="required" CssClass="form-control"></asp:TextBox>
+                <asp:TextBox ID="txtTime" runat="server" required="required" CssClass="form-control" placeholder="ie. 2:43 PM"></asp:TextBox>
             </div>
             <div class="form-group">
                 <label></label>
