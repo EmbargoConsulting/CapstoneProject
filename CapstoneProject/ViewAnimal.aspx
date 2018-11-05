@@ -41,7 +41,7 @@
 
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ChildContent2" runat="Server">
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#animalModal">
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#animalModal" id="btnAddAnimal">
   Add an Animal
 </button>
 

@@ -1,0 +1,12 @@
+﻿body {
+}
+/*login page*/
+#loginPanel{
+    margin: 7.5% 0 0 0;
+}
+
+
+/*view animals page*/
+#btnAddAnimal{
+    margin: 0 0 1% 8%;
+}
