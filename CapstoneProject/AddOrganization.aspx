@@ -84,7 +84,7 @@
                 <Columns>
                     <asp:BoundField DataField="OrganizationName" HeaderText="Organization Name" SortExpression="OrganizationName" />
 
-                    <asp:BoundField DataField="OrganizationContact" HeaderText="Organization Phone Number" SortExpression="OrganizationContact"/>
+                    <asp:BoundField DataField="OrganizationContact" HeaderText="Email" SortExpression="OrganizationContact"/>
 
                 </Columns>
                 <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />

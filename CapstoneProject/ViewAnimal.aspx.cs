@@ -19,6 +19,8 @@ public partial class ViewAnimal : System.Web.UI.Page
     {
         if (!Page.IsPostBack)
         {
+            details.Visible = false;
+
             foreach (Animal animal in Animal.getAnimalList())
             {
                 ddlAnimals.Items.Add(new ListItem(animal.AnimalName, animal.AnimalID.ToString()));
