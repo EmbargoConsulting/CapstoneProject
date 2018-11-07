@@ -59,14 +59,19 @@
         </div>
   <div class="row">
    <div class="btn-group col-lg-4" id="btnGroupEmployee">
-    <div class="col-lg-6">
+    <div class="col-lg-4">
             <div id="btn">
                 <asp:Button ID="btnSubmit" runat="server" CssClass="btn btn-primary btn-group-justified" Text="Add Employee" OnClick="btnSubmit_Click" /><br />
             </div>
     </div>
-    <div class="col-lg-6">
+    <div class="col-lg-4">
             <div id="btn2">
                  <asp:Button ID="btnClearAll" runat="server" CssClass="btn btn-group-justified btn-primary"  Text="Clear Fields" OnClick="btnClearAll_Click" formnovalidate="formnovalidate"/>
+            </div>
+    </div>
+           <div class="col-lg-4">
+            <div id="btn2">
+                 <asp:Button ID="ExcelExport" runat="server" CssClass="btn btn-group-justified btn-primary"  Text="Export to Excel" OnClick="btnExcelExport_Click" formnovalidate="formnovalidate"/>
             </div>
     </div>
    </div>

@@ -26,13 +26,12 @@ public partial class ViewEmployee : System.Web.UI.Page
 
     protected void exportToExcel_Click(object sender, EventArgs e)
     {
-        Response.Clear();
+        Response.ClearContent();
 
-        Response.AddHeader("content-disposition", "attachment; filename = FileName.xls"); //specifies filename, will have to create dynamically in the future i figure
-    
-        Response.ContentType = "application/vnd.xls"; //I think it doesn't like opening it because something is wrong here
+        Response.AppendHeader("content-disposition", "attachment;filename=GridViewExport.xls");
+        Response.ContentType = "application/excel";
 
-        System.IO.StringWriter stringWrite = new System.IO.StringWriter(); 
+        System.IO.StringWriter stringWrite = new System.IO.StringWriter();
 
         System.Web.UI.HtmlTextWriter htmlWrite =
         new HtmlTextWriter(stringWrite);
@@ -42,5 +41,7 @@ public partial class ViewEmployee : System.Web.UI.Page
         Response.Write(stringWrite.ToString());
 
         Response.End();
+
+      
     }
 }
