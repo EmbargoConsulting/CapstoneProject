@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" Title="Add Employee" AutoEventWireup="true" CodeFile="AddEmployee.aspx.cs" Inherits="AddEmployee" MasterPageFile="~/Child.master" %>
+﻿<%@ Page Language="C#" Title="Educators" AutoEventWireup="true" CodeFile="AddEmployee.aspx.cs" Inherits="AddEmployee" MasterPageFile="~/Child.master" %>
 
 <script runat="server">
 

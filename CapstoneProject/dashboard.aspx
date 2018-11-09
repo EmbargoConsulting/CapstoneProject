@@ -66,7 +66,7 @@
                         </div>
                         <a href="AddLiveProgram.aspx">
                             <div class="panel-footer">
-                                <span class="pull-left">Get Started</span>
+                                <span class="pull-left">Programs</span>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
                                 <div class="clearfix"></div>
                             </div>
@@ -87,7 +87,7 @@
                         </div>
                         <a href="AddEmployee.aspx">
                             <div class="panel-footer">
-                                <span class="pull-left">Get Started</span>
+                                <span class="pull-left">Educators</span>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
                                 <div class="clearfix"></div>
                             </div>
@@ -108,7 +108,7 @@
                         </div>
                         <a href="AddAnimal.aspx">
                             <div class="panel-footer">
-                                <span class="pull-left">Get Started</span>
+                                <span class="pull-left">Animals</span>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
                                 <div class="clearfix"></div>
                             </div>
@@ -129,7 +129,7 @@
                         </div>
                         <a href="#">
                             <div class="panel-footer">
-                                <span class="pull-left">Get Started</span>
+                                <span class="pull-left">Tracking</span>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
                                 <div class="clearfix"></div>
                             </div>

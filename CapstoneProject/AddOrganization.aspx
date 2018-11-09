@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Child.master" AutoEventWireup="true" CodeFile="AddOrganization.aspx.cs" Inherits="AddOrganization" %>
+﻿<%@ Page Title="Organizations" Language="C#" MasterPageFile="~/Child.master" AutoEventWireup="true" CodeFile="AddOrganization.aspx.cs" Inherits="AddOrganization" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ChildContent1" runat="Server">
     <h2 class="page-header">Add an Organization</h2>

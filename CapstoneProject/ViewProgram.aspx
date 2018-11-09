@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" Title="View Programs" AutoEventWireup="true" CodeFile="ViewProgram.aspx.cs" Inherits="ViewProgram" MasterPageFile="~/Program.master" %>
+﻿<%@ Page Language="C#" Title="Programs" AutoEventWireup="true" CodeFile="ViewProgram.aspx.cs" Inherits="ViewProgram" MasterPageFile="~/Program.master" %>
 
 <script runat="server">
 

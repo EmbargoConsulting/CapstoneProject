@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Program.master" Inherits="Default2" CodeFile="~/AddOnlineProgram.aspx.cs" %>
+﻿<%@ Page Title="Online Programs" Language="C#" MasterPageFile="~/Program.master" Inherits="Default2" CodeFile="~/AddOnlineProgram.aspx.cs" %>
 
 <script runat="server">
 
