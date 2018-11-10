@@ -10,7 +10,7 @@ using System.Web.UI.WebControls;
 ///
 /// 
 
-public partial class AddEmployee : System.Web.UI.Page
+public partial class Educators : System.Web.UI.Page
 {
 
     protected void btnClearAll_Click(object sender, EventArgs e)

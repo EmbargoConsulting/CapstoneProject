@@ -84,14 +84,14 @@
                             <a href="ViewProgram.aspx"><i class="fa fa-table fa-fw"></i> Programs</a>
                         </li>
                         <li>
-                            <a href="ViewAnimal.aspx"><i class="fa fa-paw fa-fw"></i> Animals</a>
+                            <a href="Animals.aspx"><i class="fa fa-paw fa-fw"></i> Animals</a>
 
                         </li>
                         <li>
-                            <a href="AddEmployee.aspx"><i class="fa fa-user fa-fw"></i> Educators</a>                            
+                            <a href="Educators.aspx"><i class="fa fa-user fa-fw"></i> Educators</a>                            
                         </li>
                         <li>
-                            <a href="AddOrganization.aspx"><i class="fa fa-building fa-fw"></i> Organizations</a>
+                            <a href="Organizations.aspx"><i class="fa fa-building fa-fw"></i> Organizations</a>
                         </li>
                         <li>
                             <a href="Reports.aspx"><i class="fa fa-fw fa-clipboard"></i> Reports</a>

@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" Title="Animals" AutoEventWireup="true" CodeFile="ViewAnimal.aspx.cs" Inherits="ViewAnimal" MasterPageFile="~/Child.master" %>
+﻿<%@ Page Language="C#" Title="Animals" AutoEventWireup="true" CodeFile="Animals.aspx.cs" Inherits="Animals" MasterPageFile="~/Child.master" %>
 
 <script runat="server">
 

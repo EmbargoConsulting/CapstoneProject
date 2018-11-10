@@ -11,7 +11,7 @@ using System.Data;
 ///
 /// 
 
-public partial class ViewAnimal : System.Web.UI.Page
+public partial class Animals : System.Web.UI.Page
 {
     string cs = System.Configuration.ConfigurationManager.ConnectionStrings["Project"].ConnectionString; //uses config file as requested
 
