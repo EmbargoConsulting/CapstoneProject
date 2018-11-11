@@ -37,7 +37,7 @@
     <script src="Scripts/bootstrap.min.js"></script>
     <script src="Scripts/popper.min.js"></script>
 </head>
-<body>
+<body id="loginBackground">
     <div id="loginPanel">
     <form id="form1" runat="server">
         <div class="container">

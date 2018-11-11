@@ -6,9 +6,12 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ChildContent1" Runat="Server">
 
-   
-    <h2 class="page-header">View Users</h2>
-        
+   <div class="row">
+       <div class="col-lg-12">
+            <h2 class="page-header"><i class="fa fa-user icons"></i>View Users</h2>
+        </div>
+    </div>
+    <div>
         <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" CellPadding="4" DataSourceID="SqlDataSource_ViewUser" ForeColor="#333333" GridLines="None">
             <AlternatingRowStyle BackColor="White" />
             <Columns>

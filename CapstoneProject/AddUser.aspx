@@ -6,8 +6,11 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ChildContent1" Runat="Server">
 
-    <h2 class="page-header">Add a User</h2>
-    
+<div class="row">
+    <div class="col-lg-12">
+        <h2 class="page-header"><i class="fa fa-user icons"></i>Add a User</h2>
+    </div>
+</div>
 
         <div class="row">
             <div class="col-lg-4">
@@ -28,17 +31,18 @@
                 
       
                 
-
-                <div class="col-lg-3">
+            <div class="col-lg-12">
+                <div class="col-lg-6">
                     <div id="btn">
-                    <asp:Button ID="btnCreateUser" runat="server" OnClick="btnCreateUser_Click" CssClass="btn btn-primary btn-group-justified" Text="Submit" /><br />
+                    <asp:Button ID="btnCreateUser" runat="server" OnClick="btnCreateUser_Click" CssClass="btn btn-success btn-group-justified" Text="Submit" /><br />
                     </div>
                 </div>
-                <div class="col-lg-3">
+                <div class="col-lg-6">
                     <div id="btn2">
-                    <asp:Button ID="btnClearAll" runat="server" CssClass="btn btn-group-justified btn-primary" CausesValidation="false"  Text="Clear Fields" OnClick="btnClearAll_Click" formnovalidate="formnovalidate"/>
+                    <asp:Button ID="btnClearAll" runat="server" CssClass="btn btn-group-justified btn-danger" CausesValidation="false"  Text="Clear Fields" OnClick="btnClearAll_Click" formnovalidate="formnovalidate"/>
                     </div>
                 </div>
+            </div>
                 <asp:ValidationSummary ID="valSummary" runat="server"
                     HeaderText="Review your input, the following errors occurred:"
                     ShowSummary="true" DisplayMode="List" forecolor="Red"/>

@@ -5,9 +5,11 @@
 </script>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ChildContent1" Runat="Server">
-
-    <h2 class="page-header">Add an Educator</h2>
-
+<div class="row">
+    <div class="col-lg-12">
+        <h2 class="page-header"><i class="fa fa-user icons"></i>Add an Educator</h2>
+    </div>
+</div>
     <div class="row">
         <div class="col-lg-4">
             <div class="form-group">
@@ -27,13 +29,13 @@
                 </asp:DropDownList>
             </div>
 
-
-            <div>
+        <div class="col-lg-12 col-lg-offset-1">
+            <div id="employeeFormBtns">
                    <asp:Button ID="btnSubmit" runat="server" CssClass="btn btn-primary" Text="Add Employee" OnClick="btnSubmit_Click" />
                 <asp:Button ID="btnClearAll" runat="server" CssClass="btn btn-primary"  Text="Clear Fields" OnClick="btnClearAll_Click" formnovalidate="formnovalidate"/>
 
             </div>
-             
+          </div>   
     </div>
         <div class="col-lg-1" style="width:40px;"></div>
         <div class="col-lg-6">

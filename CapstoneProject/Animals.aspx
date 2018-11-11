@@ -6,8 +6,11 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ChildContent1" runat="Server">
 
-
-    <h2 class="page-header">View Animals</h2>
+<div class="row">
+    <div class="col-lg-12">
+        <h2 class="page-header"><i class="fa fa-paw icons"></i>View Animals</h2>
+    </div>
+</div>
     <div class="col-lg-9">
         <%--       <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" CssClass="table table-striped table-bordered" CellPadding="4" DataKeyNames="Animal ID" DataSourceID="SqlDataSource_ViewAnimal" ForeColor="#333333" GridLines="None">
             <AlternatingRowStyle BackColor="White" />
@@ -56,11 +59,11 @@
                 </div>
                 <div class="modal-body">
                     <div class="form-group">
-                        <label>Animal Name</label>
+                        <label class="form-control-label">Animal Name</label>
                         <asp:TextBox ID="txtAnimalName" runat="server" class="form-control" required="required"></asp:TextBox>
                     </div>
                     <div class="form-group">
-                        <label>Animal Type</label>
+                        <label class="form-control-label">Animal Type</label>
                         <asp:DropDownList ID="ddlAnimalType" runat="server" required="required" class="form-control">
                             <asp:ListItem></asp:ListItem>
                             <asp:ListItem Value="Bird">Bird</asp:ListItem>
@@ -70,10 +73,10 @@
                     </div>
 
                     <div id="btn">
-                        <asp:Button ID="btnSubmit" runat="server" CssClass="btn btn-primary btn-group-justified" Text="Add Animal" OnClick="btnSubmit_Click" /><br />
+                        <asp:Button ID="btnSubmit" runat="server" CssClass="btn btn-success btn-group-justified" Text="Add Animal" OnClick="btnSubmit_Click" /><br />
                     </div>
                     <div id="btn2">
-                        <asp:Button ID="btnClearAll" runat="server" CssClass="btn btn-group-justified btn-primary" CausesValidation="false" Text="Clear Fields" OnClick="btnClearAll_Click" formnovalidate="formnovalidate" />
+                        <asp:Button ID="btnClearAll" runat="server" CssClass="btn btn-group-justified btn-danger" CausesValidation="false" Text="Clear Fields" OnClick="btnClearAll_Click" formnovalidate="formnovalidate" />
                     </div>
 
 
@@ -103,27 +106,32 @@
     <%--</div>--%>
 
 
-    <div class="col-lg-8 col-lg-offset-1">
+    <div class="col-lg-12">
         <div class="row">
             <div class="col-lg-3">
-                <label>Select an animal: </label>
+                <label class="form-control-label">Select an animal: </label>
                 <asp:DropDownList ID="ddlAnimals" CssClass="form-control" AutoPostBack="true" OnSelectedIndexChanged="ddlAnimals_SelectedIndexChanged" runat="server">
                     <asp:ListItem></asp:ListItem>
                 </asp:DropDownList>
             </div>
-            <div class="col-lg-4">or <label>Enter Name:</label>
+            <div class="col-lg-5">
+                <div class="form-group">
+                   <label class="form-control-label"> or Enter Name:</label>
                 <div class="row">
-                    <div class="form-group">
-                <asp:TextBox Width="150px" ID="txtSearch" runat="server"></asp:TextBox>
-                <asp:Button ID="btnSearchAnimal" formnovalidate="formnovalidate" CausesValidation="false" CssClass="btn btn-sm" runat="server" Text="Search" OnClick="btnSearchAnimal_Click"/>
-                    </div>
-
+                    <asp:TextBox Width="150px" ID="txtSearch" runat="server" CssClass="form-control col-lg-8"></asp:TextBox>
+                    <asp:Button ID="btnSearchAnimal" formnovalidate="formnovalidate" CausesValidation="false" CssClass="btn btn-small col-lg-2" runat="server" Text="Search" OnClick="btnSearchAnimal_Click"/>
+                </div>
                 </div>
 
             </div>
-            <div>
+           <div id="btnGroupAnimals">
+            <div class="col-lg-2">
                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#animalModal" id="btnAddAnimal">
                     New Animal</button>
+            </div>
+            <div class="col-lg-2">
+                <button type="button" class="btn btn-danger">Clear Animal Tables</button>
+            </div>
             </div>
         </div>
         <div id="output" runat="server" class="col-lg-offset-3"></div>
