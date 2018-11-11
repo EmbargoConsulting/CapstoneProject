@@ -13,11 +13,7 @@
             <div class="form-group">
                 <label>First Name</label>
                 <asp:TextBox ID="txtEmpFirst" runat="server" class="form-control" required="required"></asp:TextBox>
-            </div>
-            <div class="form-group">
-                <label>Middle Name</label>
-                <asp:TextBox ID="txtEmpMiddle" runat="server" class="form-control"></asp:TextBox>
-            </div>
+            </div>        
             <div class="form-group">
                 <label>Last Name</label>
                 <asp:TextBox ID="txtEmpLast" runat="server" class="form-control" required="required"></asp:TextBox>

@@ -16,7 +16,6 @@ public partial class Educators : System.Web.UI.Page
     protected void btnClearAll_Click(object sender, EventArgs e)
     {
         txtEmpFirst.Text = "";
-        txtEmpMiddle.Text = "";
         txtEmpLast.Text = "";
         ddlEmpType.SelectedIndex = 0;
     }
@@ -25,11 +24,10 @@ public partial class Educators : System.Web.UI.Page
     {
         if(ddlEmpType.SelectedIndex > 0)
         {
-            Employee employee = new Employee(txtEmpFirst.Text, txtEmpMiddle.Text, txtEmpLast.Text, ddlEmpType.Text, DateTime.Now, "User");
+            Employee employee = new Employee(txtEmpFirst.Text, txtEmpLast.Text, ddlEmpType.Text, DateTime.Now, "User");
             Employee.insertEmployee(employee);
 
             txtEmpFirst.Text = "";
-            txtEmpMiddle.Text = "";
             txtEmpLast.Text = "";
             ddlEmpType.SelectedIndex = 0;
             GridView1.DataBind();

@@ -7,22 +7,30 @@
 
 
     <asp:Label CssClass="page-header" ID="lblProgramHeader" runat="server"></asp:Label>
-        <div class="btn-group">
-            <div class="btn-group">
-                 <asp:LinkButton runat="server" id="btnGroupDrop1" type="button" CssClass="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Add Program  <span aria-hidden="true" class="fa fa-arrow fa-pull-right"</span></asp:LinkButton>
-      <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-          <%--<asp:LinkButton ID="btnLiveProgram" formnovalidate="formnovalidate" runat="server" href="AddLiveProgram.aspx" Text="Add Live Program" CssClass="btn btn-primary" />
-            <asp:LinkButton ID="btnOnlineProgram" formnovalidate="formnovalidate" runat="server" href="AddOnlineProgram.aspx" Text="Add Online Program" CssClass="btn btn-primary" />--%>
-      <a class="dropdown-item" href="AddLiveProgram.aspx"> Add Live Program</a><br />
-      <a class="dropdown-item" href="AddOnlineProgram.aspx"> Add Online Program</a>     
-          </div>
-            </div>
+    <div class="col-lg-10">
+        <div>
+         <div class="btn-group">
+
    
             
         </div>
-            <asp:LinkButton ID="btnViewProgram" formnovalidate="formnovalidate" runat="server" href="ViewProgram.aspx" Text="View Programs" CssClass="btn btn-primary"></asp:LinkButton>        
 
-        <div style="height:15px;"></div>
+            <asp:LinkButton ID="btnViewProgram" formnovalidate="formnovalidate" runat="server" href="ViewProgram.aspx" Text="View Programs" CssClass="btn btn-primary"></asp:LinkButton>        
+    <span class="pull-right">            <div id="dropdown" class="btn-group">
+                 <asp:LinkButton runat="server" id="btnGroupDrop1" type="button" CssClass="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">New Program  <span aria-hidden="true" class="fa fa-arrow fa-pull-right"</span></asp:LinkButton>
+      <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+          <%--<asp:LinkButton ID="btnLiveProgram" formnovalidate="formnovalidate" runat="server" href="AddLiveProgram.aspx" Text="Add Live Program" CssClass="btn btn-primary" />
+            <asp:LinkButton ID="btnOnlineProgram" formnovalidate="formnovalidate" runat="server" href="AddOnlineProgram.aspx" Text="Add Online Program" CssClass="btn btn-primary" />--%>
+      <a class="dropdown-item" href="AddLiveProgram.aspx"> New Live Program</a><br />
+      <a class="dropdown-item" href="AddOnlineProgram.aspx"> New Online Program</a>     
+          </div>
+            </div></span>
+
+        </div>
+
+    </div>
+       
+        <div style="height:55px;"></div>
 
    
     <asp:ContentPlaceHolder ID="ChildContent1" runat="server" />

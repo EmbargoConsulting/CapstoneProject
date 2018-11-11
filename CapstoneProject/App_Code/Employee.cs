@@ -17,10 +17,9 @@ public class Employee : dbConnect
         //
     }
 
-    public Employee(string firstName, string middleName, string lastName, string employeeType, DateTime lastUpdated, string lastUpdatedBy)
+    public Employee(string firstName, string lastName, string employeeType, DateTime lastUpdated, string lastUpdatedBy)
     {
         this.FirstName = firstName;
-        this.MiddleName = middleName;
         this.LastName = lastName;
         this.EmployeeType = employeeType;
         this.LastUpdated = lastUpdated;
@@ -65,7 +64,6 @@ public class Employee : dbConnect
         cmd.CommandText = "insertEmployee";
         cmd.CommandType = CommandType.StoredProcedure;
         cmd.Parameters.AddWithValue("@FirstName", toInsert.FirstName);
-        cmd.Parameters.AddWithValue("@MiddleName", toInsert.MiddleName);
         cmd.Parameters.AddWithValue("@LastName", toInsert.LastName);
         cmd.Parameters.AddWithValue("@EmployeeType", toInsert.EmployeeType);
         cmd.Parameters.AddWithValue("@LastUpdatedBy", toInsert.LastUpdatedBy);
@@ -82,7 +80,6 @@ public class Employee : dbConnect
 
     public int EmployeeID { get; set; }
     public string FirstName { get; set; }
-    public string MiddleName { get; set; }
     public string LastName { get; set; }
     public string EmployeeType { get; set; }
     public DateTime LastUpdated { get; set; }

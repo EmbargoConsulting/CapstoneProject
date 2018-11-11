@@ -109,7 +109,8 @@ public partial class Default2 : System.Web.UI.Page
 
         OnlineProgram.insertOnlineProgram(newProgram);
         clearText();
-
+        tempAnimals.Clear();
+        tempEducators.Clear();
 
         
     }
