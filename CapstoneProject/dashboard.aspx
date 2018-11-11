@@ -16,7 +16,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin 2 - Bootstrap Admin Theme</title>
+    <title>Wildlife Center of Virginia</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -46,7 +46,7 @@
 
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">Dashboard</h1>
+                    <h1 class="page-header" id="dashboardHeader">Dashboard</h1>
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
@@ -60,13 +60,20 @@
                                     <i class="fa fa-calendar-o fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                    <div>Create a Program</div>
+                                    <div class="panelHeader">Create a Program</div>
                                 </div>
                             </div>
                         </div>
                         <a href="AddLiveProgram.aspx">
                             <div class="panel-footer">
-                                <span class="pull-left">Programs</span>
+                                <span class="pull-left">Get Started</span>
+                                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                                <div class="clearfix"></div>
+                            </div>
+                        </a>
+                        <a href="#">
+                            <div class="panel-footer">
+                                <span class="pull-left">View Program Data Below</span>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
                                 <div class="clearfix"></div>
                             </div>
@@ -81,13 +88,20 @@
                                     <i class="fa fa-users fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                    <div>Create/Manage Educators</div>
+                                    <div class="panelHeader">Create/Manage Educators</div>
                                 </div>
                             </div>
                         </div>
                         <a href="Educators.aspx">
                             <div class="panel-footer">
-                                <span class="pull-left">Educators</span>
+                                <span class="pull-left">Get Started</span>
+                                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                                <div class="clearfix"></div>
+                            </div>
+                        </a>
+                        <a href="#">
+                            <div class="panel-footer">
+                                <span class="pull-left">View Educator Data Below</span>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
                                 <div class="clearfix"></div>
                             </div>
@@ -102,13 +116,20 @@
                                     <i class="fa fa-paw fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                    <div>Add/Manage Animals</div>
+                                    <div class="panelHeader">Add/Manage Animals</div>
                                 </div>
                             </div>
                         </div>
                         <a href="Animals.aspx">
                             <div class="panel-footer">
-                                <span class="pull-left">Animals</span>
+                                <span class="pull-left">Get Started</span>
+                                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                                <div class="clearfix"></div>
+                            </div>
+                        </a>
+                        <a href="#">
+                            <div class="panel-footer">
+                                <span class="pull-left">View Animal Data Below</span>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
                                 <div class="clearfix"></div>
                             </div>
@@ -120,16 +141,23 @@
                         <div class="panel-heading">
                             <div class="row">
                                 <div class="col-xs-3">
-                                    <i class="fa fa-map-marker fa-5x"></i>
+                                    <i class="fa fa-dollar fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                    <div>Track Animals</div>
+                                    <div class="panelHeader">Create/Manage Invoices</div>
                                 </div>
                             </div>
                         </div>
                         <a href="#">
                             <div class="panel-footer">
-                                <span class="pull-left">Tracking</span>
+                                <span class="pull-left">Get Started</span>
+                                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                                <div class="clearfix"></div>
+                            </div>
+                        </a>
+                        <a href="#">
+                            <div class="panel-footer">
+                                <span class="pull-left">View Invoice Data Below</span>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
                                 <div class="clearfix"></div>
                             </div>

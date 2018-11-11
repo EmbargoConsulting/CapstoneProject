@@ -5,8 +5,11 @@
 <asp:Content ID="ProgramContent" ContentPlaceHolderID="ChildContent1" runat="server">
 
 
-
-    <asp:Label CssClass="page-header" ID="lblProgramHeader" runat="server"></asp:Label>
+<div class="row">
+    <div class="col-lg-12"
+        <asp:Label CssClass="page-header" ID="lblProgramHeader" runat="server"></asp:Label>
+    </div>
+</div>
         <div class="btn-group">
             <div class="btn-group">
                  <asp:LinkButton runat="server" id="btnGroupDrop1" type="button" CssClass="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Add Program  <span aria-hidden="true" class="fa fa-arrow fa-pull-right"</span></asp:LinkButton>

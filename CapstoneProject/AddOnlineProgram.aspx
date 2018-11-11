@@ -372,9 +372,9 @@
         <div class="col-lg-2">   
             <br />
             <div id="btn">
-                <asp:Button ID="btnSubmit" runat="server" CssClass="btn btn-primary btn-group-justified" Text="Save Program" OnClick="btnSubmit_Click" /><br />
+                <asp:Button ID="btnSubmit" runat="server" CssClass="btn btn-success btn-group-justified" Text="Save Program" OnClick="btnSubmit_Click" /><br />
                 <br />
-                <asp:Button ID="btnClearAll" runat="server" formnovalidate="formnovalidate" CausesValidation="false" CssClass="btn btn-group-justified btn-primary" Text="Clear All" OnClick="btnClearAll_Click" />
+                <asp:Button ID="btnClearAll" runat="server" formnovalidate="formnovalidate" CausesValidation="false" CssClass="btn btn-group-justified btn-danger" Text="Clear All" OnClick="btnClearAll_Click" />
             </div>
             <br />
             <asp:Label runat="server" ID="lblError"></asp:Label>

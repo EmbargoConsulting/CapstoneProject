@@ -1,8 +1,40 @@
-﻿body {
+﻿@import url('https://fonts.googleapis.com/css?family=Nanum+Gothic|PT+Serif|Roboto');
+
+
+body {
+}
+#dashboardHeader{
+    font-family: 'PT Serif', serif;
+}
+h2{
+    font-family: 'PT Serif', serif;
+}
+.panelHeader{
+    font-family: Roboto, sans-serif;
+    font-size: 14px;
+}
+.panelFooter{
+    font-family: Roboto, sans-serif;
+}
+label{
+    font-family: Roboto, sans-serif;
+    font-size: 16px;
+}
+.btn{
+    font-family:'Nanum Gothic', sans-serif;
 }
 /*login page*/
+#loginBackground{
+    background-image: url("/Content/backgroundWithAnimals.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
 #loginPanel{
     margin: 7.5% 0 0 0;
+}
+.icons{
+    margin: 0 2% 0 0;
 }
 
 
@@ -14,9 +46,18 @@
 #btnAddAnimal{
     margin: 0 0 1% 20%;
 }
+#btnGroupAnimals{
+    margin: 2% 0 0 0;
+}
 
 #yearlyTable{
     margin-left: 8.5%;
 }
 
+#employeeFormBtns{
+    margin-left: 2%;
+}
 
+#btnGroupAddOrg{
+    margin-right: 1%;
+}
