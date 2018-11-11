@@ -79,8 +79,6 @@
 
                 </div>
             </div>
-            <div class="modal-footer">
-            </div>
         </div>
     </div>
     <%--    <div class="col-lg-4">--%>
@@ -116,8 +114,8 @@
             <div class="col-lg-4">or <label>Enter Name:</label>
                 <div class="row">
                     <div class="form-group">
-                <asp:TextBox Width="150px" ID="TextBox1" runat="server"></asp:TextBox>
-                <asp:Button ID="btnSearchAnimal" runat="server" Text="Search" />
+                <asp:TextBox Width="150px" ID="txtSearch" runat="server"></asp:TextBox>
+                <asp:Button ID="btnSearchAnimal" formnovalidate="formnovalidate" CausesValidation="false" CssClass="btn btn-sm" runat="server" Text="Search" OnClick="btnSearchAnimal_Click"/>
                     </div>
 
                 </div>
@@ -125,8 +123,7 @@
             </div>
             <div>
                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#animalModal" id="btnAddAnimal">
-                    Add an Animal
-                </button>
+                    Add an Animal</button>
             </div>
         </div>
     </div>
@@ -134,7 +131,7 @@
     <div class="col-lg-8 col-lg-offset-1">
         <div id="details" runat="server">
             <div class="panel panel-default">
-                <div class="panel panel-heading">Monthly Break-Down</div>
+                <div id="panelMonth" runat="server" class="panel panel-heading">Monthly Break-Down</div>
                 <div class="panel panel-body">
                     <asp:GridView ID="DetailsGridView" runat="server" AutoGenerateColumns="false" CssClass="table table-bordered" DataKeyNames="AnimalID">
                         <HeaderStyle />
@@ -146,12 +143,21 @@
                             <asp:BoundField HeaderText="Children" DataField="Children" SortExpression="Programs" />
                             <asp:BoundField HeaderText="Adults" DataField="Adults" SortExpression="People" />
                         </Columns>
+        <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+        <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+        <PagerStyle BackColor="#2461BF" ForeColor="White" HorizontalAlign="Center" />
+        <RowStyle BackColor="#EFF3FB" />
+        <SelectedRowStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
+        <SortedAscendingCellStyle BackColor="#F5F7FB" />
+        <SortedAscendingHeaderStyle BackColor="#6D95E1" />
+        <SortedDescendingCellStyle BackColor="#E9EBEF" />
+        <SortedDescendingHeaderStyle BackColor="#4870BE" />
                     </asp:GridView>
                 </div>
             </div>
 
             <div class="panel panel-default">
-                <div class="panel panel-heading">Yearly Break-Down</div>
+                <div id="panelYear" runat="server" class="panel panel-heading">Yearly Break-Down</div>
                 <div class="panel panel-body">
                     <asp:GridView ID="yearGridView" AutoGenerateColumns="false" CssClass="table table-bordered" DataKeyNames="AnimalID" runat="server">
                         <Columns>
@@ -163,6 +169,15 @@
                             <asp:BoundField HeaderText="Adults" DataField="Adults" SortExpression="People" />
                             <asp:BoundField HeaderText="Total People" DataField="Total People" />
                         </Columns>
+        <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+        <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+        <PagerStyle BackColor="#2461BF" ForeColor="White" HorizontalAlign="Center" />
+        <RowStyle BackColor="#EFF3FB" />
+        <SelectedRowStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
+        <SortedAscendingCellStyle BackColor="#F5F7FB" />
+        <SortedAscendingHeaderStyle BackColor="#6D95E1" />
+        <SortedDescendingCellStyle BackColor="#E9EBEF" />
+        <SortedDescendingHeaderStyle BackColor="#4870BE" />
                     </asp:GridView>
                 </div>
 

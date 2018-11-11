@@ -85,7 +85,7 @@
                                 </div>
                             </div>
                         </div>
-                        <a href="AddEmployee.aspx">
+                        <a href="Educators.aspx">
                             <div class="panel-footer">
                                 <span class="pull-left">Educators</span>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -106,7 +106,7 @@
                                 </div>
                             </div>
                         </div>
-                        <a href="AddAnimal.aspx">
+                        <a href="Animals.aspx">
                             <div class="panel-footer">
                                 <span class="pull-left">Animals</span>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>

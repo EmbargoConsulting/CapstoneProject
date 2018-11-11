@@ -41,7 +41,7 @@ public partial class Educators : System.Web.UI.Page
     {
         Response.ClearContent();
 
-        Response.AppendHeader("content-disposition", "attachment;filename=Educators" + DateTime.Now + ".xls");
+        Response.AppendHeader("content-disposition", "attachment;filename=Educators" + DateTime.Now.ToShortDateString() + ".xls");
         Response.ContentType = "application/excel";
 
 
