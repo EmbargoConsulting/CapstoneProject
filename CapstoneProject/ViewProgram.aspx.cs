@@ -29,6 +29,52 @@ public partial class ViewProgram : System.Web.UI.Page
 
     }
 
+    public override void VerifyRenderingInServerForm(Control control)
+    {
+        /* Confirms that an HtmlForm control is rendered for the specified ASP.NET
+           server control at run time. */
+    }
+
+    protected void btnExcelExport_Click(object sender, EventArgs e)
+    {
+        Response.ClearContent();
+
+        Response.AppendHeader("content-disposition", "attachment;filename=Programs" + DateTime.Now.ToShortDateString() + ".xls");
+        Response.ContentType = "application/excel";
+
+
+
+        System.IO.StringWriter stringWrite = new System.IO.StringWriter();
+
+        System.Web.UI.HtmlTextWriter htmlWrite =
+        new HtmlTextWriter(stringWrite);
+        GridView gv = new GridView();
+
+        switch (ddlViewOptions.SelectedValue)
+        {
+            case "0":
+                gv = GridView1;
+                break;
+            case "1":
+                gv = GridView2;
+                break;
+            case "2":
+                gv = GridView3;
+                break;
+            case "3":
+                gv = GridView4;
+                break;             
+
+        }
+
+        gv.RenderControl(htmlWrite);
+
+        Response.Write(stringWrite.ToString());
+
+        Response.End();
+    }
+
+
     protected void ddlViewOptions_SelectedIndexChanged(object sender, EventArgs e)
     {
         MultiView1.ActiveViewIndex = Int32.Parse(ddlViewOptions.SelectedValue);

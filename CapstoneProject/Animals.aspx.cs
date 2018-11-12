@@ -238,6 +238,8 @@ public partial class Animals : System.Web.UI.Page
                     //lbl_Results.Text = "Returned " + dt.Rows.Count + " results";
                     yearGridView.DataSource = dt;
                     yearGridView.DataBind();
+                    panelMonth.InnerText = "Monthly Break-Down for " + txtSearch.Text;
+                    panelYear.InnerText = "Yearly Break-Down for " + txtSearch.Text;
                 }
             } else
             {
@@ -250,8 +252,6 @@ public partial class Animals : System.Web.UI.Page
 
         }
         ddlAnimals.SelectedIndex = 0;
-        panelMonth.InnerText = "Monthly Break-Down for " + txtSearch.Text;
-        panelYear.InnerText = "Yearly Break-Down for " + txtSearch.Text;
         
     }
 }

@@ -1,33 +1,40 @@
-﻿<%@ Page Language="C#" Title="Programs" AutoEventWireup="true" CodeFile="ViewProgram.aspx.cs" Inherits="ViewProgram" MasterPageFile="~/Program.master" %>
+﻿<%@ Page Language="C#" Title="Programs" AutoEventWireup="true" EnableEventValidation="false" CodeFile="ViewProgram.aspx.cs" Inherits="ViewProgram" MasterPageFile="~/Program.master" %>
 
 <script runat="server">
 
 </script>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ChildContent1" runat="Server">
-    <div class="col-lg-3">
-        <asp:DropDownList OnSelectedIndexChanged="ddlViewOptions_SelectedIndexChanged" AutoPostBack="true" ID="ddlViewOptions" CssClass="form-control" runat="server">
+    <div class="col-lg-10">
+        <div class="col-lg-4">
+            <asp:DropDownList OnSelectedIndexChanged="ddlViewOptions_SelectedIndexChanged" AutoPostBack="true" ID="ddlViewOptions" CssClass="form-control" runat="server">
             <asp:ListItem Value="0"> All Programs</asp:ListItem>
             <asp:ListItem Value="1">Program Statistics - Monthly</asp:ListItem>
             <asp:ListItem Value="2"> Live Programs</asp:ListItem>
-            <asp:ListItem Value ="3"> Online Programs</asp:ListItem>
+            <asp:ListItem Value="3"> Online Programs</asp:ListItem>
             <%--<asp:ListItem Value="3">View Live Programs</asp:ListItem>--%>
         </asp:DropDownList>
-
-        
-        <div class="btn-group">
-            <asp:Button ID="btnInvoice" formnovalidate="formnovalidate" OnClientClick ="return false"  runat="server" Text="Add Invoice" CssClass="btn btn-primary" data-toggle="modal" data-target="#invoiceModal" Visible="false" OnClick="btnInvoice_Click"></asp:Button>
         </div>
-         
+        <div class="col-lg-offset-10">
+        <div >
+            <asp:Button ID="ExcelExport" runat="server" CssClass="btn btn-primary" Text="Export to Excel" OnClick="btnExcelExport_Click" formnovalidate="formnovalidate" />
+        </div>
+        </div>
+
+
+        <div class="btn-group">
+            <asp:Button ID="btnInvoice" formnovalidate="formnovalidate" OnClientClick="return false" runat="server" Text="Add Invoice" CssClass="btn btn-primary" data-toggle="modal" data-target="#invoiceModal" Visible="false" OnClick="btnInvoice_Click"></asp:Button>
+        </div>
+
     </div>
-   
-  
-    <div style="height: 50px;"></div>
+
+
     <div class="col-lg-10">
 
 
         <asp:MultiView ID="MultiView1" runat="server">
             <asp:View ID="View1" runat="server">
+
                 <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="Program ID" DataSourceID="SqlDataSource_ViewProgram" ForeColor="#333333" CssClass="table table-striped table-bordered" GridLines="None">
                     <AlternatingRowStyle BackColor="White" />
                     <Columns>
@@ -83,11 +90,11 @@
                         <asp:BoundField DataField="Status" HeaderText="Status" SortExpression="Status" />
                         <asp:BoundField DataField="Address" HeaderText="Street" SortExpression="Address" />
                         <asp:BoundField DataField="City" HeaderText="City" SortExpression="City" />
-                        <asp:BoundField DataField="County" HeaderText="County" SortExpression="County" />                    
+                        <asp:BoundField DataField="County" HeaderText="County" SortExpression="County" />
                         <asp:BoundField DataField="OnOffSite" HeaderText="On/Off Site" SortExpression="OnOffSite" />
                         <asp:TemplateField HeaderText="Add Invoice">
                             <ItemTemplate>
-                                <asp:CheckBox ID="SelectCheckBox" runat="server"/>
+                                <asp:CheckBox ID="SelectCheckBox" runat="server" />
                             </ItemTemplate>
                         </asp:TemplateField>
                     </Columns>
@@ -104,7 +111,7 @@
                 </asp:GridView>
             </asp:View>
             <asp:View ID="View4" runat="server">
-                <asp:GridView ID="GridViewOnlinePrograms" AllowPaging="true" AllowSorting="true" runat="server" AutoGenerateColumns="false" CellPadding="4" DataSourceID="datasourceOnlinePrograms" ForeColor="#333333" CssClass="table table-striped table-bordered" GridLines="None">
+                <asp:GridView ID="GridView4" AllowPaging="true" AllowSorting="true" runat="server" AutoGenerateColumns="false" CellPadding="4" DataSourceID="datasourceOnlinePrograms" ForeColor="#333333" CssClass="table table-striped table-bordered" GridLines="None">
                     <AlternatingRowStyle BackColor="White" />
                     <Columns>
                         <asp:BoundField DataField="ProgramType" HeaderText="Type" SortExpression="ProgramType" />
@@ -137,10 +144,10 @@
 
 
     <!-- Modal for Invoices -->
-     <div class="modal fade" id="invoiceModal" tabindex="-1" role="dialog" aria-labelledby="animalModalLabel" aria-hidden="true">
+    <div class="modal fade" id="invoiceModal" tabindex="-1" role="dialog" aria-labelledby="animalModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" style="max-width: 400px;" role="document">
             <div class="modal-content">
-                <div class="modal-header">                    
+                <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -165,10 +172,10 @@
                     </div>
 
                     <div id="btn">
-                        <asp:Button ID="btnSaveInvoice" runat="server" CssClass="btn btn-success btn-group-justified" Text="Save Invoice"  OnClick="btnSaveInvoice_Click"/><br />
+                        <asp:Button ID="btnSaveInvoice" runat="server" CssClass="btn btn-success btn-group-justified" Text="Save Invoice" OnClick="btnSaveInvoice_Click" /><br />
                     </div>
                     <div id="btn2">
-                        <asp:Button visible="false" ID="btnClearAll" runat="server" CssClass="btn btn-group-justified btn-danger" CausesValidation="false" Text="Clear Fields" formnovalidate="formnovalidate" OnClick="btnClearAllModal_Click"/>
+                        <asp:Button Visible="false" ID="btnClearAll" runat="server" CssClass="btn btn-group-justified btn-danger" CausesValidation="false" Text="Clear Fields" formnovalidate="formnovalidate" OnClick="btnClearAllModal_Click" />
                     </div>
 
 
