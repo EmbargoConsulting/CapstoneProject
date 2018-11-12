@@ -120,7 +120,10 @@
         </div>        
         </div>
         <br />
-        <asp:Label runat="server" ID="lblError"></asp:Label>
+        <asp:Label runat="server" ID="lblDuration"></asp:Label>
+        
+        <asp:Label runat="server" ID="lblDistance"></asp:Label>
+
 
     </div>
 </asp:Content>

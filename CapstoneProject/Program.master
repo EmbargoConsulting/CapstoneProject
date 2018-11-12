@@ -5,7 +5,7 @@
 
 
 
-    <div class="page-header" ID="lblProgramHeader" runat="server"><h2 class="page-header" runat="server" id="programHeader"><i class="fa fa-calendar icons"></i> Programs </h2></div>
+    <div ID="lblProgramHeader" runat="server"><h2 class="page-header" runat="server" id="programHeader"><i class="fa fa-calendar icons"></i> Programs </h2></div>
     <div class="col-lg-10">
         <div>
 

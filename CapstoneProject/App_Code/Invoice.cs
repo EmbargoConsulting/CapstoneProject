@@ -25,6 +25,13 @@ public class Invoice : dbConnect
         //
     }
 
+    public Invoice(int invoiceID, int programID, int organizationID)
+    {
+        InvoiceID = invoiceID;
+        ProgramID = programID;
+        OrganizationID = organizationID;
+    }
+
     public Invoice(int invoiceID, int programID, int organizationID, string invoiceAmount, bool cancelledYN, string paymentTotal, DateTime lastUpdated, string lastUpdatedBy)
     {
         this.InvoiceID = invoiceID;
