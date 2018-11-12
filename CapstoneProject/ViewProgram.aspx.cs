@@ -37,9 +37,34 @@ public partial class ViewProgram : System.Web.UI.Page
 
     protected void btnExcelExport_Click(object sender, EventArgs e)
     {
+
+        GridView gv = new GridView();
+        string filename = "";
+
+        switch (ddlViewOptions.SelectedValue)
+        {
+            case "0":
+                gv = GridView1;
+                filename = "Programs";
+                break;
+            case "1":
+                gv = GridView2;
+                filename = "MonthlyPrograms";
+                break;
+            case "2":
+                gv = GridView3;
+                filename = "LivePrograms";
+                break;
+            case "3":
+                gv = GridView4;
+                filename = "OnlinePrograms";
+                break;             
+
+        }
+
         Response.ClearContent();
 
-        Response.AppendHeader("content-disposition", "attachment;filename=Programs" + DateTime.Now.ToShortDateString() + ".xls");
+        Response.AppendHeader("content-disposition", "attachment;filename=" + filename + DateTime.Now.ToShortDateString() + ".xls");
         Response.ContentType = "application/excel";
 
 
@@ -48,24 +73,6 @@ public partial class ViewProgram : System.Web.UI.Page
 
         System.Web.UI.HtmlTextWriter htmlWrite =
         new HtmlTextWriter(stringWrite);
-        GridView gv = new GridView();
-
-        switch (ddlViewOptions.SelectedValue)
-        {
-            case "0":
-                gv = GridView1;
-                break;
-            case "1":
-                gv = GridView2;
-                break;
-            case "2":
-                gv = GridView3;
-                break;
-            case "3":
-                gv = GridView4;
-                break;             
-
-        }
 
         gv.RenderControl(htmlWrite);
 

@@ -14,7 +14,7 @@ public partial class Organizations : System.Web.UI.Page
 
     protected void btnSubmit_Click(object sender, EventArgs e)
     {
-        Organization organization = new Organization(txtOrgName.Text, txtOrgCity.Text, txtOrgZip.Text, DropDownListState.SelectedValue, txtOrgZip.Text, txtOrganizationContact.Text, DateTime.Now, "User");
+        Organization organization = new Organization(txtOrgName.Text, txtOrgCity.Text, DropDownListState.SelectedValue, txtOrgZip.Text, txtOrganizationContact.Text, DateTime.Now, "User");
         Organization.insertOrganization(organization);
         clear();
         GridView1.DataBind();
