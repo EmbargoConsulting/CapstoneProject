@@ -18,15 +18,16 @@ public class LiveProgram : Program
         //
     }
 
-    public LiveProgram(string status, string invoiceID, DateTime date, DateTime time, string programTheme, int childCount, int adultCount, List<int> programAnimals, List<int> programEducators, string address, int onOffSite, string city, string county) : base(date, time, programTheme, childCount, adultCount, programAnimals, programEducators)
+    public LiveProgram(int orgID, string status, string invoiceID, DateTime date, DateTime time, string programTheme, int childCount, int adultCount, List<int> programAnimals, List<int> programEducators, string address, int onOffSite, string city, string county) : base(date, time, programTheme, childCount, adultCount, programAnimals, programEducators)
     {
         //this.ProgramID = programID;
-        this.Address = address;
-        this.OnOffSite = onOffSite;
-        this.City = city;
-        this.County = county;
+        Address = address;
+        OnOffSite = onOffSite;
+        City = city;
+        County = county;
         InvoiceID = invoiceID;
         Status = status;
+        OrganizationID = orgID;
     }
 
     public static void insertLiveProgram(LiveProgram toInsert)
@@ -77,6 +78,19 @@ public class LiveProgram : Program
             AnimalProgram.insertAnimalProgram(newAnimalProgram);
         }
 
+        //Insert Invoice
+        cmd.CommandText = "insertInvoice";
+        cmd.Parameters.Clear();
+        cmd.Parameters.AddWithValue("@InvoiceID", toInsert.InvoiceID);
+        cmd.Parameters.AddWithValue("@ProgramID", toInsert.ProgramID);
+        cmd.Parameters.AddWithValue("@OrganizationID", toInsert.OrganizationID);
+        cmd.Parameters.AddWithValue("@InvoiceAmount", 0);
+        cmd.Parameters.AddWithValue("@CancelledYN", 0);
+        cmd.Parameters.AddWithValue("@PaymentTotal",0);
+        cmd.Parameters.AddWithValue("@LastUpdatedBy", "User");
+        cmd.Parameters.AddWithValue("@LastUpdated", DateTime.Now.ToShortDateString());
+        executeNonQuery(cmd);
+
 
     }
 
@@ -86,5 +100,6 @@ public class LiveProgram : Program
     public string County { get; set; }
     public string InvoiceID { get; set; }
     public string Status { get; set; }
+    public int OrganizationID { get; set; }
 
 }

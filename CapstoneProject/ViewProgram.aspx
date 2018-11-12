@@ -22,6 +22,7 @@
                 <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="Program ID" DataSourceID="SqlDataSource_ViewProgram" ForeColor="#333333" CssClass="table table-striped table-bordered" GridLines="None">
                     <AlternatingRowStyle BackColor="White" />
                     <Columns>
+                        <asp:BoundField DataField="Organization Name" HeaderText="Organization Name" SortExpression="Organization Name" ItemStyle-Width="10%" />                        
                         <asp:BoundField DataField="Theme" HeaderText="Theme" SortExpression="Theme" ItemStyle-Width="10%" />
                         <asp:BoundField DataField="Date and Time" HeaderText="Date and Time" SortExpression="Date and Time" ItemStyle-Width="10%" />
                         <asp:BoundField DataField="Child Attendance" HeaderText="Children" SortExpression="Child Attendance" ItemStyle-Width="10%" />
@@ -107,7 +108,7 @@
             </asp:View>
         </asp:MultiView>
 
-        <asp:SqlDataSource ID="SqlDataSource_ViewProgram" runat="server" ConnectionString="<%$ ConnectionStrings:Project %>" SelectCommand="SELECT [ProgramID] as 'Program ID', [ProgramTheme] as 'Theme', [DateTime] as 'Date and Time', [ChildAttendance] 'Child Attendance', [AdultAttendance] as 'Adult Attendance' FROM [Program]"></asp:SqlDataSource>
+        <asp:SqlDataSource ID="SqlDataSource_ViewProgram" runat="server" ConnectionString="<%$ ConnectionStrings:Project %>" SelectCommand="SELECT Program.ProgramID AS 'Program ID', Organization.OrganizationName as 'Organization Name', Program.ProgramTheme AS 'Theme', Program.DateTime AS 'Date and Time', Program.ChildAttendance AS 'Child Attendance',  Program.AdultAttendance AS 'Adult Attendance' FROM Program LEFT OUTER JOIN Invoice ON Program.ProgramID = Invoice.ProgramID LEFT OUTER JOIN Organization ON Invoice.OrganizationID = Organization.OrganizationID"></asp:SqlDataSource>
         <asp:SqlDataSource ID="datasourceProgramOverview" runat="server" ConnectionString="<%$ ConnectionStrings:Project %>" SelectCommand="SELECT datename(month, program.datetime) as 'Month', COUNT(LiveProgram.ProgramID) as 'Live Programs', Count(OnlineProgram.ProgramID) as 'Online Programs', Count(*) as 'Total Programs', SUM(Program.ChildAttendance) as 'Child Attendance', SUM(Program.AdultAttendance) 'Adult Attendance', SUM(Program.AdultAttendance) + SUM(Program.ChildAttendance) as 'Total Attendance' FROM LiveProgram FULL OUTER JOIN Program ON LiveProgram.ProgramID = Program.ProgramID FULL OUTER JOIN OnlineProgram ON Program.ProgramID = OnlineProgram.ProgramID GROUP BY datename(month, program.datetime)"></asp:SqlDataSource>
         <asp:SqlDataSource ID="dataSourceLivePrograms" runat="server" ConnectionString="<%$ ConnectionStrings:Project %>" SelectCommand="SELECT Program.ProgramTheme as 'Program Theme', Program.DateTime as 'Date', Program.ChildAttendance as 'Child Attendance', Program.AdultAttendance as 'Adult Attendance', LiveProgram.Status, LiveProgram.Address, LiveProgram.City, LiveProgram.County, LiveProgram.OnOffSite FROM LiveProgram INNER JOIN Program ON LiveProgram.ProgramID = Program.ProgramID"></asp:SqlDataSource>
 
