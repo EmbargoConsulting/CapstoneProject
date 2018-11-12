@@ -1,7 +1,6 @@
 ﻿<%@ Master Language="C#" MasterPageFile="~/Child.master" CodeFile="~/Program.master.cs" Inherits="Program" %>
 
 
-
 <asp:Content ID="ProgramContent" ContentPlaceHolderID="ChildContent1" runat="server">
 
 
@@ -15,6 +14,7 @@
                 <%--<asp:LinkButton ID="btnOvewview" CssClass="btn btn-default" formnovalidate="formnovalidate" runat="server" OnClick="btnOvewview_Click">Program Overview</asp:LinkButton>--%>
             </div>
             <span class="pull-right">
+                
                 <div id="dropdown" class="btn-group">
                     <asp:LinkButton runat="server" ID="btnGroupDrop1" type="button" CssClass="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">New Program  <span aria-hidden="true" class="fa fa-arrow fa-pull-right"</span></asp:LinkButton>
                     <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
@@ -27,6 +27,8 @@
         </div>
 
     </div>
+
+    
 
     <div style="height: 55px;"></div>
 

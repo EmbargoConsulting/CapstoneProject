@@ -12,7 +12,15 @@
             <asp:ListItem Value="2"> Live Programs</asp:ListItem>
             <%--<asp:ListItem Value="3">View Live Programs</asp:ListItem>--%>
         </asp:DropDownList>
+
+        
+        <div class="btn-group">
+            <asp:Button ID="btnInvoice" formnovalidate="formnovalidate" OnClientClick ="return false"  runat="server" Text="Add Invoice" CssClass="btn btn-primary" data-toggle="modal" data-target="#invoiceModal" Visible="false"></asp:Button>
+        </div>
+         
     </div>
+   
+  
     <div style="height: 50px;"></div>
     <div class="col-lg-10">
 
@@ -63,7 +71,7 @@
                 </asp:GridView>
             </asp:View>
             <asp:View ID="View3" runat="server">
-                <asp:GridView ID="GridView3" AllowSorting="true" AllowPaging="true" runat="server" AutoGenerateColumns="false" CellPadding="4" DataSourceID="datasourceLivePrograms" ForeColor="#333333" CssClass="table table-striped table-bordered" GridLines="None">
+                <asp:GridView ID="GridView3" AllowSorting="True" AllowPaging="True" runat="server" AutoGenerateColumns="False" CellPadding="4" DataSourceID="datasourceLivePrograms" ForeColor="#333333" CssClass="table table-striped table-bordered" GridLines="None">
                     <AlternatingRowStyle BackColor="White" />
                     <Columns>
                         <asp:BoundField DataField="Program Theme" HeaderText="Program Theme" SortExpression="Program Theme" />
@@ -76,6 +84,11 @@
                         <asp:BoundField DataField="City" HeaderText="City" SortExpression="City" />
                         <asp:BoundField DataField="County" HeaderText="County" SortExpression="County" />                    
                         <asp:BoundField DataField="OnOffSite" HeaderText="On/Off Site" SortExpression="OnOffSite" />
+                        <asp:TemplateField HeaderText="Add Invoice">
+                            <ItemTemplate>
+                                <asp:CheckBox ID="SelectCheckBox" runat="server"/>
+                            </ItemTemplate>
+                        </asp:TemplateField>
                     </Columns>
 
                     <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
@@ -113,6 +126,47 @@
 
     </div>
 
+
+    <!-- Modal for Invoices -->
+     <div class="modal fade" id="invoiceModal" tabindex="-1" role="dialog" aria-labelledby="animalModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" style="max-width: 400px;" role="document">
+            <div class="modal-content">
+                <div class="modal-header">                    
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h5 class="modal-title" id="invoiceModalLabel">Add an Invoice</h5>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label class="form-control-label">Invoice Code</label>
+                        <asp:TextBox ID="txtInvoiceCode" runat="server" class="form-control" required="required"></asp:TextBox>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-control-label">Total Cost</label>
+                        <asp:TextBox ID="txtTotalCost" runat="server" class="form-control" required="required"></asp:TextBox>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-control-label">Has Payment Been Recieved?</label>
+                        <asp:DropDownList ID="ddlInvoicePayment" runat="server" required="required" class="form-control">
+                            <asp:ListItem></asp:ListItem>
+                            <asp:ListItem>Yes</asp:ListItem>
+                            <asp:ListItem>No</asp:ListItem>
+                        </asp:DropDownList>
+                    </div>
+
+                    <div id="btn">
+                        <asp:Button ID="btnSaveInvoice" runat="server" CssClass="btn btn-success btn-group-justified" Text="Save Invoice"  OnClick="btnSaveInvoice_Click"/><br />
+                    </div>
+                    <div id="btn2">
+                        <asp:Button visible="false" ID="btnClearAll" runat="server" CssClass="btn btn-group-justified btn-danger" CausesValidation="false" Text="Clear Fields" formnovalidate="formnovalidate" OnClick="btnClearAllModal_Click"/>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
 
 </asp:Content>
 

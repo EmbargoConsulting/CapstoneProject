@@ -5,7 +5,7 @@
 </script>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ChildContent1" Runat="Server">
-<div class="row">
+    <div class="row">
     <div class="col-lg-12">
         <h2 class="page-header"><i class="fa fa-user icons"></i>Add an Educator</h2>
     </div>
