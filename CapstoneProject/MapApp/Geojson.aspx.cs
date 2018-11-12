@@ -1,0 +1,91 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
+using System.IO;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+
+public partial class Geojson : System.Web.UI.Page
+{
+    public static string connectionString = "Data Source=LocalHost;Initial Catalog=Project;Integrated Security=True";
+    string mydocpath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+
+    protected void Page_Load(object sender, EventArgs e)
+    {
+       //String file = File.Exists("C:/Users/huntw/source/repos/CIS484WildlifeProject/Maptest/JS/Coordinates.js") ? "Yes" : createGeoJson();
+    }
+
+    protected void TestSubmit_ServerClick(object sender, EventArgs e)
+    {
+        using (SqlConnection openCon = new SqlConnection(connectionString))
+        {
+            string saveStaff = "INSERT into userlocation values (@Name,@Latitude,@Longitude)";
+
+            using (SqlCommand querySaveStaff = new SqlCommand(saveStaff))
+            {
+                querySaveStaff.Connection = openCon;
+                querySaveStaff.Parameters.Add("@Name", SqlDbType.VarChar, 50).Value = TextBox1.Text;
+                querySaveStaff.Parameters.Add("@Latitude", SqlDbType.VarChar, 50).Value = TextBox2.Text;
+                querySaveStaff.Parameters.Add("@Longitude", SqlDbType.VarChar, 50).Value = TextBox3.Text;
+
+                try
+                {
+                    openCon.Open();
+                    int recordsAffected = querySaveStaff.ExecuteNonQuery();
+                    //appendToGeoJson();
+                }
+                catch (SqlException)
+                {
+                    // error here
+                }
+                finally
+                {
+                    openCon.Close();
+                }
+            }
+        }
+    } 
+
+    //public string createGeoJson()
+    //{
+    //    using (StreamWriter outputFile = new StreamWriter("C:/Users/huntw/source/repos/CIS484WildlifeProject/Maptest/JS/Coordinates.js"))
+    //    {
+    //        {
+    //            outputFile.WriteLine("geojson_callback({ \"type\": \"FeatureCollection\", \"features\": [");
+    //            return "no";
+    //        }
+    //    }
+    //}
+
+    //public void appendToGeoJson()
+    //{
+
+
+    //    using (StreamWriter outputFile = File.AppendText("C:/Users/huntw/source/repos/CIS484WildlifeProject/Maptest/JS/Coordinates.js"))
+    //    {
+    //        {
+    //            outputFile.WriteLine("{\"type\": \"Feature\", \"geometry\": { \"type\": \"Point\", \"coordinates\": [" + TextBox3.Text + "," + TextBox2.Text + "]}, \"properties\": {\"name\": \"" + TextBox1.Text + "\"}},");
+    //        }
+    //    }
+
+    //}
+
+    //public void closeFile()
+    //{
+    //    using (StreamWriter outputFile = File.AppendText("C:/Users/huntw/source/repos/CIS484WildlifeProject/Maptest/JS/Coordinates.js"))
+    //    {
+    //        {
+    //            outputFile.WriteLine("]})");
+    //        }
+    //    }
+    //}
+
+
+    protected void TestFinish_ServerClick(object sender, EventArgs e)
+    {
+    }
+
+}
