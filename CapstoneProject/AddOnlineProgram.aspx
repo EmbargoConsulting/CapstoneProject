@@ -26,6 +26,11 @@
 
             </div>
             <div class="form-group">
+                <label>Theme</label>
+                <asp:TextBox ID="txtTheme" required="required" runat="server" class="form-control"></asp:TextBox>
+
+            </div>
+            <div class="form-group">
                 <label>Teacher</label>
                 <asp:TextBox ID="txtTeacher" required="required" runat="server" class="form-control"></asp:TextBox>
             </div>
@@ -40,6 +45,7 @@
             <div class="form-group">
                 <label>State</label>
                 <asp:DropDownList ID="ddlState"  required="required" CssClass="form-control" runat="server">
+                    <asp:ListItem Value="VA">Virginia</asp:ListItem>
                     <asp:ListItem Value=""></asp:ListItem>
                     <asp:ListItem Value="AL">Alabama</asp:ListItem>
                     <asp:ListItem Value="AK">Alaska</asp:ListItem>
@@ -87,7 +93,6 @@
                     <asp:ListItem Value="TX">Texas</asp:ListItem>
                     <asp:ListItem Value="UT">Utah</asp:ListItem>
                     <asp:ListItem Value="VT">Vermont</asp:ListItem>
-                    <asp:ListItem Value="VA">Virginia</asp:ListItem>
                     <asp:ListItem Value="WA">Washington</asp:ListItem>
                     <asp:ListItem Value="WV">West Virginia</asp:ListItem>
                     <asp:ListItem Value="WI">Wisconsin</asp:ListItem>
@@ -97,6 +102,7 @@
             <div class="form-group">
                 <label>Country</label>
                 <asp:DropDownList ID="ddlCountry" AutoPostBack="true" required="required"  CssClass="form-control" runat="server">
+                    <asp:ListItem Value="US">United States</asp:ListItem>                    
                     <asp:ListItem Value=""></asp:ListItem>
                     <asp:ListItem Value="AF">Afghanistan</asp:ListItem>
                     <asp:ListItem Value="AL">Albania</asp:ListItem>
@@ -320,7 +326,6 @@
                     <asp:ListItem Value="UA">Ukraine</asp:ListItem>
                     <asp:ListItem Value="AE">United Arab Emirates</asp:ListItem>
                     <asp:ListItem Value="GB">United Kingdom</asp:ListItem>
-                    <asp:ListItem Value="US">United States</asp:ListItem>
                     <asp:ListItem Value="UM">United States Minor Is.</asp:ListItem>
                     <asp:ListItem Value="UY">Uruguay</asp:ListItem>
                     <asp:ListItem Value="UZ">Uzbekistan</asp:ListItem>
@@ -337,10 +342,6 @@
                     <asp:ListItem Value="ZM">Zambia</asp:ListItem>
                     <asp:ListItem Value="ZW">Zimbabwe</asp:ListItem>
                 </asp:DropDownList>
-            </div>
-            <div class="form-group">
-                <label>Time</label>
-                <asp:TextBox ID="txtTime" runat="server" required="required" CssClass="form-control" placeholder="ie. 3:00 PM"></asp:TextBox>
             </div>
         </div>
         <div class="col-lg-4">
@@ -367,6 +368,10 @@
             <div class="form-group">
                 <label>Date</label>
                 <asp:TextBox ID="txtDate" required="required" runat="server" CssClass="form-control" placeholder="MM/DD/YYYY"></asp:TextBox>
+            </div>
+            <div class="form-group">
+                <label>Time</label>
+                <asp:TextBox ID="txtTime" runat="server" required="required" CssClass="form-control" placeholder="ie. 3:00 PM"></asp:TextBox>
             </div>
         </div>
         <div class="col-lg-2">   

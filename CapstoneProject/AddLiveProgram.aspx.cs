@@ -143,8 +143,9 @@ public partial class Default2 : System.Web.UI.Page
         
     }
 
-    public void GetDistance(string destination)
+    public int GetDistance(string destination)
     {
+        int distance = 0;
         string origin = "38.0392748,-78.914256";
         string url = @"http://maps.googleapis.com/maps/api/distancematrix/xml?origins=" + origin + "&destinations=" + destination + "&key=AIzaSyCXAToR0WV_uUkLQWuwDGWvr3JO0D2x100";
 
@@ -165,7 +166,7 @@ public partial class Default2 : System.Web.UI.Page
                 lblDistance.Text = ds.Tables["distance"].Rows[0]["text"].ToString();
             }
         }
-
+        return distance;
     }
 
     protected void clearText()
