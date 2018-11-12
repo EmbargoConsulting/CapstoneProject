@@ -146,7 +146,6 @@ public partial class Animals : System.Web.UI.Page
         else
         {
             details.Visible = false;
-            results.InnerText = "No data for " + ddlAnimals.SelectedItem;
             results.Visible = true;
             tableau.Visible = true;
             //lbl_Results.Text = "No results found";
