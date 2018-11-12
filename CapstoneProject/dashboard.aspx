@@ -1,4 +1,5 @@
-﻿<%@ Page Title="Dashboard" Language="C#" MasterPageFile="~/Child.master" %>
+﻿
+<%@ Page Title="Dashboard" Language="C#" MasterPageFile="~/Child.master" %>
 
 <script runat="server">
 

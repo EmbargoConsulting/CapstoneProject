@@ -37,7 +37,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="dashboard.aspx" style="color:white;">Wildlife Center Administrative Console</a>
+                <a class="navbar-brand" href="dashboard.aspx" style="color:white;"><img src="/content/whiteLogo.gif" class="img-fluid float-left" width="100px" height="25px" id="wildlifeLogo"/></a>
             </div>
             <!-- /.navbar-header -->
 

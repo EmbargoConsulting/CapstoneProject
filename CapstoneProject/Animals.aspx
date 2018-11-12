@@ -126,7 +126,7 @@
             </div>
            <div id="btnGroupAnimals">
             <div class="col-lg-2">
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#animalModal" id="btnAddAnimal">
+                <button type="button" class="btn btn-success" data-toggle="modal" data-target="#animalModal" id="btnAddAnimal">
                     New Animal</button>
             </div>
             <div class="col-lg-2">

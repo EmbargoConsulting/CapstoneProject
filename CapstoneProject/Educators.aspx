@@ -31,8 +31,8 @@
 
         <div class="col-lg-12 col-lg-offset-1">
             <div id="employeeFormBtns">
-                   <asp:Button ID="btnSubmit" runat="server" CssClass="btn btn-primary" Text="Add Employee" OnClick="btnSubmit_Click" />
-                <asp:Button ID="btnClearAll" runat="server" CssClass="btn btn-primary"  Text="Clear Fields" OnClick="btnClearAll_Click" formnovalidate="formnovalidate"/>
+                   <asp:Button ID="btnSubmit" runat="server" CssClass="btn btn-success" Text="Add Employee" OnClick="btnSubmit_Click" />
+                <asp:Button ID="btnClearAll" runat="server" CssClass="btn btn-danger"  Text="Clear Fields" OnClick="btnClearAll_Click" formnovalidate="formnovalidate"/>
 
             </div>
           </div>   

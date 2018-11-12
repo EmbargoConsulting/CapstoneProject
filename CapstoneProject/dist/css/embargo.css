@@ -23,6 +23,9 @@ label{
 .btn{
     font-family:'Nanum Gothic', sans-serif;
 }
+#wildlifeLogo{
+    margin: 0 0 0 50%;
+}
 /*login page*/
 #loginBackground{
     background-image: url("/Content/backgroundWithAnimals.png");
