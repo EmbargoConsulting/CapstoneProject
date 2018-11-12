@@ -44,7 +44,30 @@ public partial class ViewProgram : System.Web.UI.Page
 
     protected void btnSaveInvoice_Click(object sender, EventArgs e)
     {
+        int counter = 0;
+        foreach (GridViewRow row in GridView3.Rows)
+        {
+            // Access the CheckBox
+            CheckBox cb = (CheckBox)row.FindControl("SelectCheckBoxr");
+            if (cb != null && cb.Checked)
+            {
+                // Associate this program with the entered information here
 
+
+                // Counter that if 0 at the end displays a message "Please select at lease one program"
+                counter += 1;
+            }
+            else
+            {
+
+            }
+            
+        }
+        if (counter == 0)
+        {
+            // Display message here "Please Select At Least One Program"
+
+        }
     }
 
     protected void btnClearAllModal_Click(object sender, EventArgs e)
@@ -52,5 +75,10 @@ public partial class ViewProgram : System.Web.UI.Page
         txtInvoiceCode.Text = "";
         txtTotalCost.Text = "";
         ddlInvoicePayment.SelectedIndex = 0;
+    }
+
+    protected void btnInvoice_Click(object sender, EventArgs e)
+    {
+        
     }
 }
