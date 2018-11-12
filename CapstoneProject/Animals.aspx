@@ -75,8 +75,10 @@
                     <div id="btn">
                         <asp:Button ID="btnSubmit" runat="server" CssClass="btn btn-success btn-group-justified" Text="Add Animal" OnClick="btnSubmit_Click" /><br />
                     </div>
+
+                    <!-- Button is not visible until it works correctly -->
                     <div id="btn2">
-                        <asp:Button ID="btnClearAll" runat="server" CssClass="btn btn-group-justified btn-danger" CausesValidation="false" Text="Clear Fields" OnClick="btnClearAll_Click" formnovalidate="formnovalidate" />
+                        <asp:Button ID="btnClearAll" visible="false" runat="server" CssClass="btn btn-group-justified btn-danger" CausesValidation="false" Text="Clear Fields" OnClick="btnClearAll_Click" formnovalidate="formnovalidate" />
                     </div>
 
 
