@@ -123,6 +123,8 @@ public partial class ViewProgram : System.Web.UI.Page
             // Display message here "Please Select At Least One Program"
 
         }
+
+        resetModalValues();
     }
 
     protected void btnClearAllModal_Click(object sender, EventArgs e)
@@ -201,6 +203,8 @@ public partial class ViewProgram : System.Web.UI.Page
         txtTravelMiles.Text = "0";
         txtTotalCost.Text = "0.00";
         txtAdditionalPrice.Text = "160.00";
+        txtInvoiceCode.Text = "";
+        ddlInvoicePayment.SelectedIndex = 0;
     }
 
     protected void offSiteSelected()
