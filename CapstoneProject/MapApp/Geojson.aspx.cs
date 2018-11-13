@@ -23,29 +23,67 @@ public partial class Geojson : System.Web.UI.Page
         using (SqlConnection openCon = new SqlConnection(connectionString))
         {
             string saveStaff = "INSERT into userlocation values (@Name,@Latitude,@Longitude)";
+            string update = "update userLocation set Latitude = @Latitude, Longitude = @Longitude where Name = @Name";
 
-            using (SqlCommand querySaveStaff = new SqlCommand(saveStaff))
+            SqlCommand check_User_Name = new SqlCommand("select name from userLocation where name = @Name", openCon);
+            check_User_Name.Parameters.AddWithValue("@Name", TextBox1.Text);
+
+            openCon.Open();
+            Object UserExist = check_User_Name.ExecuteScalar();
+            openCon.Close();
+
+            if (UserExist != null)
             {
-                querySaveStaff.Connection = openCon;
-                querySaveStaff.Parameters.Add("@Name", SqlDbType.VarChar, 50).Value = TextBox1.Text;
-                querySaveStaff.Parameters.Add("@Latitude", SqlDbType.VarChar, 50).Value = TextBox2.Text;
-                querySaveStaff.Parameters.Add("@Longitude", SqlDbType.VarChar, 50).Value = TextBox3.Text;
+                using(SqlCommand updateSaveStaff = new SqlCommand(update))
+                {
+                    updateSaveStaff.Connection = openCon;
+                    updateSaveStaff.Parameters.Add("@Name", SqlDbType.VarChar, 50).Value = TextBox1.Text;
+                    updateSaveStaff.Parameters.Add("@Latitude", SqlDbType.VarChar, 50).Value = TextBox2.Text;
+                    updateSaveStaff.Parameters.Add("@Longitude", SqlDbType.VarChar, 50).Value = TextBox3.Text;
 
-                try
-                {
-                    openCon.Open();
-                    int recordsAffected = querySaveStaff.ExecuteNonQuery();
-                    //appendToGeoJson();
-                }
-                catch (SqlException)
-                {
-                    // error here
-                }
-                finally
-                {
-                    openCon.Close();
+                    try
+                    {
+                        openCon.Open();
+                        int recordsAffected = updateSaveStaff.ExecuteNonQuery();
+                        //appendToGeoJson();
+                    }
+                    catch (SqlException)
+                    {
+                        // error here
+                    }
+                    finally
+                    {
+                        openCon.Close();
+                    }
                 }
             }
+            else
+            {
+                using (SqlCommand querySaveStaff = new SqlCommand(saveStaff))
+                {
+                    querySaveStaff.Connection = openCon;
+                    querySaveStaff.Parameters.Add("@Name", SqlDbType.VarChar, 50).Value = TextBox1.Text;
+                    querySaveStaff.Parameters.Add("@Latitude", SqlDbType.VarChar, 50).Value = TextBox2.Text;
+                    querySaveStaff.Parameters.Add("@Longitude", SqlDbType.VarChar, 50).Value = TextBox3.Text;
+
+                    try
+                    {
+                        openCon.Open();
+                        int recordsAffected = querySaveStaff.ExecuteNonQuery();
+                        //appendToGeoJson();
+                    }
+                    catch (SqlException)
+                    {
+                        // error here
+                    }
+                    finally
+                    {
+                        openCon.Close();
+                    }
+                }
+            }
+
+
         }
     } 
 
