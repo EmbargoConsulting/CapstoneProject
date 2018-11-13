@@ -291,6 +291,12 @@ public partial class Animals : System.Web.UI.Page
 
     }
 
+    protected void btnExport3_Click(object sender, EventArgs e)
+    {
+        excelExport("TotalReportAnimals", GridView1);
+
+    }
+
     //Required
     public override void VerifyRenderingInServerForm(Control control)
     {
@@ -298,6 +304,9 @@ public partial class Animals : System.Web.UI.Page
 
     protected void btnViewAll_Click(object sender, EventArgs e)
     {
+        panelMonth2.Visible = false;
+        panelYear2.Visible = false;
+            
         GridView1.Columns.Clear();
 
         BoundField test = new BoundField();
