@@ -14,7 +14,7 @@ public partial class Organizations : System.Web.UI.Page
 
     protected void btnSubmit_Click(object sender, EventArgs e)
     {
-        Organization organization = new Organization(txtOrgName.Text, txtOrgCity.Text, txtOrgZip.Text, DropDownListState.SelectedValue, txtOrgZip.Text, txtOrganizationContact.Text, DateTime.Now, "User");
+        Organization organization = new Organization(txtOrgName.Text, txtOrgCity.Text, DropDownListState.SelectedValue, txtOrgZip.Text, txtOrganizationContact.Text, DateTime.Now, "User");
         Organization.insertOrganization(organization);
         clear();
         GridView1.DataBind();
@@ -58,5 +58,31 @@ public partial class Organizations : System.Web.UI.Page
         OrganizationDataSource.Update();
    
         GridView1.DataBind();
+    }
+
+    protected void btnExcelExport_Click(object sender, EventArgs e)
+    {
+        Response.ClearContent();
+
+        Response.AppendHeader("content-disposition", "attachment;filename=Organizations" + DateTime.Now.ToShortDateString() + ".xls");
+        Response.ContentType = "application/excel";
+
+
+
+        System.IO.StringWriter stringWrite = new System.IO.StringWriter();
+
+        System.Web.UI.HtmlTextWriter htmlWrite =
+        new HtmlTextWriter(stringWrite);
+
+        GridView1.RenderControl(htmlWrite);
+
+        Response.Write(stringWrite.ToString());
+
+        Response.End();
+    }
+
+    //Required
+    public override void VerifyRenderingInServerForm(Control control)
+    {
     }
 }

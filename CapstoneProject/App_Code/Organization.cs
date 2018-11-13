@@ -33,10 +33,9 @@ public class Organization : dbConnect
         OrganizationName = name;
     }
 
-    public Organization(string organizationName, string organizationAddress, string city, string state, string zip, string organizationContact, DateTime lastUpdated, string lastUpdatedBy)
+    public Organization(string organizationName, string city, string state, string zip, string organizationContact, DateTime lastUpdated, string lastUpdatedBy)
     {
         this.OrganizationName = organizationName;
-        this.OrganizationAddress = organizationAddress;
         this.City = city;
         this.State = state;
         this.Zip = zip;

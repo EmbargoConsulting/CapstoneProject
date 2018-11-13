@@ -77,6 +77,7 @@ public partial class Default2 : System.Web.UI.Page
     {
      
         string type = ddlProgramType.SelectedItem.ToString();
+        string theme = txtTheme.Text;
         string teacher = txtTeacher.Text;
         string teacherEmail = txtEmail.Text;
         string grade = txtGrade.Text;
@@ -105,7 +106,7 @@ public partial class Default2 : System.Web.UI.Page
             }
         }
 
-        OnlineProgram newProgram = new OnlineProgram(state, Country, grade, teacher, teacherEmail, date, time, type, type, child, adult, tempAnimals, tempEducators);
+        OnlineProgram newProgram = new OnlineProgram(state, Country, grade, teacher, teacherEmail, date, time, type, theme, child, adult, tempAnimals, tempEducators);
 
         OnlineProgram.insertOnlineProgram(newProgram);
         clearText();

@@ -17,7 +17,6 @@ public partial class Program : System.Web.UI.MasterPage
             //btnLiveProgram.CssClass = "btn btn-primary";
             btnViewProgram.CssClass = "btn btn-default";
             programHeader.InnerHtml = "<i class=\"fa fa-calendar icons\"></i> New Live Program";
-            //lblProgramHeader.InnerHtml = "<div class=\"row\"> <div class=\"col - lg - 12 >< h2 class=\"page-header\"><i class=\"fa fa-calendar icons\"></i> Add Live Program</h2> </div> </div>"; ;
 
         } else if (pageName.Contains("AddOnlineProgram.aspx"))
         {
@@ -25,7 +24,7 @@ public partial class Program : System.Web.UI.MasterPage
             //btnLiveProgram.CssClass = "btn btn-default";
             btnViewProgram.CssClass = "btn btn-default";
             //lblProgramHeader.InnerHtml = "< div class=\"row\"> <div class=\"col - lg - 12 >< h2 class=\"page-header\"><i class=\"fa fa-calendar icons\"></i> Add Online Program</h2> </div> </div>";
-            programHeader.InnerHtml = "<i class=\"fa fa-calendar icons\"></i> New Online Programs";
+            programHeader.InnerHtml = "<i class=\"fa fa-calendar icons\"></i> New Online Program";
 
         }
         else if (pageName.Contains("ViewProgram.aspx"))
@@ -34,7 +33,7 @@ public partial class Program : System.Web.UI.MasterPage
             //btnOnlineProgram.CssClass = "btn btn-default";
             btnViewProgram.CssClass = "btn btn-primary";
             //lblProgramHeader.InnerHtml = "<div class=\"row\"> <div class=\"col - lg - 12 >< h2 class=\"page-header\"><i class=\"fa fa-calendar icons\"></i> Programs</h2> </div> </div>";
-            btnGroupDrop1.CssClass = "btn btn-default";
+            //btnGroupDrop1.CssClass = "btn btn-default";
             programHeader.InnerHtml = "<i class=\"fa fa-calendar icons\"></i> Programs";
 
         }

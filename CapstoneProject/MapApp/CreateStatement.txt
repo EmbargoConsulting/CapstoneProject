@@ -1,0 +1,17 @@
+USE [Project]
+GO
+
+/****** Object:  Table [dbo].[UserLocation]    Script Date: 11/13/2018 10:02:59 AM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[UserLocation](
+	[name] [varchar](50) NULL,
+	[latitude] [varchar](50) NULL,
+	[longitude] [varchar](50) NULL
+) ON [PRIMARY]
+GO
+

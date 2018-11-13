@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 
@@ -24,6 +25,13 @@ public class Invoice : dbConnect
         //
     }
 
+    public Invoice(int invoiceID, int programID, int organizationID)
+    {
+        InvoiceID = invoiceID;
+        ProgramID = programID;
+        OrganizationID = organizationID;
+    }
+
     public Invoice(int invoiceID, int programID, int organizationID, string invoiceAmount, bool cancelledYN, string paymentTotal, DateTime lastUpdated, string lastUpdatedBy)
     {
         this.InvoiceID = invoiceID;
@@ -34,6 +42,31 @@ public class Invoice : dbConnect
         PaymentTotal1 = paymentTotal;
         this.LastUpdated = lastUpdated;
         this.LastUpdatedBy = lastUpdatedBy;
+    }
+
+    public static List<Invoice> getInvoiceList()
+    {
+        List<Invoice> list = new List<Invoice>();
+        string query = "SELECT ProgramID, FirstName, LastName FROM Employee;";
+        using (SqlConnection con = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["Project"].ConnectionString))
+        {
+            SqlCommand cmdSelect = new SqlCommand(query, con);
+            con.Open();
+            SqlDataReader reader = cmdSelect.ExecuteReader();
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+                    int id = reader.GetInt32(0);
+                    string firstName = reader.GetString(1);
+                    string lastName = reader.GetString(2);
+                    Employee newEmployee = new Employee(id, firstName, lastName);
+                    //list.Add(newEmployee);
+                }
+            }
+        }
+
+        return list;
     }
 
     public int InvoiceID { get => invoiceID; set => invoiceID = value; }
