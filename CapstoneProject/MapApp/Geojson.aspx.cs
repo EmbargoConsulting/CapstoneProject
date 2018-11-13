@@ -10,7 +10,7 @@ using System.Web.UI.WebControls;
 
 public partial class Geojson : System.Web.UI.Page
 {
-    public static string connectionString = "Data Source=LocalHost;Initial Catalog=Project;Integrated Security=True";
+    public static string connectionString = System.Configuration.ConfigurationManager.ConnectionStrings["Project"].ConnectionString;
     string mydocpath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
 
     protected void Page_Load(object sender, EventArgs e)

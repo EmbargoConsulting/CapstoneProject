@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" Title="Animals" AutoEventWireup="true" CodeFile="Animals.aspx.cs" Inherits="Animals" MasterPageFile="~/Child.master" %>
+﻿<%@ Page Language="C#" Title="Animals" AutoEventWireup="true" EnableEventValidation="false" CodeFile="Animals.aspx.cs" Inherits="Animals" MasterPageFile="~/Child.master" %>
 
 <script runat="server">
 
@@ -75,7 +75,6 @@
                     <div id="btn">
                         <asp:Button ID="btnSubmit" runat="server" CssClass="btn btn-success btn-group-justified" Text="Add Animal" OnClick="btnSubmit_Click" /><br />
                     </div>
-
                     <!-- Button is not visible until it works correctly -->
                     <div id="btn2">
                         <asp:Button ID="btnClearAll" visible="false" runat="server" CssClass="btn btn-group-justified btn-danger" CausesValidation="false" Text="Clear Fields" OnClick="btnClearAll_Click" formnovalidate="formnovalidate" />
@@ -126,14 +125,18 @@
                 </div>
 
             </div>
-           <div id="btnGroupAnimals">
-            <div class="col-lg-2">
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#animalModal" id="btnAddAnimal">
-                    New Animal</button>
-            </div>
-            <div class="col-lg-2">
-                <button type="button" class="btn btn-danger">Clear Animal Tables</button>
-            </div>
+            <div id="btnGroupAnimals">
+                <div class="col-lg-2">
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#animalModal" id="btnAddAnimal">
+                        New Animal</button>
+                </div>
+                <div class="col-lg-2">
+                    <asp:Button ID="Button3" formnovalidate="formnovalidate" CausesValidation="false" class="btn btn-primary" runat="server" Text="View All" OnClick="btnViewAll_Click" />
+
+                </div>
+                <div class="col-lg-2">
+                    <button type="button" class="btn btn-danger">Clear Animal Tables</button>
+                </div>
             </div>
         </div>
         <div id="output" runat="server" class="col-lg-offset-3"></div>
@@ -144,7 +147,7 @@
     <div class="col-lg-8">
         <div id="details" runat="server">
             <div class="panel panel-default">
-                <div id="panelMonth" runat="server" class="panel panel-heading">Monthly Break-Down</div>
+                <div id="panelMonth" runat="server" class="panel panel-heading">Monthly Break-Down </div>
                 <div class="panel panel-body">
                     <asp:GridView ID="DetailsGridView" runat="server" AutoGenerateColumns="false" CssClass="table table-bordered" DataKeyNames="AnimalID">
                         <HeaderStyle />
@@ -166,6 +169,8 @@
         <SortedDescendingCellStyle BackColor="#E9EBEF" />
         <SortedDescendingHeaderStyle BackColor="#4870BE" />
                     </asp:GridView>
+                            <asp:Button ID="Button2" formnovalidate="formnovalidate" CausesValidation="false" class="btn btn-primary" runat="server" Text="Export to Excel" OnClick="btnExport1_Click"/>
+              
                 </div>
             </div>
 
@@ -192,12 +197,35 @@
         <SortedDescendingCellStyle BackColor="#E9EBEF" />
         <SortedDescendingHeaderStyle BackColor="#4870BE" />
                     </asp:GridView>
+                                                <asp:Button ID="Button1" formnovalidate="formnovalidate" CausesValidation="false" class="btn btn-primary" runat="server" Text="Export to Excel" OnClick="btnExport2_Click"/>
+
                 </div>
 
             </div>
-        </div>
-    </div>
 
+        
+            <div class="panel panel-default">
+                <div id="Div1" runat="server" class="panel panel-heading">Total Breakdown</div>
+                <div class="panel panel-body">
+                    <asp:GridView ID="GridView1" AutoGenerateColumns="false" CssClass="table table-bordered" DataKeyNames="AnimalID" runat="server">
+
+        <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+        <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+        <PagerStyle BackColor="#2461BF" ForeColor="White" HorizontalAlign="Center" />
+        <RowStyle BackColor="#EFF3FB" />
+        <SelectedRowStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
+        <SortedAscendingCellStyle BackColor="#F5F7FB" />
+        <SortedAscendingHeaderStyle BackColor="#6D95E1" />
+        <SortedDescendingCellStyle BackColor="#E9EBEF" />
+        <SortedDescendingHeaderStyle BackColor="#4870BE" />
+                    </asp:GridView>
+                                                <asp:Button ID="Button4" formnovalidate="formnovalidate" CausesValidation="false" class="btn btn-primary" runat="server" Text="Export to Excel" OnClick="btnExport2_Click"/>
+
+                </div>
+
+            </div>
+
+        </div>
 
 
     <div runat="server" id="results"></div>
@@ -216,5 +244,6 @@
             <asp:ControlParameter ControlID="MainGridView" Name="AnimalID" PropertyName="SelectedValue" Type="Int32" />
         </SelectParameters>
     </asp:SqlDataSource>--%>
+
 </asp:Content>
 

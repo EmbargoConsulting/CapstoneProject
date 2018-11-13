@@ -26,7 +26,7 @@ public partial class AdminMap : System.Web.UI.Page
     {
         string sql = "SELECT * FROM userlocation";
         string name, latitude, longitude;
-        using (var connection = new SqlConnection("Data Source=LocalHost;Initial Catalog=Project;Integrated Security=True"))
+        using (var connection = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["Project"].ConnectionString))
         using (var command = new SqlCommand(sql, connection))
         {
             if (File.Exists(path))
