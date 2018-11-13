@@ -7,11 +7,6 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ChildContent1" runat="Server">
 
-    <%--<script type="text/javascript" src='https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.3.min.js'></script>
-    <script type="text/javascript" src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.0.3/js/bootstrap.min.js'></script>
-    <link rel="stylesheet" href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.0.3/css/bootstrap.min.css'
-    media="screen" />--%>
-
     <asp:ScriptManager ID="ScriptManager1" runat="server">
     </asp:ScriptManager>
     <script type="text/javascript">
@@ -141,6 +136,12 @@
 
     <!-- Modal for Invoices -->
     <div class="modal fade" id="invoiceModal" tabindex="-1" role="dialog" aria-labelledby="animalModalLabel" aria-hidden="true">
+
+        <script type="text/javascript" src='https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.3.min.js'></script>
+        <script type="text/javascript" src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.0.3/js/bootstrap.min.js'></script>
+        <%--<link rel="stylesheet" href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.0.3/css/bootstrap.min.css'
+        media="screen" />--%>
+
         <div class="modal-dialog modal-dialog-centered" style="max-width: 400px;" role="document">
             <div class="modal-content">
                 <%--<asp:UpdatePanel ID="upModal" runat="server" ChildrenAsTriggers="false" UpdateMode="Conditional">
