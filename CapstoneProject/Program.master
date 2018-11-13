@@ -3,7 +3,11 @@
 
 <asp:Content ID="ProgramContent" ContentPlaceHolderID="ChildContent1" runat="server">
 
-
+    <script type="text/javascript">
+    function openModal() {
+        $('#invoiceModal').modal('show');
+    }
+    </script>
 
     <div ID="lblProgramHeader" runat="server"><h2 class="page-header" runat="server" id="programHeader"><i class="fa fa-calendar icons"></i> Programs </h2></div>
     <div class="col-lg-10">

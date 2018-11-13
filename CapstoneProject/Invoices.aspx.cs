@@ -30,7 +30,7 @@ public partial class Invoices : System.Web.UI.Page
     protected void GridView1_RowDeleting(object sender, GridViewDeleteEventArgs e)
     {
 
-        //InvoiceDataSource.Delete();
+        InvoiceDataSource.Delete();
         InvoiceGridView.DataBind();
     }
 }

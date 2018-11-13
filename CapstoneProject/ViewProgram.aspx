@@ -1,10 +1,25 @@
 ﻿<%@ Page Language="C#" Title="Programs" AutoEventWireup="true" EnableEventValidation="false" CodeFile="ViewProgram.aspx.cs" Inherits="ViewProgram" MasterPageFile="~/Program.master" %>
 
 <script runat="server">
-
+    
 </script>
 
+
 <asp:Content ID="Content1" ContentPlaceHolderID="ChildContent1" runat="Server">
+
+    <script type="text/javascript" src='https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.3.min.js'></script>
+    <script type="text/javascript" src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.0.3/js/bootstrap.min.js'></script>
+    <link rel="stylesheet" href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.0.3/css/bootstrap.min.css'
+    media="screen" />
+
+    <asp:ScriptManager ID="ScriptManager1" runat="server">
+    </asp:ScriptManager>
+    <script type="text/javascript">
+           function openModal() {
+               $('#invoiceModal').modal('show');
+           }
+    </script>
+
     <div class="col-lg-10">
         <div class="col-lg-4">
             <asp:DropDownList OnSelectedIndexChanged="ddlViewOptions_SelectedIndexChanged" AutoPostBack="true" ID="ddlViewOptions" CssClass="form-control" runat="server">
@@ -128,6 +143,8 @@
     <div class="modal fade" id="invoiceModal" tabindex="-1" role="dialog" aria-labelledby="animalModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" style="max-width: 400px;" role="document">
             <div class="modal-content">
+                <%--<asp:UpdatePanel ID="upModal" runat="server" ChildrenAsTriggers="false" UpdateMode="Conditional">
+                    <ContentTemplate>--%>
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
@@ -136,16 +153,59 @@
                 </div>
                 <div class="modal-body">
                     <div class="form-group">
-                        <label class="form-control-label">Invoice Code</label>
-                        <asp:TextBox ID="txtInvoiceCode" runat="server" class="form-control" required="required"></asp:TextBox>
+                        <label class="form-control-label">Invoice Type</label>
+                        <asp:DropDownList ID="ddlInvoiceType" AutoPostBack="true" runat="server" class="form-control" required="required" OnSelectedIndexChanged="ddlInvoiceType_SelectedIndexChanged" >
+                            <asp:ListItem></asp:ListItem>
+                            <asp:ListItem>On-Site</asp:ListItem>
+                            <asp:ListItem>Off-Site</asp:ListItem>
+                        </asp:DropDownList>
+                        
                     </div>
                     <div class="form-group">
-                        <label class="form-control-label">Total Cost</label>
-                        <asp:TextBox ID="txtTotalCost" runat="server" class="form-control" required="required"></asp:TextBox>
+                        <label class="form-control-label" id="lblInvoiceCode" runat="server" visible="false">Invoice Code</label>
+                        <asp:TextBox ID="txtInvoiceCode" runat="server" class="form-control" required="required" visible="false"></asp:TextBox>
                     </div>
                     <div class="form-group">
-                        <label class="form-control-label">Has Payment Been Recieved?</label>
-                        <asp:DropDownList ID="ddlInvoicePayment" runat="server" required="required" class="form-control">
+                        <label class="form-control-label" id="lblTotalPeople" runat="server" visible="false">Number of People</label>
+                        <asp:TextBox ID="txtTotalPeople" value="0" runat="server" class="form-control" required="required" visible="false" autopostback="true" OnTextChanged="txtTextChanged"></asp:TextBox>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-control-label" id="lblPricePerPerson" runat="server" visible="false">Price per Person</label>
+                        <asp:TextBox ID="txtPricePerPerson" value="5.00" type="double" runat="server" class="form-control" required="required" visible="false" autopostback="true" OnTextChanged="txtTextChanged"></asp:TextBox>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-control-label" id="lblOffsiteQuantity" runat="server" visible="false">Off-Site Program Quantity</label>
+                        <asp:TextBox ID="txtOffsiteQuantity" value="0" runat="server" class="form-control" required="required" visible="false" autopostback="true" OnTextChanged="txtTextChanged"></asp:TextBox>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-control-label" id="lblOffsitePrice" runat="server" visible="false">Price per Off-Site Program</label>
+                        <asp:TextBox ID="txtOffsitePrice" value="256.00" type="double" runat="server" class="form-control" required="required" visible="false" autopostback="true" OnTextChanged="txtTextChanged"></asp:TextBox>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-control-label" id="lblAdditionalQuantity" runat="server" visible="false">Additional Program Quantity</label>
+                        <asp:TextBox ID="txtAdditionalQuantity" value="0" runat="server" class="form-control" required="required" visible="false" autopostback="true" OnTextChanged="txtTextChanged"></asp:TextBox>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-control-label" id="lblAdditionalPrice" runat="server" visible="false">Price per Additional Program</label>
+                        <asp:TextBox ID="txtAdditionalPrice" value="160.00" type="double" runat="server" class="form-control" required="required" visible="false" autopostback="true" OnTextChanged="txtTextChanged"></asp:TextBox>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-control-label" id="lblTravelMiles" runat="server" visible="false" >Travel Miles</label>
+                        <asp:TextBox ID="txtTravelMiles" value="0" runat="server" class="form-control" required="required" visible="false" autopostback="true" OnTextChanged="txtTextChanged"></asp:TextBox>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-control-label" id="lblMilePrice" runat="server" visible="false">Price per Mile</label>
+                        <asp:TextBox ID="txtMilePrice" value="0.57" type="double" runat="server" class="form-control" required="required" visible="false" autopostback="true" OnTextChanged="txtTextChanged"></asp:TextBox>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label class="form-control-label"  runat="server" id="lblTotalCost" visible="false">Total Cost</label>
+                        <asp:TextBox ID="txtTotalCost" type="double" ReadOnly="true" BackColor="LightGray" runat="server" class="form-control" required="required" visible="false"></asp:TextBox>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-control-label"  runat="server" id="lblInvoicePayment" visible="false">Has Payment Been Recieved?</label>
+                        <asp:DropDownList ID="ddlInvoicePayment"  runat="server" required="required" class="form-control" visible="false">
                             <asp:ListItem></asp:ListItem>
                             <asp:ListItem>Yes</asp:ListItem>
                             <asp:ListItem>No</asp:ListItem>
@@ -161,6 +221,8 @@
 
 
                 </div>
+                       <%-- </ContentTemplate>
+                    </asp:UpdatePanel>--%>
             </div>
         </div>
     </div>
