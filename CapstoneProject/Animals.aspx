@@ -147,7 +147,7 @@
     <div class="col-lg-8">
         <div id="details" runat="server">
             <div class="panel panel-default">
-                <div id="panelMonth" runat="server" class="panel panel-heading">Monthly Break-Down </div>
+                <div id="panelMonth" runat="server" class="panel panel-heading">Monthly Break-Down for All Past Programs</div>
                 <div class="panel panel-body">
                     <asp:GridView ID="DetailsGridView" runat="server" AutoGenerateColumns="false" CssClass="table table-bordered" DataKeyNames="AnimalID">
                         <HeaderStyle />
