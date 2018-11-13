@@ -29,11 +29,11 @@
             </div>
             <div class="form-group">
                 <label>Latitude</label>
-                <asp:TextBox ID="TextBox2" runat="server" CssClass="form-control" placeholder=""></asp:TextBox>
+                <asp:TextBox ID="TextBox2" AutoPostBack="true" runat="server" OnTextChanged="TestSubmit_ServerClick" CssClass="form-control" placeholder=""></asp:TextBox>
             </div>
             <div class="form-group">
                 <label>Longitude</label>
-                <asp:TextBox ID="TextBox3" runat="server" CssClass="form-control" placeholder=""></asp:TextBox>
+                <asp:TextBox ID="TextBox3" AutoPostBack="true" runat="server" OnTextChanged="TestSubmit_ServerClick" CssClass="form-control" placeholder=""></asp:TextBox>
             </div>
 
             <asp:Button ID="Button1" runat="server" Text="Save Coordinates" OnClick="TestSubmit_ServerClick" />

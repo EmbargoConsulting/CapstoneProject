@@ -343,6 +343,10 @@
                     <asp:ListItem Value="ZW">Zimbabwe</asp:ListItem>
                 </asp:DropDownList>
             </div>
+            <div class="form-group">
+                <label>Comments</label>
+                <asp:TextBox ID="TextComments" runat="server" class="form-control" placeholder="Need Keyboard? Need Electrical Outlet?"></asp:TextBox>
+            </div>
         </div>
         <div class="col-lg-4">
             <div class="form-group">

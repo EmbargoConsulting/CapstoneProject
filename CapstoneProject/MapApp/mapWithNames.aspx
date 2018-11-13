@@ -28,8 +28,8 @@
 
         function initMap() {
             map = new google.maps.Map(document.getElementById('map'), {
-                zoom: 2,
-                center: new google.maps.LatLng(2.8, -187.3),
+                zoom: 10,
+                center: new google.maps.LatLng(38.044131, -78.908541),
                 mapTypeId: 'terrain'
             });
 
