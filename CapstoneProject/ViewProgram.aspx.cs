@@ -86,13 +86,17 @@ public partial class ViewProgram : System.Web.UI.Page
         MultiView1.ActiveViewIndex = Int32.Parse(ddlViewOptions.SelectedValue);
 
         if (ddlViewOptions.SelectedIndex == 1) {
-            buttonsDiv.Attributes["class"] = "btn-group btn-group-justified col-lg-offset-9";
+            outerDiv.Attributes["class"] = "col-lg-4 col-lg-offset-4";
+            buttonsDiv.Attributes["class"] = "col-lg-offset-1";
             btnInvoice.Visible = true;
         }
         else
         {
             btnInvoice.Visible = false;
-            buttonsDiv.Attributes["class"] = "btn-group btn-group-justified col-lg-offset-10";
+
+            outerDiv.Attributes["class"] = "col-lg-4 col-lg-offset-4";
+            buttonsDiv.Attributes["class"] = "col-lg-offset-6";
+
 
         }
     }
