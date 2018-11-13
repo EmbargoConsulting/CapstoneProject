@@ -126,17 +126,17 @@
 
             </div>
             <div id="btnGroupAnimals">
-                <div class="col-lg-2">
+                <div class="col-lg-1">
                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#animalModal" id="btnAddAnimal">
                         New Animal</button>
                 </div>
-                <div class="col-lg-2">
+                <div class="col-lg-1">
                     <asp:Button ID="Button3" formnovalidate="formnovalidate" CausesValidation="false" class="btn btn-primary" runat="server" Text="View All" OnClick="btnViewAll_Click" />
 
                 </div>
-                <div class="col-lg-2">
+       <!--         <div class="col-lg-2">
                     <button type="button" class="btn btn-danger">Clear Animal Tables</button>
-                </div>
+                </div> -->
             </div>
         </div>
         <div id="output" runat="server" class="col-lg-offset-3"></div>
@@ -146,7 +146,7 @@
 
     <div class="col-lg-8">
         <div id="details" runat="server">
-            <div class="panel panel-default">
+            <div id="panelMonth2" class="panel panel-default" runat="server">
                 <div id="panelMonth" runat="server" class="panel panel-heading">Monthly Break-Down for All Past Programs</div>
                 <div class="panel panel-body">
                     <asp:GridView ID="DetailsGridView" runat="server" AutoGenerateColumns="false" CssClass="table table-bordered" DataKeyNames="AnimalID">
@@ -174,7 +174,7 @@
                 </div>
             </div>
 
-            <div class="panel panel-default">
+            <div id="panelYear2" class="panel panel-default" runat="server">
                 <div id="panelYear" runat="server" class="panel panel-heading">Yearly Break-Down</div>
                 <div class="panel panel-body">
                     <asp:GridView ID="yearGridView" AutoGenerateColumns="false" CssClass="table table-bordered" DataKeyNames="AnimalID" runat="server">
@@ -219,7 +219,7 @@
         <SortedDescendingCellStyle BackColor="#E9EBEF" />
         <SortedDescendingHeaderStyle BackColor="#4870BE" />
                     </asp:GridView>
-                                                <asp:Button ID="Button4" formnovalidate="formnovalidate" CausesValidation="false" class="btn btn-primary" runat="server" Text="Export to Excel" OnClick="btnExport2_Click"/>
+                                                <asp:Button ID="Button4" formnovalidate="formnovalidate" CausesValidation="false" class="btn btn-primary" runat="server" Text="Export to Excel" OnClick="btnExport3_Click"/>
 
                 </div>
 

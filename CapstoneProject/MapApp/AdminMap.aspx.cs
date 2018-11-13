@@ -70,7 +70,7 @@ public partial class AdminMap : System.Web.UI.Page
         using (StreamWriter outputFile = File.AppendText(path))
         {
             {
-                outputFile.WriteLine("{\"type\": \"Feature\", \"geometry\": { \"type\": \"Point\", \"coordinates\": [" + longitude + "," + latitude + "]}, \"properties\": {\"name\": \"" + name + "\"}},");
+                outputFile.WriteLine("{\"type\": \"Feature\", \"geometry\": { \"type\": \"Point\", \"coordinates\": [" + latitude + "," + longitude + "]}, \"properties\": {\"name\": \"" + name + "\"}},");
             }
         }
 
