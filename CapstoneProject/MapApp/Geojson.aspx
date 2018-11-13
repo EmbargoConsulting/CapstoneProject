@@ -29,11 +29,11 @@
             </div>
             <div class="form-group">
                 <label>Latitude</label>
-                <asp:TextBox ID="TextBox2" required="required" runat="server" CssClass="form-control" placeholder=""></asp:TextBox>
+                <asp:TextBox ID="TextBox2" runat="server" CssClass="form-control" placeholder=""></asp:TextBox>
             </div>
             <div class="form-group">
                 <label>Longitude</label>
-                <asp:TextBox ID="TextBox3" runat="server" required="required" CssClass="form-control" placeholder=""></asp:TextBox>
+                <asp:TextBox ID="TextBox3" runat="server" CssClass="form-control" placeholder=""></asp:TextBox>
             </div>
 
             <asp:Button ID="Button1" runat="server" Text="Save Coordinates" OnClick="TestSubmit_ServerClick" />
@@ -47,10 +47,11 @@
 
     <script type="text/javascript"> 
 var x = document.getElementById("demo");
-
+        var watchid;
    function getLocation() {
-   if (navigator.geolocation) {
-       navigator.geolocation.getCurrentPosition(showPosition);
+       if (navigator.geolocation) {
+        geoLoc = navigator.geolocation;
+        watchID = geoLoc.watchPosition(showPosition);
 
     }
  }
@@ -59,6 +60,7 @@ var x = document.getElementById("demo");
          TextBox2.value = position.coords.latitude;
          TextBox3.value = position.coords.longitude;
         }
+
 
     </script>
     </form>
