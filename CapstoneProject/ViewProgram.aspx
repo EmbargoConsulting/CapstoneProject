@@ -7,10 +7,10 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ChildContent1" runat="Server">
 
-    <script type="text/javascript" src='https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.3.min.js'></script>
+    <%--<script type="text/javascript" src='https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.3.min.js'></script>
     <script type="text/javascript" src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.0.3/js/bootstrap.min.js'></script>
     <link rel="stylesheet" href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.0.3/css/bootstrap.min.css'
-    media="screen" />
+    media="screen" />--%>
 
     <asp:ScriptManager ID="ScriptManager1" runat="server">
     </asp:ScriptManager>
