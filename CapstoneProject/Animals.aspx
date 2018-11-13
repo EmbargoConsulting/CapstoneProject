@@ -112,7 +112,8 @@
             <div class="col-lg-3">
                 <label class="form-control-label">Select an animal: </label>
                 <asp:DropDownList ID="ddlAnimals" CssClass="form-control" AutoPostBack="true" OnSelectedIndexChanged="ddlAnimals_SelectedIndexChanged" runat="server">
-                    <asp:ListItem></asp:ListItem>
+    <asp:ListItem></asp:ListItem>
+                    <asp:ListItem>Overview</asp:ListItem>
                 </asp:DropDownList>
             </div>
             <div class="col-lg-5">
@@ -129,10 +130,7 @@
                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#animalModal" id="btnAddAnimal">
                         New Animal</button>
                 </div>
-                <div class="col-lg-1">
-                    <asp:Button ID="Button3" formnovalidate="formnovalidate" CausesValidation="false" class="btn btn-primary" runat="server" Text="View All" OnClick="btnViewAll_Click" />
 
-                </div>
        <!--         <div class="col-lg-2">
                     <button type="button" class="btn btn-danger">Clear Animal Tables</button>
                 </div> -->
