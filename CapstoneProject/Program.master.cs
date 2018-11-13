@@ -33,7 +33,7 @@ public partial class Program : System.Web.UI.MasterPage
             //btnOnlineProgram.CssClass = "btn btn-default";
             btnViewProgram.CssClass = "btn btn-primary";
             //lblProgramHeader.InnerHtml = "<div class=\"row\"> <div class=\"col - lg - 12 >< h2 class=\"page-header\"><i class=\"fa fa-calendar icons\"></i> Programs</h2> </div> </div>";
-            btnGroupDrop1.CssClass = "btn btn-default";
+            //btnGroupDrop1.CssClass = "btn btn-default";
             programHeader.InnerHtml = "<i class=\"fa fa-calendar icons\"></i> Programs";
 
         }

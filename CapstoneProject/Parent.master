@@ -25,6 +25,9 @@
     <link href="../dist/css/embargo.css" rel="stylesheet" type="text/css" />
 
     <link rel="shortcut icon" type="image/x-icon" href="~/Content/favicon.ico" />
+
+<%--            <script type="text/javascript" src='https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.3.min.js'></script>
+        <script type="text/javascript" src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.0.3/js/bootstrap.min.js'></script>--%>
 </head>
 <body>
 
@@ -100,6 +103,9 @@
                         </li>
                         <li>
                             <a href="Invoices.aspx"><i class="fa fa-file-text-o"></i> Invoices</a>
+                        </li>
+                        <li>
+                            <a href="MapApp/mapWithNames.aspx"><i class="fa fa-map"></i> Map of Educators</a>
                         </li>
 
                             <li>
