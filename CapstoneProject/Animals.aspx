@@ -107,7 +107,7 @@
     <%--</div>--%>
 
 
-    <div class="col-lg-12">
+    <div class="col-lg-10">
         <div class="row">
             <div class="col-lg-3">
                 <label class="form-control-label">Select an animal: </label>
@@ -123,18 +123,19 @@
                     <asp:Button ID="btnSearchAnimal" formnovalidate="formnovalidate" CausesValidation="false" CssClass="btn btn-small col-lg-2" runat="server" Text="Search" OnClick="btnSearchAnimal_Click"/>
                 </div>
                 </div>
-
             </div>
+            <div id="btnGroupAnimals">
+                <div class="col-lg-2">
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#animalModal" id="btnAddAnimal">
+                        New Animal</button>
+                </div>
+                <div class="col-lg-1">
+                    <asp:Button ID="Button3" formnovalidate="formnovalidate" CausesValidation="false" class="btn btn-primary" runat="server" Text="View All" OnClick="btnViewAll_Click" />
 
-           <div id="btnGroupAnimals">
-            <div class="col-lg-2">
-                <button type="button" class="btn btn-success" data-toggle="modal" data-target="#animalModal" id="btnAddAnimal">
-                    New Animal</button>
-            </div>
-            <div class="col-lg-2">
-                <button type="button" class="btn btn-danger">Clear Animal Tables</button>
-            </div>
-
+                </div>
+       <!--         <div class="col-lg-2">
+                    <button type="button" class="btn btn-danger">Clear Animal Tables</button>
+                </div> -->
             </div>
         </div>
         <div id="output" runat="server" class="col-lg-offset-3"></div>
