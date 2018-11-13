@@ -134,7 +134,7 @@ public partial class Default2 : System.Web.UI.Page
         LiveProgram.insertLiveProgram(tempProgram);
         //tempProgram.ProgramID = programID;
 
-        GetDistance("38.1247668,-79.1203594");
+        //GetDistance("38.1247668,-79.1203594");
 
 
         clearText();
@@ -143,31 +143,31 @@ public partial class Default2 : System.Web.UI.Page
         
     }
 
-    public int GetDistance(string destination)
-    {
-        int distance = 0;
-        string origin = "38.0392748,-78.914256";
-        string url = @"http://maps.googleapis.com/maps/api/distancematrix/xml?origins=" + origin + "&destinations=" + destination + "&key=AIzaSyCXAToR0WV_uUkLQWuwDGWvr3JO0D2x100";
+    //public int GetDistance(string destination)
+    //{
+    //    int distance = 0;
+    //    string origin = "38.0392748,-78.914256";
+    //    string url = @"http://maps.googleapis.com/maps/api/distancematrix/xml?origins=" + origin + "&destinations=" + destination + "&key=AIzaSyCXAToR0WV_uUkLQWuwDGWvr3JO0D2x100";
 
-        HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
-        WebResponse response = request.GetResponse();
-        Stream dataStream = response.GetResponseStream();
-        StreamReader sreader = new StreamReader(dataStream);
-        string responsereader = sreader.ReadToEnd();
-        response.Close();
+    //    HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
+    //    WebResponse response = request.GetResponse();
+    //    Stream dataStream = response.GetResponseStream();
+    //    StreamReader sreader = new StreamReader(dataStream);
+    //    string responsereader = sreader.ReadToEnd();
+    //    response.Close();
 
-        DataSet ds = new DataSet();
-        ds.ReadXml(new XmlTextReader(new StringReader(responsereader)));
-        if (ds.Tables.Count > 0)
-        {
-            if (ds.Tables["element"].Rows[0]["status"].ToString() == "OK")
-            {
-                lblDuration.Text = ds.Tables["duration"].Rows[0]["text"].ToString();
-                lblDistance.Text = ds.Tables["distance"].Rows[0]["text"].ToString();
-            }
-        }
-        return distance;
-    }
+    //    DataSet ds = new DataSet();
+    //    ds.ReadXml(new XmlTextReader(new StringReader(responsereader)));
+    //    if (ds.Tables.Count > 0)
+    //    {
+    //        if (ds.Tables["element"].Rows[0]["status"].ToString() == "OK")
+    //        {
+    //            lblDuration.Text = ds.Tables["duration"].Rows[0]["text"].ToString();
+    //            lblDistance.Text = ds.Tables["distance"].Rows[0]["text"].ToString();
+    //        }
+    //    }
+    //    return distance;
+    //}
 
     protected void clearText()
     {
