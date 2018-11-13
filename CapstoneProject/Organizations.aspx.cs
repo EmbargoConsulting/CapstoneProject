@@ -59,4 +59,30 @@ public partial class Organizations : System.Web.UI.Page
    
         GridView1.DataBind();
     }
+
+    protected void btnExcelExport_Click(object sender, EventArgs e)
+    {
+        Response.ClearContent();
+
+        Response.AppendHeader("content-disposition", "attachment;filename=Organizations" + DateTime.Now.ToShortDateString() + ".xls");
+        Response.ContentType = "application/excel";
+
+
+
+        System.IO.StringWriter stringWrite = new System.IO.StringWriter();
+
+        System.Web.UI.HtmlTextWriter htmlWrite =
+        new HtmlTextWriter(stringWrite);
+
+        GridView1.RenderControl(htmlWrite);
+
+        Response.Write(stringWrite.ToString());
+
+        Response.End();
+    }
+
+    //Required
+    public override void VerifyRenderingInServerForm(Control control)
+    {
+    }
 }

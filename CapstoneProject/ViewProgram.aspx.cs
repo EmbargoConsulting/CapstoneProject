@@ -44,21 +44,17 @@ public partial class ViewProgram : System.Web.UI.Page
         switch (ddlViewOptions.SelectedValue)
         {
             case "0":
-                gv = GridView1;
+                gv = LiveGridView;
                 filename = "Programs";
                 break;
             case "1":
-                gv = GridView2;
+                gv = OnlineGridView;
                 filename = "MonthlyPrograms";
                 break;
             case "2":
-                gv = GridView3;
+                gv = MonthlyGridView;
                 filename = "LivePrograms";
-                break;
-            case "3":
-                gv = GridView4;
-                filename = "OnlinePrograms";
-                break;             
+                break;           
 
         }
 
@@ -86,19 +82,22 @@ public partial class ViewProgram : System.Web.UI.Page
     {
         MultiView1.ActiveViewIndex = Int32.Parse(ddlViewOptions.SelectedValue);
 
-        if (ddlViewOptions.SelectedIndex == 2) {
+        if (ddlViewOptions.SelectedIndex == 1) {
+            buttonsDiv.Attributes["class"] = "btn-group btn-group-justified col-lg-offset-9";
             btnInvoice.Visible = true;
         }
         else
         {
             btnInvoice.Visible = false;
+            buttonsDiv.Attributes["class"] = "btn-group btn-group-justified col-lg-offset-10";
+
         }
     }
 
     protected void btnSaveInvoice_Click(object sender, EventArgs e)
     {
         int counter = 0;
-        foreach (GridViewRow row in GridView3.Rows)
+        foreach (GridViewRow row in LiveGridView.Rows)
         {
             // Access the CheckBox
             CheckBox cb = (CheckBox)row.FindControl("SelectCheckBoxr");

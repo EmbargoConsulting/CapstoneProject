@@ -8,22 +8,22 @@
     <div class="col-lg-10">
         <div class="col-lg-4">
             <asp:DropDownList OnSelectedIndexChanged="ddlViewOptions_SelectedIndexChanged" AutoPostBack="true" ID="ddlViewOptions" CssClass="form-control" runat="server">
-            <asp:ListItem Value="0"> All Programs</asp:ListItem>
-            <asp:ListItem Value="1">Program Statistics - Monthly</asp:ListItem>
-            <asp:ListItem Value="2"> Live Programs</asp:ListItem>
-            <asp:ListItem Value="3"> Online Programs</asp:ListItem>
+            <asp:ListItem Value="0"> Program Statistics - Monthly</asp:ListItem>
+            <asp:ListItem Value="1"> Live Programs </asp:ListItem>
+            <asp:ListItem Value="2"> Online Programs</asp:ListItem>
             <%--<asp:ListItem Value="3">View Live Programs</asp:ListItem>--%>
         </asp:DropDownList>
         </div>
-        <div class="col-lg-offset-10">
+        <div id="buttonsDiv" runat="server" class="btn-group btn-group-justified col-lg-offset-10">
         <div >
+            <asp:Button ID="btnInvoice" formnovalidate="formnovalidate" OnClientClick="return false" runat="server" Text="Add Invoice" CssClass="btn btn-primary" data-toggle="modal" data-target="#invoiceModal" Visible="false" OnClick="btnInvoice_Click"></asp:Button>
             <asp:Button ID="ExcelExport" runat="server" CssClass="btn btn-primary" Text="Export to Excel" OnClick="btnExcelExport_Click" formnovalidate="formnovalidate" />
+        
         </div>
         </div>
 
 
         <div class="btn-group">
-            <asp:Button ID="btnInvoice" formnovalidate="formnovalidate" OnClientClick="return false" runat="server" Text="Add Invoice" CssClass="btn btn-primary" data-toggle="modal" data-target="#invoiceModal" Visible="false" OnClick="btnInvoice_Click"></asp:Button>
         </div>
 
     </div>
@@ -33,30 +33,10 @@
 
 
         <asp:MultiView ID="MultiView1" runat="server">
+
+
             <asp:View ID="View1" runat="server">
-
-                <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="Program ID" DataSourceID="SqlDataSource_ViewProgram" ForeColor="#333333" CssClass="table table-striped table-bordered" GridLines="None">
-                    <AlternatingRowStyle BackColor="White" />
-                    <Columns>
-                        <asp:BoundField DataField="Theme" HeaderText="Theme" SortExpression="Theme" ItemStyle-Width="10%" />
-                        <asp:BoundField DataField="Date and Time" HeaderText="Date and Time" SortExpression="Date and Time" ItemStyle-Width="10%" />
-                        <asp:BoundField DataField="Child Attendance" HeaderText="Children" SortExpression="Child Attendance" ItemStyle-Width="10%" />
-                        <asp:BoundField DataField="Adult Attendance" HeaderText="Adults" SortExpression="Adult Attendance" ItemStyle-Width="10%" />
-                    </Columns>
-                    <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
-                    <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
-                    <PagerStyle BackColor="#2461BF" ForeColor="White" HorizontalAlign="Center" />
-                    <RowStyle BackColor="#EFF3FB" />
-                    <SelectedRowStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
-                    <SortedAscendingCellStyle BackColor="#F5F7FB" />
-                    <SortedAscendingHeaderStyle BackColor="#6D95E1" />
-                    <SortedDescendingCellStyle BackColor="#E9EBEF" />
-                    <SortedDescendingHeaderStyle BackColor="#4870BE" />
-                </asp:GridView>
-            </asp:View>
-
-            <asp:View ID="View2" runat="server">
-                <asp:GridView ID="GridView2" AllowPaging="true" runat="server" AutoGenerateColumns="False" CellPadding="4" DataSourceID="datasourceProgramOverview" ForeColor="#333333" CssClass="table table-striped table-bordered" GridLines="None">
+                <asp:GridView ID="MonthlyGridView" AllowPaging="true" runat="server" AutoGenerateColumns="False" CellPadding="4" DataSourceID="datasourceProgramOverview" ForeColor="#333333" CssClass="table table-striped table-bordered" GridLines="None">
                     <AlternatingRowStyle BackColor="White" />
                     <Columns>
                         <asp:BoundField DataField="Month" HeaderText="Month" SortExpression="Month" ItemStyle-Width="10%" />
@@ -78,11 +58,12 @@
                     <SortedDescendingHeaderStyle BackColor="#4870BE" />
                 </asp:GridView>
             </asp:View>
-            <asp:View ID="View3" runat="server">
-                <asp:GridView ID="GridView3" AllowSorting="True" AllowPaging="True" runat="server" AutoGenerateColumns="False" CellPadding="4" DataSourceID="datasourceLivePrograms" ForeColor="#333333" CssClass="table table-striped table-bordered" GridLines="None">
+            <asp:View ID="View2" runat="server">
+                <asp:GridView ID="LiveGridView" AllowSorting="True" AllowPaging="True" runat="server" AutoGenerateColumns="False" CellPadding="4" DataSourceID="datasourceLivePrograms" ForeColor="#333333" CssClass="table table-striped table-bordered" GridLines="None">
                     <AlternatingRowStyle BackColor="White" />
                     <Columns>
-                        <asp:BoundField DataField="Program Theme" HeaderText="Program Theme" SortExpression="Program Theme" />
+                        <asp:BoundField DataField="Organization" HeaderText="Organization" SortExpression="Organization" />
+                        <asp:BoundField DataField="Program Theme" HeaderText="Theme" SortExpression="Program Theme" />
                         <asp:BoundField DataField="Date" HeaderText="Date/Time" SortExpression="Date" />
                         <asp:BoundField DataField="Child Attendance" HeaderText="Children" SortExpression="Child Attendance" />
 
@@ -110,8 +91,8 @@
                     <SortedDescendingHeaderStyle BackColor="#4870BE" />
                 </asp:GridView>
             </asp:View>
-            <asp:View ID="View4" runat="server">
-                <asp:GridView ID="GridView4" AllowPaging="true" AllowSorting="true" runat="server" AutoGenerateColumns="false" CellPadding="4" DataSourceID="datasourceOnlinePrograms" ForeColor="#333333" CssClass="table table-striped table-bordered" GridLines="None">
+            <asp:View ID="View3" runat="server">
+                <asp:GridView ID="OnlineGridView" AllowPaging="true" AllowSorting="true" runat="server" AutoGenerateColumns="false" CellPadding="4" DataSourceID="datasourceOnlinePrograms" ForeColor="#333333" CssClass="table table-striped table-bordered" GridLines="None">
                     <AlternatingRowStyle BackColor="White" />
                     <Columns>
                         <asp:BoundField DataField="ProgramType" HeaderText="Type" SortExpression="ProgramType" />
@@ -137,7 +118,7 @@
 
         <asp:SqlDataSource ID="SqlDataSource_ViewProgram" runat="server" ConnectionString="<%$ ConnectionStrings:Project %>" SelectCommand="SELECT [ProgramID] as 'Program ID', [ProgramTheme] as 'Theme', [DateTime] as 'Date and Time', [ChildAttendance] 'Child Attendance', [AdultAttendance] as 'Adult Attendance' FROM [Program]"></asp:SqlDataSource>
         <asp:SqlDataSource ID="datasourceProgramOverview" runat="server" ConnectionString="<%$ ConnectionStrings:Project %>" SelectCommand="SELECT DATEPART(MONTH,Program.DateTime), datename(month, program.datetime) as 'Month', COUNT(LiveProgram.ProgramID) as 'Live Programs', Count(OnlineProgram.ProgramID) as 'Online Programs', Count(*) as 'Total Programs', SUM(Program.ChildAttendance) as 'Child Attendance', SUM(Program.AdultAttendance) 'Adult Attendance', SUM(Program.AdultAttendance) + SUM(Program.ChildAttendance) as 'Total Attendance' FROM LiveProgram FULL OUTER JOIN Program ON LiveProgram.ProgramID = Program.ProgramID FULL OUTER JOIN OnlineProgram ON Program.ProgramID = OnlineProgram.ProgramID GROUP BY datename(month, program.datetime), DATEPART(MONTH,Program.DateTime) ORDER BY DATEPART(MONTH,Program.DateTime) asc"></asp:SqlDataSource>
-        <asp:SqlDataSource ID="dataSourceLivePrograms" runat="server" ConnectionString="<%$ ConnectionStrings:Project %>" SelectCommand="SELECT Program.ProgramTheme as 'Program Theme', Program.DateTime as 'Date', Program.ChildAttendance as 'Child Attendance', Program.AdultAttendance as 'Adult Attendance', LiveProgram.Status, LiveProgram.Address, LiveProgram.City, LiveProgram.County, LiveProgram.OnOffSite FROM LiveProgram INNER JOIN Program ON LiveProgram.ProgramID = Program.ProgramID"></asp:SqlDataSource>
+        <asp:SqlDataSource ID="dataSourceLivePrograms" runat="server" ConnectionString="<%$ ConnectionStrings:Project %>" SelectCommand="SELECT ISNULL(Organization.OrganizationName,'No Organization') as Organization, Program.ProgramTheme AS 'Program Theme', Program.DateTime AS 'Date', Program.ChildAttendance AS 'Child Attendance', Program.AdultAttendance AS 'Adult Attendance', LiveProgram.Status,  LiveProgram.Address, LiveProgram.City, LiveProgram.County, LiveProgram.OnOffSite FROM LiveProgram LEFT OUTER JOIN Program ON LiveProgram.ProgramID = Program.ProgramID FULL OUTER JOIN Invoice ON Program.ProgramID = Invoice.ProgramID LEFT OUTER JOIN Organization ON Invoice.OrganizationID = Organization.OrganizationID"></asp:SqlDataSource>
         <asp:SqlDataSource ID="datasourceOnlinePrograms" runat="server" ConnectionString="<%$ ConnectionStrings:Project %>" SelectCommand="SELECT OnlineProgram.ProgramType, Program.ProgramTheme, OnlineProgram.State, OnlineProgram.Country, Program.DateTime, Program.ChildAttendance, Program.AdultAttendance FROM OnlineProgram INNER JOIN Program ON OnlineProgram.ProgramID = Program.ProgramID"></asp:SqlDataSource>
 
     </div>

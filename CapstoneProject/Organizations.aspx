@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Organizations" Language="C#" MasterPageFile="~/Child.master" AutoEventWireup="true" CodeFile="Organizations.aspx.cs" Inherits="Organizations" %>
+﻿<%@ Page Title="Organizations" EnableEventValidation="false" Language="C#" MasterPageFile="~/Child.master" AutoEventWireup="true" CodeFile="Organizations.aspx.cs" Inherits="Organizations" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ChildContent1" runat="Server">
         <!-- Modal -->
@@ -115,8 +115,8 @@
                 <Columns>
                     <asp:BoundField DataField="OrganizationName" HeaderText="Organization Name" SortExpression="OrganizationName" />
                     <asp:BoundField DataField="OrganizationContact" HeaderText="Email" SortExpression="OrganizationContact"/>
+                    <asp:BoundField DataField="City" HeaderText="City" SortExpression="City" />                    
                     <asp:BoundField DataField="State" HeaderText="State" SortExpression="State" />
-                    <asp:BoundField DataField="City" HeaderText="City" SortExpression="City" />
                     <asp:BoundField DataField="Zip" HeaderText="Zip" SortExpression="Zip"/>
 
                 </Columns>
@@ -130,6 +130,11 @@
                 <SortedDescendingCellStyle BackColor="#E9EBEF" />
                 <SortedDescendingHeaderStyle BackColor="#4870BE" />
             </asp:GridView>
+            <div class="col-lg-3 col-lg-offset-9">
+                 <asp:Button ID="ExcelExport" runat="server" CssClass="btn btn-group-justified btn-primary"  Text="Export to Excel" OnClick="btnExcelExport_Click" formnovalidate="formnovalidate"/>
+
+            </div>
+
             <asp:SqlDataSource ID="OrganizationDataSource" runat="server" DeleteCommand="DELETE FROM Organization WHERE OrganizationID = @OrganizationID" ConnectionString="<%$ ConnectionStrings:Project %>" SelectCommand="SELECT [OrganizationID], [OrganizationName], [State], [City], [Zip], [OrganizationContact] FROM [Organization]" UpdateCommand="UPDATE Organization SET OrganizationName = @OrganizationName, State = @State, City = @City, Zip = @Zip, OrganizationContact = @OrganizationContact WHERE OrganizationID = @OrganizationID;">
                 <DeleteParameters>
                     <asp:Parameter Name="OrganizationID" />
