@@ -99,7 +99,10 @@
                             <a href="Organizations.aspx"><i class="fa fa-building fa-fw"></i> Organizations</a>
                         </li>
                         <li>
-                            <a href="Reports.aspx"><i class="fa fa-fw fa-clipboard"></i> Reports</a>
+                            <a href="Reports.aspx"><i class="fa fa-fw fa-clipboard"></i> Simple Report</a>
+                        </li>
+                        <li>
+                            <a href="Reports2.aspx"><i class="fa fa-fw fa-clipboard"></i> Animal Report</a>
                         </li>
                         <li>
                             <a href="Invoices.aspx"><i class="fa fa-file-text-o"></i> Invoices</a>
