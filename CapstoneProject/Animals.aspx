@@ -201,7 +201,7 @@
 
         
             <div class="panel panel-default">
-                <div id="Div1" runat="server" class="panel panel-heading">Total Breakdown</div>
+                <div id="Div1" runat="server" class="panel panel-heading">Animal Overview</div>
                 <div class="panel panel-body">
                     <asp:GridView ID="GridView1" AutoGenerateColumns="false" CssClass="table table-bordered" DataKeyNames="AnimalID" runat="server">
 
