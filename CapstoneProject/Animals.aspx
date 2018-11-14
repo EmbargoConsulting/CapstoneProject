@@ -112,7 +112,6 @@
             <div class="col-lg-3">
                 <label class="form-control-label">Select an animal: </label>
                 <asp:DropDownList ID="ddlAnimals" CssClass="form-control" AutoPostBack="true" OnSelectedIndexChanged="ddlAnimals_SelectedIndexChanged" runat="server">
-    <asp:ListItem></asp:ListItem>
                     <asp:ListItem>Overview</asp:ListItem>
                 </asp:DropDownList>
             </div>
@@ -121,7 +120,7 @@
                    <label class="form-control-label"> or Enter Name:</label>
                 <div class="row">
                     <asp:TextBox Width="150px" ID="txtSearch" runat="server" CssClass="form-control col-lg-8"></asp:TextBox>
-                    <asp:Button ID="btnSearchAnimal" formnovalidate="formnovalidate" CausesValidation="false" CssClass="btn btn-small col-lg-2" runat="server" Text="Search" OnClick="btnSearchAnimal_Click"/>
+                    <asp:Button ID="btnSearchAnimal" formnovalidate="formnovalidate" CausesValidation="false" CssClass="btn btn-small" runat="server" Text="Search" OnClick="btnSearchAnimal_Click"/>
                 </div>
                 </div>
             </div>

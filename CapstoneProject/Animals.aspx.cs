@@ -127,7 +127,7 @@ public partial class Animals : System.Web.UI.Page
 
     protected void ddlAnimals_SelectedIndexChanged(object sender, EventArgs e)
     {
-        if (ddlAnimals.SelectedIndex == 1)
+        if (ddlAnimals.SelectedIndex == 0)
         {
             viewAll();
         }
@@ -259,10 +259,11 @@ public partial class Animals : System.Web.UI.Page
             
         } else
         {
-
+            viewAll();
 
         }
         ddlAnimals.SelectedIndex = 0;
+  
         
     }
 

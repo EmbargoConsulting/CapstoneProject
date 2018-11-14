@@ -130,9 +130,15 @@
                 <SortedDescendingCellStyle BackColor="#E9EBEF" />
                 <SortedDescendingHeaderStyle BackColor="#4870BE" />
             </asp:GridView>
-            <div class="col-lg-3 col-lg-offset-9">
-                 <asp:Button ID="ExcelExport" runat="server" CssClass="btn btn-group-justified btn-primary"  Text="Export to Excel" OnClick="btnExcelExport_Click" formnovalidate="formnovalidate"/>
+            <div class="col-lg-6 col-lg-offset-6">
+              <div class="row">
+     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#animalModal" id="btnAddAnimal">
+            New Organization</button>
+    
+                 <asp:Button ID="ExcelExport" runat="server" CssClass="btn btn-primary"  Text="Export to Excel" OnClick="btnExcelExport_Click" formnovalidate="formnovalidate"/>
 
+              </div>     
+   
             </div>
 
             <asp:SqlDataSource ID="OrganizationDataSource" runat="server" DeleteCommand="DELETE FROM Organization WHERE OrganizationID = @OrganizationID" ConnectionString="<%$ ConnectionStrings:Project %>" SelectCommand="SELECT [OrganizationID], [OrganizationName], [State], [City], [Zip], [OrganizationContact] FROM [Organization]" UpdateCommand="UPDATE Organization SET OrganizationName = @OrganizationName, State = @State, City = @City, Zip = @Zip, OrganizationContact = @OrganizationContact WHERE OrganizationID = @OrganizationID;">
@@ -146,10 +152,7 @@
                 </UpdateParameters>
             </asp:SqlDataSource>
         </div>
-    <div class="col-lg-2">
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#animalModal" id="btnAddAnimal">
-            New Organization</button>
-    </div>
+
     </div>
    <div class="row">
     <div class="btn-group col-lg-5" id="btnGroupAddOrg">

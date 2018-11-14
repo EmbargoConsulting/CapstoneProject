@@ -129,9 +129,9 @@
                                 <li>
                                     <a href="ChangePassword.aspx">Change Password</a>
                                 </li>
-                                <li>
+<%--                                <li>
                                     <a href="Settings.aspx">Settings</a>
-                                </li>
+                                </li>--%>
                             </ul>
                         </li>
                         <!-- This is a default navbar item, commented out for later reference -->

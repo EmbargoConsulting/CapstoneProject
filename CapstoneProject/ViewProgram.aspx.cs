@@ -47,16 +47,16 @@ public partial class ViewProgram : System.Web.UI.Page
         switch (ddlViewOptions.SelectedValue)
         {
             case "0":
-                gv = LiveGridView;
-                filename = "Programs";
-                break;
-            case "1":
-                gv = OnlineGridView;
+                gv = MonthlyGridView;
                 filename = "MonthlyPrograms";
                 break;
-            case "2":
-                gv = MonthlyGridView;
+            case "1":
+                gv = LiveGridView;
                 filename = "LivePrograms";
+                break;
+            case "2":
+                gv = OnlineGridView;
+                filename = "OnlinePrograms";
                 break;           
 
         }
