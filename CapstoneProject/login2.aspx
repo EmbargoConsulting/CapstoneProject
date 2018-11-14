@@ -51,7 +51,7 @@
                             <form role="form">
                                 <fieldset>
                                     <div class="form-group">
-                                        <input class="form-control" id="inputEmail" placeholder="E-mail" name="email" type="email" autofocus runat="server" />
+                                        <input class="form-control" id="inputEmail" placeholder="E-mail" name="email" autofocus runat="server" />
                                     </div>
                                     <div class="form-group">
                                         <input class="form-control" id="inputPassword" placeholder="Password" name="password" type="password" value="" runat="server" />
