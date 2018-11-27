@@ -32,6 +32,19 @@ public partial class ViewProgram : System.Web.UI.Page
 
     }
 
+    protected void editgridview_RowUpdating(object sender, GridViewUpdateEventArgs e)
+    {
+        GridViewRow row = editgridview.Rows[e.RowIndex];
+        int id = Convert.ToInt32(editgridview.DataKeys[e.RowIndex].Values["ProgramID"]);
+        editDataSource.UpdateCommand = "UPDATE Program SET ProgramTheme = @theme, DateTime = @DateTime, ChildAttendance = @ChildAttendance, AdultAttendance = @AdultAttendance WHERE ProgramID = @id";
+        editDataSource.UpdateParameters.Add("theme", editgridview.Rows[e.RowIndex].FindControl("ProgramTheme").ToString());
+        //editDataSource.UpdateParameters.Add("contact", editgridview.DataKeys[e.RowIndex].Values["DateTime"].ToString());
+
+        editDataSource.Update();
+
+        editgridview.DataBind();
+    }
+
     public override void VerifyRenderingInServerForm(Control control)
     {
         /* Confirms that an HtmlForm control is rendered for the specified ASP.NET

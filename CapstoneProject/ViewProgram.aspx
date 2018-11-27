@@ -23,7 +23,8 @@
                     <asp:ListItem Value="0"> Program Statistics - Monthly</asp:ListItem>
                     <asp:ListItem Value="1"> Live Programs </asp:ListItem>
                     <asp:ListItem Value="2"> Online Programs</asp:ListItem>
-                    <%--<asp:ListItem Value="3">View Live Programs</asp:ListItem>--%>
+                    <asp:ListItem Value="3"> Edit Live Programs</asp:ListItem>
+                    <asp:ListItem Value="4">Edit Online Programs</asp:ListItem>
                 </asp:DropDownList>
             </div>
             <div id="outerDiv" runat="server" class="col-lg-4 col-lg-offset-4">
@@ -133,13 +134,98 @@
                     <SortedDescendingHeaderStyle BackColor="#4870BE" />
                 </asp:GridView>
             </asp:View>
+        <asp:View ID="View4" runat="server">
+            <asp:GridView ID="editgridview" DataKeyNames="ProgramID" CssClass="table table-striped table-bordered" GridLines="none" AutoGenerateEditButton="true"  AllowPaging="true" AllowSorting="true" AutoGenerateColumns="false" DataSourceID="editDataSource" runat="server">
+                    <AlternatingRowStyle BackColor="White" />                
+                <Columns>
+                    <asp:BoundField DataField="ProgramTheme" HeaderText="Program Theme" SortExpression="ProgramTheme" />
+                    <asp:BoundField DataField="DateTime" HeaderText="Date/Time" SortExpression="DateTime" />
+                    <asp:BoundField DataField="ChildAttendance" HeaderText="Children" SortExpression="ChildAttendance" />
+                    <asp:BoundField DataField="AdultAttendance" HeaderText="Adults" SortExpression="AdultAttendance" />
+                    <asp:BoundField DataField="Status" HeaderText="Status" SortExpression="Status" />
+                    <asp:BoundField DataField="Address" HeaderText="Address" SortExpression="Address" />
+                    <asp:BoundField DataField="City" HeaderText="City" SortExpression="City" />
+                    <asp:BoundField DataField="County" HeaderText="County" SortExpression="County" />
+                    <asp:BoundField DataField="OnOffSite" HeaderText="OnOffSite" SortExpression="OnOffSite" />
+                </Columns>
+        <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+        <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+        <PagerStyle BackColor="#2461BF" ForeColor="White" HorizontalAlign="Center" />
+        <RowStyle BackColor="#EFF3FB" />
+        <SelectedRowStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
+        <SortedAscendingCellStyle BackColor="#F5F7FB" />
+        <SortedAscendingHeaderStyle BackColor="#6D95E1" />
+        <SortedDescendingCellStyle BackColor="#E9EBEF" />
+        <SortedDescendingHeaderStyle BackColor="#4870BE" />
+            </asp:GridView>
+        </asp:View>
+        <asp:View ID="View5" runat="server">
+     <asp:GridView ID="editgridview2" DataKeyNames="ProgramID" CssClass="table table-striped table-bordered" GridLines="none" AutoGenerateEditButton="true" AllowPaging="true" AllowSorting="true" AutoGenerateColumns="false" DataSourceID="editDataSource2" runat="server">
+                    <AlternatingRowStyle BackColor="White" />                
+                <Columns>
+                    <asp:BoundField DataField="ProgramTheme" HeaderText="Program Theme" SortExpression="ProgramTheme" />
+                    <asp:BoundField DataField="DateTime" HeaderText="Date/Time" SortExpression="DateTime" />
+                    <asp:BoundField DataField="ChildAttendance" HeaderText="Children" SortExpression="ChildAttendance" />
+                    <asp:BoundField DataField="AdultAttendance" HeaderText="Adults" SortExpression="AdultAttendance" />
+                    <asp:BoundField DataField="ProgramType" HeaderText="Type" SortExpression="ProgramType" />
+                    <asp:BoundField DataField="State" HeaderText="State" SortExpression="State" />
+                    <asp:BoundField DataField="Country" HeaderText="Country" SortExpression="Country" />
+                    <asp:BoundField DataField="Grade" HeaderText="Grade" SortExpression="Grade" />
+                    <asp:BoundField DataField="TeacherName" HeaderText="Teacher Name" SortExpression="TeacherName" />
+                    <asp:BoundField DataField="TeacherEmail" HeaderText="Teacher Email" SortExpression="TeacherEmail" />
+                
+                </Columns>
+        <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+        <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+        <PagerStyle BackColor="#2461BF" ForeColor="White" HorizontalAlign="Center" />
+        <RowStyle BackColor="#EFF3FB" />
+        <SelectedRowStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
+        <SortedAscendingCellStyle BackColor="#F5F7FB" />
+        <SortedAscendingHeaderStyle BackColor="#6D95E1" />
+        <SortedDescendingCellStyle BackColor="#E9EBEF" />
+        <SortedDescendingHeaderStyle BackColor="#4870BE" />
+            </asp:GridView>
+        </asp:View>
         </asp:MultiView>
 
         <asp:SqlDataSource ID="SqlDataSource_ViewProgram" runat="server" ConnectionString="<%$ ConnectionStrings:Project %>" SelectCommand="SELECT [ProgramID] as 'Program ID', [ProgramTheme] as 'Theme', [DateTime] as 'Date and Time', [ChildAttendance] 'Child Attendance', [AdultAttendance] as 'Adult Attendance' FROM [Program]"></asp:SqlDataSource>
         <asp:SqlDataSource ID="datasourceProgramOverview" runat="server" ConnectionString="<%$ ConnectionStrings:Project %>" SelectCommand="SELECT DATEPART(MONTH,Program.DateTime), datename(month, program.datetime) as 'Month', COUNT(LiveProgram.ProgramID) as 'Live Programs', Count(OnlineProgram.ProgramID) as 'Online Programs', Count(*) as 'Total Programs', SUM(Program.ChildAttendance) as 'Child Attendance', SUM(Program.AdultAttendance) 'Adult Attendance', SUM(Program.AdultAttendance) + SUM(Program.ChildAttendance) as 'Total Attendance' FROM LiveProgram FULL OUTER JOIN Program ON LiveProgram.ProgramID = Program.ProgramID FULL OUTER JOIN OnlineProgram ON Program.ProgramID = OnlineProgram.ProgramID GROUP BY datename(month, program.datetime), DATEPART(MONTH,Program.DateTime) ORDER BY DATEPART(MONTH,Program.DateTime) asc"></asp:SqlDataSource>
         <asp:SqlDataSource ID="dataSourceLivePrograms" runat="server" ConnectionString="<%$ ConnectionStrings:Project %>" SelectCommand="SELECT ISNULL(Organization.OrganizationName,'No Organization') as Organization, Program.ProgramTheme AS 'Program Theme', Program.DateTime AS 'Date', Program.ChildAttendance AS 'Child Attendance', Program.AdultAttendance AS 'Adult Attendance', LiveProgram.Status,  LiveProgram.Address, LiveProgram.City, LiveProgram.County, LiveProgram.OnOffSite FROM LiveProgram LEFT OUTER JOIN Program ON LiveProgram.ProgramID = Program.ProgramID FULL OUTER JOIN Invoice ON Program.ProgramID = Invoice.ProgramID LEFT OUTER JOIN Organization ON Invoice.OrganizationID = Organization.OrganizationID"></asp:SqlDataSource>
         <asp:SqlDataSource ID="datasourceOnlinePrograms" runat="server" ConnectionString="<%$ ConnectionStrings:Project %>" SelectCommand="SELECT OnlineProgram.ProgramType, Program.ProgramTheme, OnlineProgram.State, OnlineProgram.Country, Program.DateTime, Program.ChildAttendance, Program.AdultAttendance FROM OnlineProgram INNER JOIN Program ON OnlineProgram.ProgramID = Program.ProgramID"></asp:SqlDataSource>
+        <asp:SqlDataSource ID="editDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:Project %>" UpdateCommand="UPDATE Program SET ProgramTheme = @ProgramTheme, DateTime = @DateTime, ChildAttendance = @ChildAttendance, AdultAttendance = @AdultAttendance WHERE ProgramID = @ProgramID; UPDATE LiveProgram SET Status = @Status, Address=@Address, City=@City, County=@County, OnOffSite=@OnOffSite WHERE LiveProgram.ProgramID = @ProgramID" SelectCommand="SELECT Program.ProgramID, Program.ProgramTheme, Program.DateTime, Program.ChildAttendance, Program.AdultAttendance, LiveProgram.Status, LiveProgram.Address, LiveProgram.City, LiveProgram.County, LiveProgram.OnOffSite FROM Program INNER JOIN LiveProgram ON Program.ProgramID = LiveProgram.ProgramID">
+            <UpdateParameters>
+                    <asp:Parameter Name="ProgramID" />
+                    <asp:Parameter Name="ProgramTheme" />
+                    <asp:Parameter Name="DateTime" />
+                    <asp:Parameter Name="ChildAttendance" />
+                    <asp:Parameter Name="AdultAttendance" />
+                    <asp:Parameter Name="Status" />
+                    <asp:Parameter Name="Address" />
+                    <asp:Parameter Name="City" />
+                    <asp:Parameter Name="County" />
+                    <asp:Parameter Name="OnOffSite" />
 
+
+            </UpdateParameters>
+        </asp:SqlDataSource>
+         <asp:SqlDataSource ID="editDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:Project %>" UpdateCommand="UPDATE Program SET ProgramTheme = @ProgramTheme, DateTime = @DateTime, ChildAttendance = @ChildAttendance, AdultAttendance = @AdultAttendance WHERE ProgramID = @ProgramID; UPDATE OnlineProgram SET ProgramType = @ProgramType, State=@State, Grade=@Grade, Country=@Country, TeacherName=@TeacherName, TeacherEmail=@TeacherEmail WHERE OnlineProgram.ProgramID = @ProgramID" SelectCommand="SELECT        Program.ProgramID, Program.ProgramTheme, Program.DateTime, Program.ChildAttendance, Program.AdultAttendance, OnlineProgram.ProgramType, OnlineProgram.State, OnlineProgram.Country,  OnlineProgram.Grade, OnlineProgram.TeacherName, OnlineProgram.TeacherEmail FROM OnlineProgram INNER JOIN Program ON OnlineProgram.ProgramID = Program.ProgramID">
+            <UpdateParameters>
+                    <asp:Parameter Name="ProgramID" />
+                    <asp:Parameter Name="ProgramTheme" />
+                    <asp:Parameter Name="DateTime" />
+                    <asp:Parameter Name="ChildAttendance" />
+                    <asp:Parameter Name="AdultAttendance" />
+                    <asp:Parameter Name="Type" />
+                    <asp:Parameter Name="State" />
+                    <asp:Parameter Name="Country" />
+                    <asp:Parameter Name="Grade" />
+                    <asp:Parameter Name="TeacherName" />
+                    <asp:Parameter Name="TeacherEmail" />
+                
+
+
+            </UpdateParameters>
+        </asp:SqlDataSource>
     </div>
 
 

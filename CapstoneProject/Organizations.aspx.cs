@@ -47,18 +47,18 @@ public partial class Organizations : System.Web.UI.Page
     }
 
 
-    protected void GridView1_RowUpdating(object sender, GridViewUpdateEventArgs e)
-    {
-        GridViewRow row = GridView1.Rows[e.RowIndex];
-        int id = Convert.ToInt32(GridView1.DataKeys[e.RowIndex].Values["OrganizationID"]);
-        OrganizationDataSource.UpdateCommand = "UPDATE Organization SET OrganizationName = @name, OrganizationContact = @contact WHERE OrganizationID = @OrganizationID;";
-        OrganizationDataSource.UpdateParameters.Add("name", GridView1.Rows[e.RowIndex].FindControl("OrganizationName").ToString());
-        OrganizationDataSource.UpdateParameters.Add("contact", GridView1.DataKeys[e.RowIndex].Values["OrganizationContact"].ToString());
+    //protected void GridView1_RowUpdating(object sender, GridViewUpdateEventArgs e)
+    //{
+    //    GridViewRow row = GridView1.Rows[e.RowIndex];
+    //    int id = Convert.ToInt32(GridView1.DataKeys[e.RowIndex].Values["OrganizationID"]);
+    //    OrganizationDataSource.UpdateCommand = "UPDATE Organization SET OrganizationName = @name, OrganizationContact = @contact WHERE OrganizationID = @OrganizationID;";
+    //    OrganizationDataSource.UpdateParameters.Add("name", GridView1.Rows[e.RowIndex].FindControl("OrganizationName").ToString());
+    //    OrganizationDataSource.UpdateParameters.Add("contact", GridView1.DataKeys[e.RowIndex].Values["OrganizationContact"].ToString());
 
-        OrganizationDataSource.Update();
+    //    OrganizationDataSource.Update();
    
-        GridView1.DataBind();
-    }
+    //    GridView1.DataBind();
+    //}
 
     protected void btnExcelExport_Click(object sender, EventArgs e)
     {
