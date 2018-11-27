@@ -12,23 +12,26 @@
         <div class="row">
             <div class="col-lg-4">
             <div class="form-group">
-                <label>Email Address</label>
+                <label>Username</label>
                 <asp:TextBox ID="txtEmail" runat="server" class="form-control" required="required"></asp:TextBox>
             </div>
-      
+                <div class="form-group">
+                <label>Current Password</label>
+                <asp:TextBox ID="TextBox1" runat="server"  value="" class="form-control" required="required"  type="password"></asp:TextBox>
+            </div>
             <div class="form-group">
                 <label>New Password</label>
-                <asp:TextBox ID="txtNewPassword1" runat="server"  value="" class="form-control" required="required"></asp:TextBox>
+                <asp:TextBox ID="txtNewPassword1" runat="server"  value="" class="form-control" required="required"  type="password"></asp:TextBox>
             </div>
             <div class="form-group">
                 <div class="form-group">
                 <label>Verify New Password</label>
-                <asp:TextBox ID="txtNewPassword2" runat="server"  value="" class="form-control" required="required"></asp:TextBox>
+                <asp:TextBox ID="txtNewPassword2" runat="server"  value="" class="form-control" required="required"  type="password"></asp:TextBox>
             </div>
             <div class="form-group">
                 <div class="col-lg-3">
                     <div id="btn">
-                    <asp:Button ID="btnCreateUser" runat="server" CssClass="btn btn-primary btn-group-justified" Text="Submit" /><br />
+                    <asp:Button ID="btnCreateUser" runat="server" CssClass="btn btn-primary btn-group-justified" Text="Submit" OnClick="btnChangePassword_Click" /><br />
                     </div>
                 </div>
                 <div class="col-lg-3">

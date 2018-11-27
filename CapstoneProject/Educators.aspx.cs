@@ -35,6 +35,34 @@ public partial class Educators : System.Web.UI.Page
 
     }
 
+    protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
+    {
+
+    }
+
+    protected void GridView1_RowDeleting(object sender, GridViewDeleteEventArgs e)
+    {
+        //OrganizationDataSource.DeleteCommand = "DELETE FROM Organization WHERE OrganizationID = @OrganizationID";
+        //OrganizationDataSource.DeleteParameters.Add("OrganizationID", GridView1.DataKeys[e.RowIndex].Values["OrganizationID"].ToString());
+        SqlDataSource_ViewEmployee.Delete();
+        GridView1.DataBind();
+    }
+
+
+    protected void GridView1_RowUpdating(object sender, GridViewUpdateEventArgs e)
+    {
+        GridViewRow row = GridView1.Rows[e.RowIndex];
+        int id = Convert.ToInt32(GridView1.DataKeys[e.RowIndex].Values["EmployeeID"]);
+        SqlDataSource_ViewEmployee.UpdateCommand = "UPDATE Employee set firstname = @firstname, EmployeeType = @EmployeeType, lastname = @lastname WHERE EmployeeID = @EmployeeID;";
+        SqlDataSource_ViewEmployee.UpdateParameters.Add("firstname", GridView1.Rows[e.RowIndex].FindControl("FirstName").ToString());
+        SqlDataSource_ViewEmployee.UpdateParameters.Add("EmployeeType", GridView1.DataKeys[e.RowIndex].Values["EmployeeType"].ToString());
+        SqlDataSource_ViewEmployee.UpdateParameters.Add("lastname", GridView1.DataKeys[e.RowIndex].Values["LastName"].ToString());
+
+        SqlDataSource_ViewEmployee.Update();
+
+        GridView1.DataBind();
+    }
+
     protected void btnExcelExport_Click(object sender, EventArgs e)
     {
         Response.ClearContent();

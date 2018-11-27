@@ -60,6 +60,40 @@ public class User : dbConnect
         }
     }
 
+    public Boolean updateData()
+    {
+        cnn = new SqlConnection(connectionString);
+
+        try
+        {
+            if (getUsername(Username))
+            {
+                cnn.Open();
+                Debug.WriteLine("Connection Open ! ");
+
+                SqlCommand Cmd = new SqlCommand("update dbo.Users set [PasswordHash] = @PasswordHash", cnn);
+
+                //Cmd.Parameters.Add("@DepartmentID", System.Data.SqlDbType.Int).Value = DepartmentID;
+                Cmd.Parameters.Add("@PasswordHash", System.Data.SqlDbType.VarChar, 50).Value = PasswordHash;
+
+
+                executeNonQuery(Cmd);
+
+                cnn.Close();
+
+                return true;
+            }
+        }
+
+        catch (System.Data.SqlClient.SqlException sqlException)
+        {
+            Debug.WriteLine(sqlException.Message);
+            return false;
+        }
+
+        return false;
+    }
+
     public string getPasswordHash(string username)
     {
         cnn = new SqlConnection(connectionString);
@@ -92,6 +126,45 @@ public class User : dbConnect
         {
             Debug.WriteLine(sqlException.Message);
             return "Didn't Work";
+        }
+    }
+
+    public bool getUsername(string username)
+    {
+        cnn = new SqlConnection(connectionString);
+        string hash = "";
+        int x = 0;
+        try
+        {
+            cnn.Open();
+            Debug.WriteLine("Connection Open ! ");
+
+            SqlCommand Cmd = new SqlCommand("select username from dbo.Users where Username = @Username", cnn);
+            Cmd.Parameters.Add("@Username", System.Data.SqlDbType.VarChar, 100).Value = username;
+
+            SqlDataReader myreader;
+
+            myreader = Cmd.ExecuteReader();
+
+            while (myreader.Read())
+            {
+                hash = myreader[0].ToString();
+                x++;
+            }
+
+            cnn.Close();
+
+
+            if (x >= 1)
+                return true;
+
+            return false;
+        }
+
+        catch (System.Data.SqlClient.SqlException sqlException)
+        {
+            Debug.WriteLine(sqlException.Message);
+            return false;
         }
     }
 

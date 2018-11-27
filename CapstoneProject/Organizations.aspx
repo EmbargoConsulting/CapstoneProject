@@ -118,7 +118,6 @@
                     <asp:BoundField DataField="City" HeaderText="City" SortExpression="City" />                    
                     <asp:BoundField DataField="State" HeaderText="State" SortExpression="State" />
                     <asp:BoundField DataField="Zip" HeaderText="Zip" SortExpression="Zip"/>
-
                 </Columns>
                 <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
                 <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />

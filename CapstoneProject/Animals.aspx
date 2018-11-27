@@ -6,11 +6,11 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ChildContent1" runat="Server">
 
-<div class="row">
-    <div class="col-lg-12">
-        <h2 class="page-header"><i class="fa fa-paw icons"></i>View Animals</h2>
+    <div class="row">
+        <div class="col-lg-12">
+            <h2 class="page-header"><i class="fa fa-paw icons"></i>View Animals</h2>
+        </div>
     </div>
-</div>
     <div class="col-lg-9">
         <%--       <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" CssClass="table table-striped table-bordered" CellPadding="4" DataKeyNames="Animal ID" DataSourceID="SqlDataSource_ViewAnimal" ForeColor="#333333" GridLines="None">
             <AlternatingRowStyle BackColor="White" />
@@ -51,7 +51,7 @@
     <div class="modal fade" id="animalModal" tabindex="-1" role="dialog" aria-labelledby="animalModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" style="max-width: 400px;" role="document">
             <div class="modal-content">
-                <div class="modal-header">                    
+                <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -77,7 +77,7 @@
                     </div>
                     <!-- Button is not visible until it works correctly -->
                     <div id="btn2">
-                        <asp:Button ID="btnClearAll" visible="false" runat="server" CssClass="btn btn-group-justified btn-danger" CausesValidation="false" Text="Clear Fields" OnClick="btnClearAll_Click" formnovalidate="formnovalidate" />
+                        <asp:Button ID="btnClearAll" Visible="false" runat="server" CssClass="btn btn-group-justified btn-danger" CausesValidation="false" Text="Clear Fields" OnClick="btnClearAll_Click" formnovalidate="formnovalidate" />
                     </div>
 
 
@@ -117,11 +117,11 @@
             </div>
             <div class="col-lg-5">
                 <div class="form-group">
-                   <label class="form-control-label"> or Enter Name:</label>
-                <div class="row">
-                    <asp:TextBox Width="150px" ID="txtSearch" runat="server" CssClass="form-control col-lg-8"></asp:TextBox>
-                    <asp:Button ID="btnSearchAnimal" formnovalidate="formnovalidate" CausesValidation="false" CssClass="btn btn-small" runat="server" Text="Search" OnClick="btnSearchAnimal_Click"/>
-                </div>
+                    <label class="form-control-label">or Enter Name:</label>
+                    <div class="row">
+                        <asp:TextBox Width="150px" ID="txtSearch" runat="server" CssClass="form-control col-lg-8"></asp:TextBox>
+                        <asp:Button ID="btnSearchAnimal" formnovalidate="formnovalidate" CausesValidation="false" CssClass="btn btn-small" runat="server" Text="Search" OnClick="btnSearchAnimal_Click" />
+                    </div>
                 </div>
             </div>
             <div id="btnGroupAnimals">
@@ -130,7 +130,7 @@
                         New Animal</button>
                 </div>
 
-       <!--         <div class="col-lg-2">
+                <!--         <div class="col-lg-2">
                     <button type="button" class="btn btn-danger">Clear Animal Tables</button>
                 </div> -->
             </div>
@@ -138,7 +138,9 @@
         <div id="output" runat="server" class="col-lg-offset-3"></div>
     </div>
     <div id="tableau" runat="server">
-<%--<div class='tableauPlaceholder' id='viz1541960194854' style='position: relative'><noscript><a href='#'><img alt=' ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Vi&#47;VisualReportMonthly&#47;AnimalReport&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='VisualReportMonthly&#47;AnimalReport' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Vi&#47;VisualReportMonthly&#47;AnimalReport&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /></object></div>--%>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1541960194854');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>    </div>
+        <%--<div class='tableauPlaceholder' id='viz1541960194854' style='position: relative'><noscript><a href='#'><img alt=' ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Vi&#47;VisualReportMonthly&#47;AnimalReport&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='VisualReportMonthly&#47;AnimalReport' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Vi&#47;VisualReportMonthly&#47;AnimalReport&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /></object></div>--%>
+        <script type='text/javascript'>                    var divElement = document.getElementById('viz1541960194854'); var vizElement = divElement.getElementsByTagName('object')[0]; vizElement.style.width = '100%'; vizElement.style.height = (divElement.offsetWidth * 0.75) + 'px'; var scriptElement = document.createElement('script'); scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js'; vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+    </div>
 
     <div class="col-lg-8">
         <div id="details" runat="server">
@@ -155,18 +157,18 @@
                             <asp:BoundField HeaderText="Children" DataField="Children" SortExpression="Programs" />
                             <asp:BoundField HeaderText="Adults" DataField="Adults" SortExpression="People" />
                         </Columns>
-        <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
-        <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
-        <PagerStyle BackColor="#2461BF" ForeColor="White" HorizontalAlign="Center" />
-        <RowStyle BackColor="#EFF3FB" />
-        <SelectedRowStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
-        <SortedAscendingCellStyle BackColor="#F5F7FB" />
-        <SortedAscendingHeaderStyle BackColor="#6D95E1" />
-        <SortedDescendingCellStyle BackColor="#E9EBEF" />
-        <SortedDescendingHeaderStyle BackColor="#4870BE" />
+                        <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+                        <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+                        <PagerStyle BackColor="#2461BF" ForeColor="White" HorizontalAlign="Center" />
+                        <RowStyle BackColor="#EFF3FB" />
+                        <SelectedRowStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
+                        <SortedAscendingCellStyle BackColor="#F5F7FB" />
+                        <SortedAscendingHeaderStyle BackColor="#6D95E1" />
+                        <SortedDescendingCellStyle BackColor="#E9EBEF" />
+                        <SortedDescendingHeaderStyle BackColor="#4870BE" />
                     </asp:GridView>
-                            <asp:Button ID="Button2" formnovalidate="formnovalidate" CausesValidation="false" class="btn btn-primary" runat="server" Text="Export to Excel" OnClick="btnExport1_Click"/>
-              
+                    <asp:Button ID="Button2" formnovalidate="formnovalidate" CausesValidation="false" class="btn btn-primary" runat="server" Text="Export to Excel" OnClick="btnExport1_Click" />
+
                 </div>
             </div>
 
@@ -183,47 +185,85 @@
                             <asp:BoundField HeaderText="Adults" DataField="Adults" SortExpression="People" />
                             <asp:BoundField HeaderText="Total People" DataField="Total People" />
                         </Columns>
-        <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
-        <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
-        <PagerStyle BackColor="#2461BF" ForeColor="White" HorizontalAlign="Center" />
-        <RowStyle BackColor="#EFF3FB" />
-        <SelectedRowStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
-        <SortedAscendingCellStyle BackColor="#F5F7FB" />
-        <SortedAscendingHeaderStyle BackColor="#6D95E1" />
-        <SortedDescendingCellStyle BackColor="#E9EBEF" />
-        <SortedDescendingHeaderStyle BackColor="#4870BE" />
+                        <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+                        <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+                        <PagerStyle BackColor="#2461BF" ForeColor="White" HorizontalAlign="Center" />
+                        <RowStyle BackColor="#EFF3FB" />
+                        <SelectedRowStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
+                        <SortedAscendingCellStyle BackColor="#F5F7FB" />
+                        <SortedAscendingHeaderStyle BackColor="#6D95E1" />
+                        <SortedDescendingCellStyle BackColor="#E9EBEF" />
+                        <SortedDescendingHeaderStyle BackColor="#4870BE" />
                     </asp:GridView>
-                                                <asp:Button ID="Button1" formnovalidate="formnovalidate" CausesValidation="false" class="btn btn-primary" runat="server" Text="Export to Excel" OnClick="btnExport2_Click"/>
+                    <asp:Button ID="Button1" formnovalidate="formnovalidate" CausesValidation="false" class="btn btn-primary" runat="server" Text="Export to Excel" OnClick="btnExport2_Click" />
 
                 </div>
 
             </div>
 
-        
+
             <div class="panel panel-default">
                 <div id="Div1" runat="server" class="panel panel-heading">Animal Overview</div>
                 <div class="panel panel-body">
-                    <asp:GridView ID="GridView1" AutoGenerateColumns="false" CssClass="table table-bordered" DataKeyNames="AnimalID" runat="server">
-
-        <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
-        <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
-        <PagerStyle BackColor="#2461BF" ForeColor="White" HorizontalAlign="Center" />
-        <RowStyle BackColor="#EFF3FB" />
-        <SelectedRowStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
-        <SortedAscendingCellStyle BackColor="#F5F7FB" />
-        <SortedAscendingHeaderStyle BackColor="#6D95E1" />
-        <SortedDescendingCellStyle BackColor="#E9EBEF" />
-        <SortedDescendingHeaderStyle BackColor="#4870BE" />
+                    <asp:GridView ID="GridView1" AutoGenerateColumns="false" CssClass="table table-bordered" DataKeyNames="AnimalID" runat="server" >
+                        <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+                        <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+                        <PagerStyle BackColor="#2461BF" ForeColor="White" HorizontalAlign="Center" />
+                        <RowStyle BackColor="#EFF3FB" />
+                        <SelectedRowStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
+                        <SortedAscendingCellStyle BackColor="#F5F7FB" />
+                        <SortedAscendingHeaderStyle BackColor="#6D95E1" />
+                        <SortedDescendingCellStyle BackColor="#E9EBEF" />
+                        <SortedDescendingHeaderStyle BackColor="#4870BE" />
                     </asp:GridView>
-                                                <asp:Button ID="Button4" formnovalidate="formnovalidate" CausesValidation="false" class="btn btn-primary" runat="server" Text="Export to Excel" OnClick="btnExport3_Click"/>
+                    <asp:Button ID="Button4" formnovalidate="formnovalidate" CausesValidation="false" class="btn btn-primary" runat="server" Text="Export to Excel" OnClick="btnExport3_Click" />
 
                 </div>
 
             </div>
 
+
+
+
+    <div class="panel panel-default">
+        <div id="Div2" runat="server" class="panel panel-heading">Update Animals</div>
+        <div class="panel panel-body">
+            <asp:GridView ID="GridView2" AutoGenerateColumns="false" CssClass="table table-bordered" DataKeyNames="AnimalID" runat="server" AutoGenerateEditButton="true" DataSourceID="AnimalDataSource">
+                <Columns>
+                    <asp:BoundField DataField="AnimalName" HeaderText="Organization Name" SortExpression="OrganizationName" />
+            <asp:TemplateField HeaderText="Retired">
+                <ItemTemplate>
+                    <asp:CheckBox ID="CheckBox1" runat="server" />
+                </ItemTemplate>
+            </asp:TemplateField>
+                </Columns>
+                <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+                <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+                <PagerStyle BackColor="#2461BF" ForeColor="White" HorizontalAlign="Center" />
+                <RowStyle BackColor="#EFF3FB" />
+                <SelectedRowStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
+                <SortedAscendingCellStyle BackColor="#F5F7FB" />
+                <SortedAscendingHeaderStyle BackColor="#6D95E1" />
+                <SortedDescendingCellStyle BackColor="#E9EBEF" />
+                <SortedDescendingHeaderStyle BackColor="#4870BE" />
+            </asp:GridView>
+            <asp:Button ID="Button3" formnovalidate="formnovalidate" CausesValidation="false" class="btn btn-primary" runat="server" Text="Export to Excel" OnClick="btnExport3_Click" />
+
         </div>
 
+    </div>
 
+
+    <asp:SqlDataSource ID="AnimalDataSource" runat="server"
+        ConnectionString="<%$ ConnectionStrings:Project %>"
+        SelectCommand="SELECT [AnimalID], [AnimalName] FROM [Animal]"
+        UpdateCommand="UPDATE Animal SET AnimalName = @AnimalName where AnimalID = @AnimalID;">
+        <UpdateParameters>
+            <asp:Parameter Name="AnimalName" />
+        </UpdateParameters>
+    </asp:SqlDataSource>
+    </div>
+        </div>
     <div runat="server" id="results"></div>
 
 
@@ -240,6 +280,5 @@
             <asp:ControlParameter ControlID="MainGridView" Name="AnimalID" PropertyName="SelectedValue" Type="Int32" />
         </SelectParameters>
     </asp:SqlDataSource>--%>
-
 </asp:Content>
 

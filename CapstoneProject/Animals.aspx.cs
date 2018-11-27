@@ -427,5 +427,6 @@ public partial class Animals : System.Web.UI.Page
         name.HeaderText = hText;
         GridView1.Columns.Add(name);
     }
+
 }
     
