@@ -36,6 +36,21 @@ public partial class Invoices : System.Web.UI.Page
 
     protected void btnSaveInvoice_Click(object sender, EventArgs e)
     {
+        if (ddlInvoiceType.SelectedIndex > 0)
+        {
+            int pay = 1;
+
+            if (ddlInvoicePayment.SelectedIndex == 2)
+            {
+                pay = 2;
+            }
+
+            Invoice invoice = new Invoice(Convert.ToInt32(txtInvoiceCode.Text), txtTotalCost.Text, pay);
+            Invoice.insertInvoice(invoice);
+
+            btnClearAllModal_Click(sender, e);
+            InvoiceGridView.DataBind();
+        }
         //int counter = 0;
         //foreach (GridViewRow row in LiveGridView.Rows)
         //{

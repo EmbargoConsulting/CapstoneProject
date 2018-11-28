@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
@@ -42,6 +43,37 @@ public class Invoice : dbConnect
         PaymentTotal1 = paymentTotal;
         this.LastUpdated = lastUpdated;
         this.LastUpdatedBy = lastUpdatedBy;
+    }
+
+    public Invoice(int invoiceID, string invoiceAmount, int cancelledYN)
+    {
+        this.InvoiceID = invoiceID;
+        //this.ProgramID = programID;
+        //this.OrganizationID = organizationID;
+        this.InvoiceAmount = invoiceAmount;
+        this.CancelledYN = Convert.ToBoolean(cancelledYN);
+        this.LastUpdated = DateTime.Now;
+        this.LastUpdatedBy = "User";
+    }
+
+    public static void insertInvoice(Invoice toInsert)
+    {
+        SqlCommand cmd = new SqlCommand();
+        cmd.CommandText = "insertInvoice";
+        cmd.CommandType = CommandType.StoredProcedure;
+        cmd.Parameters.AddWithValue("@InvoiceID", toInsert.InvoiceID);
+        cmd.Parameters.AddWithValue("@InvoiceAmount", toInsert.InvoiceAmount);
+        cmd.Parameters.AddWithValue("@CancelledYN", toInsert.CancelledYN);
+        cmd.Parameters.AddWithValue("@LastUpdatedBy", "User");
+        cmd.Parameters.AddWithValue("@LastUpdated", DateTime.Now);
+
+        cmd.Parameters.AddWithValue("@ProgramID", DBNull.Value);
+        cmd.Parameters.AddWithValue("@OrganizationID", DBNull.Value);
+        cmd.Parameters.AddWithValue("@PaymentTotal", 0);
+
+        //cmd.Parameters.Add("@InvoiceID", SqlDbType.Int).Direction = ParameterDirection.Output;
+        executeNonQuery(cmd);
+
     }
 
     public static List<Invoice> getInvoiceList()
