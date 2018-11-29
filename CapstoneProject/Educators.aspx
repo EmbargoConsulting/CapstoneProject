@@ -19,11 +19,11 @@
                     <div>
                         <div class="form-group">
                             <label>First Name</label>
-                            <asp:textbox id="txtEmpFirst" runat="server" class="form-control" required="required"></asp:textbox>
+                            <asp:textbox id="txtEmpFirst" runat="server" class="form-control" required="required" maxlength="50"></asp:textbox>
                         </div>
                         <div class="form-group">
                             <label>Last Name</label>
-                            <asp:textbox id="txtEmpLast" runat="server" class="form-control" required="required"></asp:textbox>
+                            <asp:textbox id="txtEmpLast" runat="server" class="form-control" required="required" maxlength="50"></asp:textbox>
                         </div>
                         <div class="form-group">
                             <label>Educator Type</label>

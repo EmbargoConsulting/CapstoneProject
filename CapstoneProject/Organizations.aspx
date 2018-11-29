@@ -56,15 +56,15 @@
                    <div>
             <div class="form-group">
                 <label>Organization Name</label>
-                <asp:TextBox ID="txtOrgName" runat="server" class="form-control" required="required"></asp:TextBox>
+                <asp:TextBox ID="txtOrgName" runat="server" class="form-control" required="required" maxlength="50"></asp:TextBox>
             </div>
             <div class="form-group">
                 <label>City</label>
-                <asp:TextBox ID="txtOrgCity" runat="server" class="form-control"></asp:TextBox>
+                <asp:TextBox ID="txtOrgCity" runat="server" class="form-control" maxlength="50"></asp:TextBox>
             </div>
             <div class="form-group">
                 <label>Zip</label>
-                <asp:TextBox ID="txtOrgZip" runat="server" class="form-control"></asp:TextBox>
+                <asp:TextBox ID="txtOrgZip" runat="server" class="form-control" maxlength="50"></asp:TextBox>
             </div>
             <div class="form-group">
                 <label>State</label>
@@ -124,7 +124,7 @@
             </div>
             <div class="form-group">
                 <label>Organization Email</label>
-                <asp:TextBox ID="txtOrganizationContact" runat="server" class="form-control" required="required" placeholder="ie. wildlife@wildlifecenter.org"></asp:TextBox>
+                <asp:TextBox ID="txtOrganizationContact" runat="server" class="form-control" required="required" maxlength="50" placeholder="ie. wildlife@wildlifecenter.org"></asp:TextBox>
             </div>
         </div>
 
