@@ -24,7 +24,7 @@ public partial class Educators : System.Web.UI.Page
     {
         if(ddlEmpType.SelectedIndex > 0)
         {
-            Employee employee = new Employee(txtEmpFirst.Text, txtEmpLast.Text, ddlEmpType.Text, DateTime.Now, "User");
+            Employee employee = new Employee(HttpUtility.HtmlEncode(txtEmpFirst.Text), HttpUtility.HtmlEncode(txtEmpLast.Text), HttpUtility.HtmlEncode(ddlEmpType.Text), DateTime.Now, "User");
             Employee.insertEmployee(employee);
 
             txtEmpFirst.Text = "";

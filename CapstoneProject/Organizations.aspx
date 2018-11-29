@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Organizations" EnableEventValidation="false" Language="C#" MasterPageFile="~/Child.master" AutoEventWireup="true" CodeFile="Organizations.aspx.cs" Inherits="Organizations" %>
+﻿<%@ Page Title="Organizations" EnableEventValidation="false" Language="C#" MasterPageFile="~/Child.master" AutoEventWireup="true" CodeFile="Organizations.aspx.cs" Inherits="Organizations" validaterequest="false" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ChildContent1" runat="Server">
         <!-- Modal -->
