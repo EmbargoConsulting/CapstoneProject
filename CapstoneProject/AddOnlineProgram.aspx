@@ -27,20 +27,20 @@
             </div>
             <div class="form-group">
                 <label>Theme</label>
-                <asp:TextBox ID="txtTheme" required="required" runat="server" class="form-control"></asp:TextBox>
+                <asp:TextBox ID="txtTheme" required="required" runat="server" class="form-control" maxlength="50"></asp:TextBox>
 
             </div>
             <div class="form-group">
                 <label>Teacher</label>
-                <asp:TextBox ID="txtTeacher" required="required" runat="server" class="form-control"></asp:TextBox>
+                <asp:TextBox ID="txtTeacher" required="required" runat="server" class="form-control" maxlength="50"></asp:TextBox>
             </div>
             <div class="form-group">
                 <label>Teacher Email</label>
-                <asp:TextBox ID="txtEmail" required="required" runat="server" class="form-control" placeholder="ie. wildlife@wildlifecenter.org"></asp:TextBox>
+                <asp:TextBox ID="txtEmail" required="required" runat="server" class="form-control" maxlength="50" placeholder="ie. wildlife@wildlifecenter.org"></asp:TextBox>
             </div>
             <div class="form-group">
                 <label>Grade</label>
-                <asp:TextBox ID="txtGrade" required="required" runat="server" class="form-control"></asp:TextBox>
+                <asp:TextBox ID="txtGrade" required="required" runat="server" class="form-control" type="number" max="12"></asp:TextBox>
             </div>
             <div class="form-group">
                 <label>State</label>
@@ -345,7 +345,7 @@
             </div>
             <div class="form-group">
                 <label>Comments</label>
-                <asp:TextBox ID="TextComments" runat="server" class="form-control" placeholder="Need Keyboard? Need Electrical Outlet?"></asp:TextBox>
+                <asp:TextBox ID="TextComments" runat="server" class="form-control" maxlength="1000" placeholder="Need Keyboard? Need Electrical Outlet?"></asp:TextBox>
             </div>
         </div>
         <div class="col-lg-4">
@@ -362,16 +362,16 @@
             </div>
             <div class="form-group">
                 <label>Child Count</label>
-                <asp:TextBox ID="txtChildCount" CssClass="form-control" required="required" runat="server"></asp:TextBox>
+                <asp:TextBox ID="txtChildCount" CssClass="form-control" required="required" runat="server" type="number" max="999"></asp:TextBox>
             </div>
             <div class="form-group">
                 <label>Adult Count</label>
-                <asp:TextBox ID="txtAdultCount" required="required" CssClass="form-control" runat="server"></asp:TextBox>
+                <asp:TextBox ID="txtAdultCount" required="required" CssClass="form-control" runat="server" type="number" max="999"></asp:TextBox>
 
             </div>
             <div class="form-group">
                 <label>Date</label>
-                <asp:TextBox ID="txtDate" required="required" runat="server" CssClass="form-control" placeholder="MM/DD/YYYY"></asp:TextBox>
+                <asp:TextBox ID="txtDate" required="required" runat="server" CssClass="form-control" type="date" placeholder="MM/DD/YYYY"></asp:TextBox>
             </div>
             <div class="form-group">
                 <label>Time</label>

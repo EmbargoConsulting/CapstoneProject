@@ -60,7 +60,7 @@
                 <div class="modal-body">
                     <div class="form-group">
                         <label class="form-control-label">Animal Name</label>
-                        <asp:TextBox ID="txtAnimalName" runat="server" class="form-control" required="required"></asp:TextBox>
+                        <asp:TextBox ID="txtAnimalName" runat="server" class="form-control" required="required" maxlength="50"></asp:TextBox>
                     </div>
                     <div class="form-group">
                         <label class="form-control-label">Animal Type</label>
