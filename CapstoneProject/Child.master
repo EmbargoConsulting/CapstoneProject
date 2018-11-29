@@ -1,6 +1,6 @@
 ﻿<%@ Master Language="C#" MasterPageFile="~/Parent.master"%> 
 <asp:Content id="Content1" ContentPlaceholderID="MainContent" runat="server">
-
+    
     <asp:ContentPlaceHolder ID="ChildContent1" runat="server" />
     <asp:ContentPlaceHolder ID="ChildContent2" runat="server" />
 

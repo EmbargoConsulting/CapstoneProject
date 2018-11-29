@@ -16,13 +16,26 @@ public partial class ViewProgram : System.Web.UI.Page
     {
         if (!Page.IsPostBack)
         {
-            ddlViewOptions.SelectedIndex = 0;
+            //ddlViewOptions.SelectedIndex = 0;
             MultiView1.ActiveViewIndex = 0;
         }
         if (Page.IsPostBack)
         {
             
         }
+
+    }
+
+    protected void Tab1_Click(object sender, EventArgs e)
+    {
+
+    }
+    protected void Tab2_Click(object sender, EventArgs e)
+    {
+
+    }
+    protected void Tab3_Click(object sender, EventArgs e)
+    {
 
     }
 
@@ -336,5 +349,23 @@ public partial class ViewProgram : System.Web.UI.Page
     protected void showModal()
     {
         ClientScript.RegisterStartupScript(this.GetType(), "Popup", "$('#invoiceModal').modal('show')", true);
+    }
+
+    protected void Tab1_Click1(object sender, EventArgs e)
+    {
+        MultiView1.ActiveViewIndex = 1;
+
+    }
+
+    protected void Tab2_Click1(object sender, EventArgs e)
+    {
+        MultiView1.ActiveViewIndex = 2;
+
+    }
+
+    protected void Unnamed_Click(object sender, EventArgs e)
+    {
+        MultiView1.ActiveViewIndex = 1;
+
     }
 }

@@ -230,12 +230,8 @@
         <div class="panel panel-body">
             <asp:GridView ID="GridView2" AutoGenerateColumns="false" CssClass="table table-bordered" DataKeyNames="AnimalID" runat="server" AutoGenerateEditButton="true" DataSourceID="AnimalDataSource">
                 <Columns>
-                    <asp:BoundField DataField="AnimalName" HeaderText="Organization Name" SortExpression="OrganizationName" />
-            <asp:TemplateField HeaderText="Retired">
-                <ItemTemplate>
-                    <asp:CheckBox ID="CheckBox1" runat="server" />
-                </ItemTemplate>
-            </asp:TemplateField>
+                    <asp:BoundField DataField="AnimalName" HeaderText="Animal Name" SortExpression="AnimalName" />
+                    <asp:CheckBoxField DataField="Active" HeaderText="Active?" SortExpression="Active" />
                 </Columns>
                 <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
                 <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
@@ -256,8 +252,8 @@
 
     <asp:SqlDataSource ID="AnimalDataSource" runat="server"
         ConnectionString="<%$ ConnectionStrings:Project %>"
-        SelectCommand="SELECT [AnimalID], [AnimalName] FROM [Animal]"
-        UpdateCommand="UPDATE Animal SET AnimalName = @AnimalName where AnimalID = @AnimalID;">
+        SelectCommand="SELECT [AnimalID], [AnimalName], [Active] FROM [Animal]"
+        UpdateCommand="UPDATE Animal SET AnimalName = @AnimalName, Active=@Active where AnimalID = @AnimalID;">
         <UpdateParameters>
             <asp:Parameter Name="AnimalName" />
         </UpdateParameters>
