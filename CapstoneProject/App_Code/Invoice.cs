@@ -79,7 +79,7 @@ public class Invoice : dbConnect
     public static List<Invoice> getInvoiceList()
     {
         List<Invoice> list = new List<Invoice>();
-        string query = "SELECT ProgramID, FirstName, LastName FROM Employee;";
+        string query = "SELECT ProgramID, FirstName, LastName, active FROM Employee;";
         using (SqlConnection con = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["Project"].ConnectionString))
         {
             SqlCommand cmdSelect = new SqlCommand(query, con);
@@ -92,7 +92,8 @@ public class Invoice : dbConnect
                     int id = reader.GetInt32(0);
                     string firstName = reader.GetString(1);
                     string lastName = reader.GetString(2);
-                    Employee newEmployee = new Employee(id, firstName, lastName);
+                    Boolean active = reader.GetBoolean(3);
+                    Employee newEmployee = new Employee(id, firstName, lastName, active);
                     //list.Add(newEmployee);
                 }
             }

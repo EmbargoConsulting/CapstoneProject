@@ -31,14 +31,20 @@ public partial class Default2 : System.Web.UI.Page
             int index = 0;
             foreach(Employee employee in Employee.getEmployeeList())
             {
-                ddlEducators.Items.Insert(index, new ListItem(employee.getFullName(), employee.EmployeeID.ToString()));
+                if(employee.Active == true)
+                {
+                    ddlEducators.Items.Insert(index, new ListItem(employee.getFullName(), employee.EmployeeID.ToString()));
+                }
             }
 
             index = 0;
 
             foreach(Animal animal in Animal.getAnimalList())
             {
-                ddlAnimals.Items.Insert(index, new ListItem(animal.AnimalName, animal.AnimalID.ToString()));
+                if(animal.Active == true)
+                {
+                    ddlAnimals.Items.Insert(index, new ListItem(animal.AnimalName, animal.AnimalID.ToString()));
+                }
             }
 
             index = 1;

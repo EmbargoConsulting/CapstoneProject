@@ -26,10 +26,11 @@ public class Animal : dbConnect
         this.LastUpdatedBy = lastUpdatedBy;
     }
 
-    public Animal(int id, string name)
+    public Animal(int id, string name, Boolean active)
     {
         AnimalID = id;
         AnimalName = name;
+        Active = active;
     }
 
     public static void insertAnimal(Animal toInsert)
@@ -49,7 +50,7 @@ public class Animal : dbConnect
     public static List<Animal> getAnimalList() 
     {
         List<Animal> list = new List<Animal>();
-        string query = "SELECT AnimalID, AnimalName FROM Animal;";
+        string query = "SELECT AnimalID, AnimalName, active FROM Animal;";
         using (SqlConnection con = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["Project"].ConnectionString))
         {
             SqlCommand cmdSelect = new SqlCommand(query, con);
@@ -61,7 +62,8 @@ public class Animal : dbConnect
                 {
                     int id = reader.GetInt32(0);
                     string name = reader.GetString(1);
-                    Animal newAnimal = new Animal(id, name);
+                    Boolean active = reader.GetBoolean(2);
+                    Animal newAnimal = new Animal(id, name, active);
                     list.Add(newAnimal);
                 }
             }
@@ -78,4 +80,5 @@ public class Animal : dbConnect
     public bool CheckedInStatus { get; set; }
     public DateTime LastUpdated { get; set; }
     public string LastUpdatedBy { get; set; }
+    public bool Active { get; set; }
 }

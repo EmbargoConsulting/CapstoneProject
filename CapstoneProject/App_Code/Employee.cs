@@ -26,17 +26,18 @@ public class Employee : dbConnect
         this.LastUpdatedBy = lastUpdatedBy;
     }
 
-    public Employee(int id, string firstName, string lastName)
+    public Employee(int id, string firstName, string lastName, Boolean active)
     {
         EmployeeID = id;
         FirstName = firstName;
         LastName = lastName;
+        Active = active;
     }
 
     public static List<Employee> getEmployeeList()
     {
         List<Employee> list = new List<Employee>();
-        string query = "SELECT EmployeeID, FirstName, LastName FROM Employee;";
+        string query = "SELECT EmployeeID, FirstName, LastName, active FROM Employee;";
         using (SqlConnection con = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["Project"].ConnectionString))
         {
             SqlCommand cmdSelect = new SqlCommand(query, con);
@@ -49,7 +50,8 @@ public class Employee : dbConnect
                     int id = reader.GetInt32(0);
                     string firstName = reader.GetString(1);
                     string lastName = reader.GetString(2);
-                    Employee newEmployee = new Employee(id, firstName, lastName);
+                    Boolean active = reader.GetBoolean(3);
+                    Employee newEmployee = new Employee(id, firstName, lastName, active);
                     list.Add(newEmployee);
                 }
             }
@@ -84,4 +86,5 @@ public class Employee : dbConnect
     public string EmployeeType { get; set; }
     public DateTime LastUpdated { get; set; }
     public string LastUpdatedBy { get; set; }
+    public Boolean Active { get; set; }
 }
