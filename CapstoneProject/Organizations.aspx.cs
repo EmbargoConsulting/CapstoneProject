@@ -20,6 +20,15 @@ public partial class Organizations : System.Web.UI.Page
         GridView1.DataBind();
     }
 
+    protected void btnContactSubmit_Click(object sender, EventArgs e)
+    {
+        Contact contact = new Contact(txtContactName.Text, contactPhone.Text, contactEmail.Text, orgDDL.SelectedIndex);
+        Contact.insertContact(contact);
+        //clear();
+        //GridView1.DataBind();
+    }
+
+
     protected void btnClearAll_Click(object sender, EventArgs e)
     {
         clear();

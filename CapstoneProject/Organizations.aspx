@@ -1,6 +1,47 @@
 ﻿<%@ Page Title="Organizations" EnableEventValidation="false" Language="C#" MasterPageFile="~/Child.master" AutoEventWireup="true" CodeFile="Organizations.aspx.cs" Inherits="Organizations" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ChildContent1" runat="Server">
+    <!-- Modal -->
+    <div class="modal fade" id="contactModal" tabindex="-1" role="dialog" aria-labelledby="contactModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" style="max-width: 400px;" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h5 class="modal-title" id="contactModalLabel">Add a New Contact</h5>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label class="form-control-label">Contact Name</label>
+                        <asp:TextBox ID="txtContactName" runat="server" class="form-control" required="required"></asp:TextBox>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-control-label">Contact Email</label>
+                        <asp:TextBox ID="contactEmail" runat="server" class="form-control"></asp:TextBox>
+                    </div>
+                     <div class="form-group">
+                        <label class="form-control-label">Contact Phone</label>
+                        <asp:TextBox ID="contactPhone" runat="server" class="form-control"></asp:TextBox>
+                    </div>
+                      <div class="form-group">
+                        <label class="form-control-label">Choose Organization</label>
+                         <asp:DropDownList ID="orgDDL" runat="server" required="required" class="form-control" DataSourceID="EntityDataSource1" DataTextField="OrganizationName" 
+     DataValueField="OrganizationID"  />
+
+                    </div>
+                        <asp:SQLDataSource ID="EntityDataSource1" runat="server" SelectCommand="SELECT OrganizationName, OrganizationID FROM Organization" ConnectionString="<%$ ConnectionStrings:Project %>"></asp:SQLDataSource>
+
+                    <div id="contactButton">
+                        <asp:Button ID="btnContactSubmit" runat="server" CssClass="btn btn-success btn-group-justified" Text="Add Contact" OnClick="btnContactSubmit_Click" UseSubmitBehavior="false" dismiss="contactModal"/><br />
+                    </div>
+                    <!-- Button is not visible until it works correctly -->
+
+
+                </div>
+            </div>
+        </div>
+    </div>
         <!-- Modal -->
     <div class="modal fade" id="animalModal" tabindex="-1" role="dialog" aria-labelledby="animalModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" style="max-width: 400px;" role="document">
@@ -135,7 +176,16 @@
             New Organization</button>
     
                  <asp:Button ID="ExcelExport" runat="server" CssClass="btn btn-primary"  Text="Export to Excel" OnClick="btnExcelExport_Click" formnovalidate="formnovalidate"/>
+                  <div id="btnGroupAnimals">
 
+                <!--         <div class="col-lg-2">
+                    <button type="button" class="btn btn-danger">Clear Animal Tables</button>
+                </div> -->
+            </div>
+                                  <div class="col-lg-2">
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#contactModal" id="btnAddContact">
+                        New Contact</button>
+                </div>
               </div>     
    
             </div>

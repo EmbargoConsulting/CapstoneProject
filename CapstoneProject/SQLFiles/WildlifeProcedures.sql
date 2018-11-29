@@ -289,3 +289,30 @@ VALUES
 	@LastUpdated)
 GO
 
+create PROCEDURE insertContact
+@name varchar(100),
+@email varchar(100),
+@phone varchar(100),
+@LastUpdated varchar(50),
+@LastUpdatedBy date,
+@OrgID int,
+@ContactID int output
+as
+INSERT INTO [dbo].[Contact]
+	 ([name]
+	,[email]
+	,[phone]
+	,[organizationID]
+	,[LastUpdatedBy]
+	,[LastUpdated])
+VALUES
+	(@name,
+	@phone,
+	@email,
+	@OrgID,
+	@LastUpdatedBy,
+	@LastUpdated)
+	SET @ContactID = SCOPE_IDENTITY();
+
+GO
+
