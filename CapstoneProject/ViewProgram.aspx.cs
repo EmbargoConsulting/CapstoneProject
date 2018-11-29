@@ -129,30 +129,46 @@ public partial class ViewProgram : System.Web.UI.Page
 
     protected void btnSaveInvoice_Click(object sender, EventArgs e)
     {
-        int counter = 0;
-        foreach (GridViewRow row in LiveGridView.Rows)
+
+        if (ddlInvoiceType.SelectedIndex > 0)
         {
-            // Access the CheckBox
-            CheckBox cb = (CheckBox)row.FindControl("SelectCheckBoxr");
-            if (cb != null && cb.Checked)
+            int pay = 1;
+
+            if (ddlInvoicePayment.SelectedIndex == 2)
             {
-                // Associate this program with the entered information here
-
-
-                // Counter that if 0 at the end displays a message "Please select at lease one program"
-                counter += 1;
+                pay = 2;
             }
-            else
-            {
 
-            }
-            
-        }
-        if (counter == 0)
-        {
-            // Display message here "Please Select At Least One Program"
+            Invoice invoice = new Invoice(Convert.ToInt32(txtInvoiceCode.Text), txtTotalCost.Text, pay);
+            Invoice.insertInvoice(invoice);
 
+            btnClearAllModal_Click(sender, e);
         }
+
+        //int counter = 0;
+        //foreach (GridViewRow row in LiveGridView.Rows)
+        //{
+        //    // Access the CheckBox
+        //    CheckBox cb = (CheckBox)row.FindControl("SelectCheckBoxr");
+        //    if (cb != null && cb.Checked)
+        //    {
+        //        // Associate this program with the entered information here
+
+
+        //        // Counter that if 0 at the end displays a message "Please select at lease one program"
+        //        counter += 1;
+        //    }
+        //    else
+        //    {
+
+        //    }
+
+        //}
+        //if (counter == 0)
+        //{
+        //    // Display message here "Please Select At Least One Program"
+
+        //}
 
         resetModalValues();
     }
