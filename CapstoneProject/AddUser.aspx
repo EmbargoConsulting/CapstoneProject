@@ -16,15 +16,15 @@
             <div class="col-lg-4">
             <div class="form-group">
                 <label>Username</label>
-                <asp:TextBox ID="txt_name" runat="server" class="form-control" required="required" placeholder="Your Username" value=""></asp:TextBox>
+                <asp:TextBox ID="txt_name" runat="server" maxlength="100" class="form-control" required="required" placeholder="Your Username" value=""></asp:TextBox>
             </div>
             <div class="form-group">
                 <label>Password</label>
-                <asp:TextBox ID="txt_password" runat="server" placeholder="Your Password *" value="" class="form-control" type="password" required="required"></asp:TextBox>
+                <asp:TextBox ID="txt_password" runat="server" maxlength="100" placeholder="Your Password *" value="" class="form-control" type="password" required="required"></asp:TextBox>
             </div>
             <div class="form-group">
                 <label>Password</label>
-                <asp:TextBox ID="txt_password2" runat="server" placeholder="Please Enter Your Password Again *" value="" type="password" class="form-control" required="required"></asp:TextBox>
+                <asp:TextBox ID="txt_password2" runat="server" maxlength="100" placeholder="Please Enter Your Password Again *" value="" type="password" class="form-control" required="required"></asp:TextBox>
             </div>
             <div class="form-group">
                 <label>User Type</label>
