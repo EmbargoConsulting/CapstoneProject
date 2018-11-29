@@ -16,7 +16,7 @@ public partial class ChangePassword : System.Web.UI.Page
         string hash = "";
         hash = PasswordHash.HashPassword(txtNewPassword1.Text);
 
-        User user = new User(txtEmail.Text, hash, 1);
+        User user = new User(HttpUtility.HtmlEncode(txtEmail.Text), hash, 1);
         user.updateData();
     }
 

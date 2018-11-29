@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" Title="Animals" AutoEventWireup="true" EnableEventValidation="false" CodeFile="Animals.aspx.cs" Inherits="Animals" MasterPageFile="~/Child.master" %>
+﻿<%@ Page Language="C#" Title="Animals" AutoEventWireup="true" EnableEventValidation="false" CodeFile="Animals.aspx.cs" Inherits="Animals" MasterPageFile="~/Child.master" ValidateRequest="false" %>
 
 <script runat="server">
 
