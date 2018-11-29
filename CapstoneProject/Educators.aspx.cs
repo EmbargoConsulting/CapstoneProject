@@ -13,6 +13,14 @@ using System.Web.UI.WebControls;
 public partial class Educators : System.Web.UI.Page
 {
 
+    protected void Page_Load(object sender, EventArgs e)
+    {
+        if (Session["Volunteer"] != null)
+        {
+            Response.Redirect("http://localhost:57713/ViewProgram.aspx");
+        }
+    }
+
     protected void btnClearAll_Click(object sender, EventArgs e)
     {
         txtEmpFirst.Text = "";
