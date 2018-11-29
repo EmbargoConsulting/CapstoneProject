@@ -31,15 +31,15 @@
             </div>
             <div class="form-group">
                 <label>Address</label>
-                <asp:TextBox ID="txtAddress" required="required" runat="server" class="form-control"></asp:TextBox>
+                <asp:TextBox ID="txtAddress" required="required" runat="server" maxlength="50" class="form-control"></asp:TextBox>
             </div>
             <div class="form-group">
                 <label>City</label>
-                <asp:TextBox ID="txtCity" CssClass="form-control" required="required" runat="server"></asp:TextBox>
+                <asp:TextBox ID="txtCity" CssClass="form-control" required="required" runat="server" maxlength="50"></asp:TextBox>
             </div>
             <div class="form-group">
                 <label>County</label>
-                <asp:TextBox ID="txtCounty" CssClass="form-control" required="required" runat="server"></asp:TextBox>
+                <asp:TextBox ID="txtCounty" CssClass="form-control" required="required" runat="server" maxlength="50"></asp:TextBox>
             </div>
             <div class="form-group">
                 <label>Program Theme</label>
@@ -78,7 +78,7 @@
             </div>
                         <div class="form-group">
                 <label>Comments</label>
-                <asp:TextBox ID="TextComments" runat="server" class="form-control" placeholder="Need Keyboard? Need Electrical Outlet?"></asp:TextBox>
+                <asp:TextBox ID="TextComments" runat="server" maxlength="1000" class="form-control" placeholder="Need Keyboard? Need Electrical Outlet?"></asp:TextBox>
             </div>
         </div>
         <div class="col-lg-4">
@@ -93,20 +93,20 @@
             </div>
             <div class="form-group">
                 <label>Child Count</label>
-                <asp:TextBox ID="txtChildCount" CssClass="form-control" required="required" runat="server"></asp:TextBox>
+                <asp:TextBox ID="txtChildCount" CssClass="form-control" required="required" runat="server" type="number" max="999"></asp:TextBox>
             </div>
             <div class="form-group">
                 <label>Adult Count</label>
-                <asp:TextBox ID="txtAdultCount" required="required" CssClass="form-control" runat="server"></asp:TextBox>
+                <asp:TextBox ID="txtAdultCount" required="required" CssClass="form-control" runat="server" type="number" max="999"></asp:TextBox>
 
             </div>
             <div class="form-group">
                 <label>Date</label>
-                <asp:TextBox ID="txtDate" required="required" runat="server" CssClass="form-control" placeholder="MM/DD/YYYY"></asp:TextBox>
+                <asp:TextBox ID="txtDate" required="required" runat="server" CssClass="form-control" placeholder="MM/DD/YYYY" type="date"></asp:TextBox>
             </div>
             <div class="form-group">
                 <label>Time</label>
-                <asp:TextBox ID="txtTime" runat="server" required="required" CssClass="form-control" placeholder="ie. 2:43 PM"></asp:TextBox>
+                <asp:TextBox ID="txtTime" runat="server" required="required" CssClass="form-control" placeholder="ie. 2:43 PM" maxlength="10"></asp:TextBox>
             </div>
             <div class="form-group">
                 <label></label>
