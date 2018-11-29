@@ -17,8 +17,8 @@ public partial class AddUser : System.Web.UI.Page
     {
         string hash = "";
         hash = PasswordHash.HashPassword(txt_password.Text);
-
-        User user = new User(txt_name.Text, hash);
+        int type = Int32.Parse(ddlType.SelectedValue);
+        User user = new User(txt_name.Text, hash, type);
         user.insertData();
     }
 
