@@ -22,10 +22,11 @@ public class User : dbConnect
 		//
 	}
 
-    public User(string username, string passwordHash)
+    public User(string username, string passwordHash, int type)
     {
         this.username = username;
         this.passwordHash = passwordHash;
+        Type = type;
     }
 
     //Inserts Data
@@ -38,12 +39,13 @@ public class User : dbConnect
             cnn.Open();
             Debug.WriteLine("Connection Open ! ");
 
-            SqlCommand Cmd = new SqlCommand("INSERT INTO dbo.Users ([Username],[PasswordHash])" +
-                        "VALUES(@Username, @Passwordhash)", cnn);
+            SqlCommand Cmd = new SqlCommand("INSERT INTO dbo.Users ([Username],[PasswordHash], [Admin])" +
+                        "VALUES(@Username, @Passwordhash, @Type)", cnn);
 
             //Cmd.Parameters.Add("@DepartmentID", System.Data.SqlDbType.Int).Value = DepartmentID;
             Cmd.Parameters.Add("@Username", System.Data.SqlDbType.VarChar, 50).Value = Username;
             Cmd.Parameters.Add("@PasswordHash", System.Data.SqlDbType.VarChar, 50).Value = PasswordHash;
+            Cmd.Parameters.Add("@Type", System.Data.SqlDbType.Bit).Value = Type;
 
 
             executeNonQuery(Cmd);
@@ -170,4 +172,5 @@ public class User : dbConnect
 
     public string Username { get => username; set => username = value; }
     public string PasswordHash { get => passwordHash; set => passwordHash = value; }
+    public int Type { get; set; }
 }

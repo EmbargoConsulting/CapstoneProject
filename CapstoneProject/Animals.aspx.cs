@@ -54,7 +54,7 @@ public partial class Animals : System.Web.UI.Page
 
     protected void btnSubmit_Click(object sender, EventArgs e)
     {
-        Animal animal = new Animal(txtAnimalName.Text, ddlAnimalType.SelectedItem.Text, true, DateTime.Now, "User");
+        Animal animal = new Animal(HttpUtility.HtmlEncode(txtAnimalName.Text), HttpUtility.HtmlEncode(ddlAnimalType.SelectedItem.Text), true, DateTime.Now, "User");
         Animal.insertAnimal(animal);
         clear();
 

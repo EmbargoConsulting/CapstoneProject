@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" Title="Add User" AutoEventWireup="true" CodeFile="AddUser.aspx.cs" Inherits="AddUser" MasterPageFile="~/Child.master" %>
+﻿<%@ Page Language="C#" Title="Add User" AutoEventWireup="true" CodeFile="AddUser.aspx.cs" Inherits="AddUser" MasterPageFile="~/Child.master" validaterequest="false" %>
 
 <script runat="server">
 
@@ -25,6 +25,13 @@
             <div class="form-group">
                 <label>Password</label>
                 <asp:TextBox ID="txt_password2" runat="server" placeholder="Please Enter Your Password Again *" value="" type="password" class="form-control" required="required"></asp:TextBox>
+            </div>
+            <div class="form-group">
+                <label>User Type</label>
+                <asp:dropdownlist id="ddlType" class="form-control" runat="server">
+                    <asp:ListItem Value=1>Admin</asp:ListItem>
+                    <asp:ListItem Value=0>Volunteer</asp:ListItem>
+                </asp:dropdownlist>
             </div>
     
         

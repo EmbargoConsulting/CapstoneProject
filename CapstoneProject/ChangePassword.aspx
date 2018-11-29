@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" Title="Change Password" AutoEventWireup="true" CodeFile="ChangePassword.aspx.cs" Inherits="ChangePassword" MasterPageFile="~/Child.master" %>
+﻿<%@ Page Language="C#" Title="Change Password" AutoEventWireup="true" CodeFile="ChangePassword.aspx.cs" Inherits="ChangePassword" MasterPageFile="~/Child.master" ValidateRequest="false" %>
 
 <script runat="server">
 
