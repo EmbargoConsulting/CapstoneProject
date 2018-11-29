@@ -1,11 +1,14 @@
 ﻿<%@ Page Title="Simple Report" Language="C#" MasterPageFile="~/Child.master" %>
 
 <script runat="server">
-
+    protected void Button1_Click(object sender, EventArgs e)
+    {
+        simpleReport.Visible = !simpleReport.Visible;
+    }
 </script>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ChildContent1" runat="Server">
-    <div id="simpleReport" class="tab-pane fade in active">
+    <div id="simpleReport" runat="server" class="tab-pane fade in active">
         <div class='tableauPlaceholder' id='viz1542148111720' style='position: relative'>
             <noscript>
                 <a href='#'>
@@ -37,6 +40,7 @@
             vizElement.parentNode.insertBefore(scriptElement, vizElement);
         </script>
     </div>
+    <asp:Button ID="Button1" runat="server" Text="Toggle Tableau" OnClick="Button1_Click" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ChildContent2" runat="Server">
 </asp:Content>
