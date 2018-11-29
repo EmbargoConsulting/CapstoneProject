@@ -16,6 +16,8 @@
             <AlternatingRowStyle BackColor="White" />
             <Columns>
                 <asp:BoundField DataField="Username" HeaderText="Username" SortExpression="Username" ItemStyle-Width="40%"/>
+                <asp:BoundField DataField="Admin" HeaderText="User Type" SortExpression="Admin" ItemStyle-Width="40%"/>
+                
             </Columns>
             <EditRowStyle BackColor="#2461BF" />
             <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
@@ -29,12 +31,13 @@
             <SortedDescendingHeaderStyle BackColor="#4870BE" />
         </asp:GridView>
     
-    <asp:SqlDataSource ID="SqlDataSource_ViewUser" runat="server" ConnectionString="<%$ ConnectionStrings:Project %>" SelectCommand="SELECT [UserID], [Username] FROM [Users] ORDER BY [UserID]" deleteCommand="delete from users where UserID = @UserID" updatecommand="update users set username = @username where UserID = @UserID">
+    <asp:SqlDataSource ID="SqlDataSource_ViewUser" runat="server" ConnectionString="<%$ ConnectionStrings:Project %>" SelectCommand="SELECT [UserID], [Username], [Admin] FROM [Users] ORDER BY [UserID]" deleteCommand="delete from users where UserID = @UserID" updatecommand="update users set username = @username where UserID = @UserID">
                 <DeleteParameters>
                     <asp:Parameter Name="UserID" />
                 </DeleteParameters>
                 <UpdateParameters>
                     <asp:Parameter Name="UserName" />
+                    <asp:Parameter Name="Admin" />
                 </UpdateParameters>
     </asp:SqlDataSource>
     

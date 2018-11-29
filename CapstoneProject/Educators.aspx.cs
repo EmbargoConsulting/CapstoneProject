@@ -53,7 +53,7 @@ public partial class Educators : System.Web.UI.Page
     {
         GridViewRow row = GridView1.Rows[e.RowIndex];
         int id = Convert.ToInt32(GridView1.DataKeys[e.RowIndex].Values["EmployeeID"]);
-        SqlDataSource_ViewEmployee.UpdateCommand = "UPDATE Employee set firstname = @firstname, EmployeeType = @EmployeeType, lastname = @lastname WHERE EmployeeID = @EmployeeID;";
+        SqlDataSource_ViewEmployee.UpdateCommand = "UPDATE Employee set firstname = @firstname, EmployeeType = @EmployeeType, lastname = @lastname, active = @active WHERE EmployeeID = @EmployeeID;";
         SqlDataSource_ViewEmployee.UpdateParameters.Add("firstname", GridView1.Rows[e.RowIndex].FindControl("FirstName").ToString());
         SqlDataSource_ViewEmployee.UpdateParameters.Add("EmployeeType", GridView1.DataKeys[e.RowIndex].Values["EmployeeType"].ToString());
         SqlDataSource_ViewEmployee.UpdateParameters.Add("lastname", GridView1.DataKeys[e.RowIndex].Values["LastName"].ToString());
