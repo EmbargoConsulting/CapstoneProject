@@ -59,7 +59,7 @@ public class Employee : dbConnect
     
             return list;
     }
-
+       
     public static void insertEmployee(Employee toInsert)
     {
         SqlCommand cmd = new SqlCommand();
@@ -67,6 +67,7 @@ public class Employee : dbConnect
         cmd.CommandType = CommandType.StoredProcedure;
         cmd.Parameters.AddWithValue("@FirstName", toInsert.FirstName);
         cmd.Parameters.AddWithValue("@LastName", toInsert.LastName);
+        cmd.Parameters.AddWithValue("@MiddleName", "");
         cmd.Parameters.AddWithValue("@EmployeeType", toInsert.EmployeeType);
         cmd.Parameters.AddWithValue("@LastUpdatedBy", toInsert.LastUpdatedBy);
         cmd.Parameters.AddWithValue("@LastUpdated", DateTime.Now);
