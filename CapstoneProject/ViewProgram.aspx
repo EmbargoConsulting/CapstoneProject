@@ -19,6 +19,12 @@
 
         <div class="row">
             <div class="col-lg-4">
+<%--          <asp:Button runat="server" Text="Live Programs" OnClick="Unnamed_Click" />
+          <asp:Button Text="Live Programs" BorderStyle="None" ID="Tab1" CausesValidation="false" CssClass="Initial" runat="server" OnClick="Tab1_Click1" />
+          <asp:Button Text="Online Programs" BorderStyle="None" ID="Tab2" CssClass="Initial" runat="server" OnClick="Tab2_Click1" />
+          <asp:Button Text="Monthly Breakdown" BorderStyle="None" ID="Tab3" CssClass="Initial" runat="server"--%>
+
+             <%-- OnClick="Tab3_Click" />--%>
                 <asp:DropDownList OnSelectedIndexChanged="ddlViewOptions_SelectedIndexChanged" AutoPostBack="true" ID="ddlViewOptions" CssClass="form-control" runat="server">
                     <asp:ListItem Value="0"> Program Statistics - Monthly</asp:ListItem>
                     <asp:ListItem Value="1"> Live Programs </asp:ListItem>

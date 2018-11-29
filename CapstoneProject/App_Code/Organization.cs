@@ -27,7 +27,7 @@ public class Organization : dbConnect
         //
     }
 
-    public Organization(int id, string name)
+    public Organization(int id, string name, Boolean active)
     {
         OrganizationID = id;
         OrganizationName = name;
@@ -47,7 +47,7 @@ public class Organization : dbConnect
     public static List<Organization> getOrgList()
     {
         List<Organization> list = new List<Organization>();
-        string query = "SELECT OrganizationID, OrganizationName FROM Organization;";
+        string query = "SELECT OrganizationID, OrganizationName, Active FROM Organization;";
         using (SqlConnection con = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["Project"].ConnectionString))
         {
             SqlCommand cmd = new SqlCommand(query, con);
@@ -59,7 +59,8 @@ public class Organization : dbConnect
                 {
                     int id = reader.GetInt32(0);
                     string orgName = reader.GetString(1);
-                    Organization newOrg = new Organization(id, orgName);
+                    Boolean active = reader.GetBoolean(2);
+                    Organization newOrg = new Organization(id, orgName, active);
                     list.Add(newOrg);
                 }
             }
@@ -95,4 +96,6 @@ public class Organization : dbConnect
     public string City { get => city; set => city = value; }
     public string State { get => state; set => state = value; }
     public string Zip { get => zip; set => zip = value; }
+    public Boolean Activate { get; set; }
+
 }
