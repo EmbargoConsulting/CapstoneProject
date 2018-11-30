@@ -11,6 +11,11 @@ public partial class AddUser : System.Web.UI.Page
     {
         ValidationSettings.UnobtrusiveValidationMode = UnobtrusiveValidationMode.None;
 
+            if (Session["Volunteer"] != null)
+            {
+                Response.Redirect("http://localhost:57713/ViewProgram.aspx");
+            }
+        
     }
 
     protected void btnCreateUser_Click(object sender, EventArgs e)

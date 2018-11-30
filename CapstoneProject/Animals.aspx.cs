@@ -18,7 +18,13 @@ public partial class Animals : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
 
-        
+            if (Session["Volunteer"] != null)
+            {
+                Response.Redirect("http://localhost:57713/ViewProgram.aspx");
+            }
+       
+
+
         output.Visible = false;
         if (!Page.IsPostBack)
         {

@@ -35,7 +35,7 @@ public partial class login2 : System.Web.UI.Page
                 if (!type)
                 {
                     Session["Volunteer"] = inputEmail.Value;
-                    Response.Redirect("http://localhost:57713/ViewProgram.aspx");
+                    FormsAuthentication.RedirectFromLoginPage(inputEmail.Value, false);
                 }
                 con.Close();
             }
