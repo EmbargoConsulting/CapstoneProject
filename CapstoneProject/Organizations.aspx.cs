@@ -94,4 +94,9 @@ public partial class Organizations : System.Web.UI.Page
     public override void VerifyRenderingInServerForm(Control control)
     {
     }
+
+    protected void btnView_Click(object sender, EventArgs e)
+    {
+        GridView2.Visible = true;
+    }
 }
