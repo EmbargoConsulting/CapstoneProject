@@ -11,7 +11,7 @@ public partial class Organizations : System.Web.UI.Page
     {
             if (Session["Volunteer"] != null)
             {
-                Response.Redirect("http://localhost:57713/ViewProgram.aspx");
+                Response.Redirect("~/ViewProgram.aspx");
             }
        
     }

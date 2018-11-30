@@ -12,7 +12,7 @@ public partial class MasterPage : System.Web.UI.MasterPage
         
         if (Session["User"] == null)
         {
-            Response.Redirect("http://localhost:57713/login2.aspx");
+            Response.Redirect("~/login2.aspx");
         }
     }
 

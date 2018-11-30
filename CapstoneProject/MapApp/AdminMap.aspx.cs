@@ -19,7 +19,7 @@ public partial class AdminMap : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
         getData();
-        Response.Redirect("http://localhost:57713/MapApp/mapWithNames.aspx");
+        Response.Redirect("~/MapApp/mapWithNames.aspx");
     }
 
     public void getData()

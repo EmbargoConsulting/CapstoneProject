@@ -48,11 +48,11 @@ public partial class login2 : System.Web.UI.Page
             }
         
             //Session["User"] = inputEmail.Value;
-            //Response.Redirect("http://localhost:57713/dashboard.aspx");
+            //Response.Redirect("~/dashboard.aspx");
             FormsAuthentication.RedirectFromLoginPage(inputEmail.Value, false);
         }
         //Session["User"] = inputEmail.Value;
-        //Response.Redirect("http://localhost:57713/dashboard.aspx");
+        //Response.Redirect("~/dashboard.aspx");
         FormsAuthentication.RedirectFromLoginPage(inputEmail.Value, false);
 
 
