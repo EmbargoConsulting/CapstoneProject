@@ -88,7 +88,7 @@
                     </div>
                     <div class="form-group">
                         <label class="form-control-label" id="lblTotalPeople" runat="server" visible="false">Number of People</label>
-                        <asp:TextBox ID="txtTotalPeople" value="0" runat="server" class="form-control" required="required" Visible="false" AutoPostBack="true" OnTextChanged="txtTextChanged"></asp:TextBox>
+                        <asp:TextBox ID="txtTotalPeople" value="0" runat="server" type="number" max="999" class="form-control" required="required" Visible="false" AutoPostBack="true" OnTextChanged="txtTextChanged"></asp:TextBox>
                     </div>
                     <div class="form-group">
                         <label class="form-control-label" id="lblPricePerPerson" runat="server" visible="false">Price per Person</label>
@@ -96,7 +96,7 @@
                     </div>
                     <div class="form-group">
                         <label class="form-control-label" id="lblOffsiteQuantity" runat="server" visible="false">Off-Site Program Quantity</label>
-                        <asp:TextBox ID="txtOffsiteQuantity" value="0" runat="server" class="form-control" required="required" Visible="false" AutoPostBack="true" OnTextChanged="txtTextChanged"></asp:TextBox>
+                        <asp:TextBox ID="txtOffsiteQuantity" value="0" runat="server" type="number" max="999" class="form-control" required="required" Visible="false" AutoPostBack="true" OnTextChanged="txtTextChanged"></asp:TextBox>
                     </div>
                     <div class="form-group">
                         <label class="form-control-label" id="lblOffsitePrice" runat="server" visible="false">Price per Off-Site Program</label>
@@ -112,7 +112,7 @@
                     </div>
                     <div class="form-group">
                         <label class="form-control-label" id="lblTravelMiles" runat="server" visible="false">Travel Miles</label>
-                        <asp:TextBox ID="txtTravelMiles" value="0" runat="server" class="form-control" required="required" Visible="false" AutoPostBack="true" OnTextChanged="txtTextChanged"></asp:TextBox>
+                        <asp:TextBox ID="txtTravelMiles" value="0" runat="server" type="number" class="form-control" required="required" Visible="false" AutoPostBack="true" OnTextChanged="txtTextChanged"></asp:TextBox>
                     </div>
                     <div class="form-group">
                         <label class="form-control-label" id="lblMilePrice" runat="server" visible="false">Price per Mile</label>
