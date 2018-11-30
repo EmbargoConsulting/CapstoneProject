@@ -12,6 +12,7 @@ public partial class Geojson : System.Web.UI.Page
 {
     public static string connectionString = System.Configuration.ConfigurationManager.ConnectionStrings["Project"].ConnectionString;
     string mydocpath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+    Animal animal = new Animal();
 
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -22,6 +23,14 @@ public partial class Geojson : System.Web.UI.Page
     {
         using (SqlConnection openCon = new SqlConnection(connectionString))
         {
+            foreach(ListItem item in ListBox.Items)
+            {
+                if(item.Selected)
+                Animal.setCheckedOut(item.Text);
+            }
+            ListBox1.DataBind();
+            ListBox.DataBind();
+
             string saveStaff = "INSERT into userlocation values (@Name,@Latitude,@Longitude)";
             string update = "update userLocation set Latitude = @Latitude, Longitude = @Longitude where Name = @Name";
 
@@ -126,4 +135,17 @@ public partial class Geojson : System.Web.UI.Page
     {
     }
 
+
+    protected void Button4_Click(object sender, EventArgs e)
+    {
+        foreach (ListItem item in ListBox1.Items)
+        {
+            if (item.Selected)
+                Animal.setCheckedIn(item.Text);
+        }
+        ListBox.DataBind();
+        ListBox1.DataBind();
+
+
+    }
 }

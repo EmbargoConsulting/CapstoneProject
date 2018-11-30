@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Diagnostics;
 using System.Linq;
 using System.Web;
 
@@ -70,6 +71,56 @@ public class Animal : dbConnect
         }
 
         return list;
+    }
+
+    public static void setCheckedOut(String AnimalName)
+    {
+        try
+        {
+            SqlConnection con = new SqlConnection(connectionString);
+            con.Open();
+            SqlCommand cmdOne;
+            bool checkedIn;
+            //checking user type 
+
+            cmdOne = new SqlCommand("update Animal set CheckedOut = 1 where AnimalName='" + AnimalName + "'", con);
+            cmdOne.ExecuteNonQuery();
+
+            con.Close();
+        }
+
+
+        catch (System.Data.SqlClient.SqlException sqlException)
+        {
+            Debug.WriteLine(sqlException.Message);
+
+        }
+
+    }
+
+    public static void setCheckedIn(String AnimalName)
+    {
+        try
+        {
+            SqlConnection con = new SqlConnection(connectionString);
+            con.Open();
+            SqlCommand cmdOne;
+            bool checkedIn;
+            //checking user type 
+
+            cmdOne = new SqlCommand("update Animal set CheckedOut = 0 where AnimalName='" + AnimalName + "'", con);
+            cmdOne.ExecuteNonQuery();
+
+            con.Close();
+        }
+
+
+        catch (System.Data.SqlClient.SqlException sqlException)
+        {
+            Debug.WriteLine(sqlException.Message);
+
+        }
+
     }
 
 

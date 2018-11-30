@@ -20,6 +20,7 @@
     </style>
 </head>
 <body>
+    
     <form id="form1" runat="server">
         <div>
             <div class="form-group">
@@ -41,6 +42,29 @@
                         <asp:Button ID="Button3" runat="server" Text="Finish" OnClick="TestFinish_ServerClick" />
 
         </div>
+                    <div id="btnGroupAnimals">
+                <div class="col-lg-2">
+
+                    <h1>Please Check out an Animal</h1>
+<asp:ListBox id="ListBox" runat="server" SelectionMode="Multiple" DataSourceID="COAnimal" DataTextField="AnimalName" 
+     DataValueField="AnimalID" >
+</asp:ListBox>
+
+                    <asp:SQLDataSource ID="COAnimal" runat="server" SelectCommand="SELECT AnimalName, AnimalID FROM Animal where CheckedOut = 0" ConnectionString="<%$ ConnectionStrings:Project %>"></asp:SQLDataSource>
+
+                                        <h1>Please Check In an Animal When You're Done</h1>
+<asp:ListBox id="ListBox1" runat="server" SelectionMode="Multiple" DataSourceID="COAnimal2" DataTextField="AnimalName" 
+     DataValueField="AnimalID" >
+</asp:ListBox>
+
+<asp:SQLDataSource ID="COAnimal2" runat="server" SelectCommand="SELECT AnimalName, AnimalID FROM Animal where CheckedOut = 1" ConnectionString="<%$ ConnectionStrings:Project %>"></asp:SQLDataSource>
+
+            <asp:Button ID="Button4" runat="server" Text="Check In Animal" OnClick="Button4_Click" CausesValidation="false" />
+
+                <!--         <div class="col-lg-2">
+                    <button type="button" class="btn btn-danger">Clear Animal Tables</button>
+                </div> -->
+            </div>
     <div id="map" style="height: 100%"</div>
     <script src="http://d3js.org/d3.v2.min.js?2.9.3"></script>
     <script src="http://cdn.leafletjs.com/leaflet-0.5/leaflet.js"></script>
