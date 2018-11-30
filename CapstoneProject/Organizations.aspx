@@ -129,7 +129,7 @@
         </div>
 
                     <div id="btn">
-                        <asp:Button ID="Button1" runat="server" CssClass="btn btn-success btn-group-justified" Text="Save Organization" OnClick="btnSubmit_Click" /><br />
+                        <asp:Button ID="Button1" runat="server" CssClass="btn btn-success btn-group-justified" Text="Save Organization" OnClick="btnSubmit_Click" UseSubmitBehavior="false"/><br />
                     </div>
 
                     <!-- Button is not visible until it works correctly -->
