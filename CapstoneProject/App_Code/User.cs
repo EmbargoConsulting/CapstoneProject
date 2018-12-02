@@ -39,13 +39,15 @@ public class User : dbConnect
             cnn.Open();
             Debug.WriteLine("Connection Open ! ");
 
-            SqlCommand Cmd = new SqlCommand("INSERT INTO dbo.Users ([Username],[PasswordHash], [Admin])" +
-                        "VALUES(@Username, @Passwordhash, @Type)", cnn);
+            SqlCommand Cmd = new SqlCommand("INSERT INTO dbo.Users ([Username],[PasswordHash], [LastUpdatedBy], [LastUpdated], [Admin])" +
+                        "VALUES(@Username, @Passwordhash, @LastUpdatedBy, @LastUpdated, @Type)", cnn);
 
             //Cmd.Parameters.Add("@DepartmentID", System.Data.SqlDbType.Int).Value = DepartmentID;
             Cmd.Parameters.Add("@Username", System.Data.SqlDbType.VarChar, 50).Value = Username;
             Cmd.Parameters.Add("@PasswordHash", System.Data.SqlDbType.VarChar, 50).Value = PasswordHash;
             Cmd.Parameters.Add("@Type", System.Data.SqlDbType.Bit).Value = Type;
+            Cmd.Parameters.AddWithValue("@LastUpdatedBy", System.Security.Principal.WindowsIdentity.GetCurrent().Name);
+            Cmd.Parameters.AddWithValue("@LastUpdated", DateTime.Now);
 
 
             executeNonQuery(Cmd);
