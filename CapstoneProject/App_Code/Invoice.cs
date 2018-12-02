@@ -45,11 +45,11 @@ public class Invoice : dbConnect
         this.LastUpdatedBy = lastUpdatedBy;
     }
 
-    public Invoice(int invoiceID, string invoiceAmount, int cancelledYN)
+    public Invoice(int invoiceID, string invoiceAmount, int cancelledYN, int programID, int organizationID)
     {
         this.InvoiceID = invoiceID;
-        //this.ProgramID = programID;
-        //this.OrganizationID = organizationID;
+        this.ProgramID = programID;
+        this.OrganizationID = organizationID;
         this.InvoiceAmount = invoiceAmount;
         this.CancelledYN = Convert.ToBoolean(cancelledYN);
         this.LastUpdated = DateTime.Now;
@@ -67,8 +67,8 @@ public class Invoice : dbConnect
         cmd.Parameters.AddWithValue("@LastUpdatedBy", "User");
         cmd.Parameters.AddWithValue("@LastUpdated", DateTime.Now);
 
-        cmd.Parameters.AddWithValue("@ProgramID", DBNull.Value);
-        cmd.Parameters.AddWithValue("@OrganizationID", DBNull.Value);
+        cmd.Parameters.AddWithValue("@ProgramID", toInsert.ProgramID);
+        cmd.Parameters.AddWithValue("@OrganizationID", toInsert.OrganizationID);
         cmd.Parameters.AddWithValue("@PaymentTotal", 0);
 
         //cmd.Parameters.Add("@InvoiceID", SqlDbType.Int).Direction = ParameterDirection.Output;

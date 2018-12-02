@@ -132,6 +132,18 @@
                             <asp:ListItem>No</asp:ListItem>
                         </asp:DropDownList>
                     </div>
+                    <div class="form-group">
+                        <label class="form-control-label" runat="server" id="lblInvoiceProgram" visible="True">Choose a Program:</label>
+                        <asp:DropDownList ID="ddlInvoiceProgram" runat="server" required="required" class="form-control" Visible="true">
+                            
+                        </asp:DropDownList>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-control-label" runat="server" id="Label1" visible="True">Choose an Organization:</label>
+                        <asp:DropDownList ID="ddlInvoiceOrganization" runat="server" required="required" class="form-control" Visible="true">
+                            
+                        </asp:DropDownList>
+                    </div>
 
                     <div id="btn">
                         <asp:Button ID="btnSaveInvoice" runat="server" CssClass="btn btn-success btn-group-justified" Text="Save Invoice" OnClick="btnSaveInvoice_Click" /><br />

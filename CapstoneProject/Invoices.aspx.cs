@@ -1,5 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -13,7 +16,54 @@ public partial class Invoices : System.Web.UI.Page
             {
                 Response.Redirect("~/ViewProgram.aspx");
             }
-        
+
+        string connectionString = System.Configuration.ConfigurationManager.ConnectionStrings["Project"].ConnectionString;
+        SqlConnection con = new SqlConnection(connectionString);
+        con.Open();
+
+        //SqlCommand com = new SqlCommand("select * from Program", con); // table name 
+        //SqlDataAdapter da = new SqlDataAdapter(com);
+        //DataSet ds = new DataSet();
+        //da.Fill(ds);  // fill dataset
+        //ddlInvoiceProgram.DataTextField = ds.Tables[0].Columns["ProgramTheme"].ToString(); // text field name of table dispalyed in dropdown
+        //ddlInvoiceProgram.DataValueField = ds.Tables[0].Columns["ProgramID"].ToString();             // to retrive specific  textfield name 
+        //ddlInvoiceProgram.DataSource = ds.Tables[0];      //assigning datasource to the dropdownlist
+        //ddlInvoiceProgram.DataBind();  //binding dropdownlist
+
+        //SqlCommand com2 = new SqlCommand("select * from Organization", con); // table name 
+        //SqlDataAdapter da2 = new SqlDataAdapter(com2);
+        //DataSet ds2 = new DataSet();
+        //da2.Fill(ds2);  // fill dataset
+        ////ddlInvoiceOrganization.DataTextField = ds2.Tables[0].Columns["OrganizationName"].ToString(); // text field name of table dispalyed in dropdown
+        ////ddlInvoiceOrganization.DataValueField = ds2.Tables[0].Columns["OrganizationID"].ToString();             // to retrive specific  textfield name 
+        ////ddlInvoiceOrganization.DataSource = ds2.Tables[0];      //assigning datasource to the dropdownlist
+        ////ddlInvoiceOrganization.DataBind();  //binding dropdownlist
+
+        //ddlInvoiceOrganization.DataSource = ds2;
+        //ddlInvoiceOrganization.DataTextField = "OrganizationName";
+        //ddlInvoiceOrganization.DataValueField = "OrganizationID";
+        //ddlInvoiceOrganization.DataBind();
+
+        SqlCommand cmd = new SqlCommand("SELECT * FROM Program", con);
+        SqlDataAdapter da = new SqlDataAdapter(cmd);
+        DataTable dt = new DataTable();
+        da.Fill(dt);
+        foreach (DataRow dr in dt.Rows)
+        {
+            ddlInvoiceProgram.Items.Add(new ListItem(dr["ProgramTheme"].ToString(), dr["ProgramID"].ToString()));
+        }
+
+
+        SqlCommand cmd2 = new SqlCommand("SELECT * FROM Organization", con);
+        SqlDataAdapter da2 = new SqlDataAdapter(cmd2);
+        DataTable dt2 = new DataTable();
+        da2.Fill(dt2);
+        foreach (DataRow dr in dt2.Rows)
+        {
+            ddlInvoiceOrganization.Items.Add(new ListItem(dr["OrganizationName"].ToString(), dr["OrganizationID"].ToString()));
+        }
+
+
     }
 
     protected void btnSubmit_Click(object sender, EventArgs e)
@@ -49,7 +99,9 @@ public partial class Invoices : System.Web.UI.Page
                 pay = 2;
             }
 
-            Invoice invoice = new Invoice(Convert.ToInt32(txtInvoiceCode.Text), txtTotalCost.Text, pay);
+
+
+            Invoice invoice = new Invoice(Convert.ToInt32(txtInvoiceCode.Text), txtTotalCost.Text, pay, (ddlInvoiceProgram.SelectedIndex + 1), (ddlInvoiceOrganization.SelectedIndex + 1));
             Invoice.insertInvoice(invoice);
 
             btnClearAllModal_Click(sender, e);
