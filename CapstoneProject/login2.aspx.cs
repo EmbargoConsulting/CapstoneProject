@@ -30,7 +30,12 @@ public partial class login2 : System.Web.UI.Page
                 bool type;
                 //checking user type 
 
-                cmdOne = new SqlCommand("select Admin from dbo.users where Username='" + inputEmail.Value + "'", con);
+                string sqlString = "select Admin from dbo.users where Username=@Email;";
+
+                cmdOne = new SqlCommand(sqlString, con);
+                cmdOne.Parameters.AddWithValue("@Email", inputEmail.Value);
+
+
                 type = (bool)cmdOne.ExecuteScalar();
                 if (!type)
                 {
