@@ -124,6 +124,18 @@
                     </div>
                 </div>
             </div>
+                        <div class="col-lg-5">
+                <div class="form-group">
+                    <label class="form-control-label">Enter Start-date:</label>
+                    <div class="row">
+                        <asp:TextBox Width="150px" ID="TextBoxStart" runat="server" CssClass="form-control col-lg-8"></asp:TextBox>
+                    </div>
+                                        <label class="form-control-label">Enter End-date:</label>
+                    <div class="row">
+                        <asp:TextBox Width="150px" ID="TextBoxEnd" runat="server" CssClass="form-control col-lg-8"></asp:TextBox>
+                    </div>
+                </div>
+            </div>
             <div id="btnGroupAnimals">
                 <div class="col-lg-2">
                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#animalModal" id="btnAddAnimal">
@@ -156,6 +168,8 @@
                             <asp:BoundField HeaderText="Total Programs" DataField="Total Programs" SortExpression="AnimalName" />
                             <asp:BoundField HeaderText="Children" DataField="Children" SortExpression="Programs" />
                             <asp:BoundField HeaderText="Adults" DataField="Adults" SortExpression="People" />
+                            <asp:BoundField HeaderText="Year" DataField="Year" SortExpression="Year" />
+
                         </Columns>
                         <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
                         <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
