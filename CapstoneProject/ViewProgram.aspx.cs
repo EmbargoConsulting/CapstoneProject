@@ -138,8 +138,8 @@ public partial class ViewProgram : System.Web.UI.Page
                 pay = 2;
             }
 
-            Invoice invoice = new Invoice(Convert.ToInt32(txtInvoiceCode.Text), txtTotalCost.Text, pay);
-            Invoice.insertInvoice(invoice);
+            //Invoice invoice = new Invoice(Convert.ToInt32(txtInvoiceCode.Text), txtTotalCost.Text, pay, (ddlInvoiceProgram.SelectedIndex + 1), (ddlInvoiceOrganization.SelectedIndex + 1));
+            //Invoice.insertInvoice(invoice);
 
             btnClearAllModal_Click(sender, e);
         }
