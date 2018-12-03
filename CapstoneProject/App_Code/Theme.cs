@@ -24,7 +24,7 @@ public class ProgramTheme : dbConnect
     public static List<ProgramTheme> getThemes()
     {
         List<ProgramTheme> list = new List<ProgramTheme>();
-        string query = "SELECT * FROM ProgramThemes;";
+        string query = "SELECT ThemeID, ThemeName FROM ProgramThemes;";
         using (SqlConnection con = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["Project"].ConnectionString))
         {
             SqlCommand cmdSelect = new SqlCommand(query, con);
@@ -55,6 +55,7 @@ public class ProgramTheme : dbConnect
         cmd.Parameters.AddWithValue("@LastUpdated", DateTime.Now);
 
         executeNonQuery(cmd);
+        
     }
 
 

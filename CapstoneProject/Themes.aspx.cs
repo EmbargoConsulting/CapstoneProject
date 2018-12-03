@@ -15,6 +15,7 @@ public partial class Default2 : System.Web.UI.Page
     {
         ProgramTheme theme = new ProgramTheme(HttpUtility.HtmlEncode(txtThemeName.Text));
         ProgramTheme.insertTheme(theme);
+        ThemeGridView.DataBind();
       
 
       
