@@ -46,6 +46,16 @@ public partial class Program : System.Web.UI.MasterPage
 
     protected void btnOvewview_Click(object sender, EventArgs e)
     {
-      
+
     }
+    protected void btnThemes_Click(object sender, EventArgs e)
+    {
+
+    }
+    protected void btnSubmit_Click(object sender, EventArgs e)
+    {
+
+    }
+
+
 }

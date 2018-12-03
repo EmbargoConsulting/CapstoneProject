@@ -21,10 +21,17 @@
     <div class="col-lg-11">
         <div class="row">
 
-            <div class="btn-group col-lg-5">
+            <div class="col-lg-5">
+                 <div class="btn-group">
                 <asp:LinkButton ID="btnViewProgram" formnovalidate="formnovalidate" runat="server" href="ViewProgram.aspx" Text="View Programs" CssClass="btn btn-primary"></asp:LinkButton>
                 <%--<asp:LinkButton ID="btnOvewview" CssClass="btn btn-default" formnovalidate="formnovalidate" runat="server" OnClick="btnOvewview_Click">Program Overview</asp:LinkButton>--%>
             </div>
+                                   <asp:LinkButton runat="server" href="Themes.aspx" Text="Edit Themes" ID="LinkButton1" CssClass="btn btn-primary"> </asp:LinkButton>
+
+                   
+                         </div>
+           
+           
             <div class="col-lg-5 col-lg-offset-1">
                             <div class="btn-group col-lg-offset-2">
                    <asp:LinkButton runat="server" href="AddLiveProgram.aspx" Text="New Live Program" ID="btnAddLiveProgram" CssClass="btn btn-primary"> </asp:LinkButton>
@@ -46,6 +53,9 @@
 
 
     <div style="height: 55px;"></div>
+
+
+      
 
 
     <asp:ContentPlaceHolder ID="ChildContent1" runat="server" />

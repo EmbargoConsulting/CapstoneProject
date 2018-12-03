@@ -44,7 +44,7 @@
             <div class="form-group">
                 <label>Program Theme</label>
                 <asp:DropDownList ID="ddlProgramType" runat="server" required="required" CssClass="form-control">
-                    <asp:ListItem></asp:ListItem>
+<%--                    <asp:ListItem></asp:ListItem>
                     <asp:ListItem>Wild Winter Worlds</asp:ListItem>
                     <asp:ListItem>Home Sweet Habitat</asp:ListItem>
                     <asp:ListItem>Display</asp:ListItem>
@@ -62,7 +62,7 @@
                     <asp:ListItem>Classroom Visit: Snakes</asp:ListItem>
                     <asp:ListItem>Classroom Visit: Falcons</asp:ListItem>
                     <asp:ListItem>Classroom Visit: Opossums</asp:ListItem>
-                    <asp:ListItem>Classroom Visit: Special</asp:ListItem>
+                    <asp:ListItem>Classroom Visit: Special</asp:ListItem>--%>
 
 
                 </asp:DropDownList>
