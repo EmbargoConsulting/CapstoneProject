@@ -32,13 +32,18 @@
                     <asp:ListItem Value="3"> Edit Live Programs</asp:ListItem>
                     <asp:ListItem Value="4">Edit Online Programs</asp:ListItem>
                 </asp:DropDownList>
+                                    <asp:TextBox ID="TextBox1" runat="server">Search</asp:TextBox>
+                <asp:Button ID="Button1" runat="server" Text="Search" OnClick="Button1_Click" formnovalidate="formnovalidate" />
+                                       
+
             </div>
+
             <div id="outerDiv" runat="server" class="col-lg-4 col-lg-offset-4">
                 <div id="buttonsDiv" runat="server" class="col-lg-offset-6">
 
+
                     <asp:Button ID="btnInvoice" formnovalidate="formnovalidate" OnClientClick="return false" runat="server" Text="Add Invoice" CssClass="btn btn-primary" data-toggle="modal" data-target="#invoiceModal" Visible="false" OnClick="btnInvoice_Click"></asp:Button>
                     <asp:Button ID="ExcelExport" runat="server" CssClass="btn btn-primary" Text="Export to Excel" OnClick="btnExcelExport_Click" formnovalidate="formnovalidate" />
-
 
                 </div>
             </div>

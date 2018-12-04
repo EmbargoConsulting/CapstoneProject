@@ -109,7 +109,8 @@ public partial class ViewProgram : System.Web.UI.Page
     protected void ddlViewOptions_SelectedIndexChanged(object sender, EventArgs e)
     {
         MultiView1.ActiveViewIndex = Int32.Parse(ddlViewOptions.SelectedValue);
-
+        dataSourceLivePrograms.SelectCommand = "SELECT ISNULL(Organization.OrganizationName, 'No Organization') as Organization, Program.ProgramTheme AS 'Program Theme', Program.DateTime AS 'Date', Program.ChildAttendance AS 'Child Attendance', Program.AdultAttendance AS 'Adult Attendance', LiveProgram.Status,  LiveProgram.Address, LiveProgram.City, LiveProgram.County, LiveProgram.OnOffSite FROM LiveProgram LEFT OUTER JOIN Program ON LiveProgram.ProgramID = Program.ProgramID FULL OUTER JOIN Invoice ON Program.ProgramID = Invoice.ProgramID LEFT OUTER JOIN Organization ON Invoice.OrganizationID = Organization.OrganizationID";
+        LiveGridView.DataBind();
         if (ddlViewOptions.SelectedIndex == 1) {
             outerDiv.Attributes["class"] = "col-lg-4 col-lg-offset-4";
             buttonsDiv.Attributes["class"] = "col-lg-offset-1";
@@ -138,8 +139,8 @@ public partial class ViewProgram : System.Web.UI.Page
                 pay = 2;
             }
 
-            Invoice invoice = new Invoice(Convert.ToInt32(txtInvoiceCode.Text), txtTotalCost.Text, pay);
-            Invoice.insertInvoice(invoice);
+            //Invoice invoice = new Invoice(Convert.ToInt32(txtInvoiceCode.Text), txtTotalCost.Text, pay);
+//            Invoice.insertInvoice(invoice);
 
             btnClearAllModal_Click(sender, e);
         }
@@ -367,5 +368,12 @@ public partial class ViewProgram : System.Web.UI.Page
     {
         MultiView1.ActiveViewIndex = 1;
 
+    }
+
+    protected void Button1_Click(object sender, EventArgs e)
+    {
+        dataSourceLivePrograms.SelectCommand = "SELECT ISNULL(Organization.OrganizationName, 'No Organization') as Organization, Program.ProgramTheme AS 'Program Theme', Program.DateTime AS 'Date', Program.ChildAttendance AS 'Child Attendance', Program.AdultAttendance AS 'Adult Attendance', LiveProgram.Status,  LiveProgram.Address, LiveProgram.City, LiveProgram.County, LiveProgram.OnOffSite FROM LiveProgram LEFT OUTER JOIN Program ON LiveProgram.ProgramID = Program.ProgramID FULL OUTER JOIN Invoice ON Program.ProgramID = Invoice.ProgramID LEFT OUTER JOIN Organization ON Invoice.OrganizationID = Organization.OrganizationID where Program.ProgramTheme like '" + TextBox1.Text + "'";
+
+        LiveGridView.DataBind();
     }
 }

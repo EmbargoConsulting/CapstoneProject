@@ -147,9 +147,7 @@ public partial class Animals : System.Web.UI.Page
             if (!string.IsNullOrWhiteSpace(TextBoxStart.Text) && !string.IsNullOrWhiteSpace(TextBoxEnd.Text))
                 searchQuery = "SELECT DATEPART(YEAR, Program.DateTime) AS 'Year', DATEPART(MONTH, Program.DateTime) as num, DATENAME(month, Program.DateTime) AS 'Month', " +
                 "COUNT(CASE WHEN OnOffSite = 1 THEN 1 END) AS 'On-Site', COUNT(CASE WHEN LiveProgram.OnOffSite = 0 THEN 1 END) AS 'Off-Site', COUNT(*) AS 'Total Programs',  " +
-                "SUM(Program.ChildAttendance) AS 'Children', SUM(Program.AdultAttendance) AS 'Adults', SUM(Program.AdultAttendance) + SUM(Program.ChildAttendance) AS 'Total People', " +
-                "Animal.AnimalID FROM LiveProgram INNER JOIN Program ON LiveProgram.ProgramID = Program.ProgramID INNER JOIN AnimalProgram ON Program.ProgramID = AnimalProgram.ProgramID INNER JOIN " +
-                "Animal ON AnimalProgram.AnimalID = Animal.AnimalID WHERE Animal.AnimalID = @AnimalID and DATENAME(Year, Program.DateTime) BETWEEN " + TextBoxStart.Text + " AND " + TextBoxEnd.Text + 
+                "SUM(Program.ChildAttendance) AS 'Children', SUM(Program.AdultAttendance) AS 'Adults', SUM(Program.AdultAttendance) + SUM(Program.ChildAttendance) AS 'Total People', Animal.AnimalID FROM LiveProgram INNER JOIN Program ON LiveProgram.ProgramID = Program.ProgramID INNER JOIN AnimalProgram ON Program.ProgramID = AnimalProgram.ProgramID INNER JOIN Animal ON AnimalProgram.AnimalID = Animal.AnimalID WHERE Animal.AnimalID = @AnimalID and DATENAME(Year, Program.DateTime) BETWEEN " + TextBoxStart.Text + " AND " + TextBoxEnd.Text + 
                 " GROUP BY DATENAME(month, Program.DateTime), " +
                 "Animal.AnimalID, DATEPART(month, Program.DateTime), DATEPART(YEAR, Program.DateTime) ORDER BY Datepart(YEAR, program.datetime) asc";
             else
