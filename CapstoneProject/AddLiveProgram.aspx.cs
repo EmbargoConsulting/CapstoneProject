@@ -55,6 +55,14 @@ public partial class Default2 : System.Web.UI.Page
                 index++;
             }
 
+            index = 0;
+
+            foreach(ProgramTheme theme in ProgramTheme.getThemes())
+            {
+                ddlProgramType.Items.Insert(index, new ListItem(theme.ThemeName));
+                index++;
+            }
+
         }
     }
 
